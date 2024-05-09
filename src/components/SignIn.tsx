@@ -7,7 +7,7 @@ interface FormData {
   password: string;
 }
 
-const SignUp: React.FC = () => {
+const SignIn: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
@@ -34,25 +34,11 @@ const SignUp: React.FC = () => {
       <div className="inline-block w-1/2 h-full relative">
         <div className="w-1/2 absolute left-1/4 top-16 border-2 rounded-3xl shadow-2xl">
           <h1 className="w-full mt-4 text-blue-500 hover:text-blue-700 text-3xl font-bold text-center">
-            Sign-Up
+            Sign-In
           </h1>
           <p className="w-full mt-4 text-gray-500 opacity-50 text-base text-center">
-            Create a new account for OneTech.
+            Sign-In to your OneTech account.
           </p>
-          <p className="w-1/2 ml-8 mt-4 text-gray-500 text-base">
-            First Name:
-          </p>
-          <input 
-            type="text"
-            className="w-5/6 h-8 ml-8 mt-2 text-gray-500 border-2 rounded-lg pl-4 pb-0.5"
-          />
-          <p className="w-1/2 ml-8 mt-4 text-gray-500 text-base">
-            Last Name:
-          </p>
-          <input 
-            type="text"
-            className="w-5/6 h-8 ml-8 mt-2 text-gray-500 border-2 rounded-lg pl-4 pb-0.5"
-          />
           <p className="w-1/2 ml-8 mt-4 text-gray-500 text-base">
             Email:
           </p>
@@ -68,13 +54,13 @@ const SignUp: React.FC = () => {
             className="w-5/6 h-8 ml-8 mt-2 text-gray-500 border-2 rounded-lg pl-4 pb-0.5"
           />
           <button className="ml-36 mt-8 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Sign-Up
+            Sign-In
           </button>
 
           <p className="w-full my-4 text-gray-300 text-base text-center">
-            If you already have an account, please &nbsp;
+            If you do not have an account, please &nbsp;
             <span className="text-blue-500 hover:cursor-pointer">
-              sign-in
+              sign-up
             </span>
             .
           </p>
@@ -83,11 +69,11 @@ const SignUp: React.FC = () => {
 
       <img 
         className="inline-block w-1/2 h-3/4 absolute top-16"
-        src="/SignUp1.svg"
+        src="/SignIn1.svg"
         alt="my image"
       />
     </div>
   );
 };
 
-export default SignUp;
+export default SignIn;
