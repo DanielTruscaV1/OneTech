@@ -1,6 +1,6 @@
 const LeftSidebar = () => {
   return (
-    <div className="w-1/5 h-screen border-r-4">
+    <div className="inline-block w-1/5 h-screen absolute top-0 border-r-4">
         <h1 className="text-center sm:text-left sm:ml-8 mt-4 mb-8 text-3xl font-bold">
             <span className="text-gray-500">One</span><span className="text-blue-500">Tech</span>
         </h1>
