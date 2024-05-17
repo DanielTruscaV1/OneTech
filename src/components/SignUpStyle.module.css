@@ -1,0 +1,151 @@
+.container1
+{
+    margin:0px;
+    width: 100vw;
+    height: 50vh;
+    background: rgb(255,200,200);
+    background: linear-gradient(180deg, rgba(255,200,200,1) 0%, rgba(200,200,255,1) 100%);
+}
+.title1
+{
+    position: absolute;
+    left: 25%;
+    top:5vh;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    font-size: 35px;
+    text-align: center;
+    border-radius: 30px;
+}
+.container2
+{
+    margin:0px;
+    width: 100vw;
+    height: 50vh;
+    background-color: white;
+}
+.title2 
+{
+    position: absolute;
+    left: 10%;
+    top:55vh;
+    width: 80%;
+    color: rgb(50, 50, 50);
+    font-size: 35px;
+    text-align: center;
+    border-radius: 30px;
+}
+.note2 
+{
+    position: absolute;
+    left: 0%;
+    top: 62.5vh;
+    width: 100%;
+    color: rgb(150, 150, 150);
+    font-size: 20px;
+    text-align: center;
+}
+.label
+{
+    position: relative;
+    left: 10%;
+    top: 18vh;
+    margin-top: 5vh;
+    width: 100px;
+    font-size: 22px;
+}
+.input 
+{
+    position: relative;
+    left: 10%;
+    top: 20.5vh;
+    width: 80%;
+    height: 35px;
+    border: 3px solid rgb(200, 200, 200);
+}
+.checkbox 
+{
+    position: relative;
+    margin-left: 10%;
+    top: 25vh;
+    width: 20px;
+    height: 20px;
+}
+.checkbox_label 
+{
+    position: relative;
+    margin-left: 20%;
+    top: 20vh;
+    font-size: 20px;
+}
+.submit 
+{
+    position: relative;
+    left: 10%;
+    top: 22.5vh;
+    width: 80%;
+    height: 40px;
+    background-color: rgb(255,200,200);
+    font-size:22px;
+}
+@media screen and (min-width: 600px)
+{
+    .container1, .container2 
+    {
+        display: inline-block;
+        width: 49vw;
+        height: 100vh;
+    }
+    .container2 
+    {
+        position: absolute;
+        right: 0px;
+    }
+    .title1 
+    {
+        left: calc(25% - 100px);
+        width: 200px;
+    }
+    .title2 
+    {
+        left: calc(50% - 125px);
+        top: 5vh;
+        width: 250px;
+    }
+    .note2 
+    {
+        left: calc(50% - 125px);
+        top: 12.5vh;
+        width: 250px;
+    }
+    .label 
+    {
+        left: 25%;
+        top: 15vh;
+        margin-top: 5vh;
+    }
+    .input 
+    {
+        left: 25%;
+        top: 17.5vh;
+        width: 50%;
+    }
+    .checkbox 
+    {
+        top: 22.5vh;
+        margin-left: 25%;
+        width: 30px;
+        height: 30px;
+    }
+    .checkbox_label 
+    {
+        top:17.5vh;
+        margin-left: 32%;
+    }
+    .submit 
+    {
+        left: 25%;
+        width: 50%;
+    }
+}
