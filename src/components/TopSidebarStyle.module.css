@@ -1,0 +1,70 @@
+@media screen and (max-width: 600px) {
+    .container {
+
+    }
+}
+@media screen and (min-width: 600px) {
+    .container {
+        position: absolute;
+        width: 100vw;
+        height: 10vh;
+        border-bottom: 2px solid rgb(200, 200, 200);
+    }
+    .logo {
+        position: absolute;
+        top: 1.5vh;
+        width: 20vw;
+        font-size: 32px;
+        text-align: center;
+    }
+    .search {
+        position: relative;
+        left: 50%;
+        top: 2.5vh;
+        width: 25%;
+        height: 38px;
+        padding-left: 60px;
+        color: rgb(200, 200, 200);
+        border: 2px solid rgb(200, 200, 200);
+        border-radius: 7.5px;
+    }
+    .search_image {
+        position: absolute;
+        left: 49.5%;
+        top: 0.5vh;
+        scale: 50%;
+        z-index: 2;
+    }
+    .search_note {
+        position: absolute;
+        left: 70%;
+        top: 3.5vh;
+        color: rgb(150, 150, 150);
+        font-size:16px;
+        z-index: 2;
+    }
+    .support_image {
+        position: relative;
+        left: 1vw;
+        top: -1vh;
+        scale:75%;
+    }
+    .support {
+        position: relative;
+        left: 4vw;
+        top: -6vh;
+        font-weight: 600;
+    }
+    .support_container {
+        width: 10%;
+        height: 34px;
+        position: absolute;
+        left: 88%;
+        top: 3vh;
+        border-radius: 7.5px;
+        cursor:pointer;
+    }
+    .support_container:hover {
+        background-color: rgba(100, 200, 255, 0.3)
+    }
+}

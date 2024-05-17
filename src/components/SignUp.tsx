@@ -8,6 +8,13 @@ const SignUp = () => {
         <h1 className={styles.title1}>
           OneTech
         </h1>
+        <h1 className={styles.slogan}>
+          Start your journey today!
+        </h1>
+        <img 
+          src='/SignUp3.png'
+          className=''
+        />
       </div>
       <div className={styles.container2}>
         <h1 className={styles.title2}>
@@ -41,6 +48,8 @@ const SignUp = () => {
         <button className={styles.submit}>
           Sign-Up
         </button>
+        <br/>
+        <br/>
       </div>
     </>
   )
