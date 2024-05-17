@@ -1,0 +1,51 @@
+#landing-container 
+{
+    width: 100vw;
+    height: 100vh;
+    background: rgb(255,200,200);
+    background: linear-gradient(180deg, rgba(255,200,200,1) 0%, rgba(200,200,255,1) 100%);
+}
+#landing-title 
+{
+    position: absolute;
+    left: 5vw;
+    top: 2vh;
+    width: 150px;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 30px;
+    text-align: center;
+    border-radius:20px;
+}
+#landing-menu 
+{
+    position: absolute;
+    right: calc(5vw - 5px);
+    top: calc(2vh - 10px);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius:20px;
+    scale:75%;
+}
+#landing-menu img
+{
+    scale: 60%;
+}
+#landing-motto 
+{
+    position: absolute;
+    top: 15vh;
+    width: 100vw;
+    height: 50px;
+    font-size:35px;
+    text-align: center;
+}
+@media screen and (min-width:600px)
+{
+    #landing-title 
+    {
+        left: 2vw;
+    }
+    #landing-menu 
+    {
+        right: calc(2vw - 5px);
+    }
+}
