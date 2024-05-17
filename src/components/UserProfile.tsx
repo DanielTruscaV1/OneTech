@@ -11,7 +11,19 @@ const UserProfile = () => {
         <TopSidebar/>
         <LeftSidebar/>
         <div className={styles.profile_image_container}>
-
+          <h1 className={styles.profile_title}>
+            Profile - User Name
+          </h1>
+          <p className={styles.profile_info}>
+            Email - useremail@gmail.com
+          </p>
+          <p className={styles.profile_info}>
+            Location - User Location
+          </p>
+          <div className={styles.profile_image}>
+            UN
+          </div>
+          
         </div>
     </>
   )

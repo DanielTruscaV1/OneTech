@@ -4,5 +4,36 @@
 }
 @media screen and (min-width: 600px)
 {
-    
+    .profile_image_container {
+        position: absolute;
+        top: 15vh;
+        left: 25vw;
+        width: 50vw;
+        height: 30vh;
+        border-radius: 7.5px;
+        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
+    }
+    .profile_title {
+        padding-left: 30px;
+        padding-top: 10px;
+        font-size: 30px;
+    }
+    .profile_info {
+        padding-left: 30px;
+        padding-top: 10px;
+        font-size: 18px;
+        color: rgb(120, 120, 120);
+    }
+    .profile_image {
+        position: absolute;
+        right: 10%;
+        top:25%;
+        width: 110px;
+        height: 110px;
+        padding-top: 5px;
+        font-size: 60px;
+        background-color: rgba(100, 200, 255, 0.3);
+        border-radius: 50%;
+        text-align: center;
+    }
 }
