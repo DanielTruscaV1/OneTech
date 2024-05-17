@@ -23,7 +23,20 @@ const UserProfile = () => {
           <div className={styles.profile_image}>
             UN
           </div>
-          
+          <nav>
+            <button>
+              <img src='/profile2.png'/>
+                Activity
+              </button>
+              <button>
+                <img src='/profile3.png'/>
+                Achivements
+              </button>
+            <button>
+              <img src='/profile1.png'/>
+              Friends
+            </button>
+          </nav>
         </div>
     </>
   )
