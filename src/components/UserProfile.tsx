@@ -6,8 +6,12 @@ import TopSidebar from './TopSidebar';
 import LeftSidebar from './LeftSidebar';
 import Footer from './Footer';
 import Activity from './Activity';
+import Friends from './Friends';
+import { useState } from 'react';
 
 const UserProfile = () => {
+  const [selectedView, setSelectedView] = useState(0);
+
   return (
     <>
         <TopSidebar/>
@@ -26,19 +30,19 @@ const UserProfile = () => {
             UN
           </div>
           <nav>
-            <button>
+            <button onClick={() => {setSelectedView(0)}}>
               <img src='/profile2.png'/>
                 Activity
-              </button>
-              <button>
-                <img src='/profile3.png'/>
-                Achivements
-              </button>
-            <button>
+            </button>
+            <button onClick={() => {setSelectedView(1)}}>
+              <img src='/profile3.png'/>
+              Achivements
+            </button>
+            <button onClick={() => {setSelectedView(2)}}>
               <img src='/profile1.png'/>
               Friends
             </button>
-            <button>
+            <button onClick={() => {setSelectedView(3)}}>
               <img src='/profile5.png'/>
               Teams
             </button>
@@ -50,7 +54,13 @@ const UserProfile = () => {
             </button>
           </div>    
         </div>
-        <Activity/>
+        {
+          selectedView === 0 && <Activity/>
+        }
+        {
+          selectedView === 2 && <Friends/>
+        }
+        
         <Footer/>
     </>
   )
