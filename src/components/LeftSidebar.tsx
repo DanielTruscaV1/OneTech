@@ -7,7 +7,10 @@ const LeftSidebar = () => {
 
   return (
     <main className={styles.container}>
-      <button className={styles.button}>
+      <button 
+        className={styles.button}
+        onClick={() => {navigate('/home')}}
+      >
         <img src="/left_sidebar_1.png"/>
         Home
       </button>
