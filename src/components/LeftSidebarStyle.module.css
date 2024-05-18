@@ -39,6 +39,7 @@
     .toggle 
     {
         position: absolute;
+        top: 50%;
         left: 19vw;
         width: 30px;
         height: 30px;
