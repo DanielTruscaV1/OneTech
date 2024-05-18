@@ -7,10 +7,32 @@ import LeftSidebar from './LeftSidebar';
 import Footer from './Footer';
 import Activity from './Activity';
 import Friends from './Friends';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import axios from "axios"
 
 const UserProfile = () => {
   const [selectedView, setSelectedView] = useState(0);
+  const [user, setUser] = useState<{ 
+    first_name: string;
+    last_name: string;
+    email: string;
+    location: string;
+  } | null>(null);
+
+  useEffect(() => {
+    const fetchDocument = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/api/users/398242014125097168');
+        setUser(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching document:', error);
+      }
+    };
+
+    fetchDocument();
+  }, []); 
 
   return (
     <>
@@ -18,16 +40,16 @@ const UserProfile = () => {
         <LeftSidebar/>
         <div className={styles.profile_image_container}>
           <h1 className={styles.profile_title}>
-            Profile - User Name
+            Profile - {user && user.first_name + " " + user.last_name}
           </h1>
           <p className={styles.profile_info}>
-            Email - useremail@gmail.com
+            Email - {user && user.email}
           </p>
           <p className={styles.profile_info}>
-            Location - User Location
+            Location - {user && user.location}
           </p>
           <div className={styles.profile_image}>
-            UN
+            {user && user.first_name[0]+user.first_name[1]}
           </div>
           <nav>
             <button onClick={() => {setSelectedView(0)}}>

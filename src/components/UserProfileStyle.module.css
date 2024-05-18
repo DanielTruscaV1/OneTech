@@ -35,6 +35,7 @@
         background-color: rgba(100, 200, 255, 0.3);
         border-radius: 50%;
         text-align: center;
+        text-transform: uppercase;
     }
     nav {
         position: absolute;
