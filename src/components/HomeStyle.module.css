@@ -50,6 +50,25 @@
         font-size: 25px;
         background-color: rgba(100, 200, 255, 0.3);
     }
+    .users {
+        position: absolute;
+        top: 10vh;
+        right: 0vw;
+        width: 10vw;
+        height: 90vh;
+    }
+    .user_circle {
+        margin-left: 2.5vw;
+        margin-top: 4vh;
+        width: 80px;
+        height: 80px;
+        padding-top: 10px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 40px;
+        background-color: rgba(100, 200, 255, 0.3);
+        border: 2px solid red;
+    }
     .post img {
         margin-left: 2%;
         margin-top: 2%;
