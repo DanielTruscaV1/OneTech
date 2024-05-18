@@ -24,7 +24,7 @@
     .problem {
         margin-top: 20px;
         margin-left: 20px;
-        width: 70%;
+        width: 90%;
         height: 8%;
         border-radius: 7.5px;
         border: 1px solid rgb(200, 200, 200);
@@ -37,6 +37,9 @@
         background-color: rgb(100, 200, 255);
         border-radius: 10px;
         height: 80%;
+    }
+    .problem p {
+        padding-top: 0px;
     }
     svg {
         margin-left: 0.5vw;
