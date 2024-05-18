@@ -19,6 +19,20 @@ const LeftSidebar = () => {
         Problemset
       </button>
       <button 
+        className={styles.button} 
+        onClick={() => {navigate('/arena')}}
+      >
+        <img src="/left_sidebar_8.png"/>
+        Arena
+      </button>
+      <button 
+        className={styles.button} 
+        onClick={() => {navigate('/rankings')}}
+      >
+        <img src="/left_sidebar_9.png"/>
+        Rankings
+      </button>
+      <button 
         className={styles.button}
         onClick={() => {navigate('/user-profile')}}
       >

@@ -19,6 +19,7 @@ import UserProfile from './components/UserProfile';
 //Import the CSS file
 import "./App.css";
 import Problemset from './components/Problemset';
+import Rankings from './components/Rankings';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/problemset",
     element: <Problemset/>
+  },
+  {
+    path: "/rankings",
+    element: <Rankings/>
   },
   {
     path: "/user-profile",

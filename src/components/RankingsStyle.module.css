@@ -1,0 +1,57 @@
+@media screen and (min-width: 600px) {
+
+}
+@media screen and (min-width: 600px) {
+    .solo {
+        position: absolute;
+        top: 15vh;
+        left: 22.5vw;
+        width: 25vw;
+        height: 40vh;
+        border-radius: 7.5px;
+        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
+    }
+    .teams {
+        position: absolute;
+        top: 15vh;
+        left: 50vw;
+        width: 25vw;
+        height: 40vh;
+        border-radius: 7.5px;
+        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
+    }
+    .team {
+        margin-left: 2vw;
+        width: 80%;
+        height: 65%;
+        border: 1.5px solid rgb(200, 200, 200);
+        border-radius: 7.5px;
+    }
+    .team svg {
+        margin-top: 5px;
+        display: inline-block !important;
+    }
+    .team img {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+        margin-right: 5px;
+        border-radius: 7.5px;
+    }
+    .team button {
+        position: realtive;
+        top: 0%;
+        margin-left: 85%;
+        width: 35px;
+        height: 35px;
+        background-color: rgb(100, 200, 255);
+        color: white;
+        text-align: center;
+        border-radius: 7.5px;
+        
+    }
+    .team button svg {
+        margin: 0px;
+    }
+}
