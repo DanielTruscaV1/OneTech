@@ -18,6 +18,7 @@ import UserProfile from './components/UserProfile';
 
 //Import the CSS file
 import "./App.css";
+import Problemset from './components/Problemset';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/sign-up",
     element: <SignUp/>
+  },
+  {
+    path: "/problemset",
+    element: <Problemset/>
   },
   {
     path: "/user-profile",

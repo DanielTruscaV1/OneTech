@@ -1,17 +1,27 @@
 import styles from "./LeftSidebarStyle.module.css"
 
+import { useNavigate } from "react-router-dom"
+
 const LeftSidebar = () => {
+  const navigate = useNavigate();
+
   return (
     <main className={styles.container}>
       <button className={styles.button}>
         <img src="/left_sidebar_1.png"/>
         Home
       </button>
-      <button className={styles.button}>
+      <button 
+        className={styles.button} 
+        onClick={() => {navigate('/problemset')}}
+      >
         <img src="/left_sidebar_2.png"/>
         Problemset
       </button>
-      <button className={styles.button}>
+      <button 
+        className={styles.button}
+        onClick={() => {navigate('/user-profile')}}
+      >
         <img src="/left_sidebar_3.png"/>
         Profile
       </button>

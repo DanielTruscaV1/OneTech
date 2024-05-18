@@ -1,0 +1,44 @@
+@media screen and (max-width: 600px) {
+    
+}
+@media screen and (min-width: 600px) {
+    .problems {
+        position: absolute;
+        top: 15vh;
+        left: 25vw;
+        width: 45vw;
+        height: 80vh;
+        border-radius: 7.5px;
+        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
+        overflow-y:scroll;
+    }
+    .calendar {
+        position: absolute;
+        top: 15vh;
+        left: 75vw;
+        width: 20vw;
+        height: 50vh;
+        border-radius: 7.5px;
+        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
+    }
+    .problem {
+        margin-top: 20px;
+        margin-left: 20px;
+        width: 70%;
+        height: 8%;
+        border-radius: 7.5px;
+        border: 1px solid rgb(200, 200, 200);
+    }
+    .problem button {
+        position: relative;
+        float: right;
+        margin-right: 10px;
+        margin-top: 5px;
+        background-color: rgb(100, 200, 255);
+        border-radius: 10px;
+        height: 80%;
+    }
+    svg {
+        margin-left: 0.5vw;
+    }
+}

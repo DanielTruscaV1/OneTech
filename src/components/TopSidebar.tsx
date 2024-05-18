@@ -4,7 +4,7 @@ const TopSidebar = () => {
   return (
     <main className={styles.container}>
         <img 
-            src="/logo1.png"
+            src="/logo2.png"
             className={styles.logo_image}
         />
         <h1 className={styles.logo}>

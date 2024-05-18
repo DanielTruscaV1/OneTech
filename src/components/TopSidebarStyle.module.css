@@ -19,7 +19,8 @@
         text-align: center;
         border-radius: 7.5px;
         cursor: pointer;
-        background-color: rgba(100, 200, 255, 0.3);
+        background-color: rgba(100, 200, 255, 1);
+        color: white;
     }
     .logo_image {
         position: absolute;
