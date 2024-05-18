@@ -29,11 +29,17 @@ const LeftSidebar = () => {
         <img src="/left_sidebar_4.png"/>
         Account
       </button>
-      <button className={styles.button}>
+      <button 
+        className={styles.button}
+        onClick={() => {navigate('/sign-in')}}
+      >
         <img src="/left_sidebar_5.png"/>
         Sign-In
       </button>
-      <button className={styles.button}>
+      <button 
+        className={styles.button}
+        onClick={() => {navigate('/sign-up')}}
+      >
         <img src="/left_sidebar_6.png"/>
         Sign-Up
       </button>

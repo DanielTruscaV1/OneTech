@@ -30,40 +30,17 @@
         text-align: center;
         color: rgb(150, 150, 150);
     }
-    .label1 {
-        position: absolute;
-        top: 48vh;
-        left: 10vw;
-        font-size: 18px;
-        text-align: left;
-        width: 12.5vw;
-    }
-    .label2 {
-        position: absolute;
-        top: 48vh;
-        left: 25vw;
-        font-size: 18px;
-        text-align: left;
-        width: 12.5vw;
-    }
     .label3 {
         position: absolute;
-        top: 59vh;
+        top: 50vh;
         left: 10vw;
         font-size: 18px;
         width: 10vw;
     }
     .label4 {
         position: absolute;
-        top: 73vh;
+        top: 61vh;
         left: 10vw;
-        font-size: 18px;
-        width: 12.5vw;
-    }
-    .label5 {
-        position: absolute;
-        top: 73vh;
-        left: 25vw;
         font-size: 18px;
         width: 12.5vw;
     }
@@ -73,40 +50,23 @@
         background-color: rgb(220, 220, 220);
         border-radius: 7.5px;
     }
-    .input1 {
-        position: absolute;
-        top: 53vh;
-        left: 10vw;
-        font-size: 18px;
-    }
-    .input2 {
-        position: absolute;
-        top: 53vh;
-        left: 25vw;
-        font-size: 18px;
-    }
     .input3 {
         position: absolute;
-        top: 65vh;
+        top: 55vh;
         left: 10vw;
         font-size: 18px;
         width: 27.5vw !important;
     }
     .input4 {
         position: absolute;
-        top: 78vh;
+        top: 66vh;
         left: 10vw;
         font-size: 18px;
-    }
-    .input5 {
-        position: absolute;
-        top: 78vh;
-        left: 25vw;
-        font-size: 18px;
+        width: 27.5vw !important;
     }
     .container button {
         position: absolute;
-        top: 86vh;
+        top: 74vh;
         left: 10vw;
         width: 27.5vw;
         height: 35px;
@@ -117,8 +77,8 @@
     }
     .side {
         position: absolute;
-        top: 10vh;
-        right: 5vw;
-        scale: 75%;
+        top: 5vh;
+        right: 0vw;
+        scale: 50%;
     }
 }
