@@ -57,4 +57,19 @@
         height: 75%;
         border-radius: 10px;
     }
+    .tags_container {
+        position: absolute;
+        width: 40%;
+        height: 100%;
+        right: 5%;
+        top: 30%;
+    }
+    .tag {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        background-color: rgba(100, 200, 255, 0.3);
+        border-radius: 10px;
+        cursor:pointer;
+    }
 }
