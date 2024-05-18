@@ -5,6 +5,7 @@ import styles from './UserProfileStyle.module.css';
 import TopSidebar from './TopSidebar';
 import LeftSidebar from './LeftSidebar';
 import Footer from './Footer';
+import Activity from './Activity';
 
 const UserProfile = () => {
   return (
@@ -37,6 +38,10 @@ const UserProfile = () => {
               <img src='/profile1.png'/>
               Friends
             </button>
+            <button>
+              <img src='/profile5.png'/>
+              Teams
+            </button>
           </nav>
           <div className={styles.actions}>
             <button className={styles.edit}>
@@ -45,6 +50,7 @@ const UserProfile = () => {
             </button>
           </div>    
         </div>
+        <Activity/>
         <Footer/>
     </>
   )
