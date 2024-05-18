@@ -65,4 +65,37 @@
         margin-right: 5px;
         margin-top: -5px;
     }
+    .background {
+        position: absolute;
+        right: -12vw;
+        top: 0vh;
+        width: 10vw;
+        height: 45vh;
+        border-radius: 30px;
+        background: rgb(100,200,255);
+background: linear-gradient(120deg, rgba(100,200,255,0.5) 0%, rgba(50,100,150,0.5) 50%, rgba(50,150,200,0.5) 100%);
+    }
+    .actions {
+        position: absolute;
+        right: -12vw;
+        top: 0vh;
+        width: 10vw;
+        height: 45vh;
+        border-radius: 30px;
+    }
+    svg {
+        display: inline-block;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    .edit {
+        display: inline-block;
+        width: 150px;
+        height: 60px;
+        margin-left: 5px;
+        background-color: rgba(100, 200, 255, 1);
+        color: white;
+        border-radius: 10px;
+        font-size: 18px;
+    }
 }
