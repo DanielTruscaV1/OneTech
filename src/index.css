@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slide-left{animation:slide-left 1s cubic-bezier(.25,.46,.45,.94) both}
+
+@keyframes slide-left{0%{transform:translateX(0)}100%{transform:translateX(-18vw)}}
+
+.slide-right{animation:slide-right 1s cubic-bezier(.25,.46,.45,.94) both}
+
+@keyframes slide-right{0%{transform:translateX(-18vw)}100%{transform:translateX(0)}}
+
+.rotate-180-cw{animation:rotate-180-cw 1s cubic-bezier(.25,.46,.45,.94) both}
+
+@keyframes rotate-180-cw{0%{transform:rotate(0)}100%{transform:rotate(180deg)}}
+
+.rotate-a180-cw{animation:rotate-180-cw 1s cubic-bezier(.25,.46,.45,.94) both}
+
+@keyframes rotate-a180-cw{0%{transform:rotate(0)}100%{transform:rotate(-180deg)}}
+
+.flip-scale-2-ver-right{animation:flip-scale-2-ver-right .5s linear both}
+
+@keyframes flip-scale-2-ver-right{0%{transform:translateX(0) rotateY(0) scale(1);transform-origin:100% 50%}50%{transform:translateX(50%) rotateY(-90deg) scale(2);transform-origin:50% 50%}100%{transform:translateX(100%) rotateY(-180deg) scale(1);transform-origin:0 50%}}
+
+.flip-scale-2-ver-left{animation:flip-scale-2-ver-left .5s linear both}
+
+@keyframes flip-scale-2-ver-left{0%{transform:translateX(0) rotateY(0) scale(1);transform-origin:0 50%}50%{transform:translateX(-50%) rotateY(90deg) scale(2);transform-origin:50% 50%}100%{transform:translateX(-100%) rotateY(180deg) scale(1);transform-origin:100% 50%}}
