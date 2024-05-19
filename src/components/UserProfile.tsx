@@ -11,11 +11,17 @@ import { useEffect, useState } from 'react';
 
 import axios from "axios"
 
+interface Document {
+  data: {
+    email: string;
+  }
+}
+
 const UserProfile = () => {
   const [selectedView, setSelectedView] = useState(0);
   const [user, setUser] = useState<{ 
-    first_name: string;
-    last_name: string;
+    firstName: string;
+    lastName: string;
     email: string;
     location: string;
   } | null>(null);
@@ -23,9 +29,13 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchDocument = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/users/398242014125097168');
+        const response = await axios.get('http://localhost:3000/api/users/398256123387314379');
         setUser(response.data);
-        console.log(response.data);
+
+        const sessions = await axios.get('http://localhost:3000/api/sessions');
+
+        const goodSession = sessions.data.filter((s : Document) => user && s.data.email === user.email)
+        
       } catch (error) {
         console.error('Error fetching document:', error);
       }
@@ -40,7 +50,7 @@ const UserProfile = () => {
         <LeftSidebar/>
         <div className={styles.profile_image_container}>
           <h1 className={styles.profile_title}>
-            Profile - {user && user.first_name + " " + user.last_name}
+            Profile - {user && user.firstName + " " + user.lastName}
           </h1>
           <p className={styles.profile_info}>
             Email - {user && user.email}
@@ -49,7 +59,7 @@ const UserProfile = () => {
             Location - {user && user.location}
           </p>
           <div className={styles.profile_image}>
-            {user && user.first_name[0]+user.first_name[1]}
+            {user && user.firstName[0]+user.lastName[1]}
           </div>
           <nav>
             <button onClick={() => {setSelectedView(0)}}>
