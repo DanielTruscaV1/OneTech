@@ -1,0 +1,55 @@
+@media screen and (max-width: 600px){
+
+}
+@media screen and (min-width: 600px){
+    .container {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        backdrop-filter: blur(20px);
+        z-index: 3;
+    }
+    .form {
+        position: absolute;
+        left: 33%;
+        top: 10vh;
+        width: 33%;
+        height: 75%;
+        background-color: white;
+        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
+        border-radius: 10px;
+    }
+    .form input, textarea {
+        margin-left: 4%;
+        margin-top: 4%;
+        width: 50%;
+        height: 30px;
+        background-color: rgb(100, 200, 255);
+        color: white;
+        border-radius: 7.5px;
+    }
+    .form textarea {
+        height: 120px;
+    }
+    .submit {
+        margin-left: 4%;
+        margin-top: 8%;
+        width: 50%;
+        height: 40px;
+        border: 3px solid rgb(100, 200, 255);
+        border-radius: 7.5px;
+    }
+    .image {
+        position: absolute;
+        background-color: rgb(240, 240, 240);
+        right: 5%;
+        top: 14%;
+        width: 35%;
+        height: 40%;
+        border-radius: 7.5px;
+    }
+    .image svg {
+        margin-left: 17%;
+        margin-top: 20%;
+    }
+}
