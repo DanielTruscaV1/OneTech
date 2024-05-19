@@ -59,7 +59,7 @@ const UserProfile = () => {
             Location - {user && user.location}
           </p>
           <div className={styles.profile_image}>
-            {user && user.firstName[0]+user.lastName[1]}
+            {user && user.firstName[0]+user.firstName[1]}
           </div>
           <nav>
             <button onClick={() => {setSelectedView(0)}}>

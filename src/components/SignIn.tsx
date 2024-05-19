@@ -5,7 +5,11 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 
 import axios from 'axios';
 
+import { useNavigate } from "react-router-dom"
+
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -22,6 +26,8 @@ const SignUp = () => {
       const response = await axios.post('http://localhost:3000/api/signin', formData);
       const token = response.data;
       localStorage.setItem('jwtToken', token);
+      if(response.status === 201)
+        navigate('/user-profile');
     } catch (error) {
       console.error('Error signing up:', error);
     }
@@ -59,7 +65,7 @@ const SignUp = () => {
         value={formData.password}
         onChange={handleChange}
       />
-      <button>
+      <button type='submit'>
         Sign-In
       </button>
       <img 
