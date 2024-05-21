@@ -35,7 +35,7 @@ const UserProfile = () => {
         const sessions = await axios.get('http://localhost:3000/api/sessions');
 
         const goodSession = sessions.data.filter((s : Document) => user && s.data.email === user.email)
-        
+        goodSession;
       } catch (error) {
         console.error('Error fetching document:', error);
       }
