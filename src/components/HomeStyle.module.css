@@ -95,5 +95,7 @@
         position: absolute;
         left: 13vw;
         top: 5.5vh;
+        width: 60px;
+        height: 60px;
     }
 }

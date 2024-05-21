@@ -36,7 +36,11 @@
         margin-top: 5px;
         background-color: rgb(100, 200, 255);
         border-radius: 10px;
+        width: 30px;
         height: 80%;
+    }
+    .problem button img {
+        margin-left: 5px;
     }
     .problem p {
         padding-top: 0px;

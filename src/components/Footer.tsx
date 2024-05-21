@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className={styles.container}>
         <p className={styles.copyright}>
-            © 2024 OneTech
+             2024 OneTech
         </p>
         <p className={styles.terms}>
             Terms & Conditions

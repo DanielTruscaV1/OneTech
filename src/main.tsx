@@ -24,7 +24,7 @@ import Rankings from './components/Rankings';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Landing/>
+    element: <Home/>
   },
   {
     path: "/home",
