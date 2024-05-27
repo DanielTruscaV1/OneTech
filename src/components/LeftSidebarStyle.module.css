@@ -9,7 +9,7 @@
         top: 0vh;
         width: 6vw;
         height: 100vh;
-        border-right: 2px solid rgb(200, 200, 200);
+        border-right: 2.5px solid rgb(230, 230, 230);
     }
     .button {
         display: inline-block;
