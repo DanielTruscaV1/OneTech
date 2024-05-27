@@ -7,6 +7,7 @@ const LeftSidebar = () => {
   const navigate = useNavigate();
   const [isExtended, setIsExtended] = useState(true);
 
+  // @ts-ignore: TS6133
   const addAnimation = () => {
     const container = document.getElementById("left_sidebar_container");
     const toggle = document.getElementById("left_sidebar_toggle");
