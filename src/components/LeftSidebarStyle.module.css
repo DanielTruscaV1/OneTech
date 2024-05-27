@@ -7,7 +7,7 @@
     .container {
         position: absolute;
         top: 0vh;
-        width: 5vw;
+        width: 6vw;
         height: 100vh;
         border-right: 2px solid rgb(200, 200, 200);
     }

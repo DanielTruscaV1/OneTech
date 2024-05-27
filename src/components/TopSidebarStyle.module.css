@@ -6,78 +6,47 @@
 @media screen and (min-width: 600px) {
     .container {
         position: absolute;
-        width: 100vw;
+        left:5vw;
+        width: 95vw;
         height: 10vh;
-        border-bottom: 2px solid rgb(200, 200, 200);
     }
-    .logo {
+    .welcome {
         position: absolute;
-        left: 5vw;
-        top: 1.5vh;
-        width: 10vw;
-        font-size: 32px;
-        text-align: center;
-        border-radius: 7.5px;
-        cursor: pointer;
-        background-color: rgba(100, 200, 255, 1);
-        color: white;
+        left: 6vw;
+        top: 3vh;
+        font-size: 34px;
     }
-    .logo_image {
+    .input {
         position: absolute;
-        left: -4vw;
-        top: -6.5vh;
-        scale: 30%;
-        border-radius: 50px;
-        cursor: pointer;
+        left: 50vw;
+        top: 4vh;
+        width: 22%;
+        height: 3rem;
+        background-color: #F5F5F5;
+        border-radius:10px;
     }
     .search {
-        position: relative;
-        left: 50%;
-        top: 2.5vh;
-        width: 25%;
-        height: 38px;
-        padding-left: 60px;
-        color: rgb(200, 200, 200);
-        border: 2px solid rgb(200, 200, 200);
-        border-radius: 7.5px;
-    }
-    .search_image {
         position: absolute;
-        left: 49.5%;
-        top: 0.5vh;
-        scale: 50%;
-        z-index: 2;
+        left: 51vw;
+        top: 5vh;
     }
-    .search_note {
+    .search2 {
         position: absolute;
-        left: 70%;
-        top: 3.5vh;
-        color: rgb(150, 150, 150);
-        font-size:16px;
-        z-index: 2;
+        left: calc(52vw + 35px);
+        top: 5vh;
+        font-size: 20px;
+        font-weight: 700;
     }
-    .support_image {
-        position: relative;
-        left: 1vw;
-        top: -1vh;
-        scale:75%;
-    }
-    .support {
-        position: relative;
-        left: 4vw;
-        top: -6vh;
-        font-weight: 600;
-    }
-    .support_container {
-        width: 10%;
-        height: 34px;
+    .actions {
         position: absolute;
-        left: 88%;
-        top: 3vh;
-        border-radius: 7.5px;
-        cursor:pointer;
+        left: 72vw;
+        top: 4vh;
     }
-    .support_container:hover {
-        background-color: rgba(100, 200, 255, 0.3)
+    .image {
+        display: inline-block;
+        position: relative;
+        margin-left: 3vw;
+        margin-top: 0.5rem;
+        cursor: pointer;
     }
 }

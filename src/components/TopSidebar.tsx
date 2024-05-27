@@ -3,33 +3,46 @@ import styles from "./TopSidebarStyle.module.css"
 const TopSidebar = () => {
   return (
     <main className={styles.container}>
-        <img 
-            src="/logo2.png"
-            className={styles.logo_image}
-        />
-        <h1 className={styles.logo}>
-            OneTech
-        </h1>
-        <img 
-            src="/top_sidebar_1.png"
-            className={styles.search_image}
-        />
-        <p className={styles.search_note}>
-            Ctrl + K
-        </p>
-        <input 
+        <h1 className={styles.welcome}>
+            Welcome back, <span className="font-black">Ezreal!</span>
+         </h1>
+         <input 
+            className={styles.input}
             type="text"
+         />
+        <img 
             className={styles.search}
-            placeholder="Search OneTech..."
+            src="/top1.png"
+            width="35px"
+            height="35px"
         />
-        <div className={styles.support_container}>
+        <p className={styles.search2}>
+            Search
+        </p>
+        <div className={styles.actions}>
             <img 
-                src="/top_sidebar_2.png"
-                className={styles.support_image}
+                className={styles.image}
+                src="/top2.png"
+                width="30px"
+                height="30px"
             />
-            <p className={styles.support}>
-                Support
-            </p>
+            <img 
+                className={styles.image}
+                src="/top33.png"
+                width="30px"
+                height="30px"
+            />
+            <img 
+                className={styles.image}
+                src="/user11.png"
+                style={{
+                    position: "absolute",
+                    top: "-2vh",
+                    width: "60px",
+                    height: "60px",
+                    borderRadius: "50%"
+                }}
+            />
         </div>
     </main>
   )

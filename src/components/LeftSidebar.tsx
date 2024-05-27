@@ -102,28 +102,21 @@ const LeftSidebar = () => {
       >
         <img src="/nav77.png"/>
       </button>
-      <button 
-        id="left_sidebar_toggle"
-        className={styles.toggle}
-        onClick={addAnimation}
-      >
-        <img src="/nav8.png"/>
-      </button>
 
       <div className={styles.theme}>
         <img 
           src="/nav88.png"
           width="28px" 
           height="28px" 
-          className="inline-block"
+          className="inline-block ml-2"
         />
         <img 
           src="/nav99.png"
           width="20px" 
           height="20px" 
-          className="inline-block float-right mt-1"
+          className="inline-block float-right ml-1 mt-1"
         />
-        <div className="ml-3 mt-2 w-14 h-4 bg-gray-300 rounded">
+        <div className="ml-4 mt-2 w-14 h-4 bg-gray-300 rounded">
           <div className="w-4 h-4 bg-gray-400 rounded-3xl cursor-pointer">
 
           </div>
