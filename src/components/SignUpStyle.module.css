@@ -7,118 +7,41 @@
         height: 100vh;
         background-color: rgb(240, 240, 240);
     }
-    .logo {
-        position: absolute;
-        top: 5vh;
-        left: 16.25vw;
-        width: 15vw;
+    .background {
+        position:absolute;
+        width: 100vw;
+        height: 100vh;
     }
-    .header {
+    .card {
         position: absolute;
-        top: 35vh;
-        left: 1.25vw;
-        width: 45vw;
-        font-size: 25px;
-        text-align: center;
+        left: 30%;
+        top: 10%;
+        width: 40%;
+        height: 80%;
+        background-color: rgb(245, 245, 245);
+        border-radius: 20px;
+        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
+        z-index: 2;
     }
-    .sign_up {
-        position: absolute;
-        top: 42vh;
-        left: 1.25vw;
-        width: 45vw;
-        font-size: 16px;
-        text-align: center;
-        color: rgb(150, 150, 150);
-    }
-    .label1 {
-        position: absolute;
-        top: 48vh;
-        left: 10vw;
-        font-size: 18px;
-        text-align: left;
-        width: 12.5vw;
-    }
-    .label2 {
-        position: absolute;
-        top: 48vh;
-        left: 25vw;
-        font-size: 18px;
-        text-align: left;
-        width: 12.5vw;
-    }
-    .label3 {
-        position: absolute;
-        top: 59vh;
-        left: 10vw;
-        font-size: 18px;
-        width: 10vw;
-    }
-    .label4 {
-        position: absolute;
-        top: 73vh;
-        left: 10vw;
-        font-size: 18px;
-        width: 12.5vw;
-    }
-    .label5 {
-        position: absolute;
-        top: 73vh;
-        left: 25vw;
-        font-size: 18px;
-        width: 12.5vw;
-    }
-    .container input {
-        width: 12.5vw;
-        height: 30px;
-        background-color: rgb(220, 220, 220);
-        border-radius: 7.5px;
-    }
-    .input1 {
-        position: absolute;
-        top: 53vh;
-        left: 10vw;
+    .input {
+        margin-left: 10%;
+        margin-top: 30px;
+        width: 80%;
+        height: 50px;
+        background-color: #EEEEEE;
+        border-radius: 10px;
+        padding-left: 20px;
         font-size: 18px;
     }
-    .input2 {
-        position: absolute;
-        top: 53vh;
-        left: 25vw;
+    .card button {
+        margin-left: 10%;
+        margin-top: 20px;
+        width: 80%;
+        height: 40px;
+        background: rgb(0,173,181);
+        background: linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%);
+        border-radius: 10px;
         font-size: 18px;
     }
-    .input3 {
-        position: absolute;
-        top: 65vh;
-        left: 10vw;
-        font-size: 18px;
-        width: 27.5vw !important;
-    }
-    .input4 {
-        position: absolute;
-        top: 78vh;
-        left: 10vw;
-        font-size: 18px;
-    }
-    .input5 {
-        position: absolute;
-        top: 78vh;
-        left: 25vw;
-        font-size: 18px;
-    }
-    .container button {
-        position: absolute;
-        top: 86vh;
-        left: 10vw;
-        width: 27.5vw;
-        height: 35px;
-        background-color: rgb(100, 200, 255);
-        color: white;
-        font-size: 20px;
-        border-radius: 7.5px;
-    }
-    .side {
-        position: absolute;
-        top: 10vh;
-        right: 5vw;
-        scale: 75%;
-    }
+    
 }

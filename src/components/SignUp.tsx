@@ -32,69 +32,49 @@ const SignUp = () => {
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
       <img 
-        src="/logo2.png"
-        className={styles.logo}
+        src="/auth1.png"
+        className={styles.background}
       />
-      <h1 className={styles.header}>
-        Welcome to OneTech!
-      </h1>
-      <p className={styles.sign_up}>
-        Sign-Up for free
-      </p>
-      <p className={styles.label1}>
-        First Name
-      </p>
-      <input 
-        type="text"
-        className={styles.input1}
-        name="firstName"
-        value={formData.firstName}
-        onChange={handleChange}
-      />
-      <p className={styles.label2}>
-        Last Name
-      </p>
-      <input 
-        type="text"
-        className={styles.input2}
-        name="lastName"
-        value={formData.lastName}
-        onChange={handleChange}
-      />
-      <p className={styles.label3}>
-        Email
-      </p>
-      <input 
-        type="email"
-        className={styles.input3}
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-      />
-      <p className={styles.label4}>
-        Password
-      </p>
-      <input 
-        type="password"
-        className={styles.input4}
-        name="password"
-        value={formData.password}
-        onChange={handleChange}
-      />
-      <p className={styles.label5}>
-        Confirm Password
-      </p>
-      <input 
-        type="password"
-        className={styles.input5}
-      />
-      <button type="submit">
-        Sign-Up
-      </button>
-      <img 
-        src="/sign_up1.svg"
-        className={styles.side}
-      />
+      <div className={styles.card}>
+        <h1 className="mt-4 text-3xl text-center font-semibold">
+          Welcome to <span style={{ color: "#00ADB5"}}>OneTech!</span>
+        </h1>
+        <p className="my-2 text-l text-center text-gray-400">
+          Log-In to your account 
+        </p>
+        <input 
+          type="text"
+          className={styles.input}
+          placeholder="Username..."
+        />
+        <input 
+          type="email"
+          className={styles.input}
+          placeholder="Email..."
+        />
+        <input 
+          type="password"
+          className={styles.input}
+          placeholder="Password..."
+        />
+        <input 
+          type="password"
+          className={styles.input}
+          placeholder="Confirm Password..."
+        />
+        <button>
+          Submit
+        </button>
+        <p className="mt-2 text-l text-center text-gray-400">
+          Already have an account?
+        </p>
+        <p 
+          className="mt-2 text-l text-center"
+          style={{ color: "#00ADB5"}}
+        >
+          Log-In
+        </p>
+      </div>
     </form>
   )
 }
