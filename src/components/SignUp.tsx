@@ -7,13 +7,15 @@ import axios from 'axios';
 
 const SignUp = () => {
 
+  
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     password: ''
   });
-
+  
+  // @ts-ignore: TS6133
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
