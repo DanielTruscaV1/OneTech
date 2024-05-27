@@ -20,6 +20,7 @@ import axios from "axios";
 import CreatePost from "./CreatePost";
 import UserCircle from "../small_components/UserCircle";
 import UserPost from "../small_components/UserPost";
+import UserCircleHorizontal from "../small_components/UserCircleHorizontal";
 
 const Home = () => {
   // @ts-ignore: TS6133
@@ -45,10 +46,12 @@ const Home = () => {
     {
       image: "/home_user_1.png",
       name: "Kayn",
+      email: "kayn@gmail.com",
     },
     {
       image: "/home_user_2.png",
       name: "Yone",
+      email: "yone@gmail.com",
     },
   ]
 
@@ -76,6 +79,14 @@ const Home = () => {
       </div>
       <div className={styles.feed_container}>
         <UserPost user={mock_feed_user} post = {mock_feed_post}/>
+      </div>
+      <div className={styles.aside_container}>
+        <img 
+          className={styles.aside_image}
+          src='/home_aside_1.jpg'
+        />
+        <UserCircleHorizontal image={mock_db[0].image} name={mock_db[0].name} email={mock_db[0].email}/>
+        <UserCircleHorizontal image={mock_db[1].image} name={mock_db[1].name} email={mock_db[1].email}/>
       </div>
     </div>
   )
