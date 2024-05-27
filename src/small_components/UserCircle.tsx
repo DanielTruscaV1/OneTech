@@ -14,7 +14,7 @@ const UserCircle = ({image, name} : {
             src={ image }
             style={{
                 marginLeft: "3rem",
-                marginTop: "0.5rem",
+                marginTop: "0.75rem",
                 width: "calc(100% - 3.2rem)",
                 height: "60%",
                 borderRadius: "50%",
