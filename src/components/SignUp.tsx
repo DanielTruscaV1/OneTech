@@ -5,8 +5,10 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 
 import axios from 'axios';
 
-const SignUp = () => {
+import { useNavigate } from "react-router-dom"
 
+const SignUp = () => {
+  const navigate = useNavigate();
   
   const [formData, setFormData] = useState({
     firstName: '',
@@ -42,7 +44,7 @@ const SignUp = () => {
           Welcome to <span style={{ color: "#00ADB5"}}>OneTech!</span>
         </h1>
         <p className="my-2 text-l text-center text-gray-400">
-          Log-In to your account 
+          Sign-Up for free 
         </p>
         <input 
           type="text"
@@ -71,8 +73,10 @@ const SignUp = () => {
           Already have an account?
         </p>
         <p 
-          className="mt-2 text-l text-center"
+          className="mt-2 text-l text-center cursor-pointer"
           style={{ color: "#00ADB5"}}
+          onClick={() => navigate('/sign-in')}
+
         >
           Log-In
         </p>

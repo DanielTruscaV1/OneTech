@@ -23,6 +23,17 @@
         box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
         z-index: 2;
     }
+    .card2 {
+        position: absolute;
+        left: 30%;
+        top: 10%;
+        width: 40%;
+        height: 60%;
+        background-color: rgb(245, 245, 245);
+        border-radius: 20px;
+        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
+        z-index: 2;
+    }
     .input {
         margin-left: 10%;
         margin-top: 30px;
@@ -33,7 +44,7 @@
         padding-left: 20px;
         font-size: 18px;
     }
-    .card button {
+    .card button, .card2 button {
         margin-left: 10%;
         margin-top: 20px;
         width: 80%;
