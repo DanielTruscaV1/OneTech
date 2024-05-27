@@ -14,10 +14,10 @@
     .button {
         display: inline-block;
         margin-left: 15%;
-        margin-top: 2vh;
+        margin-top: 0.5vh;
         width: 70%;
-        height: 3.5rem;
-        padding-top: 0.5rem;
+        height: 3.9rem;
+        padding-top: 0.75rem;
         padding-bottom: 15px;
         font-size: 22px;
         font-weight: 600;

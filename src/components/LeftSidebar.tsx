@@ -55,8 +55,6 @@ const LeftSidebar = () => {
         className={styles.button}
         onClick={() => {navigate('/home')}}
       ></button>
-      <br/>
-      <br/>
       <button 
         className={styles.button}
         onClick={() => {navigate('/home')}}
