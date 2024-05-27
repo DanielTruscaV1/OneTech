@@ -1,5 +1,7 @@
 import Footer from "./Footer"
 import LeftSidebar from "./LeftSidebar"
+
+// @ts-ignore: TS6133
 import TopSidebar from "./TopSidebar"
 
 import styles from "./HomeStyle.module.css";
