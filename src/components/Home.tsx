@@ -1,10 +1,8 @@
-import Footer from "./Footer"
 import LeftSidebar from "./LeftSidebar"
 
 // @ts-ignore: TS6133
 import TopSidebar from "./TopSidebar"
 
-import styles from "./HomeStyle.module.css";
 import { useEffect, useState } from "react";
 
 interface Document {
@@ -16,10 +14,13 @@ interface Document {
 }
 
 import axios from "axios";
+// @ts-ignore: TS6133
 import CreatePost from "./CreatePost";
 
 const Home = () => {
+  // @ts-ignore: TS6133
   const [posts, setPosts] = useState<Document[] | null>(null);
+  // @ts-ignore: TS6133
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
