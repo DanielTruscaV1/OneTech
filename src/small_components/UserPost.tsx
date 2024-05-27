@@ -69,8 +69,7 @@ const UserPost = ({ user, post } : {
                 top: "2vh",
                 width: "2rem",
                 height: "2rem",
-                fontSize: "16px",
-                color: "gray",
+                cursor: "pointer",
             }}
         />
         <img 
@@ -82,6 +81,7 @@ const UserPost = ({ user, post } : {
                 width: "80%",
                 height: "65%",
                 borderRadius: "10px",
+                cursor: "pointer",
             }}
         />
         <div 
