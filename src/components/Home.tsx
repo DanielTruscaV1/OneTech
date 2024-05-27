@@ -19,6 +19,7 @@ import axios from "axios";
 // @ts-ignore: TS6133
 import CreatePost from "./CreatePost";
 import UserCircle from "../small_components/UserCircle";
+import UserPost from "../small_components/UserPost";
 
 const Home = () => {
   // @ts-ignore: TS6133
@@ -51,6 +52,20 @@ const Home = () => {
     },
   ]
 
+  const mock_feed_user = {
+    image: "/home_user_3.png",
+    name: "Ezreal",
+    email: "ezreal@email.com"
+  }
+
+  const mock_feed_post = {
+    image: "/home_post_1.jpg",
+    likes: 123,
+    comments: 45,
+    shares: 16,
+    saves: 7,
+  }
+
   return (
     <div className={styles.container}>
       <LeftSidebar/>
@@ -58,6 +73,9 @@ const Home = () => {
       <div className={styles.top_container}>
         <UserCircle image={mock_db[0].image} name={mock_db[0].name}/>
         <UserCircle image={mock_db[1].image} name={mock_db[1].name}/>
+      </div>
+      <div className={styles.feed_container}>
+        <UserPost user={mock_feed_user} post = {mock_feed_post}/>
       </div>
     </div>
   )

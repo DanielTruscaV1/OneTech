@@ -18,4 +18,11 @@
         background-color: #F8F8F8;
         border-radius: 10px;
     }
+    .feed_container {
+        position: absolute;
+        top: 35vh;
+        left: 11vw;
+        width: 55vw;
+        height: 60vh;
+    }
 }
