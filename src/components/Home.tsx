@@ -36,7 +36,6 @@ const Home = () => {
 
   return (
     <div>
-      <TopSidebar/>
       <LeftSidebar/>
       {
         edit && <CreatePost setEdit={setEdit}/>

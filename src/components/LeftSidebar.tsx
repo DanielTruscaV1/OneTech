@@ -54,63 +54,81 @@ const LeftSidebar = () => {
       <button 
         className={styles.button}
         onClick={() => {navigate('/home')}}
+      ></button>
+      <br/>
+      <br/>
+      <button 
+        className={styles.button}
+        onClick={() => {navigate('/home')}}
       >
-        <img src="/left_sidebar_1.png"/>
-        Home
+        <img src="/nav11.png"/>
+      </button>
+      <button 
+        className={styles.button} 
+        onClick={() => {navigate('/theory')}}
+      >
+        <img src="/nav22.png"/>
       </button>
       <button 
         className={styles.button} 
         onClick={() => {navigate('/problemset')}}
       >
-        <img src="/left_sidebar_2.png"/>
-        Problemset
+        <img 
+          src="/nav33.png"
+          style={{scale: "120%"}}
+        />
       </button>
       <button 
         className={styles.button} 
-        onClick={() => {navigate('/arena')}}
+        onClick={() => {navigate('/contests')}}
       >
-        <img src="/left_sidebar_8.png"/>
-        Arena
+        <img src="/nav4.png"/>
       </button>
       <button 
-        className={styles.button} 
+        className={styles.button}
         onClick={() => {navigate('/rankings')}}
       >
-        <img src="/left_sidebar_9.png"/>
-        Rankings
+        <img src="/nav5.png"/>
       </button>
       <button 
         className={styles.button}
         onClick={() => {navigate('/user-profile')}}
       >
-        <img src="/left_sidebar_3.png"/>
-        Profile
-      </button>
-      <button className={styles.button}>
-        <img src="/left_sidebar_4.png"/>
-        Account
+        <img src="/nav6.png"/>
       </button>
       <button 
         className={styles.button}
-        onClick={() => {navigate('/sign-in')}}
+        onClick={() => {navigate('/terms')}}
       >
-        <img src="/left_sidebar_5.png"/>
-        Sign-In
-      </button>
-      <button 
-        className={styles.button}
-        onClick={() => {navigate('/sign-up')}}
-      >
-        <img src="/left_sidebar_6.png"/>
-        Sign-Up
+        <img src="/nav77.png"/>
       </button>
       <button 
         id="left_sidebar_toggle"
         className={styles.toggle}
         onClick={addAnimation}
       >
-        <img src="/left_sidebar_7.png"/>
+        <img src="/nav8.png"/>
       </button>
+
+      <div className={styles.theme}>
+        <img 
+          src="/nav88.png"
+          width="28px" 
+          height="28px" 
+          className="inline-block"
+        />
+        <img 
+          src="/nav99.png"
+          width="20px" 
+          height="20px" 
+          className="inline-block float-right mt-1"
+        />
+        <div className="ml-3 mt-2 w-14 h-4 bg-gray-300 rounded">
+          <div className="w-4 h-4 bg-gray-400 rounded-3xl cursor-pointer">
+
+          </div>
+        </div>
+      </div>
     </main>
   )
 }

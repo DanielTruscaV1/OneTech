@@ -6,26 +6,27 @@
 @media screen and (min-width: 600px) {
     .container {
         position: absolute;
-        top: 10vh;
-        width: 20vw;
-        height: 90vh;
+        top: 0vh;
+        width: 5vw;
+        height: 100vh;
         border-right: 2px solid rgb(200, 200, 200);
     }
     .button {
         display: inline-block;
-        margin-left: 10%;
+        margin-left: 15%;
         margin-top: 2vh;
-        width: 80%;
-        height: 50px;
-        padding-top: 10px;
+        width: 70%;
+        height: 3.5rem;
+        padding-top: 0.5rem;
         padding-bottom: 15px;
         font-size: 22px;
         font-weight: 600;
-        border-radius: 7.5px;
-        text-align: left;;
+        border-radius: 50%;
+        text-align: center;
     }
     .button:hover {
-        background-color: rgba(100, 200, 255, 0.3)
+        background: rgb(0,173,181);
+        background: linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%);
     }
     .button img {
         position: relative;
@@ -45,5 +46,10 @@
         height: 30px;
         border-radius: 50%;
         background-color: white;
+    }
+    .theme 
+    {
+        position: absolute;
+        bottom: 1rem;
     }
 }
