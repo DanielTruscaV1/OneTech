@@ -5,7 +5,19 @@ import styles from './ProblemsetStyle.module.css';
 import LeftSidebar from './LeftSidebar';
 import TopSidebar from './TopSidebar';
 
+
+
 const Problemset = () => {
+
+    const gridData = [
+        [1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1],
+        [0, 0, 0, 0]
+      ];
+
   return (
     <div className={styles.container}>
         <LeftSidebar/>
@@ -35,6 +47,29 @@ const Problemset = () => {
                 />
                 Show Tags
             </button>
+        </div>
+        <div className={styles.calendar}>
+            <h1 className="inline-block ml-4 mt-2 w-2/3 text-xl">
+                24 May 2024
+            </h1>
+            <div className={styles.grid}>
+                {gridData.map((row, rowIndex) => (
+                    <div key={rowIndex} className={styles.row}>
+                    {row.map((cell, cellIndex) => (
+                        <div key={cellIndex} className={`${styles.cell} ${cell === 1 ? styles.teal : styles.orange}`}></div>
+                    ))}
+                    </div>
+                ))}
+            </div>
+            <img 
+                src="/problemset4.png"
+                width="80px"
+                height="80px"
+                className='absolute top-10 right-4'
+            />
+        </div>
+        <div className={styles.graph}>
+                
         </div>
     </div>
   )
