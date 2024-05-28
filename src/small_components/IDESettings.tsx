@@ -4,14 +4,14 @@ const IDESettings = () => {
       className="IDESettings"
       style={{
         width: "100vw",
-        height: "19vh",
+        height: "17vh",
       }}
     >
-      <h1 className="ml-4 mt-4 text-xl">
+      <h1 className="ml-3 mt-4 text-xl">
         IDE Settings
       </h1>
       <button 
-        className="ml-4 mt-6 w-20 h-10"
+        className="ml-3 mt-6 px-3 h-10"
         style={{
           backgroundColor: "#E8E8E8",
           borderRadius: "10px",
@@ -21,7 +21,7 @@ const IDESettings = () => {
         &#x25BC; C++
       </button>
       <button 
-        className="ml-4 mt-6 w-20 h-10"
+        className="ml-3 mt-6 px-3 h-10"
         style={{
           backgroundColor: "#E8E8E8",
           borderRadius: "10px",
@@ -31,7 +31,7 @@ const IDESettings = () => {
         &#x25BC; 14px
       </button>
       <button 
-        className="ml-4 mt-6 w-20 h-10"
+        className="ml-3 mt-6 px-3 h-10"
         style={{
           backgroundColor: "#E8E8E8",
           borderRadius: "10px",
@@ -44,7 +44,7 @@ const IDESettings = () => {
         /> Format
       </button>
       <button 
-        className="ml-4 mt-6 w-20 h-10"
+        className="ml-3 mt-6 px-3 h-10"
         style={{
           backgroundColor: "#E8E8E8",
           borderRadius: "10px",
@@ -56,7 +56,7 @@ const IDESettings = () => {
           className="inline-block ml-1 mr-1 mt-0 w-4 h-4"
         /> Expand
       </button>
-      <div className="absolute inline-block ml-0 mt-2 w-20 h-10">
+      <div className="absolute inline-block ml-0 mt-2 px-3 h-10">
         <img 
           src="/nav88.png"
           width="24px" 
