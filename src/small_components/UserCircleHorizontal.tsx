@@ -16,9 +16,9 @@ const UserCircleHorizontal= ({image, name, email} : {
             src={ image }
             style={{
                 display: "inline-block",
-                marginLeft: "3rem",
-                width: "15%",
-                height: "100%",
+                marginLeft: "3vw",
+                width: "60px",
+                height: "60px",
                 borderRadius: "50%",
                 border: "3px solid #00ADB5",
                 cursor: "pointer",
@@ -29,7 +29,7 @@ const UserCircleHorizontal= ({image, name, email} : {
                 position: "relative",
                 top: "-1rem",
                 display: "inline-block",
-                marginLeft: "0.5rem",
+                marginLeft: "0vw",
                 width: "25%",
                 textAlign: "center",
                 fontWeight: "500",
@@ -40,8 +40,8 @@ const UserCircleHorizontal= ({image, name, email} : {
         <p 
             style={{
                 display: "inline-block",
-                marginLeft: "2.75rem",
-                width: "25%",
+                marginLeft: "4.5vw",
+                width: "7.5%",
                 textAlign: "center",
                 fontWeight: "500",
                 color: "#00ADB5",
@@ -53,9 +53,9 @@ const UserCircleHorizontal= ({image, name, email} : {
         <p 
             style={{
                 position: "relative",
-                top: "-2rem",
+                top: "-2.5rem",
                 display: "inline-block",
-                marginLeft: "9.2rem",
+                marginLeft: "9vw",
                 width: "25%",
                 textAlign: "left",
                 fontWeight: "500",
