@@ -28,6 +28,33 @@
         text-align: center;
         border-radius: 10px;
     }
+    .filter, .problems {
+      position: absolute;
+      left: 11vw;
+      top: 45vh;
+      width: 23vw;
+      height: 50vh;
+      border-radius: 10px;
+    }
+    .problems {
+      left: 34vw;
+    }
+    .filter button, input {
+      margin-left: 5%;
+      margin-top: 2vh;
+      padding-left: 20px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      width: 80%;
+      height: 15%;
+      background-color: #F5F5F5;
+      border-radius: 10px;
+      text-align: left;
+      font-size: 18px;
+    }
+    .filter input {
+      padding-left: 50px;
+    }
 }
 .grid {
     margin-left: 1vw;

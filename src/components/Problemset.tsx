@@ -4,6 +4,7 @@ import styles from './ProblemsetStyle.module.css';
 //Import the react components
 import LeftSidebar from './LeftSidebar';
 import TopSidebar from './TopSidebar';
+import ProblemSmall from '../small_components/ProblemSmall';
 
 
 
@@ -17,6 +18,57 @@ const Problemset = () => {
         [1, 1, 1, 1],
         [0, 0, 0, 0]
       ];
+
+    const problemsData = [
+        {
+            id: "140",
+            name: "Word Break II",
+            difficulty: "Hard",
+            success: "49.4",
+            status: "Solved",
+            frequency: "2.34",
+        },
+        {
+            id: "141",
+            name: "Linked List Cycle",
+            difficulty: "Easy",
+            success: "50.5",
+            status: "Solved",
+            frequency: "3.45",
+        },
+        {
+            id: "140",
+            name: "Word Break II",
+            difficulty: "Hard",
+            success: "49.4",
+            status: "Solved",
+            frequency: "2.34",
+        },
+        {
+            id: "141",
+            name: "Linked List Cycle",
+            difficulty: "Easy",
+            success: "50.5",
+            status: "Solved",
+            frequency: "3.45",
+        },
+        {
+            id: "140",
+            name: "Word Break II",
+            difficulty: "Hard",
+            success: "49.4",
+            status: "Solved",
+            frequency: "2.34",
+        },
+        {
+            id: "141",
+            name: "Linked List Cycle",
+            difficulty: "Easy",
+            success: "50.5",
+            status: "Solved",
+            frequency: "3.45",
+        },
+    ]
 
   return (
     <div className={styles.container}>
@@ -70,6 +122,39 @@ const Problemset = () => {
         </div>
         <div className={styles.graph}>
                 
+        </div>
+        <div className={styles.filter}>
+            <h1 className="inline-block ml-4 mt-2 w-2/3 text-xl">
+                Search
+            </h1>
+            <input 
+                type="text"
+            />
+            <img 
+                src="/top1.png"
+                width="25px"
+                className="absolute left-8 top-16"
+            />
+            <h1 className="inline-block ml-4 mt-2 w-2/3 text-xl">
+                Filter
+            </h1>
+            <button>
+                Difficulty <span className='float-right pr-8'>&#x25BC;</span>
+            </button>
+            <button>
+                Success <span className='float-right pr-8'>&#x25BC;</span>
+            </button>
+            <button>
+                Frequency <span className='float-right pr-8'>&#x25BC;</span>
+            </button>
+        </div>
+        <div className={styles.problems}>
+            {
+                problemsData.map((problem, index) => {
+                    return <ProblemSmall problem={problem} index={index}/>
+                })
+            }
+
         </div>
     </div>
   )
