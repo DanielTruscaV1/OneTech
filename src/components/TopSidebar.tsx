@@ -1,10 +1,20 @@
 import styles from "./TopSidebarStyle.module.css"
 
-const TopSidebar = () => {
+const TopSidebar = ({ message } : {
+    message: string;
+}) => {
   return (
     <main className={styles.container}>
         <h1 className={styles.welcome}>
-            Welcome back, <span className="font-black">Ezreal!</span>
+            {
+                message && message.startsWith("Welcome") ? 
+                <p>
+                    Welcome back, <span className="font-black">Ezreal!</span> 
+                </p>:
+                <p style={{ borderBottom: "2.5px solid #00ADB5" }}>
+                    { message }
+                </p>
+            }
          </h1>
          <input 
             className={styles.input}

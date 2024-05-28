@@ -1,0 +1,50 @@
+@media screen and (max-width: 600px) {
+    
+}
+@media screen and (min-width: 600px) {
+    .container {
+        position: absolute;
+        top: 0vh;
+        left: 0vw;
+        width: 100vw;
+        height: 100vh;
+    }
+    .chapters_container {
+        position: absolute;
+        top: 15vh;
+        left: 11vw;
+    }
+    .current_chapter, .next_chapter {
+        display: inline-block;
+        width: 19vw;
+        height: 19vh;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+    }
+    .next_chapter {
+        margin-left: 12vw;
+    }
+    .content {
+        position: absolute;
+        top: 39vh;
+        left: 11vw;
+        width: 50vw;
+        height: 55vh;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+        font-family: "Source Code Pro", monospace;
+        overflow-y: scroll;
+    }
+    .content h1 {
+        font-size: 25px;
+        font-weight: 600;
+    }
+    .content h1, .content p {
+        width: 85%;
+        margin-left: 3rem;
+        margin-top: 1rem;
+    }
+    .content p {
+        text-align: justify;
+    }
+}

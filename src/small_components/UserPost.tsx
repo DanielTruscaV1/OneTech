@@ -87,7 +87,7 @@ const UserPost = ({ user, post } : {
         <div 
             style={{
                 position: "absolute",
-                left: "12%",
+                left: "13%",
                 top: "calc(65% + 14vh)",
                 width: "80%",
                 borderRadius: "10px",
@@ -96,21 +96,23 @@ const UserPost = ({ user, post } : {
             <div
                 style={{
                     display: "inline-block",
-                    marginLeft: "12%",
+                    marginLeft: "13%",
                 }}
             >
                 <img 
                     src="/home_icon_1.png"
                     style={{
                         display: "inline-block",
-                        width: "25px",
-                        height: "25px",
+                        width: "22px",
+                        height: "22px",
                     }}
                 />
                 <p 
                     style={{
                         display: "inline-block",
                         marginLeft: "10px",
+                        position: "relative",
+                        top: "0.2rem",
                         fontSize: "18px",
                     }}
                 >
@@ -120,21 +122,23 @@ const UserPost = ({ user, post } : {
             <div
                 style={{
                     display: "inline-block",
-                    marginLeft: "12%",
+                    marginLeft: "13%",
                 }}
             >
                 <img 
                     src="/home_icon_2.png"
                     style={{
                         display: "inline-block",
-                        width: "25px",
-                        height: "25px",
+                        width: "22px",
+                        height: "22px",
                     }}
                 />
                 <p 
                     style={{
                         display: "inline-block",
                         marginLeft: "10px",
+                        position: "relative",
+                        top: "0.2rem",
                         fontSize: "18px",
                     }}
                 >
@@ -144,21 +148,23 @@ const UserPost = ({ user, post } : {
             <div
                 style={{
                     display: "inline-block",
-                    marginLeft: "12%",
+                    marginLeft: "13%",
                 }}
             >
                 <img 
                     src="/home_icon_3.png"
                     style={{
                         display: "inline-block",
-                        width: "25px",
-                        height: "25px",
+                        width: "22px",
+                        height: "22px",
                     }}
                 />
                 <p 
                     style={{
                         display: "inline-block",
                         marginLeft: "10px",
+                        position: "relative",
+                        top: "0.2rem",
                         fontSize: "18px",
                     }}
                 >
@@ -168,21 +174,23 @@ const UserPost = ({ user, post } : {
             <div
                 style={{
                     display: "inline-block",
-                    marginLeft: "12%",
+                    marginLeft: "13%",
                 }}
             >
                 <img 
                     src="/home_icon_4.png"
                     style={{
                         display: "inline-block",
-                        width: "25px",
-                        height: "25px",
+                        width: "22px",
+                        height: "22px",
                     }}
                 />
                 <p 
                     style={{
                         display: "inline-block",
                         marginLeft: "10px",
+                        position: "relative",
+                        top: "0.2rem",
                         fontSize: "18px",
                     }}
                 >

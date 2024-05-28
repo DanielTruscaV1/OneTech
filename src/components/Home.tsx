@@ -72,7 +72,7 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <LeftSidebar/>
-      <TopSidebar/>
+      <TopSidebar message="Welcome back, Ezreal!" />
       <div className={styles.top_container}>
         <UserCircle image={mock_db[0].image} name={mock_db[0].name}/>
         <UserCircle image={mock_db[1].image} name={mock_db[1].name}/>

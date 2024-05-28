@@ -20,6 +20,7 @@ import UserProfile from './components/UserProfile';
 import "./App.css";
 import Problemset from './components/Problemset';
 import Rankings from './components/Rankings';
+import Theory from './components/Theory';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <Home/>
+  },
+  {
+    path: "/theory",
+    element: <Theory/>
   },
   {
     path: "/sign-in",
