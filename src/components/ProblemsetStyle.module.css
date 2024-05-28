@@ -39,7 +39,7 @@
     .problems {
       left: 34vw;
     }
-    .filter button, input {
+    .filter button, .filter input {
       margin-left: 5%;
       margin-top: 2vh;
       padding-left: 20px;
