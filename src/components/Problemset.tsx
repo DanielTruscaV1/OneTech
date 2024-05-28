@@ -2,14 +2,12 @@
 import styles from './ProblemsetStyle.module.css';
 
 //Import the react components
-import TopSidebar from './TopSidebar';
 import LeftSidebar from './LeftSidebar';
 import Footer from './Footer';
 
 const Problemset = () => {
   return (
     <>
-        <TopSidebar/>
         <LeftSidebar/>
         <div className={styles.problems}>
             <h1 className='inline-block pl-4 pt-4 text-3xl text-gray-600'>

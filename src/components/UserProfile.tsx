@@ -2,7 +2,6 @@
 import styles from './UserProfileStyle.module.css';
 
 //Import the react components
-import TopSidebar from './TopSidebar';
 import LeftSidebar from './LeftSidebar';
 import Footer from './Footer';
 import Activity from './Activity';
@@ -46,7 +45,6 @@ const UserProfile = () => {
 
   return (
     <>
-        <TopSidebar/>
         <LeftSidebar/>
         <div className={styles.profile_image_container}>
           <h1 className={styles.profile_title}>

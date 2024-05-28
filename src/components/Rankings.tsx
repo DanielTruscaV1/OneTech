@@ -1,13 +1,11 @@
 import Footer from "./Footer"
 import LeftSidebar from "./LeftSidebar"
-import TopSidebar from "./TopSidebar"
 
 import styles from "./RankingsStyle.module.css"
 
 const Rankings = () => {
   return (
     <div>
-        <TopSidebar/>
         <LeftSidebar/>
         <div className={styles.solo}>
             <h1 className="pl-4 pt-4 text-xl">
