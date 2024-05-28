@@ -2,50 +2,22 @@
     
 }
 @media screen and (min-width: 600px) {
-    .problems {
+    .daily {
         position: absolute;
+        left: 11vw;
         top: 15vh;
-        left: 25vw;
-        width: 45vw;
-        height: 80vh;
-        border-radius: 7.5px;
-        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
-        overflow-y:scroll;
-    }
-    .calendar {
-        position: absolute;
-        top: 15vh;
-        left: 75vw;
-        width: 20vw;
-        height: 50vh;
-        border-radius: 7.5px;
-        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
-    }
-    .problem {
-        margin-top: 20px;
-        margin-left: 20px;
-        width: 90%;
-        height: 8%;
-        border-radius: 7.5px;
-        border: 1px solid rgb(200, 200, 200);
-    }
-    .problem button {
-        position: relative;
-        float: right;
-        margin-right: 10px;
-        margin-top: 5px;
-        background-color: rgb(100, 200, 255);
+        width: 44vw;
+        height: 25vh;
+        background-color: #F5F5F5;
         border-radius: 10px;
-        width: 30px;
-        height: 80%;
     }
-    .problem button img {
-        margin-left: 5px;
-    }
-    .problem p {
-        padding-top: 0px;
-    }
-    svg {
-        margin-left: 0.5vw;
+    .tags {
+        margin-left: 1rem;
+        margin-top: 7.5vh;
+        padding: 5px;
+        padding-right: 20px;
+        background-color: #E5E5E5;
+        text-align: center;
+        border-radius: 10px;
     }
 }
