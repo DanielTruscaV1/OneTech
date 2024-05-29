@@ -56,6 +56,7 @@ const Theory = () => {
                 <p className="mt-1 text-l text-center text-gray-400">
                     Not Completed
                 </p>
+                
             </div>
         </div>
         <div className={styles.content}>

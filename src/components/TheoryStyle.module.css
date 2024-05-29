@@ -15,6 +15,7 @@
         left: 11vw;
     }
     .current_chapter, .next_chapter {
+        position: relative;
         display: inline-block;
         width: 19vw;
         height: 19vh;
@@ -23,6 +24,7 @@
     }
     .next_chapter {
         margin-left: 12vw;
+        top: 0.5vh;
     }
     .content {
         position: absolute;
