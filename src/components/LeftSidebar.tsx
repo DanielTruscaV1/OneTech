@@ -55,10 +55,6 @@ const LeftSidebar = () => {
       <button 
         className={styles.button}
         onClick={() => {navigate('/home')}}
-      ></button>
-      <button 
-        className={styles.button}
-        onClick={() => {navigate('/home')}}
       >
         <img src="/nav11.png"/>
       </button>
@@ -107,16 +103,16 @@ const LeftSidebar = () => {
           src="/nav88.png"
           width="28px" 
           height="28px" 
-          className="inline-block ml-2"
+          className={`${styles.sun} ${"inline-block ml-2"}`}
         />
         <img 
           src="/nav99.png"
           width="20px" 
           height="20px" 
-          className="inline-block float-right ml-1 mt-1"
+          className={`${styles.moon} ${"inline-block float-right ml-1 mt-1"}`}
         />
-        <div className="ml-4 mt-2 w-14 h-4 bg-gray-300 rounded">
-          <div className="w-4 h-4 bg-gray-400 rounded-3xl cursor-pointer">
+        <div className={`${styles.input} ${"ml-4 mt-2 w-14 h-4 bg-gray-300 rounded"}`}>
+          <div className={`${styles.input_circle} ${"w-4 h-4 bg-gray-400 rounded-3xl cursor-pointer"}`}>
 
           </div>
         </div>
