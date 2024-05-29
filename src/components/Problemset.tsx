@@ -149,12 +149,38 @@ const Problemset = () => {
             </button>
         </div>
         <div className={styles.problems}>
+            <div 
+                style={{
+                    position: "relative",
+                    width: "60vw",
+                    height: "7vh",
+                    backgroundColor: "#F3F3F3",
+                }}
+            >
+                <p className="inline-block w-12 ml-4 mt-3 text-l text-center">
+                    ID
+                </p>
+                <p className="inline-block w-48 ml-4 mt-3 text-l text-center">
+                    Title
+                </p>
+                <p className="inline-block w-12 ml-28 mt-3 text-l text-center">
+                    Difficulty
+                </p>
+                <p className="inline-block w-24 ml-20 pl-4 mt-3 text-l text-center">
+                    Success %
+                </p>
+                <p className="inline-block w-24 ml-6 mt-3 text-l text-center">
+                    Status
+                </p>
+                <p className="inline-block w-24 ml-6 mt-3 text-l text-center">
+                    Frequency % 
+                </p>
+            </div>
             {
                 problemsData.map((problem, index) => {
                     return <ProblemSmall problem={problem} index={index}/>
                 })
             }
-
         </div>
     </div>
   )
