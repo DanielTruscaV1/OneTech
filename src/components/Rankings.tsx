@@ -1,4 +1,3 @@
-import Footer from "./Footer"
 import LeftSidebar from "./LeftSidebar"
 
 import styles from "./RankingsStyle.module.css"
