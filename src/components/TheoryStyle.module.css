@@ -61,11 +61,6 @@
         display: none;
     }
 }
-@media screen and (min-width: 400px) {
-    .content {
-        margin-top: -5vh !important;
-    }
-}
 @media screen and (min-width: 600px) {
     .container {
         position: absolute;
