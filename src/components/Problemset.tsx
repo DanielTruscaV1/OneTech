@@ -78,7 +78,7 @@ const Problemset = () => {
         <TopSidebar message="Problemset"/>
         <div className={styles.daily}>
             <h1 className="inline-block ml-4 mt-2 w-2/3 text-xl">
-                Daily Problem - #D5173 - Wordk Break II
+                Daily Problem - #D5173 - Word Break II
             </h1>
             <p className="inline-block mr-4 mt-2 w-58 text-m text-right float-right text-gray-400">
                 Time left - 04:19:59
@@ -158,6 +158,7 @@ const Problemset = () => {
                     height: "7vh",
                     backgroundColor: "#F3F3F3",
                 }}
+                className="problem_small"
             >
                 <p className="inline-block w-12 ml-4 mt-3 text-l text-center">
                     ID
@@ -169,13 +170,13 @@ const Problemset = () => {
                     Difficulty
                 </p>
                 <p className="inline-block w-24 ml-20 pl-4 mt-3 text-l text-center">
-                    Success %
+                    Success
                 </p>
                 <p className="inline-block w-24 ml-6 mt-3 text-l text-center">
                     Status
                 </p>
                 <p className="inline-block w-24 ml-6 mt-3 text-l text-center">
-                    Frequency % 
+                    Frequency
                 </p>
             </div>
             {
@@ -192,3 +193,7 @@ const Problemset = () => {
 }
 
 export default Problemset
+
+/*
+        
+*/

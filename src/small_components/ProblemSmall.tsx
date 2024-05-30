@@ -18,6 +18,7 @@ const ProblemSmall = ({ problem, index } : {
             backgroundColor: index%2 == 0 ? "#F8F8F8" : "#F3F3F3",
             cursor: "pointer",
         }}
+        className="problem_small"
     >
         <p className="inline-block w-24 ml-4 mt-3 text-l">
             # {problem.id}
@@ -44,7 +45,7 @@ const ProblemSmall = ({ problem, index } : {
              {
                 problem.status === "Solved" ?
                 <div 
-                    className="absolute rounded-full"
+                    className="icon absolute rounded-full"
                     style={{ 
                         top: "0",
                         marginLeft: "0.5vw",

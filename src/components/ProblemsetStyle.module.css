@@ -1,5 +1,98 @@
 @media screen and (max-width: 600px) {
-    
+    .daily {
+      position: absolute;
+      top: 20vh;
+      margin-left: 5vw;
+      width: 90vw;
+      height: 40vh;
+      background-color: #F8F8F8;
+      border-radius: 10px;
+    }
+    .daily h1, .daily p {
+      width: 95%;
+      font-size: 13px;
+    }
+    .daily p {
+      margin-left: 5%;
+      margin-top: 0vh !important;
+      float: left !important;
+      text-align: left !important;
+    }
+    .daily img {
+      margin-left: 2vw;
+      width: 20px !important;
+    }
+    .daily button {
+      margin-left: 5%;
+      margin-top: 35%;
+      width: 45%;
+      height: 5.5vh;
+      background-color: #E5E5E5;
+      border-radius: 10px;
+    }
+    .calendar {
+      position: absolute;
+      top: 63vh;
+      margin-left: 5vw;
+      width: 90vw;
+      height: 40vh;
+      background-color: #F8F8F8;
+      border-radius: 10px;
+    }
+    .calendar h1 {
+      font-size: 15px;
+    }
+    .calendar .grid {
+      margin-left: 5%;
+    }
+    .calendar .cell {
+      width: 15px;
+      height: 15px;
+    }
+    .graph {
+      display: none;
+    }
+    .filter {
+      position: absolute;
+      top: 104vh;
+      margin-left: 5vw;
+      width: 90vw;
+      height: 40vh;
+    }
+    .filter h1 {
+      font-size: 15px;
+    }
+    .filter button, .filter input {
+      margin-left: 2%;
+      margin-top: 2.3vh;
+      width: 31%;
+      height: 15%;
+      background-color: #F5F5F5;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 12px;
+    }
+    .filter span {
+      padding-right: 5vw !important;
+    }
+    .filter input {
+      width: 90%;
+      padding-left: 50px;
+    }
+    .filter img {
+      width: 20px;
+      left: 6vw;
+      top: 9.5vh !important;
+    }
+    .problems {
+      position: absolute;
+      top: 136vh;
+      width: 100vw;
+    }
+    .problems div {
+      left: 5vw;
+      width: 90vw !important;
+    }
 }
 @media screen and (min-width: 600px) {
     .daily, .calendar, .graph {

@@ -82,4 +82,19 @@ button:hover {
         margin-left: 5vw !important;
         width: 20vw !important;
     }
+    .problem_small {
+        overflow-x: scroll;
+    }
+    .problem_small .icon {
+        position: absolute;
+        width: 20px !important;
+        height: 20px !important;
+    }
+    .problem_small p {
+        top: 0 !important;
+        margin-left: 3vw !important;
+        margin-top: 2.5vh !important;
+        width: 11vw !important;
+        font-size: 13px;
+    }
 }
