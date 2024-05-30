@@ -6,16 +6,22 @@
         position: absolute;
         top: 15vh;
     }
+    .chapters_container h1 {
+        font-size: 18px;
+    }
+    .chapters_container p {
+        font-size: 15px;
+    }
     .current_chapter, .next_chapter {
         margin-left: 5vw;
-        margin-top: 3vh;
+        margin-top: 2vh;
+        padding-bottom: 15px;
         width: 90vw;
-        height: 20vh;
         background-color: #F8F8F8;
         border-radius: 10px;
     }
     .next_chapter {
-        margin-top: 4vh;
+        margin-top: 2vh;
     }
     .chapters_container h6 {
         position: relative !important;
@@ -35,7 +41,7 @@
     }
     .content {
         position: absolute;
-        top: 80vh;
+        top: 73vh;
         left: 5vw;
         width: 90vw;
         height: 100vh;
@@ -43,6 +49,12 @@
         border-radius: 10px;
         font-family: "Source Code Pro", monospace;
         overflow-y: scroll;
+    }
+    .content h1 {
+        font-size: 18px !important;
+    }
+    .content p {
+        font-size: 13px !important;
     }
     .IDEcontainer {
         display: none;

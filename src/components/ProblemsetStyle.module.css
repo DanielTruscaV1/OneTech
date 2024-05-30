@@ -23,8 +23,9 @@
       width: 20px !important;
     }
     .daily button {
-      margin-left: 5%;
-      margin-top: 35%;
+      position: absolute;
+      left: 5%;
+      top: 32vh;
       width: 45%;
       height: 5.5vh;
       background-color: #E5E5E5;
