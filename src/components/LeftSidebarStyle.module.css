@@ -6,6 +6,8 @@
         width: 100%;
         height: 10%;
         border-top: 2.5px solid rgb(230, 230, 230);
+        background-color: white;;
+        z-index:2;
     }
     .container button {
         position: relative;

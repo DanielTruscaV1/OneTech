@@ -8,6 +8,15 @@
         background-color: #F8F8F8;
         border-radius: 10px;
     }
+    .feed_container {
+        position: absolute;
+        left: 0;
+        top: 35vh;
+    }
+    .aside_container {
+        display: none;
+        position: relative;
+    }
 }
 @media screen and (min-width: 600px) {
     .container {

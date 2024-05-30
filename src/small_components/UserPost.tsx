@@ -21,6 +21,7 @@ const UserPost = ({ user, post } : {
             backgroundColor: "#F8F8F8",
             borderRadius: "10px",
         }}
+        className="user_post"
     >
         <img 
             src={ user.image }
@@ -34,6 +35,7 @@ const UserPost = ({ user, post } : {
                 borderRadius: "50%",
                 cursor: "pointer",
             }}
+            className="user_post_author1"
         />
         <p
             style={{
@@ -45,6 +47,7 @@ const UserPost = ({ user, post } : {
                 fontSize: "20px",
                 fontWeight: "700",
             }}
+            className="user_post_author2"
         >
             { user.name }
         </p>
@@ -58,6 +61,7 @@ const UserPost = ({ user, post } : {
                 fontSize: "16px",
                 color: "gray",
             }}
+            className="user_post_author3"
         >
             { user.email }
         </p>
@@ -71,6 +75,7 @@ const UserPost = ({ user, post } : {
                 height: "2rem",
                 cursor: "pointer",
             }}
+            className="user_post_settings"
         />
         <img 
             src={ post.image }
@@ -83,6 +88,7 @@ const UserPost = ({ user, post } : {
                 borderRadius: "10px",
                 cursor: "pointer",
             }}
+            className="user_post_image"
         />
         <div 
             style={{
@@ -92,6 +98,7 @@ const UserPost = ({ user, post } : {
                 width: "80%",
                 borderRadius: "10px",
             }}
+            className="user_post_actions"
         >  
             <div
                 style={{

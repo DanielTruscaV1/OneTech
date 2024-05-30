@@ -50,4 +50,36 @@ button:hover {
         width: 60px !important;
         height: 60px !important;
     }
+    .user_post {
+        position: relative;
+        width: 100vw !important;
+        height: calc(90vw + 35vh) !important;
+    }
+    .user_post_image {
+        left: 0 !important;
+        margin-left: 5vw !important;
+        margin-top: 2vh !important;
+        width: 90vw !important;
+        height: 90vw !important;
+    }
+    .user_post_author1 {
+        left: 5vw !important;
+    }
+    .user_post_author2, .user_post_author3 {
+        left: calc(7vw + 60px) !important;
+    }
+    .user_post_settings {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    .user_post_actions {
+        position: relative !important;
+        left: 0 !important;
+        top: calc(90vw + 17vh) !important;
+        width: 100vw !important;
+    }
+    .user_post_actions div {
+        margin-left: 5vw !important;
+        width: 20vw !important;
+    }
 }
