@@ -3,8 +3,9 @@
         height: 200vh;
     }
     .chapters_container {
-        position: absolute;
-        top: 15vh;
+        position: relative;
+        top: 16vh;
+        height: 70vh;
     }
     .chapters_container h1 {
         font-size: 18px;
@@ -40,8 +41,8 @@
         margin-top: 1vh !important;
     }
     .content {
-        position: absolute;
-        top: 73vh;
+        position: relative;
+        top: 0 !important;
         left: 5vw;
         width: 90vw;
         height: 100vh;
@@ -58,6 +59,11 @@
     }
     .IDEcontainer {
         display: none;
+    }
+}
+@media screen and (min-width: 400px) {
+    .content {
+        margin-top: -5vh !important;
     }
 }
 @media screen and (min-width: 600px) {
