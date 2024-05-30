@@ -53,6 +53,11 @@ const Home = () => {
       name: "Yone",
       email: "yone@gmail.com",
     },
+    {
+      image: "/home_user_4.png",
+      name: "Sett",
+      email: "sett@gmail.com",
+    },
   ]
 
   const mock_feed_user = {
@@ -76,7 +81,9 @@ const Home = () => {
       <div className={styles.top_container}>
         <UserCircle image={mock_db[0].image} name={mock_db[0].name}/>
         <UserCircle image={mock_db[1].image} name={mock_db[1].name}/>
+        <UserCircle image={mock_db[2].image} name={mock_db[2].name}/>
       </div>
+
       <div className={styles.feed_container}>
         <UserPost user={mock_feed_user} post = {mock_feed_post}/>
       </div>
@@ -95,12 +102,7 @@ const Home = () => {
 export default Home
 
 /*
-<TopSidebar message="Welcome back, Ezreal!" />
-      <div className={styles.top_container}>
-        <UserCircle image={mock_db[0].image} name={mock_db[0].name}/>
-        <UserCircle image={mock_db[1].image} name={mock_db[1].name}/>
-      </div>
-      <div className={styles.feed_container}>
+<div className={styles.feed_container}>
         <UserPost user={mock_feed_user} post = {mock_feed_post}/>
       </div>
       <div className={styles.aside_container}>
@@ -110,5 +112,5 @@ export default Home
         />
         <UserCircleHorizontal image={mock_db[0].image} name={mock_db[0].name} email={mock_db[0].email}/>
         <UserCircleHorizontal image={mock_db[1].image} name={mock_db[1].name} email={mock_db[1].email}/>
-      </div>
+      </div>  
 */

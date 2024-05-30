@@ -1,6 +1,53 @@
 @media screen and (max-width: 600px) {
     .container {
-
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 20vh;
+    }
+    .welcome, .input .search, .search2, .actions, .image {
+        display: inline-block;
+        position: relative;
+    }
+    .welcome {
+        width: 100vw;
+        font-size: 25px;
+        text-align: center;
+    }
+    .input {
+        margin-left: 10vw;
+        margin-top: 2vh;
+        width: 60vw;
+        height: 5vh;
+        background-color: #F5F5F5;
+        border-radius:10px;
+    }
+    .search {
+        position: absolute;
+        left: 12vw;
+        top: 57px;
+        width: 25px;
+    }
+    .search2 {
+        position: absolute;
+        left: 22vw;
+        top: 57px;
+        width: 25px;
+    }
+    .actions {
+        width: 30vw;
+    }
+    .notifications {
+        display: none;
+    }
+    .settings {
+        display: none;
+    }
+    .image {
+        position: absolute;
+        top: -37px !important;
+        right: 5vw;
     }
 }
 @media screen and (min-width: 600px) {

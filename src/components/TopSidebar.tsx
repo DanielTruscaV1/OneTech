@@ -31,16 +31,17 @@ const TopSidebar = ({ message } : {
         </p>
         <div className={styles.actions}>
             <img 
-                className={styles.image}
+                className={`${styles.image} ${styles.notifications}`}
                 src="/top2.png"
                 width="30px"
                 height="30px"
             />
             <img 
-                className={styles.image}
+                className={`${styles.image} ${styles.settings}`}
                 src="/top33.png"
                 width="30px"
                 height="30px"
+                id="settings"
             />
             <img 
                 className={styles.image}

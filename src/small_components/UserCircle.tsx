@@ -9,6 +9,7 @@ const UserCircle = ({image, name} : {
             width: "9%",
             height: "100%",
         }}
+        className="user_circle_container"
     >
         <img 
             src={ image }
