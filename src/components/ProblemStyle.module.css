@@ -1,0 +1,77 @@
+.container {
+        width: 100vw;
+        height: 100vh;
+}
+@media screen and (max-width: 600px){
+    .navigation {
+        position: absolute;
+        top: 20vh;
+        width: 100vw;
+        height: 10vh;
+        background-color: #F8F8F8;
+    }
+    .navigation button {
+        margin-left: 4vw;
+        margin-top: 2.5vh;
+        width: 20vw;
+        height: 5vh;
+        background-color: #E8E8E8;
+        border-radius: 10px;
+        font-size: 12px;
+    }
+    .content {
+        position: absolute;
+        top: 33vh;
+        width: 100vw;
+        height: 100vh;
+        background-color: #F8F8F8;
+        font-family: "Source Code Pro", monospace;
+        overflow-y: scroll;
+    }
+    .content p {
+        margin-left: 10vw;
+        margin-top: 2vh;
+    }
+    .IDEcontainer {
+        display: none;
+    }
+}
+@media screen and (min-width: 600px){
+    .navigation {
+        position: absolute;
+        left: 11vw;
+        top: 15vh;
+        width: 48vw;
+        height: 12vh;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+    }
+    .navigation button {
+        margin-left: 2vw;
+        margin-top: 2.5vh;
+        width: 9.5vw;
+        height: 7vh;
+        background-color: #E8E8E8;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+    .content {
+        position: absolute;
+        top: 30vh;
+        left: 11vw;
+        width: 48vw;
+        height: 62vh;
+        background-color: #F8F8F8;
+        font-family: "Source Code Pro", monospace;
+        overflow-y: scroll;
+        border-radius: 10px;
+    }
+    .content p {
+        margin-left: 3vw;
+        margin-top: 2vh;
+    }
+}
+.content p {
+    width: 80%;
+    text-align: justify;
+}

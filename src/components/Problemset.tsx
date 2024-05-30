@@ -6,9 +6,11 @@ import LeftSidebar from './LeftSidebar';
 import TopSidebar from './TopSidebar';
 import ProblemSmall from '../small_components/ProblemSmall';
 
-
+import { useNavigate } from 'react-router-dom';
 
 const Problemset = () => {
+
+    const navigate = useNavigate();
 
     const gridData = [
         [1, 1, 1, 1, 1, 1, 1],
@@ -178,7 +180,10 @@ const Problemset = () => {
             </div>
             {
                 problemsData.map((problem, index) => {
-                    return <ProblemSmall problem={problem} index={index}/>
+                    return <div onClick={() => navigate("/problem/123")}>
+                        <ProblemSmall problem={problem} index={index}/>
+                    </div>
+                    
                 })
             }
         </div>

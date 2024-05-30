@@ -21,6 +21,7 @@ import "./App.css";
 import Problemset from './components/Problemset';
 import Rankings from './components/Rankings';
 import Theory from './components/Theory';
+import Problem from './components/Problem';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
   {
     path: "/problemset",
     element: <Problemset/>
+  },
+  {
+    path: "/problem/:id",
+    element: <Problem/>
   },
   {
     path: "/rankings",
