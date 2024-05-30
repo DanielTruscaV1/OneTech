@@ -11,7 +11,11 @@ const TopSidebar = ({ message } : {
                 <p>
                     Welcome back, <span className="font-black">Ezreal!</span> 
                 </p>:
-                <p style={{ borderBottom: "2.5px solid #00ADB5" }}>
+                <p style={{ 
+                        textUnderlineOffset: "7px",
+                        textDecoration: "underline",
+                        textDecorationColor: "#00ADB5" 
+                    }}>
                     { message }
                 </p>
             }

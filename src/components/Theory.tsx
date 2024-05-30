@@ -38,9 +38,9 @@ const Theory = () => {
                     </div>
                 </div>
             </div>
-            <p className="absolute ml-6 mt-8 w-32 inline-block text-xl text-center">
+            <h6 className="absolute ml-6 mt-8 w-32 inline-block text-xl text-center">
                 Next
-            </p>
+            </h6>
             <img 
                 src="theory_icon_1.png"
                 className="absolute mt-16 w-8 inline-block"
@@ -73,7 +73,9 @@ const Theory = () => {
             Variables are fundamental building blocks in programming. They serve as named storage locations that hold data which can be manipulated during the execution of a program. Here's an overview of key concepts related to variables in programming:
             </p>
         </div>
-        <IDE/>
+        <div className={styles.IDEcontainer}>
+            <IDE/>
+        </div>
     </div>
   )
 }
