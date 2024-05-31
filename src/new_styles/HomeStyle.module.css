@@ -4,13 +4,13 @@
         left: 0vw;
         top: 12.5vh;
         width: 100vw;
-        height: 12.5vh;
+        height: 14vh;
         background-color: #F8F8F8;
     }
     .feed {
         position: absolute;
         left: 0vw;
-        top: 25vh;
+        top: 27vh;
         width: 100vw;
     }
 }

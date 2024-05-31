@@ -58,7 +58,7 @@ button:hover {
     .user_post {
         position: relative;
         width: 100vw !important;
-        height: 44.5vh !important;
+        height: 390px !important;
     }
     .user_post_image {
         position: relative !important;
@@ -73,6 +73,7 @@ button:hover {
     }
     .user_post_author2, .user_post_author3 {
         left: calc(7vw + 60px) !important;
+        font-size: 16px !important;
     }
     .user_post_settings {
         margin-top: 1.7vw !important;
@@ -82,7 +83,7 @@ button:hover {
     .user_post_actions {
         position: relative !important;
         left: 1.1vw !important;
-        top: -2vh !important;
+        top: -15px !important;
         width: 100vw !important;
     }
     .user_post_actions div {

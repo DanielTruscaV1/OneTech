@@ -42,6 +42,12 @@
     .comment {
         background-color: #F8F8F8;
     }
+    .comment hr {
+        margin-left: 5%;
+        margin-bottom: 0.5vh;
+        width: 90%;
+        border: 0.5px solid rgb(225, 225, 225);
+    }
     .comment img {
         display: inline-block;
         position: relative;
@@ -55,6 +61,7 @@
     .comment p {
         display: inline-block;
         margin-left: 5%;
+        margin-top: 1.5vh;
         width: calc(85% - 60px);
         height: 5vh;
         text-align: justify;
