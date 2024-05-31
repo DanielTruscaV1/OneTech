@@ -1,4 +1,5 @@
-const ProblemSmall = ({ problem, index } : {
+const ProblemSmall = ({ containers, problem, index } : {
+    containers: any;
     problem: {
         id: string;
         name: string;
@@ -19,15 +20,16 @@ const ProblemSmall = ({ problem, index } : {
             cursor: "pointer",
         }}
         className="problem_small"
+        ref={(el) => containers.current[index] = el}
     >
-        <p className="inline-block w-24 ml-4 mt-3 text-l">
+        <p className="inline-block w-12 ml-2 mt-3 text-l text-center">
             # {problem.id}
         </p>
-        <p className="inline-block w-64 ml-4 mt-3 text-l">
+        <p className="inline-block w-48 ml-2 mt-3 text-l text-center">
              {problem.name}
         </p>
         <p 
-            className="inline-block w-32 ml-4 mt-3 text-l font-semibold"
+            className="inline-block w-12 ml-4 mt-3 text-l text-center font-semibold"
             style={{
                 color: problem.difficulty === "Easy" 
                 ? "#00ADB5"
@@ -38,10 +40,10 @@ const ProblemSmall = ({ problem, index } : {
         >
              {problem.difficulty}
         </p>
-        <p className="inline-block w-24 ml-4 mt-3 text-l">
+        <p className="inline-block w-24 ml-4 pl-4 mt-3 text-l text-center">
              {problem.success} %
         </p>
-        <p className="inline-block w-24 ml-4 mt-3 text-l">
+        <p className="inline-block w-24 ml-4 pl-4 mt-3 text-l text-center">
              {
                 problem.status === "Solved" ?
                 <div 
@@ -67,7 +69,7 @@ const ProblemSmall = ({ problem, index } : {
                 </div>
              } 
         </p>
-        <p className="inline-block w-24 ml-4 mt-3 text-l">
+        <p className="inline-block w-24 ml-4 pl-4 mt-3 text-l text-center">
              {problem.frequency} %
         </p>
         <p className="inline-block w-4 ml-4 mt-3 text-l">

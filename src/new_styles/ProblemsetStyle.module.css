@@ -106,6 +106,23 @@
         position: absolute;
         top: calc(14px + 4.3vh + 7%);
     }
+    .parent {
+        width: 90vw;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+    .problems {
+        position: absolute;
+        margin-left: 5vw;
+        top: 94vh;
+        width: 90vw;
+        height: 70vh;
+        border-radius: 10px;
+    }
+    .problems div {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
 }
 @media screen and (min-width: 600px){
     .daily {
