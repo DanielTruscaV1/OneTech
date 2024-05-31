@@ -58,9 +58,10 @@ button:hover {
     .user_post {
         position: relative;
         width: 100vw !important;
-        height: calc(60vw + 35vh) !important;
+        height: calc(60vw + 23vh) !important;
     }
     .user_post_image {
+        position: absolute !important;
         left: 0 !important;
         margin-left: 5vw !important;
         margin-top: 2vh !important;

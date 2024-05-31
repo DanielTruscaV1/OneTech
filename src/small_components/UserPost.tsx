@@ -16,6 +16,7 @@ const UserPost = ({ user, post } : {
     <div
         style={{
             display: "block",
+            marginTop: "3vh",
             width: "100%",
             height: "100%",
             backgroundColor: "#F8F8F8",
@@ -26,7 +27,7 @@ const UserPost = ({ user, post } : {
         <img 
             src={ user.image }
             style={{
-                position: "absolute",
+                position: "relative",
                 left: "3rem",
                 top: "2vh",
                 width: "3.5rem",
@@ -39,9 +40,9 @@ const UserPost = ({ user, post } : {
         />
         <p
             style={{
-                position: "absolute",
+                position: "relative",
                 left: "8rem",
-                top: "2vh",
+                top: "-5vh",
                 width: "8rem",
                 height: "1rem",
                 fontSize: "20px",
@@ -53,9 +54,9 @@ const UserPost = ({ user, post } : {
         </p>
         <p
             style={{
-                position: "absolute",
+                position: "relative",
                 left: "8rem",
-                top: "6vh",
+                top: "-3.5vh",
                 width: "8rem",
                 height: "1rem",
                 fontSize: "16px",
@@ -68,9 +69,9 @@ const UserPost = ({ user, post } : {
         <img 
             src="/home2.png"
             style={{
-                position: "absolute",
-                right: "2rem",
-                top: "2vh",
+                position: "relative",
+                left: "90%",
+                top: "-9vh",
                 width: "2rem",
                 height: "2rem",
                 cursor: "pointer",
@@ -80,9 +81,9 @@ const UserPost = ({ user, post } : {
         <img 
             src={ post.image }
             style={{
-                position: "absolute",
+                position: "relative",
                 left: "12%",
-                top: "12vh",
+                top: "-3.5vh",
                 width: "80%",
                 height: "65%",
                 borderRadius: "10px",
@@ -92,9 +93,9 @@ const UserPost = ({ user, post } : {
         />
         <div 
             style={{
-                position: "absolute",
+                position: "relative",
                 left: "13%",
-                top: "calc(65% + 14vh)",
+                top: "-2vh",
                 width: "80%",
                 borderRadius: "10px",
             }}

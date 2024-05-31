@@ -154,6 +154,7 @@
     }
 }
 .show {
+    position: fixed;
     margin-top: 0.5vh;
     width: 30px;
     cursor: pointer;
