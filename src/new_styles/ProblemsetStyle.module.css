@@ -103,7 +103,8 @@
         padding-left: 50px;
     }
     .filter img {
-        margin-top: 0.9vh;
+        position: absolute;
+        top: calc(14px + 4.3vh + 7%);
     }
 }
 @media screen and (min-width: 600px){
@@ -122,8 +123,9 @@
         font-size: 14px;
     }
     .daily button {
-        margin-left: 1vw;
-        margin-top: 4.5vh;
+        position: absolute;
+        left: 1vw;
+        bottom: 1vh;
         width: 30%;
         height: 4.5vh;
         background-color: #E5E5E5;
@@ -131,7 +133,7 @@
         text-align: left;
     }
     .daily .info {
-        margin-left: 1vw;
+        margin-left: calc(30% + 1vw);
     }
     .daily button p {
         display: inline-block;
