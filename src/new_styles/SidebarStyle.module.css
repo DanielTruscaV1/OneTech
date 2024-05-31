@@ -1,0 +1,155 @@
+@media screen and (max-width: 600px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 18vw;
+        height: 100vh;
+        background-color: white;
+        border-right: 2.5px solid rgb(220, 220, 220);
+    }
+    .sidebar button {
+        display: block;
+        margin-left: 1.5vw;
+        margin-top: 1.5vw;
+        width: 15vw;
+        height: 15vw;
+        border-radius: 50%;
+    }
+    .sidebar button img {
+        width: 7.5vw;
+        margin-left: 3.75vw;
+    }
+    .sun {
+        display: inline-block;
+        margin-left: 1vw;
+        width: 20px;
+    }
+    .moon {
+        display: inline-block;
+        width: 15px;
+        margin-left: 5vw;
+        margin-top: -0.25vh;
+    }
+    .toggle1 {
+        margin-left: 2vw;
+        margin-top: 1vh;
+        width: 14vw;
+        height: 2vh;
+        background-color: #F5F5F5;
+        border-radius: 10px;
+    }
+    .toggle2 {
+        width: 2vh;
+        height: 2vh;
+        background-color: #D9D9D9;
+        border-radius: 50%;
+    }
+    .theme {
+        position: absolute;
+        bottom: 2vh;
+    }
+    .show {
+        width: 30px;
+        position: absolute;
+        left: 5vw;
+        top: 3.5vh;
+    }
+    .gap {
+        width: 100%;
+        height: 1.25vh;
+    }
+}
+@media screen and (min-width: 400px) {
+    .sidebar {
+        width: 14vw;
+    }
+    .sidebar button {
+        margin-left: 2vw;
+        width: 10vw;
+        height: 10vw;
+    }
+    .sidebar button img {
+        width: 5vw;
+        margin-left: 2.5vw;
+    }
+    .moon {
+        margin-left: 9vw;
+        margin-top: -9vw;
+    }
+    .toggle1 {
+        margin-top: -2vh;
+        width: 10vw;
+    }
+    .show {
+        width: 30px;
+        position: absolute;
+        left: 5vw;
+        top: 4vh;
+    }
+    .gap {
+        width: 100%;
+        height: 1.5vh;
+    }
+}
+@media screen and (min-width: 600px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 6vw;
+        height: 100vh;
+        background-color: white;
+        border-right: 2.5px solid rgb(220, 220, 220);
+    }
+    .sidebar button {
+        display: block;
+        margin-left: 1vw;
+        margin-top: 1vw;
+        width: 4vw;
+        height: 4vw;
+        border-radius: 50%;
+    }
+    .sidebar button img {
+        width: 1.8vw;
+        margin-left: 1.1vw;
+    }
+    .sun {
+        display: inline-block;
+        margin-left: 0.75vw;
+        width: 20px;
+    }
+    .moon {
+        display: inline-block;
+        width: 15px;
+        margin-left: 4.25vw;
+        margin-top: -7.1vh;
+    }
+    .toggle1 {
+        margin-left: 0.75vw;
+        margin-top: -2vh;
+        width: 4.5vw;
+        height: 2vh;
+        background-color: #F5F5F5;
+        border-radius: 10px;
+    }
+    .toggle2 {
+        width: 2vh;
+        height: 2vh;
+        background-color: #D9D9D9;
+        border-radius: 50%;
+    }
+    .theme {
+        position: absolute;
+        bottom: 2vh;
+    }
+    .show {
+        width: 40px;
+        position: absolute;
+        left: 2vw;
+        top: 4vh;
+    }
+}
+.show {
+    cursor: pointer;
+}

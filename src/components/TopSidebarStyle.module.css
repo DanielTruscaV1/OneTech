@@ -47,7 +47,7 @@
     .image {
         position: absolute;
         top: -37px !important;
-        right: 5vw;
+        left: 0;
     }
 }
 @media screen and (min-width: 600px) {
