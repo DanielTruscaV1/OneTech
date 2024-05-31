@@ -56,7 +56,7 @@
         width: 30px;
         position: absolute;
         left: 5vw;
-        top: 3.5vh;
+        top: 3.3vh !important;
     }
     .gap {
         width: 100%;
@@ -78,7 +78,7 @@
     }
     .moon {
         margin-left: 9vw;
-        margin-top: -9vw;
+        margin-top: -12vw;
     }
     .toggle1 {
         margin-top: -2vh;
@@ -125,8 +125,8 @@
     .moon {
         display: inline-block;
         width: 15px;
-        margin-left: 4.25vw;
-        margin-top: -7.1vh;
+        margin-left: 4vw;
+        margin-top: -7vh;
     }
     .toggle1 {
         margin-left: 0.75vw;
@@ -154,5 +154,7 @@
     }
 }
 .show {
+    margin-top: 0.5vh;
+    width: 30px;
     cursor: pointer;
 }
