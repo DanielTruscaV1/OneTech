@@ -1,5 +1,4 @@
-const ProblemSmall = ({ containers, problem, index } : {
-    containers: any;
+const ProblemSmall = ({ problem, index } : {
     problem: {
         id: string;
         name: string;
@@ -20,7 +19,6 @@ const ProblemSmall = ({ containers, problem, index } : {
             cursor: "pointer",
         }}
         className="problem_small"
-        ref={(el) => containers.current[index] = el}
     >
         <p className="inline-block w-12 ml-2 mt-3 text-l text-center">
             # {problem.id}
