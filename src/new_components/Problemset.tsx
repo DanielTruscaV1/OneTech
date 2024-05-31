@@ -15,13 +15,13 @@ const Problemset = () => {
             <h1>
                 Word Break II
             </h1>
-            <button>
+            <button className={styles.tags}>
                 <img src="/problemset3.png"/>
                 <p>
                 Show Tags
                 </p>
             </button>
-            <button>
+            <button className={styles.info}>
                 <img src="/info1.png"/>
                 <p>
                 Show Info
