@@ -15,7 +15,7 @@
     }
     .daily button {
         margin-left: 5vw;
-        margin-top: 8vh;
+        margin-top: 8.5vh;
         width: 40%;
         height: 5vh;
         background-color: #E5E5E5;
@@ -38,6 +38,7 @@
 }
 @media screen and (min-width: 400px){
     .daily button {
+        margin-top: 10vh;
         width: 30%;
     }
 }
@@ -58,7 +59,7 @@
     }
     .daily button {
         margin-left: 1vw;
-        margin-top: 4vh;
+        margin-top: 4.5vh;
         width: 30%;
         height: 4.5vh;
         background-color: #E5E5E5;
