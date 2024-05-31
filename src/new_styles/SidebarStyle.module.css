@@ -56,7 +56,7 @@
         width: 30px;
         position: absolute;
         left: 5vw;
-        top: 3.3vh !important;
+        top: 2.3vh !important;
     }
     .gap {
         width: 100%;
@@ -156,6 +156,10 @@
 .show {
     position: fixed;
     margin-top: 0.5vh;
-    width: 30px;
+    width: 50px;
     cursor: pointer;
+    z-index: 3;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
 }

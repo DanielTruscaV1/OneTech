@@ -58,13 +58,13 @@ button:hover {
     .user_post {
         position: relative;
         width: 100vw !important;
-        height: calc(60vw + 23vh) !important;
+        height: 44.5vh !important;
     }
     .user_post_image {
-        position: absolute !important;
+        position: relative !important;
         left: 0 !important;
         margin-left: 5vw !important;
-        margin-top: 2vh !important;
+        margin-top: 1vh !important;
         width: 90vw !important;
         height: 60vw !important;
     }
@@ -75,13 +75,14 @@ button:hover {
         left: calc(7vw + 60px) !important;
     }
     .user_post_settings {
+        margin-top: 1.7vw !important;
         width: 20px !important;
         height: 20px !important;
     }
     .user_post_actions {
         position: relative !important;
-        left: 0 !important;
-        top: calc(60vw + 17vh) !important;
+        left: 1.1vw !important;
+        top: -2vh !important;
         width: 100vw !important;
     }
     .user_post_actions div {
