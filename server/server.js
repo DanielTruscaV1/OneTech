@@ -7,17 +7,38 @@ const cors = require('cors');
 const app = express();
 const port = 3000; // You can change the port number as needed
 
+const validApiKeys = [process.env.VITE_VALID_API_KEY];
+
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 10, // limit each IP to 100 requests per windowMs
   message: 'Too many requests from this IP, please try again later'
 });
 
+const apiKeyMiddleware = (req, res, next) => {
+  const apiKey = req.headers['api-key'];
+
+  // Check if API key is provided
+  if (!apiKey) {
+    return res.status(401).json({ error: 'API key is required' });
+  }
+
+  // Check if API key is valid
+  if (!validApiKeys.includes(apiKey)) {
+    return res.status(403).json({ error: 'Invalid API key' });
+  }
+
+  // API key is valid, proceed to next middleware
+  next();
+};
+
 app.use(express.json());
 
 app.use(cors());
 
 app.use(limiter);
+
+app.use(apiKeyMiddleware);
 
 app.get('/api/documents', async (req, res) => {
     const collection = 'Users';
