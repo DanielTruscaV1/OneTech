@@ -19,6 +19,12 @@ const SignUp = () => {
         {
           email,
           password,
+        },
+        {
+          headers: {
+            'api-key': '',
+            // Add other headers if needed
+          }
         }
       );
   

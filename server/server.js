@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser } = require('./database');
 const cors = require('cors');
 const app = express();
+const encoder = require('./encoder');
 const port = 3000; // You can change the port number as needed
 
 const validApiKeys = [process.env.VITE_VALID_API_KEY];
