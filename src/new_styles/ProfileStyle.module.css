@@ -1,0 +1,158 @@
+@media screen and (max-width: 600px) {
+    .profile {
+        display: flex;
+        flex-direction: column;
+    }
+    .profile .image {
+        margin-left: 30vw;
+        margin-top: 12.5vh;
+        margin-bottom: 3vh;
+        width: 40vw;
+        height: 40vw;
+        border-radius: 50%;
+    }
+    .profile h1 {
+        text-align: center;
+    }
+    .status1 {
+        display: inline-block;
+        width: 45%;
+        text-align: right !important;
+        padding-right: 1vw;
+        font-size: 20px;
+        color: #00ADB5;
+    }
+    .status2 {
+        display: inline-block;
+        width: 55%;
+        color: #00ADB5;
+        font-size: 16px;
+        text-align: left !important;
+        padding-left: 1vw;
+    }
+    .profile hr {
+        width: 90vw;
+        margin-left: 5vw;
+        margin-top: 2vh;
+    }
+    .info2 p {
+        margin-left: 5%;
+        margin-top: 2vh;
+        width: 90%;
+        text-align: justify;
+    }
+    .info2 button {
+        margin-left: 6.5vw;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        width: 40%;
+        height: 6vh;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+    }
+    .info2 button img {
+        display: inline-block;
+        margin-right: 3vw;
+    }
+    .info2 h2 {
+        margin-left: 5vw;
+        margin-bottom: 2vh;
+        width: 90vw;
+        font-size: 18px;
+    }
+    .info2 h2 img {
+        display: inline-block;
+        margin-right: 3vw;
+        width: 25px;
+    }
+}
+@media screen and (min-width: 600px) {
+    .profile {
+        display: flex;
+    }
+    .profile .image {
+        position: absolute;
+        left: 11vw;
+        top: 15vh;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+    }
+    .profile h1 {
+        margin-bottom: 0vh !important;
+        margin-left: 5%;
+        width: 90%;
+        text-align: left;
+    }
+    .status1 {
+        display: inline-block;
+        width: 1vw !important;
+        text-align: right !important;
+        padding-right: 1vw;
+        font-size: 20px;
+        color: #00ADB5;
+    }
+    .status2 {
+        display: inline-block;
+        width: 10vw !important;
+        color: #00ADB5;
+        font-size: 16px;
+        text-align: left !important;
+        padding-left: 0vw;
+        margin-left: 0vw !important;
+    }
+    .info {
+        position: absolute;
+        left: calc(11vw + 120px);
+        top: 15vh;
+        padding-top: 3vh;
+        width: calc(31vw - 120px);
+        height: 20vh;
+        border-right: 2px solid rgb(230, 230, 230);
+    }
+    .info2 {
+        position: absolute;
+        left: 11vw;
+        top: calc(15vh + 120px);
+        padding-top: 3vh;
+        width: 31vw;
+        height: 60vh;
+        border-right: 2px solid rgb(230, 230, 230);
+    }
+    .profile hr {
+        width: 100%;
+        margin-left: 0vw;
+        margin-top: 0vh;
+        margin-bottom: 2vh;
+        border: 0.1px solid rgb(230, 230, 230);
+    }
+    .info2 p {
+        margin-top: 2vh;
+        width: 90%;
+        text-align: justify;
+    }
+    .info2 button {
+        margin-right: 10%;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        width: 40%;
+        height: 6vh;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+    }
+    .info2 button img {
+        display: inline-block;
+        margin-right: 0.5vw;
+    }
+    .info2 h2 {
+        margin-left: 0vw;
+        margin-bottom: 2vh;
+        width: 90vw;
+        font-size: 18px;
+    }
+    .info2 h2 img {
+        display: inline-block;
+        margin-right: 1vw;
+        width: 25px;
+    }
+}

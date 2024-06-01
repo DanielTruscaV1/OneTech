@@ -22,6 +22,7 @@ import Problemset from './new_components/Problemset';
 import Rankings from './components/Rankings';
 import Theory from './new_components/Theory';
 import Problem from './components/Problem';
+import Profile from './new_components/Profile';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
   {
     path: "/sign-up",
     element: <SignUp/>
+  },
+  {
+    path: "/profile",
+    element: <Profile/>
   },
   {
     path: "/problemset",

@@ -34,7 +34,7 @@ const Sidebar = () => {
             <button>
                 <img src="/nav5.png"/>
             </button>
-            <button>
+            <button onClick={() => navigate('/profile')}>
                 <img src="/nav6.png"/>
             </button>
             <button>
