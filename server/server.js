@@ -1,4 +1,5 @@
 const express = require('express');
+const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser } = require('./database');
@@ -6,9 +7,17 @@ const cors = require('cors');
 const app = express();
 const port = 3000; // You can change the port number as needed
 
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 50, // limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again later'
+});
+
 app.use(express.json());
 
 app.use(cors());
+
+app.use(limiter);
 
 app.get('/api/documents', async (req, res) => {
     const collection = 'Users';
