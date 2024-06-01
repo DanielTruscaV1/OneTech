@@ -39,7 +39,11 @@ const SignUp = () => {
         src="/auth1.png"
         className={styles.background}
       />
-      <div className={styles.card}>
+      <img 
+          src="/auth3.png"
+          className={styles.background3}
+        />
+      <div className={styles.card2}>
         <h1 className="mt-4 text-3xl text-center font-semibold">
           Welcome to <span style={{ color: "#00ADB5"}}>OneTech!</span>
         </h1>

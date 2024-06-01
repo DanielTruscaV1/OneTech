@@ -1,6 +1,6 @@
 //Import the CSS module file for this specific component
 import { useState, FormEvent } from 'react';
-import styles from './SignUpStyle.module.css';
+import styles from './SignInStyle.module.css';
 
 import { useNavigate } from "react-router-dom"
 import axios from 'axios';
@@ -46,6 +46,10 @@ const SignUp = () => {
         <img 
           src="/auth1.png"
           className={styles.background}
+        />
+        <img 
+          src="/auth3.png"
+          className={styles.background3}
         />
         <div className={styles.card2}>
           <h1 className="mt-4 text-3xl text-center font-semibold">

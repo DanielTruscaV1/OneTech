@@ -1,7 +1,51 @@
 @media screen and (max-width: 600px) {
-    
+    .background {
+        display: none;
+    }
+    .background3 {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+    }
+    .card2 {
+        position: absolute;
+        left: 10vw;
+        top: 15vh;
+        width: 80vw;
+        height: 67vh;
+        background-color: rgb(245, 245, 245);
+        border-radius: 20px;
+        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
+        z-index: 2;
+    }
+    .card2 h1{
+        font-size: 24px !important;
+    }
+    .input {
+        margin-left: 10%;
+        margin-top: 30px;
+        width: 80%;
+        height: 50px;
+        background-color: #EEEEEE;
+        border-radius: 10px;
+        padding-left: 20px;
+        font-size: 18px;
+    }
+    .card button, .card2 button {
+        margin-left: 10%;
+        margin-top: 20px;
+        width: 80%;
+        height: 40px;
+        background: rgb(0,173,181);
+        background: linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%);
+        border-radius: 10px;
+        font-size: 18px;
+    }
 }
 @media screen and (min-width: 600px) {
+    .background3 {
+        display: none;
+    }
     .container {
         width: 100vw;
         height: 100vh;
@@ -12,23 +56,12 @@
         width: 100vw;
         height: 100vh;
     }
-    .card {
-        position: absolute;
-        left: 30%;
-        top: 10%;
-        width: 40%;
-        height: 80%;
-        background-color: rgb(245, 245, 245);
-        border-radius: 20px;
-        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
-        z-index: 2;
-    }
     .card2 {
         position: absolute;
         left: 30%;
         top: 10%;
         width: 40%;
-        height: 60%;
+        height: 80%;
         background-color: rgb(245, 245, 245);
         border-radius: 20px;
         box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
