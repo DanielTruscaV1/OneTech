@@ -15,7 +15,7 @@ const SignUp = () => {
    
     try{
       const response = await axios.post(
-        "http://localhost:3000/api/signin",
+        "https://onetech.onrender.com/api/signin",
         {
           email,
           password,
