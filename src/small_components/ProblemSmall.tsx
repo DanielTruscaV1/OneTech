@@ -48,7 +48,7 @@ const ProblemSmall = ({ problem, index } : {
                     className="icon absolute rounded-full"
                     style={{ 
                         top: "0",
-                        marginLeft: "0.5vw",
+                        marginLeft: "1.2vw",
                         marginTop: "1.5vh",
                         width: "2vw",
                         height: "2vw",
