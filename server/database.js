@@ -87,26 +87,30 @@ async function getUserById(id) {
   async function registerUser(email, password) {
     try {
       const result = await client.query(
-        q.Call(
-          'getUserByEmail',
-          email
-        )
-      )
+        q.Call('getUserByEmail', email)
+      );
+  
+      if (!result) {
+        console.log('User not found.');
+        throw new Error('Invalid info.');
+      }
+  
       const user = result.data;
       const isPasswordValid = await bcrypt.compare(password, user.password);
       if (isPasswordValid) {
-          const response = await client.query(q.Create(
-            q.Collection('Sessions'),
-            { data: { email } }
-          ))
-          return "Session created succesfully."
+        const response = await client.query(q.Create(
+          q.Collection('Sessions'),
+          { data: { email } }
+        ));
+        response.status = 201;
+        return response;
       } else {
-          console.log('Invalid info.');
-          throw error;
+        console.log('Invalid info.');
+        throw new Error('Invalid info.');
       }
     } catch (error) {
-        console.log("Error at user sign-in: ", error);
-        throw error;
+      console.log('Error at user sign-in: ', error);
+      return error instanceof Error ? error.message : 'An unknown error occurred';
     }
   }
 

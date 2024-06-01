@@ -45,7 +45,10 @@ app.get('/api/documents', async (req, res) => {
     const { email, password } = req.body;
     try {
       const result = await registerUser(email, password);
-      res.status(201).json({ message: 'Sign-in successfull.', result});
+      if(result.status === 201)
+        res.status(201).json({ message: 'Sign-in successfull.', result});
+      else 
+        throw Error("Invalid info.");
     } catch (error) {
       res.status(400).send('Sign-in failed: ' + error.message);
     }
