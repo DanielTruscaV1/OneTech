@@ -16,6 +16,7 @@ const Profile = () => {
                 Ezreal
             </h1>
             <h1 className="text-orange-400 font-semibold">
+                <img className="inline-block w-5 mr-3" src="/crown1.png"/>
                 Premium Member
             </h1>
             <div className="w-full">
