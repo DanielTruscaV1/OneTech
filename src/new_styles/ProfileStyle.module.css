@@ -11,7 +11,7 @@
         height: 40vw;
         border-radius: 50%;
     }
-    .profile h1 {
+    .info h1 {
         text-align: center;
     }
     .status1 {
@@ -78,7 +78,7 @@
         height: 120px;
         border-radius: 50%;
     }
-    .profile h1 {
+    .info h1 {
         margin-bottom: 0vh !important;
         margin-left: 5%;
         width: 90%;
