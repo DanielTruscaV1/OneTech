@@ -1,5 +1,5 @@
 //Import the CSS module file for this specific component
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
 import styles from './SignUpStyle.module.css';
 
 import { useNavigate } from "react-router-dom"
