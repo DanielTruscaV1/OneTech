@@ -1,0 +1,124 @@
+@media screen and (max-width: 600px){
+    .theory {
+        display: flex;
+        flex-direction: column;
+    }
+    .current {
+        margin-left: 5vw;
+        margin-top: 12.5vh;
+        width: 90vw;
+        height: 18vh;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+    }
+    .current h1 {
+        margin-top: 1.3vh;
+        font-size: 16px;
+        text-align: center;
+    }
+    .current p {
+        margin-top: 1.3vh;
+        font-size: 14px;
+        color: rgb(170, 170, 170);
+        text-align: center;
+    }
+    .progress1 {
+        margin-left: 25%;
+        margin-top: 1.5vh;
+        width: 50%;
+        height: 2.2vh;
+        background-color: #D9D9D9;
+        border-radius: 7.5px;
+    }
+    .progress2 {
+        width: 50%;
+        height: 2vh;
+        background: rgb(0,173,181);
+        background: linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%);
+        border-radius: 7.5px;
+    }
+    .content {
+        margin-left: 5vw;
+        margin-top: 3vh;
+        margin-bottom: 5vh;
+        padding-bottom: 3vh;
+        width: 90vw;
+        height: auto;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+    }
+    .content h1 {
+        margin-left: 10%;
+        margin-top: 2vh;
+        width: 90%;
+        font-size: 18px;
+    }
+    .content p {
+        margin-left: 10%;
+        margin-top: 2vh;
+        width: 80%;
+        font-size: 16px;
+        text-align: justify;
+    }
+}
+@media screen and (min-width: 600px){
+    .current {
+        position: absolute;
+        left: 11vw;
+        top: 15vh;
+        width: 20vw;
+        height: 18vh;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+    }
+    .current h1 {
+        margin-top: 0.7vh;
+        font-size: 16px;
+        text-align: center;
+    }
+    .current p {
+        margin-top: 0.7vh;
+        font-size: 14px;
+        color: rgb(170, 170, 170);
+        text-align: center;
+    }
+    .progress1 {
+        margin-left: 25%;
+        margin-top: 1.5vh;
+        width: 50%;
+        height: 2.2vh;
+        background-color: #D9D9D9;
+        border-radius: 7.5px;
+    }
+    .progress2 {
+        width: 50%;
+        height: 2vh;
+        background: rgb(0,173,181);
+        background: linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%);
+        border-radius: 7.5px;
+    }
+    .content {
+        position: absolute;
+        left: 11vw;
+        top: 36vh;
+        padding-bottom: 3vh;
+        width: 45vw;
+        height: 58vh;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+        overflow-y:scroll;
+    }
+    .content h1 {
+        margin-left: 5%;
+        margin-top: 2vh;
+        width: 95%;
+        font-size: 18px;
+    }
+    .content p {
+        margin-left: 5%;
+        margin-top: 2vh;
+        width: 90%;
+        font-size: 16px;
+        text-align: justify;
+    }
+}

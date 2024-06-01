@@ -13,6 +13,9 @@
         top: 27vh;
         width: 100vw;
     }
+    .aside {
+        display: none;
+    }
 }
 @media screen and (min-width: 600px) {
     .stories {
@@ -26,9 +29,25 @@
     }
     .feed {
         position: absolute;
-        top: 35vh;
+        top: 32vh;
         left: 11vw;
         width: 55vw;
         height: 60vh;
+    }
+    .aside {
+        position: absolute;
+        top: 35vh;
+        right: 4vw;
+        width: 26vw;
+        height: 60vh;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+    }
+    .aside_image {
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 2rem;
+        border-radius: 10px;
+        cursor: pointer;
     }
 }

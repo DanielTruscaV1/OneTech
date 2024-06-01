@@ -20,7 +20,7 @@ import UserProfile from './components/UserProfile';
 import "./App.css";
 import Problemset from './new_components/Problemset';
 import Rankings from './components/Rankings';
-import Theory from './components/Theory';
+import Theory from './new_components/Theory';
 import Problem from './components/Problem';
 
 const router = createBrowserRouter([

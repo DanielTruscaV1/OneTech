@@ -1,11 +1,13 @@
 import { useState } from "react"
 import styles from "../new_styles/SidebarStyle.module.css"
 
-
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
 
     const [sidebar, setSidebar] = useState(false);
+
+    const navigate = useNavigate();
 
   return (
     <>
@@ -17,13 +19,13 @@ const Sidebar = () => {
             <button onClick={() => setSidebar(false)}>
                 <img src="/nav0.png"/>
             </button>
-            <button>
+            <button onClick={() => navigate('/home')}>
                 <img src="/nav11.png"/>
             </button>
-            <button>
+            <button onClick={() => navigate('/theory')}>
                 <img src="/nav22.png"/>
             </button>
-            <button>
+            <button onClick={() => navigate('/problemset')}>
                 <img src="/nav33.png"/>
             </button>
             <button>
@@ -56,7 +58,7 @@ const Sidebar = () => {
         </div>
         :
         <img 
-            src="/nav00.png"
+            src="/menu1.png"
             className={styles.show}
             onClick={() => setSidebar(true)}
         />

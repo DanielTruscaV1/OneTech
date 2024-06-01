@@ -5,6 +5,7 @@ import Top from "./Top"
 import UserCircle from "../small_components/UserCircle"
 import UserPost from "../small_components/UserPost"
 import UserComment from "../small_components/UserComment"
+import UserCircleHorizontal from "../small_components/UserCircleHorizontal"
 
 const Home = () => {
   const mock_db = [
@@ -100,6 +101,14 @@ const Home = () => {
           <UserPost user={mock_feed_user[1]} post = {mock_feed_post[1]}/>
           <UserComment user={mock_comment_user[1]} content={mock_comment_content[1]}/>
         </div>
+        <div className={styles.aside}>
+          <img 
+            className={styles.aside_image}
+            src='/home_aside_1.jpg'
+          />
+          <UserCircleHorizontal image={mock_db[0].image} name={mock_db[0].name} email={mock_db[0].email}/>
+          <UserCircleHorizontal image={mock_db[1].image} name={mock_db[1].name} email={mock_db[1].email}/>
+        </div>  
     </div>
   )
 }
