@@ -68,12 +68,12 @@ async function getUserById(id) {
     }
   }
 
-  async function createUser(firstName, lastName, email, password) {
+  async function createUser(username, email, password) {
     try {
       const newUser = await client.query(
         q.Create(
           q.Collection('Users'),
-          { data: { firstName, lastName, email, password } }
+          { data: { username, email, password } }
         )
       );
   

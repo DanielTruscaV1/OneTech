@@ -86,14 +86,14 @@ app.get('/api/documents', async (req, res) => {
 });
 
   app.post('/api/signup', async (req, res) => {
-    const { firstName, lastName , email, password } = req.body;
+    const { username , email, password, confirm } = req.body;
   
-    if (!firstName || !lastName ||  !email || !password) {
+    if (!username || !email ||  !password || !confirm) {
       return res.status(400).json({ error: 'Please provide username, email, and password' });
     }
   
     try {
-      const user = await createUser(firstName, lastName, email, password);
+      const user = await createUser(username, email, password);
   
       res.status(201).json({ message: 'User created successfully', user });
     } catch (error) {

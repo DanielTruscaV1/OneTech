@@ -56,11 +56,6 @@ const SignUp = () => {
     }
   }
 
-  function disableButton() {
-    // Disable the button
-    setButton(false);
-  }
-
   return (
     <>
       <form 
