@@ -1,13 +1,29 @@
 import styles from "../new_styles/TopStyle.module.css"
 
 
-const Top = () => {
+interface User {
+    id: number;
+    username: string;
+    email: string;
+    image: string;
+    description: string;
+    location: string;
+    language: string;
+  }
+
+  interface UserProps {
+    user: User | null;
+  }
+
+const Top : React.FC<UserProps> = ({ user }) => {
   return (
     <div className={styles.top}>
+        { user && 
+        <>
         <h1>
-            Welcome back, <span>Ezreal!</span>
+            Welcome back, <span>{ user.username }!</span>
         </h1>
-        <img src="/user11.png"/>
+        <img src={ user.image} />
         <div className={styles.search}>
             <input 
                 type="text"
@@ -17,6 +33,8 @@ const Top = () => {
                 Search
             </p>
         </div>
+        </>
+        }
     </div>
   )
 }

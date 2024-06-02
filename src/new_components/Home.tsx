@@ -6,6 +6,9 @@ import UserCircle from "../small_components/UserCircle"
 import UserPost from "../small_components/UserPost"
 import UserComment from "../small_components/UserComment"
 import UserCircleHorizontal from "../small_components/UserCircleHorizontal"
+import { useEffect, useState } from "react"
+import { getUserData, User } from '../getUser.tsx';
+
 
 const Home = () => {
   const mock_db = [
@@ -85,10 +88,32 @@ const Home = () => {
     },
   ]
 
+    const [user, setUser] = useState<User | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);  
+
+    useEffect(() => {
+        const fetchUserInfo = async () => {
+          const userData = await getUserData();
+    
+          if (userData) {
+            setUser(userData);
+          } else {
+            setError('Failed to fetch user data');
+          }
+          setLoading(false);
+        };
+    
+        fetchUserInfo();
+      }, []);
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
+
   return (
     <div className={styles.home}>
         <Sidebar/>
-        <Top/>
+        <Top user={user}/>
         <div className={styles.stories}>
           <UserCircle image={mock_db[0].image} name={mock_db[0].name}/>
           <UserCircle image={mock_db[1].image} name={mock_db[1].name}/>

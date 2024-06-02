@@ -2,11 +2,36 @@ import styles from "../new_styles/TheoryStyle.module.css"
 import Sidebar from "./Sidebar"
 import Top from "./Top"
 
+import { getUserData, User } from '../getUser.tsx';
+import { useEffect, useState } from "react";
+
 const Theory = () => {
+    const [user, setUser] = useState<User | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);  
+
+    useEffect(() => {
+        const fetchUserInfo = async () => {
+          const userData = await getUserData();
+    
+          if (userData) {
+            setUser(userData);
+          } else {
+            setError('Failed to fetch user data');
+          }
+          setLoading(false);
+        };
+    
+        fetchUserInfo();
+      }, []);
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
+
   return (
     <div className={styles.theory}>
         <Sidebar/>
-        <Top/>
+        <Top user={user}/>
         <div className={styles.current}>
             <h1>
                 Current Chapter - 1. Variables

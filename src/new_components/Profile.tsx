@@ -4,17 +4,7 @@ import EditProfile from "./EditProfile"
 import Sidebar from "./Sidebar"
 import Top from "./Top"
 
-import axios from "axios"
-
-interface User {
-    id: number;
-    username: string;
-    email: string;
-    image: string;
-    description: string;
-    location: string;
-    language: string;
-  }
+import { getUserData, User } from '../getUser.tsx';
 
 const Profile = () => {
 
@@ -24,15 +14,14 @@ const Profile = () => {
 
     useEffect(() => {
         const fetchUserInfo = async () => {
-          try {
-            const response = await axios.get<User>('https://onetech.onrender.com/api/users/398256123387314379'); // Replace with your API endpoint
-            setUser(response.data);
-            setLoading(false);
-            console.log(response.data);
-          } catch (err : any) {
-            setError(err.message);
-            setLoading(false);
+          const userData = await getUserData();
+    
+          if (userData) {
+            setUser(userData);
+          } else {
+            setError('Failed to fetch user data');
           }
+          setLoading(false);
         };
     
         fetchUserInfo();
@@ -44,7 +33,7 @@ const Profile = () => {
   return (
     <div className={styles.profile}>
         <Sidebar/>
-        <Top/>
+        <Top user={user}/>
         <EditProfile/>
         { user &&
         <>
