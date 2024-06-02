@@ -15,6 +15,7 @@ export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
   useEffect(() => {
+    //console.log("Validating");
     const token = localStorage.getItem('token');
     if (token) {
       const parsedToken = parseJwt(token);
@@ -48,5 +49,6 @@ export const useAuth = (): AuthContextType => {
   if (!context) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
+  //console.log("Context is: ", context)
   return context;
 };

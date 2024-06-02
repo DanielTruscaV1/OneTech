@@ -70,19 +70,26 @@ async function getUserById(id) {
 
   async function createUser(username, email, password) {
     try {
-      const newUser = await client.query(
-        q.Create(
-          q.Collection('Users'),
-          { data: { username, email, password } }
-        )
-      );
-  
-      return newUser.data;
+        // Generate a salt
+        const salt = await bcrypt.genSalt(10);
+
+        // Hash the password using the salt
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        // Now you can store the hashed password in your database
+        const newUser = await client.query(
+            q.Create(
+                q.Collection('Users'),
+                { data: { username, email, password: hashedPassword } }
+            )
+        );
+
+        return newUser.data;
     } catch (error) {
-      console.error('Error creating user:', error);
-      throw error;
+        console.error('Error creating user:', error);
+        throw error;
     }
-  }
+}
 
   async function registerUser(email, password) {
     try {

@@ -1,3 +1,8 @@
+import { Buffer } from 'buffer';
+
+// @ts-ignore
+window.Buffer = Buffer;
+
 export const parseJwt = (token: string): { [key: string]: any } | null => {
   try {
     const base64Url = token.split('.')[1];
