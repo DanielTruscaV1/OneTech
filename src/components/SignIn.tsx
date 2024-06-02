@@ -37,11 +37,14 @@ const SignUp = () => {
             }
           }
         );
-    
+
         if(response.status === 201)
         {
             const token = response.data.result.token;
             login(token);
+            
+            localStorage.setItem("userID", response.data.result.id)
+
             navigate('/profile');
         }
       }

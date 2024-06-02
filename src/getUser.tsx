@@ -12,6 +12,9 @@ export interface User
   }
 
 export const getUserData = async (): Promise<User | null> => {
+  const userIDString = localStorage.getItem("userID");
+  const userID = userIDString !== null ? parseInt(userIDString, 10) : null;
+  
   const userData = localStorage.getItem('user');
 
   if (userData) {
@@ -23,7 +26,10 @@ export const getUserData = async (): Promise<User | null> => {
   }
 
   try {
-    const response = await axios.get<User>("https://onetech.onrender.com/api/users/398256123387314379'"); // Replace with your API endpoint
+    const response = await axios.get<User>(
+      `https://onetech.onrender.com/api/users/${userID}`
+      //`http://localhost:3000/api/users/${userID}`
+    ); // Replace with your API endpoint
     const user = response.data;
     localStorage.setItem('user', JSON.stringify(user));
     return user;

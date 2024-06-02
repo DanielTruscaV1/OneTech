@@ -60,7 +60,7 @@ async function getAllDocuments(collection) {
 
 async function getUserById(id) {
     try {
-      const user = await client.query(q.Get(q.Ref(q.Collection("Users"), id)));
+      const user = await client.query(q.Get(q.Match(q.Index("getUserById"), id)));
       return user.data;
     } catch (error) {
       console.error('Error fetching user by ID:', error);
@@ -116,6 +116,8 @@ async function getUserById(id) {
         const token = jwt.sign({ email }, secretKey, { expiresIn: '1h' });
 
         response.token = token;
+
+        response.id = user.id;
 
         return response;
       } else {
