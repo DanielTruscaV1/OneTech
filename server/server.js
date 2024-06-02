@@ -39,7 +39,7 @@ app.use(cors());
 
 app.use(limiter);
 
-app.use(apiKeyMiddleware);
+//app.use(apiKeyMiddleware);
 
 app.get('/api/documents', async (req, res) => {
     const collection = 'Users';

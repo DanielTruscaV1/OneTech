@@ -3,10 +3,13 @@ import { useState, FormEvent } from 'react';
 import styles from './SignInStyle.module.css';
 
 import { useNavigate } from "react-router-dom"
+import { useAuth } from '../auth';
 import axios from 'axios';
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,6 +19,7 @@ const SignUp = () => {
     try{
       const response = await axios.post(
         "https://onetech.onrender.com/api/signin",
+        //"http://localhost:3000/api/signin",
         {
           email,
           password,
@@ -27,16 +31,19 @@ const SignUp = () => {
           }
         }
       );
-  
-      console.log(response.status);
+
+      console.log(response);
   
       if(response.status === 201)
       {
+          const token = response.data.result.token;
+          login(token);
           navigate('/profile');
       }
     }
     catch(error)
     {
+      console.log(error);
       alert("Sign-in failed.");
       setEmail("");
       setPassword("");

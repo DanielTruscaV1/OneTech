@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
@@ -23,11 +23,17 @@ import Rankings from './components/Rankings';
 import Theory from './new_components/Theory';
 import Problem from './components/Problem';
 import Profile from './new_components/Profile';
+import { AuthProvider } from './auth';
+import RequireAuth from './requireAuth';
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Home/>
+    path: "/home",
+    element: ( 
+      <RequireAuth>
+        <Home/>
+      </RequireAuth>
+    )
   },
   {
     path: "/app",
@@ -43,7 +49,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/theory",
-    element: <Theory/>
+    element: ( 
+      <RequireAuth>
+        <Theory/>
+      </RequireAuth>
+    )
+  },
+  {
+    path: "/problemset",
+    element: ( 
+      <RequireAuth>
+        <Problemset/>
+      </RequireAuth>
+    )
   },
   {
     path: "/sign-in",
@@ -55,11 +73,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <Profile/>
-  },
-  {
-    path: "/problemset",
-    element: <Problemset/>
+    element: ( 
+      <RequireAuth>
+        <Profile/>
+      </RequireAuth>
+    )
   },
   {
     path: "/problem/:id",
@@ -77,6 +95,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

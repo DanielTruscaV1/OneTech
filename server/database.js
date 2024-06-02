@@ -98,11 +98,18 @@ async function getUserById(id) {
       const user = result.data;
       const isPasswordValid = await bcrypt.compare(password, user.password);
       if (isPasswordValid) {
+
         const response = await client.query(q.Create(
           q.Collection('Sessions'),
           { data: { email } }
         ));
+
         response.status = 201;
+
+        const token = jwt.sign({ email }, secretKey, { expiresIn: '1h' });
+
+        response.token = token;
+
         return response;
       } else {
         console.log('Invalid info.');
