@@ -1,4 +1,5 @@
 import styles from "../new_styles/ProfileStyle.module.css"
+import EditProfile from "./EditProfile"
 import Sidebar from "./Sidebar"
 import Top from "./Top"
 
@@ -7,6 +8,7 @@ const Profile = () => {
     <div className={styles.profile}>
         <Sidebar/>
         <Top/>
+        <EditProfile/>
         <img 
             src="/home_user_3.png"
             className={styles.image}

@@ -1,0 +1,130 @@
+@media screen and (max-width: 600px) {
+    .edit  button{
+        position: absolute;
+        right: 5vw;
+        top: 12.5vh;
+        width: 15vw;
+        height: 5vh;
+        border-radius: 7.5px;
+        text-align: center;
+        font-size: 16px;
+        background-color: #F8F8F8;
+    }
+    .edit_card {
+        position: absolute;
+        top: 12.5vh;
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+    }
+    .edit_card button {
+        top: 1vh !important;
+        width: 12.5vw;
+    }
+    .edit_card button img {
+        margin-left: 2.5vw;
+    }
+    .title {
+        font-size: 24px !important;
+    }
+    .edit_card h1 {
+        margin-top: 2vh;
+        margin-left: 15vw;
+        width: 70vw;    
+        font-size: 18px;
+    }
+    .edit_card input, .edit_card textarea {
+        margin-left: 15vw;
+        margin-top: 2vh;
+        width: 70vw;
+        height: 4.5vh;
+        background-color: #F5F5F5;
+        border-radius: 10px;
+        padding-left: 10px;
+    }
+    .edit_card textarea {
+        height: 18vh;
+        padding-top: 1vh;
+    }
+    .submit {
+        position: relative !important;
+        left: 15vw !important;
+        margin-top: 5vh !important;
+        width: 70vw !important;
+        font-size: 18px !important;
+        background-color: rgb(0,173,181) !important;
+    background: linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%) !important;
+    }
+    .submit img {
+        display: inline-block;
+        margin-right: 3vw;
+    }
+}
+@media screen and (min-width: 600px) {
+    .edit button{
+        position: absolute;
+        left: 38vw;
+        top: 15vh;
+        width: 3vw;
+        height: 5vh;
+        border-radius: 7.5px;
+        text-align: center;
+        font-size: 16px;
+        background-color: #F8F8F8;
+        z-index: 3;
+    }
+    .edit_card {
+        position: absolute;
+        left: 11vw;
+        top: 15vh;
+        width: 31vw;
+        height: 80vh;
+        background-color: white;
+        z-index: 3;
+        border-right: 2.3px solid rgb(230, 230, 230);
+    }
+    .edit_card button {
+        top: 0vh !important;
+        left: 27vw;
+        width: 3vw;
+        z-index: 3;
+    }
+    .edit_card button img {
+        margin-left: 0.5vw;
+    }
+    .title {
+        font-size: 24px !important;
+    }
+    .edit_card h1 {
+        margin-top: 1vh;
+        margin-left: 0;
+        width: 70vw;    
+        font-size: 18px;
+    }
+    .edit_card input, .edit_card textarea {
+        margin-left: 0;
+        margin-top: 1vh;
+        width: 90%;
+        height: 4.5vh;
+        background-color: #F5F5F5;
+        border-radius: 10px;
+        padding-left: 10px;
+    }
+    .edit_card textarea {
+        height: 18vh;
+        padding-top: 1vh;
+    }
+    .edit_card .submit {
+        position: absolute !important;
+        left: 0vw !important;
+        top: 75vh !important;
+        width: 90% !important;
+        font-size: 18px !important;
+        background-color: rgb(0,173,181) !important;
+    background: linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%) !important;
+    }
+    .submit img {
+        display: inline-block;
+        margin-right: 0.5vw;
+    }
+}
