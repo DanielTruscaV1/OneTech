@@ -39,6 +39,9 @@ button:hover {
     width: 60px !important;
     height: 60px !important;
 }
+.disabled {
+    opacity: 0.5 !important;
+}
 @media screen and (max-width: 600px) {
     .user_circle_container {
         margin-left: 3vw !important;

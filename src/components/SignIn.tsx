@@ -13,41 +13,52 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [button, setButton] = useState(true);
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
-   
-    try{
-      const response = await axios.post(
-        "https://onetech.onrender.com/api/signin",
-        //"http://localhost:3000/api/signin",
-        {
-          email,
-          password,
-        },
-        {
-          headers: {
-            'api-key': '',
-            // Add other headers if needed
-          }
-        }
-      );
 
-      console.log(response);
-  
-      if(response.status === 201)
+    setButton(false);
+
+    if(email != "" && password != "")
+    {
+      try{
+        const response = await axios.post(
+          "https://onetech.onrender.com/api/signin",
+          //"http://localhost:3000/api/signin",
+          {
+            email,
+            password,
+          },
+          {
+            headers: {
+              'api-key': '',
+              // Add other headers if needed
+            }
+          }
+        );
+    
+        if(response.status === 201)
+        {
+            const token = response.data.result.token;
+            login(token);
+            navigate('/profile');
+        }
+      }
+      catch(error)
       {
-          const token = response.data.result.token;
-          login(token);
-          navigate('/profile');
+        console.log(error);
+        alert("Sign-in failed.");
+        setEmail("");
+        setPassword("");
+        setButton(true);
       }
     }
-    catch(error)
-    {
-      console.log(error);
-      alert("Sign-in failed.");
-      setEmail("");
-      setPassword("");
-    }
+  }
+
+  function disableButton() {
+    // Disable the button
+    setButton(false);
   }
 
   return (
@@ -85,7 +96,7 @@ const SignUp = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button>
+          <button type="submit" className={`${!button && "disabled"}`} disabled={!button}>
             Submit
           </button>
           <p className="mt-2 text-l text-center text-gray-400">
