@@ -2,7 +2,7 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser } = require('./database');
+const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers } = require('./database');
 const cors = require('cors');
 const app = express();
 const encoder = require('./encoder');
@@ -82,6 +82,38 @@ app.get('/api/documents', async (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
     }
   });
+
+  app.put('/api/update_user/:id', async (req, res) => {
+    const { id } = req.params;
+    const { image, description, location, language } = req.body;
+    try {
+      const response = await updateUserInfo(id, 
+        {
+          image,
+          description,
+          location,
+          language,
+        }
+      )
+
+      res.json(response);
+    }
+    catch (error) {
+      console.error('Error updating user:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  })
+
+  app.get('/api/followers/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+      const response = await getFollowers(id);
+      res.json(response);
+    } catch(error) {
+      console.error('Error fetching user followers:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  })
 
   app.put('/api/follow_user/:user_id/:target_user_id', async (req, res) => {
     const { user_id, target_user_id } = req.params;

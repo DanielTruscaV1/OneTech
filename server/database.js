@@ -177,6 +177,64 @@ async function getUserById(id) {
     }
 }
 
+async function updateUserInfo(user_id, data)
+{
+  try {
+    const userResult = await client.query(
+      q.Map(
+          q.Paginate(q.Match(q.Index("getUserById"), user_id)),
+          q.Lambda("X", q.Get(q.Var("X")))
+      )
+    );
+
+    const user = userResult.data[0];
+
+    const updatedUser = await client.query(
+      q.Update(
+          user.ref,
+          { data }
+      )
+  );
+
+    return updatedUser;
+  } catch (error) {
+    console.error('Error updating user:', error);
+  }
+}
+
+
+async function getFollowers(user_id) {
+  try {
+    const userResult = await client.query(
+      q.Map(
+          q.Paginate(q.Match(q.Index("getUserById"), user_id)),
+          q.Lambda("X", q.Get(q.Var("X")))
+      )
+    );
+
+    const user = userResult.data[0];
+
+    const followerIds = user.data.followedBy;
+
+    console.log(followerIds);
+
+    const followers = await client.query(
+      q.Map(
+        followerIds,
+        q.Lambda(
+          'user_id',
+          q.Get(q.Match(q.Index('getUserById'), q.Var('user_id')))
+        )
+      )
+    );
+
+    return followers;
+  } catch (error) {
+    console.error('Error fetching followers:', error);
+    throw error;
+  }
+}
+
 
 module.exports = {
   createDocument,
@@ -186,4 +244,6 @@ module.exports = {
   createUser,
   registerUser,
   updateUser,
+  updateUserInfo,
+  getFollowers,
 };

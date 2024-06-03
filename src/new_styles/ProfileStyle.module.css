@@ -77,6 +77,38 @@
         background-color: #F8F8F8;
         color: red;
     }
+    .follower {
+        margin-left: 5vw;
+        width: 90vw;
+        height: 10vh;
+        background-color: #F8F8F8;
+    }
+    .follower img {
+        margin-left: 3vw;
+        margin-top: 1.5vh;
+        display: inline-block;
+        width: 7vh;
+        height: 7vh;
+        border-radius: 50%;
+    }
+    .follower h1 {
+        margin-left: 5vw;
+        display: inline-block;
+        font-size: 20px;
+    }
+    .follower p {
+        margin-left: 23vw;
+        margin-top: -3vh;
+        font-size: 16px;
+        color:rgb(170, 170, 170);
+    }
+    .follower .continue {
+        position: absolute;
+        margin-top: -5vh;
+        right: 10vw;
+        width: 25px !important;
+        height: 20px;
+    }
 }
 @media screen and (min-width: 600px) {
     .profile {
@@ -179,5 +211,50 @@
         background-color: #F8F8F8;
         color: red;
         z-index: 3;
+    }
+    .followers {
+        position: absolute;
+        left: 45vw;
+        top: 15vh;
+        width: 52vw;
+        height: 50vh;
+        border-radius: 10px;
+    }
+    .follower {
+        top: 0;
+        margin-top: 0;
+        width: 35vw;
+        height: 10vh;
+        border-radius: 10px;
+    }
+    .follower img {
+        margin-left: 1vw;
+        margin-top: 1.5vh;
+        display: inline-block;
+        width: 7vh;
+        height: 7vh;
+        border-radius: 50%;
+    }
+    .follower h1 {
+        margin-left: 3vw;
+        display: inline-block;
+        font-size: 20px;
+    }
+    .follower p {
+        margin-left: 7.2vw;
+        margin-top: -3vh;
+        font-size: 16px;
+        color:rgb(170, 170, 170);
+    }
+    .follower .continue {
+        position: absolute;
+        margin-top: -5vh;
+        right: 20vw;
+        width: 25px !important;
+        height: 20px;
+    }
+    .follower:hover {
+        background-color: #F8F8F8;
+        cursor: pointer;
     }
 }

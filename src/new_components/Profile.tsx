@@ -18,6 +18,8 @@ const Profile = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);  
 
+    const [followers, setFollowers] = useState<any>([]);
+
     useEffect(() => {
         const fetchUserInfo = async () => {
           const userData = await getUserData();
@@ -29,8 +31,18 @@ const Profile = () => {
           }
           setLoading(false);
         };
+
+        const fetchFollowers = async () => {
+            const result = await axios.get(
+                `http://localhost:3000/api/followers/123`
+            )
+
+            setFollowers(result.data)
+        }
     
         fetchUserInfo();
+
+        fetchFollowers();
       }, []);
 
     if (loading) return <div>Loading...</div>;
@@ -75,7 +87,7 @@ const Profile = () => {
     <div className={styles.profile}>
         <Sidebar/>
         <Top user={user}/>
-        <EditProfile/>
+        <EditProfile user={user}/>
         <button 
             className={styles.logout}
             onClick={handleLogOut}
@@ -133,6 +145,25 @@ const Profile = () => {
                 <img src="/sign1.png"/>
                 Joined: 26/05/2024
             </h2>
+        </div>
+        <div className={styles.followers}>
+            {
+                followers.map((follower: any) => {
+                    return <div className={styles.follower}>
+                        <img src={follower.data.image}/>
+                        <h1>
+                            {follower.data.username}
+                        </h1>
+                        <p>
+                            {follower.data.email}
+                        </p>
+                        <img
+                            src="/right.png"
+                            className={styles.continue}
+                        />
+                    </div>
+                })
+            }
         </div>
         </>
         }
