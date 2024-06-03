@@ -27,7 +27,8 @@ const EditProfile: React.FC<UserProps> = ({ user }) => {
     if(user)
     {
       const response = await axios.put(
-        `http://localhost:3000/api/update_user/${user.user_id}`,
+        `https://onetech.onrender.com/api/update_user/${user.user_id}`,
+        //`http://localhost:3000/api/update_user/${user.user_id}`,
         {
           image,
           description,

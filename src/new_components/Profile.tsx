@@ -33,11 +33,14 @@ const Profile = () => {
         };
 
         const fetchFollowers = async () => {
-            const result = await axios.get(
-                `http://localhost:3000/api/followers/123`
-            )
-
-            setFollowers(result.data)
+            if(user)
+            {
+                const result = await axios.get(
+                    `https://onetech.onrender.com/api/followers/${user.user_id}`,
+                    //`http://localhost:3000/api/followers/123`
+                )
+                setFollowers(result.data)
+            }
         }
     
         fetchUserInfo();
