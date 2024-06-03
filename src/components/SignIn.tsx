@@ -38,8 +38,6 @@ const SignUp = () => {
           }
         );
 
-        console.log(response.data.result);
-
         if(response.status === 201)
         {
             const token = response.data.result.token;
