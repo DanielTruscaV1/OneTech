@@ -216,8 +216,6 @@ async function getFollowers(user_id) {
 
     const followerIds = user.data.followedBy;
 
-    console.log(followerIds);
-
     const followers = await client.query(
       q.Map(
         followerIds,

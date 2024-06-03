@@ -32,6 +32,12 @@ const Profile = () => {
           setLoading(false);
         };
 
+        
+    
+        fetchUserInfo();
+      }, []);
+
+      useEffect(() => {
         const fetchFollowers = async () => {
             if(user)
             {
@@ -40,13 +46,12 @@ const Profile = () => {
                     //`http://localhost:3000/api/followers/123`
                 )
                 setFollowers(result.data)
+                console.log("Yes");
             }
-        }
-    
-        fetchUserInfo();
 
-        fetchFollowers();
-      }, []);
+            fetchFollowers();
+        }
+      }, [user])
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
