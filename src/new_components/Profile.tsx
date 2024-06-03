@@ -6,6 +6,9 @@ import Top from "./Top"
 
 import { getUserData, User } from '../getUser.tsx';
 
+import emailjs from 'emailjs-com';
+import axios from "axios"
+
 const Profile = () => {
 
     const [user, setUser] = useState<User | null>(null);
@@ -29,6 +32,34 @@ const Profile = () => {
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
+
+    const handleFollow = async () => {
+
+        if(user && !user.followedUsers.includes("456"))
+        {
+            const response = await axios.get(
+                "https://onetech.onrender.com/api/emails"
+                //"http://localhost:3000/api/emails"
+            )
+
+            const result = await emailjs.send(response.data.service_id, response.data.template_id, {
+                from: user?.username,
+                user: "danieltrusca2008@gmail.com",
+            }, response.data.user_id)
+
+            if(result) {
+                alert("Follow request sent successfully.");
+            }
+
+            const isOk = await axios.put(
+                `https://onetech.onrender.com/api/follow_user/${user.user_id}/123`
+                //`http://localhost:3000/api/follow_user/${user.user_id}/456`
+            );
+            console.log(isOk.data);
+        }
+        else 
+            alert("User is already followed.");
+    }
 
   return (
     <div className={styles.profile}>
@@ -62,7 +93,7 @@ const Profile = () => {
                 { user.description }
             </p>
             <div>
-                <button>
+                <button onClick={handleFollow}>
                     <img src="/follow1.png"/>
                     Follow
                 </button>

@@ -2,17 +2,18 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser } = require('./database');
+const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser } = require('./database');
 const cors = require('cors');
 const app = express();
 const encoder = require('./encoder');
+const { sendEmail } = require('./emailService');
 const port = 3000; // You can change the port number as needed
 
 const validApiKeys = [process.env.VITE_VALID_API_KEY];
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 10, // limit each IP to 100 requests per windowMs
+  max: 30, // limit each IP to 100 requests per windowMs
   message: 'Too many requests from this IP, please try again later'
 });
 
@@ -37,6 +38,8 @@ app.use(express.json());
 
 app.use(cors());
 
+app.set('trust proxy', 1);
+
 app.use(limiter);
 
 //app.use(apiKeyMiddleware);
@@ -57,6 +60,14 @@ app.get('/api/documents', async (req, res) => {
     const result = await getAllDocuments(collection);
     res.json(result);
   });
+  app.get('/api/emails', async (req, res) => {
+    const result = {
+      user_id: process.env.VITE_EMAIL_PUBLIC_KEY,
+      service_id: process.env.VITE_EMAIL_SERVICE_ID,
+      template_id: process.env.VITE_EMAIL_TEMPLATE_ID,
+    }
+    res.json(result);
+  });
 
   app.get('/api/users/:id', async (req, res) => {
     const { id } = req.params;
@@ -72,12 +83,25 @@ app.get('/api/documents', async (req, res) => {
     }
   });
 
+  app.put('/api/follow_user/:user_id/:target_user_id', async (req, res) => {
+    const { user_id, target_user_id } = req.params;
+    try {
+      const response = await updateUser(user_id, target_user_id);
+      res.json(response);
+    } catch (error) {
+      console.error('Error fetching user:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
   app.post('/api/signin', async (req, res) => {
     const { email, password } = req.body;
     try {
       const result = await registerUser(email, password);
       if(result.status === 201)
+      {
         res.status(201).json({ message: 'Sign-in successfull.', result});
+      }
       else 
         throw Error("Invalid info.");
     } catch (error) {

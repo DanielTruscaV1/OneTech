@@ -14,19 +14,21 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+
+  const [button, setButton] = useState(true);
   
   // @ts-ignore: TS6133
 
   const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
-    console.log({
-      username,
-      email,
-      password,
-      confirm,
-    })
     e.preventDefault();
+
+    setButton(false);
+
     try {
-      const response = await axios.post('http://localhost:3000/api/signup', {
+      const response = await axios.post(
+        "https://onetech.onrender.com/api/signup",
+        //'http://localhost:3000/api/signup',
+        {
         username,
         email,
         password,
@@ -84,7 +86,7 @@ const SignUp = () => {
           value={confirm}
           onChange={(e) => setConfirm(e.target.value)}
         />
-        <button>
+        <button className={`${!button && "disabled"}`} disabled={!button}>
           Submit
         </button>
         <p className="mt-2 text-l text-center text-gray-400">

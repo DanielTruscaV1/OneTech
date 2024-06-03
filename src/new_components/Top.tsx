@@ -2,7 +2,7 @@ import styles from "../new_styles/TopStyle.module.css"
 
 
 interface User {
-    id: number;
+    user_id: number;
     username: string;
     email: string;
     image: string;

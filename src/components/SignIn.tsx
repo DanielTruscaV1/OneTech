@@ -38,12 +38,14 @@ const SignUp = () => {
           }
         );
 
+        console.log(response.data.result);
+
         if(response.status === 201)
         {
             const token = response.data.result.token;
             login(token);
             
-            localStorage.setItem("userID", response.data.result.id)
+            localStorage.setItem("userID", response.data.result.user_id)
 
             navigate('/profile');
         }

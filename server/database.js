@@ -117,7 +117,7 @@ async function getUserById(id) {
 
         response.token = token;
 
-        response.id = user.id;
+        response.user_id = user.user_id;
 
         return response;
       } else {
@@ -130,6 +130,54 @@ async function getUserById(id) {
     }
   }
 
+  async function updateUser(user_id, target_user_id) {
+    try {
+      // Use Map to fetch the user document
+      const userResult = await client.query(
+        q.Map(
+            q.Paginate(q.Match(q.Index("getUserById"), user_id)),
+            q.Lambda("X", q.Get(q.Var("X")))
+        )
+      );
+
+      // Use Map to fetch the target user document
+      const targetUserResult = await client.query(
+          q.Map(
+              q.Paginate(q.Match(q.Index("getUserById"), target_user_id)),
+              q.Lambda("X", q.Get(q.Var("X")))
+          )
+      );
+
+        // Extract the user document from the result
+        const user = userResult.data[0];
+
+        // Extract the target user document from the result
+        const targetUser = targetUserResult.data[0];
+
+        // Update the user document by adding the target user ID to the followedUsers array
+        const updatedUser = await client.query(
+            q.Update(
+                user.ref,
+                { data: { ...user.data, followedUsers: q.Append(target_user_id, user.data.followedUsers || []) } }
+            )
+        );
+
+        // Update the target user document by adding the user ID to the followedBy array
+        const updatedTargetUser = await client.query(
+            q.Update(
+                targetUser.ref,
+                { data: { ...targetUser.data, followedBy: q.Append(user_id, targetUser.data.followedBy || []) } }
+            )
+        );
+
+        return { updatedUser, updatedTargetUser };
+    } catch (error) {
+        console.error('Error updating user:', error);
+        throw error;
+    }
+}
+
+
 module.exports = {
   createDocument,
   getDocumentById,
@@ -137,4 +185,5 @@ module.exports = {
   getUserById,
   createUser,
   registerUser,
+  updateUser,
 };
