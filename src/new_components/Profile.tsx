@@ -8,8 +8,11 @@ import { getUserData, User } from '../getUser.tsx';
 
 import emailjs from 'emailjs-com';
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 const Profile = () => {
+
+    const navigate = useNavigate();
 
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
@@ -61,11 +64,24 @@ const Profile = () => {
             alert("User is already followed.");
     }
 
+    const handleLogOut = async () => {
+        localStorage.setItem("user", "");
+        localStorage.setItem("userID", "");
+        navigate("/sign-in");
+    }
+
+
   return (
     <div className={styles.profile}>
         <Sidebar/>
         <Top user={user}/>
         <EditProfile/>
+        <button 
+            className={styles.logout}
+            onClick={handleLogOut}
+        >
+            Log-out
+        </button>
         { user &&
         <>
         <img 
@@ -87,7 +103,7 @@ const Profile = () => {
                 </h1>
             </div>
             <h1>
-                { user.followedBy.length } Followers
+                { user.followedBy && user.followedBy.length } Followers
             </h1>
         </div>
         <div className={styles.info2}>

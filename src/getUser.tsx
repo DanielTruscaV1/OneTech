@@ -19,7 +19,7 @@ export const getUserData = async (): Promise<User | null> => {
   
   const userData = localStorage.getItem('user');
 
-  if (userData) {
+  if (userData && userData != "") {
     try {
       return JSON.parse(userData) as User;
     } catch (error) {

@@ -65,6 +65,18 @@
         margin-right: 3vw;
         width: 25px;
     }
+    .logout {
+        position: absolute;
+        right: 5vw;
+        top: 20vh;
+        width: 15vw;
+        height: 5vh;
+        border-radius: 7.5px;
+        text-align: center;
+        font-size: 14px;
+        background-color: #F8F8F8;
+        color: red;
+    }
 }
 @media screen and (min-width: 600px) {
     .profile {
@@ -154,5 +166,18 @@
         display: inline-block;
         margin-right: 1vw;
         width: 25px;
+    }
+    .logout {
+        position: absolute;
+        left: 33vw;
+        top: 15vh;
+        width: 4vw;
+        height: 5vh;
+        border-radius: 7.5px;
+        text-align: center;
+        font-size: 14px;
+        background-color: #F8F8F8;
+        color: red;
+        z-index: 3;
     }
 }
