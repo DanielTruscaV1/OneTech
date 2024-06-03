@@ -86,6 +86,9 @@ const Profile = () => {
                     Online
                 </h1>
             </div>
+            <h1>
+                { user.followedBy.length } Followers
+            </h1>
         </div>
         <div className={styles.info2}>
             <hr/>

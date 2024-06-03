@@ -29,8 +29,8 @@ export const getUserData = async (): Promise<User | null> => {
 
   try {
     const response = await axios.get<User>(
-      //`https://onetech.onrender.com/api/users/${userID}`
-      `http://localhost:3000/api/users/${userID}`
+      `https://onetech.onrender.com/api/users/${userID}`
+      //`http://localhost:3000/api/users/${userID}`
     ); // Replace with your API endpoint
     const user = response.data;
     localStorage.setItem('user', JSON.stringify(user));
