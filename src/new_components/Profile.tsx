@@ -23,35 +23,29 @@ const Profile = () => {
     useEffect(() => {
         const fetchUserInfo = async () => {
           const userData = await getUserData();
-    
+      
           if (userData) {
             setUser(userData);
+            await fetchFollowers(userData); // Call fetchFollowers after setUser
           } else {
             setError('Failed to fetch user data');
           }
           setLoading(false);
         };
-
-        
-    
+      
+        const fetchFollowers = async (userData : User) => { // Accept userData as parameter
+          if(userData) {
+            const result = await axios.get(
+              `https://onetech.onrender.com/api/followers/${userData.user_id}`,
+              //`http://localhost:3000/api/followers/123`
+            );
+            setFollowers(result.data);
+          }
+        };
+      
         fetchUserInfo();
       }, []);
-
-      useEffect(() => {
-        const fetchFollowers = async () => {
-            if(user)
-            {
-                const result = await axios.get(
-                    `https://onetech.onrender.com/api/followers/${user.user_id}`,
-                    //`http://localhost:3000/api/followers/123`
-                )
-                setFollowers(result.data)
-                console.log("Yes");
-            }
-
-            fetchFollowers();
-        }
-      }, [user])
+      
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
