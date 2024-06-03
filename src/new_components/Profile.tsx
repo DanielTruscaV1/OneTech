@@ -35,7 +35,7 @@ const Profile = () => {
 
     const handleFollow = async () => {
 
-        if(user && (user.followedBy.length == 0 || !user.followedUsers.includes("456")))
+        if(user && (user.followedUsers.length == 0 || !user.followedUsers.includes("456")))
         {
             const response = await axios.get(
                 "https://onetech.onrender.com/api/emails"
