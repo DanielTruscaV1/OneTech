@@ -23,7 +23,7 @@ const ProblemSmall = ({ problem, index } : {
         <p className="inline-block w-12 ml-2 mt-3 text-l text-center">
             # {problem.id}
         </p>
-        <p className="inline-block w-48 ml-2 mt-3 text-l text-center">
+        <p className={`${"greater"} ${"inline-block w-48 ml-2 mt-3 text-l text-center"}`}>
              {problem.name}
         </p>
         <p 
@@ -41,7 +41,7 @@ const ProblemSmall = ({ problem, index } : {
         <p className="inline-block w-24 ml-4 pl-4 mt-3 text-l text-center">
              {problem.success} %
         </p>
-        <p className="inline-block w-24 ml-4 pl-4 mt-3 text-l text-center">
+        <p className="inline-block w-24 ml-2 pl-1 mt-3 text-l text-center">
              {
                 problem.status === "Solved" ?
                 <div 

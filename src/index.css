@@ -113,3 +113,9 @@ button:hover {
         text-align: center;
     }
 }
+.greater {
+    width: 20% !important;
+}
+.problem_small {
+    width: 61vw !important;
+}

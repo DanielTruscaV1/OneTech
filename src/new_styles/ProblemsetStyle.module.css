@@ -129,7 +129,7 @@
         position: absolute;
         margin-left: 11vw;
         top: 15vh;
-        width: 30vw;
+        width: 20vw;
         height: 20vh;
         background-color: #F8F8F8;
         border-radius: 10px;
@@ -137,40 +137,42 @@
     .daily h1 {
         padding-top: 1vh;
         padding-left: 1vw;
-        font-size: 14px;
+        font-size: 20px;
     }
     .daily button {
         position: absolute;
-        left: 1vw;
         bottom: 1vh;
-        width: 30%;
+        width: 40%;
         height: 4.5vh;
         background-color: #E5E5E5;
         border-radius: 10px;
         text-align: left;
     }
+    .daily .tags {
+        margin-left: 6.66%;
+    }
     .daily .info {
-        margin-left: calc(30% + 1vw);
+        margin-left: 53.33% !important;
     }
     .daily button p {
         display: inline-block;
         position: absolute;
         margin-left: 0.75vw;
-        margin-top: 0.4vh;
+        margin-top: 0;
         width: 70%;
-        font-size: 12px;
+        font-size: 14px;
     }
     .daily button img {
         display: inline-block;
-        margin-left: 0.5vw;
+        margin-left: 1vw;
         margin-top: -0.75vh;
         width: 3vh;
     }
     .calendar {
         position: absolute;
-        margin-left: 43vw;
+        margin-left: 34vw;
         top: 15vh;
-        width: 30vw;
+        width: 25vw;
         height: 20vh;
         background-color: #F8F8F8;
         border-radius: 10px;
@@ -179,7 +181,7 @@
         width: 30%;
         padding-top: 1vh;
         padding-left: 1vw;
-        font-size: 14px;
+        font-size: 20px;
     }
     .grid {
         position: absolute !important;
@@ -189,18 +191,22 @@
     .calendar img {
         position: absolute;
         top: 2.5vh;
-        right: 2vw;
+        right: 1vw;
         width: 15vh;
         height: 15vh;
     }
+    .filter {
+        position: absolute !important;
+        top: 42vh !important;
+    }
     .filter h1 {
         margin-top: 2vh;
-        font-size: 14px;
+        font-size: 20px;
     }
     .filter img {
         position: absolute;
         left: 0.75vw;
-        top: 9.2vh; 
+        top: 10vh; 
     }
     .filter, .problems {
         position: absolute;
@@ -212,6 +218,8 @@
       }
       .problems {
         left: 34vw;
+        position: absolute !important;
+        top: 42vh !important;
       }
       .filter button, .filter input {
         margin-left: 0%;
@@ -219,15 +227,23 @@
         padding-left: 20px;
         padding-top: 5px;
         padding-bottom: 5px;
-        width: 80%;
+        width: 86%;
         height: 13%;
         background-color: #F5F5F5;
         border-radius: 10px;
         text-align: left;
-        font-size: 14px;
+        font-size: 16px;
       }
       .filter input {
-        padding-left: 40px;
+        padding-left: 50px;
+        font-size: 16px;
+      }
+      .problems p {
+        margin-right: 4.5%;
+        width: 6.5%;
+      }
+      .greater {
+        width: 14% !important;
       }
 }
 .grid {

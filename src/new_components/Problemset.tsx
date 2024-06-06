@@ -207,7 +207,7 @@ const Problemset = () => {
             className="problem_small"
           >
             <p className="inline-block w-12 ml-2 mt-3 text-l text-center">ID</p>
-            <p className="inline-block w-48 ml-2 mt-3 text-l text-center">Title</p>
+            <p className={`${"greater"} ${"inline-block w-48 ml-2 mt-3 text-l text-center"}`}>Title</p>
             <p className="inline-block w-12 ml-4 mt-3 text-l text-center">Difficulty</p>
             <p className="inline-block w-24 ml-4 pl-4 mt-3 text-l text-center">Success</p>
             <p className="inline-block w-24 ml-4 mt-3 text-l text-center">Status</p>
