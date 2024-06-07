@@ -119,7 +119,7 @@
         margin-left: 5%;
         margin-bottom: 3vh;
         width: 90%;
-        height: 35vh;
+        height: 37.5vh;
         background-color: #F8F8F8;
         border-radius: 10px;
     }
@@ -135,7 +135,7 @@
     .posts .button_bg {
         display: inline-block;
         position:relative;
-        left: 13.1%;
+        left: 13.7%;
         top: 0.5vh;
         width: 35px;
         height: 35px;
