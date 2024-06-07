@@ -221,7 +221,11 @@ async function getFollowers(user_id) {
         followerIds,
         q.Lambda(
           'user_id',
-          q.Get(q.Match(q.Index('getUserById'), q.Var('user_id')))
+          q.If(
+            q.Exists(q.Match(q.Index('getUserById'), q.Var('user_id'))),
+            q.Get(q.Match(q.Index('getUserById'), q.Var('user_id'))),
+            []
+          )
         )
       )
     );
