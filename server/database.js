@@ -226,7 +226,10 @@ async function getFollowers(user_id) {
       )
     );
 
-    return followers;
+    if(followers)
+      return followers;
+    else 
+      throw error;
   } catch (error) {
     console.error('Error fetching followers:', error);
     throw error;
