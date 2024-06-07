@@ -217,7 +217,7 @@ async function updatePostInfo(post_id, data)
     const updatedPost = await client.query(
       q.Update(
           post.ref,
-          { data }
+          { data: { ...data, likedBy: q.Append(data.user_id, post.data.likedBy || []) } }
       )
   );
 

@@ -106,14 +106,15 @@ app.get('/api/documents', async (req, res) => {
 
   app.put('/api/update_post/:id', async (req, res) => {
     const { id } = req.params;
-    const { likes, comments, shares, saves } = req.body;
+    const { likes, comments, shares, saves, user_id } = req.body;
     try {
       const response = await updatePostInfo(id, 
         {
           likes,
           comments,
           shares,
-          saves
+          saves,
+          user_id,
         }
       )
 

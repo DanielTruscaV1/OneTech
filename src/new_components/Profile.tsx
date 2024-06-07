@@ -93,25 +93,32 @@ const Profile = () => {
             comments: number;
             shares: number;
             saves: number;
+
+            likedBy: string[];
         },
     }) => {
-        try {
-            const response = await axios.put(
-                `https://onetech.onrender.com/api/update_post/${id}`,
-                //`http://localhost:3000/api/update_post/${id}`,
-                {
-                    likes: p.likes,
-                    comments: p.comments,
-                    shares: p.shares,
-                    saves: p.saves,
-                }
-            )
-    
-            console.log(response.data);
-        }
-        catch(error)
+        if(!p.likedBy || !p.likedBy.includes(`${user?.user_id}`))
         {
-            console.log(error);
+            try {
+                const response = await axios.put(
+                    `https://onetech.onrender.com/api/update_post/${id}`,
+                    //`http://localhost:3000/api/update_post/${id}`,
+                    {
+                        likes: p.likes,
+                        comments: p.comments,
+                        shares: p.shares,
+                        saves: p.saves,
+
+                        user_id: user?.user_id,
+                    }
+                )
+        
+                console.log(response.data);
+            }
+            catch(error)
+            {
+                console.log(error);
+            }
         }
     }
 
@@ -215,6 +222,12 @@ const Profile = () => {
                             {post.data.title}
                         </h1>
                         <img src={post.data.image}/>
+                        {
+                            post.data.likedBy && post.data.likedBy.includes(`${user?.user_id}`) &&
+                            <div className={styles.button_bg}>
+                                .
+                            </div>
+                        }
                         <img 
                     src="/home_icon_1.png"
                     onClick={() => handleUpdate({id: post.data.post_id, p: {
@@ -222,6 +235,8 @@ const Profile = () => {
                         comments: post.data.comments,
                         shares: post.data.shares,
                         saves: post.data.saves,
+
+                        likedBy: post.data.likedBy,
                     }})}
                     style={{
                         display: "inline-block",
@@ -247,6 +262,8 @@ const Profile = () => {
                         comments: post.data.comments + 1,
                         shares: post.data.shares,
                         saves: post.data.saves,
+
+                        likedBy: post.data.likedBy,
                     }})}
                     style={{
                         display: "inline-block",
@@ -272,6 +289,8 @@ const Profile = () => {
                         comments: post.data.comments,
                         shares: post.data.shares + 1,
                         saves: post.data.saves,
+
+                        likedBy: post.data.likedBy,
                     }})}
                     style={{
                         display: "inline-block",
@@ -297,6 +316,8 @@ const Profile = () => {
                         comments: post.data.comments,
                         shares: post.data.shares,
                         saves: post.data.saves + 1,
+
+                        likedBy: post.data.likedBy,
                     }})}
                     style={{
                         display: "inline-block",
