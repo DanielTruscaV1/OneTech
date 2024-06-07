@@ -86,6 +86,34 @@ const Profile = () => {
         navigate("/sign-in");
     }
 
+    const handleUpdate = async ({ id, p } : {
+        id: number;
+        p: {
+            likes: number;
+            comments: number;
+            shares: number;
+            saves: number;
+        },
+    }) => {
+        try {
+            const response = await axios.put(
+                `https://onetech.onrender.com/api/update_post/${id}`,
+                //`http://localhost:3000/api/update_post/${id}`,
+                {
+                    likes: p.likes,
+                    comments: p.comments,
+                    shares: p.shares,
+                    saves: p.saves,
+                }
+            )
+    
+            console.log(response.data);
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+    }
 
   return (
     <div className={styles.profile}>
@@ -189,6 +217,12 @@ const Profile = () => {
                         <img src={post.data.image}/>
                         <img 
                     src="/home_icon_1.png"
+                    onClick={() => handleUpdate({id: post.data.post_id, p: {
+                        likes: post.data.likes + 1,
+                        comments: post.data.comments,
+                        shares: post.data.shares,
+                        saves: post.data.saves,
+                    }})}
                     style={{
                         display: "inline-block",
                         width: "22px",
@@ -208,6 +242,12 @@ const Profile = () => {
                 </p>
                 <img 
                     src="/home_icon_2.png"
+                    onClick={() => handleUpdate({id: post.data.post_id, p: {
+                        likes: post.data.likes,
+                        comments: post.data.comments + 1,
+                        shares: post.data.shares,
+                        saves: post.data.saves,
+                    }})}
                     style={{
                         display: "inline-block",
                         width: "22px",
@@ -227,6 +267,12 @@ const Profile = () => {
                 </p>
                 <img 
                     src="/home_icon_3.png"
+                    onClick={() => handleUpdate({id: post.data.post_id, p: {
+                        likes: post.data.likes,
+                        comments: post.data.comments,
+                        shares: post.data.shares + 1,
+                        saves: post.data.saves,
+                    }})}
                     style={{
                         display: "inline-block",
                         width: "22px",
@@ -246,6 +292,12 @@ const Profile = () => {
                 </p>
                 <img 
                     src="/home_icon_4.png"
+                    onClick={() => handleUpdate({id: post.data.post_id, p: {
+                        likes: post.data.likes,
+                        comments: post.data.comments,
+                        shares: post.data.shares,
+                        saves: post.data.saves + 1,
+                    }})}
                     style={{
                         display: "inline-block",
                         width: "22px",

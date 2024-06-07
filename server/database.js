@@ -202,6 +202,31 @@ async function updateUserInfo(user_id, data)
   }
 }
 
+async function updatePostInfo(post_id, data)
+{
+  try {
+    const postResult = await client.query(
+      q.Map(
+          q.Paginate(q.Match(q.Index("getPostById"), post_id)),
+          q.Lambda("X", q.Get(q.Var("X")))
+      )
+    );
+
+    const post = postResult.data[0];
+
+    const updatedPost = await client.query(
+      q.Update(
+          post.ref,
+          { data }
+      )
+  );
+
+    return updatedPost;
+  } catch (error) {
+    console.error('Error updating post:', error);
+  }
+}
+
 
 async function getFollowers(user_id) {
   try {
@@ -272,4 +297,5 @@ module.exports = {
   updateUser,
   updateUserInfo,
   getFollowers,
+  updatePostInfo,
 };

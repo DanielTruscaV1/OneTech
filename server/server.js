@@ -2,7 +2,7 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers } = require('./database');
+const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo } = require('./database');
 const cors = require('cors');
 const app = express();
 const encoder = require('./encoder');
@@ -100,6 +100,27 @@ app.get('/api/documents', async (req, res) => {
     }
     catch (error) {
       console.error('Error updating user:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  })
+
+  app.put('/api/update_post/:id', async (req, res) => {
+    const { id } = req.params;
+    const { likes, comments, shares, saves } = req.body;
+    try {
+      const response = await updatePostInfo(id, 
+        {
+          likes,
+          comments,
+          shares,
+          saves
+        }
+      )
+
+      res.json(response);
+    }
+    catch (error) {
+      console.error('Error updating post:', error);
       res.status(500).json({ error: 'Internal server error' });
     }
   })
