@@ -230,8 +230,29 @@ async function getFollowers(user_id) {
       )
     );
 
+    const postIds = user.data.posts;
+
+    const posts = await client.query(
+      q.Map(
+        postIds,
+        q.Lambda(
+          'post_id',
+          q.If(
+            q.Exists(q.Match(q.Index('getPostById'), q.Var('post_id'))),
+            q.Get(q.Match(q.Index('getPostById'), q.Var('post_id'))),
+            []
+          )
+        )
+      )
+    );
+
     if(followers)
-      return followers;
+    {
+      return {
+        followers, 
+        posts,
+      }
+    }
     else 
       throw error;
   } catch (error) {

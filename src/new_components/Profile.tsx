@@ -19,6 +19,7 @@ const Profile = () => {
     const [error, setError] = useState<string | null>(null);  
 
     const [followers, setFollowers] = useState<any>([]);
+    const [posts, setPosts] = useState<any>([]);
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -26,20 +27,21 @@ const Profile = () => {
       
           if (userData) {
             setUser(userData);
-            await fetchFollowers(userData); // Call fetchFollowers after setUser
+            await fetchData(userData); // Call fetchData after setUser
           } else {
             setError('Failed to fetch user data');
           }
           setLoading(false);
         };
       
-        const fetchFollowers = async (userData : User) => { // Accept userData as parameter
+        const fetchData = async (userData : User) => { // Accept userData as parameter
           if(userData) {
             const result = await axios.get(
               `https://onetech.onrender.com/api/followers/${userData.user_id}`,
-              //`http://localhost:3000/api/followers/123`
+              //`http://localhost:3000/api/followers/${userData.user_id}`
             );
-            setFollowers(result.data);
+            setFollowers(result.data.followers);
+            setPosts(result.data.posts);
           }
         };
       
@@ -98,57 +100,63 @@ const Profile = () => {
         </button>
         { user &&
         <>
-        <img 
-            src={user.image}
-            className={styles.image}
-        />
-        <div className={styles.info}>
-            <h1 className="text-2xl mb-4">
-                { user.username }
-            </h1>
-            <h1 className="text-orange-400 font-semibold">
-                <img className="inline-block w-5 mr-3" src="/crown1.png"/>
-                Premium Member
-            </h1>
-            <div className="w-full">
-                <h1 className={styles.status1}>&#9679;</h1>
-                <h1 className={styles.status2}>
-                    Online
+            <div className={styles.left}>
+            <img 
+                src={user.image}
+                className={styles.image}
+            />
+            <div className={styles.info}>
+                <h1 className="text-2xl mb-4">
+                    { user.username }
+                </h1>
+                <h1 className="text-orange-400 font-semibold">
+                    <img className="inline-block w-5 mr-3" src="/crown1.png"/>
+                    Premium Member
+                </h1>
+                <div className="w-full">
+                    <h1 className={styles.status1}>&#9679;</h1>
+                    <h1 className={styles.status2}>
+                        Online
+                    </h1>
+                </div>
+                <h1>
+                    { user.followedBy && user.followedBy.length } Followers
                 </h1>
             </div>
-            <h1>
-                { user.followedBy && user.followedBy.length } Followers
-            </h1>
-        </div>
-        <div className={styles.info2}>
-            <hr/>
-            <p>
-                { user.description }
-            </p>
-            <div>
-                <button onClick={handleFollow}>
-                    <img src="/follow1.png"/>
-                    Follow
-                </button>
-                <button>
-                    <img src="/chat1.png"/>
-                    Chat
-                </button>
-            </div>
-            <h2>
-                <img src="/location1.png"/>
-                Location: {user.location}
-            </h2>
-            <h2>
-                <img src="/language1.png"/>
-                Language: {user.language}
-            </h2>
-            <h2>
-                <img src="/sign1.png"/>
-                Joined: 26/05/2024
-            </h2>
+            <div className={styles.info2}>
+                <hr/>
+                <p>
+                    { user.description }
+                </p>
+                <div>
+                    <button onClick={handleFollow}>
+                        <img src="/follow1.png"/>
+                        Follow
+                    </button>
+                    <button>
+                        <img src="/chat1.png"/>
+                        Chat
+                    </button>
+                </div>
+                <h2>
+                    <img src="/location1.png"/>
+                    Location: {user.location}
+                </h2>
+                <h2>
+                    <img src="/language1.png"/>
+                    Language: {user.language}
+                </h2>
+                <h2>
+                    <img src="/sign1.png"/>
+                    Joined: 26/05/2024
+                </h2>
+            </div>     
         </div>
         <div className={styles.followers}>
+            <hr/>
+            <h2>
+                Followers:
+            </h2>
             {
                 followers.map((follower: any) => {
                     return <div className={styles.follower}>
@@ -164,6 +172,101 @@ const Profile = () => {
                             className={styles.continue}
                         />
                     </div>
+                })
+            }
+        </div>
+        <div className={styles.posts}>
+            <hr/>
+            <h2>
+                Posts:
+            </h2>
+            {
+                posts.map((post: any) => {
+                    return <div className={styles.post}>
+                        <h1>
+                            {post.data.title}
+                        </h1>
+                        <img src={post.data.image}/>
+                        <img 
+                    src="/home_icon_1.png"
+                    style={{
+                        display: "inline-block",
+                        width: "22px",
+                        height: "22px",
+                    }}
+                />
+                <p 
+                    style={{
+                        display: "inline-block",
+                        marginLeft: "10px",
+                        position: "relative",
+                        top: "0.5rem",
+                        fontSize: "18px",
+                    }}
+                >
+                    { post.data.likes }
+                </p>
+                <img 
+                    src="/home_icon_2.png"
+                    style={{
+                        display: "inline-block",
+                        width: "22px",
+                        height: "22px",
+                    }}
+                />
+                <p 
+                    style={{
+                        display: "inline-block",
+                        marginLeft: "10px",
+                        position: "relative",
+                        top: "0.5rem",
+                        fontSize: "18px",
+                    }}
+                >
+                    { post.data.comments }
+                </p>
+                <img 
+                    src="/home_icon_3.png"
+                    style={{
+                        display: "inline-block",
+                        width: "22px",
+                        height: "22px",
+                    }}
+                />
+                <p 
+                    style={{
+                        display: "inline-block",
+                        marginLeft: "10px",
+                        position: "relative",
+                        top: "0.5rem",
+                        fontSize: "18px",
+                    }}
+                >
+                    { post.data.shares }
+                </p>
+                <img 
+                    src="/home_icon_4.png"
+                    style={{
+                        display: "inline-block",
+                        width: "22px",
+                        height: "22px",
+                    }}
+                />
+                <p 
+                    style={{
+                        display: "inline-block",
+                        marginLeft: "10px",
+                        position: "relative",
+                        top: "0.5rem",
+                        fontSize: "18px",
+                    }}
+                >
+                    { post.data.saves }
+                </p>
+                <br/>
+                <br/>
+                <br/>
+                </div>
                 })
             }
         </div>

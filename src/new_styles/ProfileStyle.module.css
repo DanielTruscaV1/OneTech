@@ -81,7 +81,7 @@
         margin-left: 5vw;
         width: 90vw;
         height: 10vh;
-        background-color: #F8F8F8;
+        background-color:white;
     }
     .follower img {
         margin-left: 3vw;
@@ -109,16 +109,42 @@
         width: 25px !important;
         height: 20px;
     }
+    .followers h2, .posts h2 {
+        margin-left: 5%;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        font-size: 21px !important;
+    }
+    .post {
+        margin-left: 5%;
+        margin-bottom: 3vh;
+        width: 90%;
+        height: 35vh;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+    }
+    .post img {
+        margin-left: 5%;
+        margin-top: 2vh;
+        width: 90%;
+    }
+    .post h1 {
+        padding-left: 5%;
+        padding-top: 1vh;
+    }
 }
 @media screen and (min-width: 600px) {
     .profile {
         display: flex;
     }
-    .profile .image {
-        position: absolute;
+    .left {
+        position: fixed;
+    }
+    .left .image {
+        position: relative;
         left: 11vw;
-        top: 15vh;
-        width: 120px;
+        top: 16.5vh;
+        width: 120px !important;
         height: 120px;
         border-radius: 50%;
     }
@@ -200,7 +226,7 @@
         width: 25px;
     }
     .logout {
-        position: absolute;
+        position: fixed;
         left: 33vw;
         top: 15vh;
         width: 4vw;
@@ -212,13 +238,16 @@
         color: red;
         z-index: 3;
     }
-    .followers {
+    .followers, .posts {
         position: absolute;
         left: 45vw;
         top: 15vh;
         width: 52vw;
         height: 50vh;
         border-radius: 10px;
+    }
+    .posts {
+        top: 75vh;
     }
     .follower {
         top: 0;
@@ -257,4 +286,38 @@
         background-color: #F8F8F8;
         cursor: pointer;
     }
+    .followers hr {
+        display: none;
+    }
+    .followers h2 {
+        font-size: 20px;
+        margin-left: 2%;
+        margin-bottom: 2vh;
+    }
+    .posts h2 {
+        margin-left: 2%;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        font-size: 23px;
+    }
+    .post {
+        margin-left: 2%;
+        margin-bottom: 5vh;
+        width: 60%;
+        height: 46vh;
+        background-color: #F8F8F8;
+        border-radius: 10px;
+    }
+    .post img {
+        margin-left: 5%;
+        margin-top: 2vh;
+        width: 90%;
+    }
+    .post h1 {
+        padding-left: 5%;
+        padding-top: 1vh;
+    }
+}
+.post img {
+    cursor: pointer;
 }
