@@ -1,13 +1,57 @@
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const UserPost = ({ user, post } : {
     user : any;
     post : {
+        post_id: string;
         image: string;
         likes: number;
         comments: number;
         shares: number;
         saves: number;
+        likedBy: string[];
     }
 }) => {
+    const navigate = useNavigate();
+
+    const user_id = localStorage.getItem("userID");
+
+    const handleUpdate = async ({ id, p } : {
+        id: string;
+        p: {
+            likes: number;
+            comments: number;
+            shares: number;
+            saves: number;
+
+            likedBy: string[];
+        },
+    }) => {
+        if(!p.likedBy || !p.likedBy.includes(`${user_id}`))
+        {
+            try {
+                const response = await axios.put(
+                    `https://onetech.onrender.com/api/update_post/${id}`,
+                    //`http://localhost:3000/api/update_post/${id}`,
+                    {
+                        likes: p.likes,
+                        comments: p.comments,
+                        shares: p.shares,
+                        saves: p.saves,
+
+                        user_id,
+                    }
+                )
+        
+                console.log(response);
+            }
+            catch(error)
+            {
+                console.log(error);
+            }
+        }
+    }
   return (
     <div
         style={{
@@ -33,6 +77,7 @@ const UserPost = ({ user, post } : {
                 cursor: "pointer",
             }}
             className="user_post_author1"
+            onClick={() => navigate(`/profile/${user.user_id}`)}
         />
         <p
             style={{
@@ -101,6 +146,11 @@ const UserPost = ({ user, post } : {
                 style={{
                     display: "inline-block",
                     marginLeft: "13%",
+                    background: "linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%)",
+                    padding: "7px",
+                    paddingRight: "15px",
+                    height: "50px",
+                    borderRadius: "7.5px",
                 }}
             >
                 <img 
@@ -110,6 +160,14 @@ const UserPost = ({ user, post } : {
                         width: "22px",
                         height: "22px",
                     }}
+                    onClick={() => handleUpdate({id: post.post_id, p: {
+                        likes: post.likes + 1,
+                        comments: post.comments,
+                        shares: post.shares,
+                        saves: post.saves,
+
+                        likedBy: post.likedBy,
+                    }})}
                 />
                 <p 
                     style={{
@@ -117,7 +175,7 @@ const UserPost = ({ user, post } : {
                         marginLeft: "10px",
                         position: "relative",
                         top: "0.2rem",
-                        fontSize: "18px",
+                        fontSize: "21px",
                     }}
                 >
                     { post.likes }
@@ -143,7 +201,7 @@ const UserPost = ({ user, post } : {
                         marginLeft: "10px",
                         position: "relative",
                         top: "0.2rem",
-                        fontSize: "18px",
+                        fontSize: "21px",
                     }}
                 >
                     { post.comments }
@@ -169,7 +227,7 @@ const UserPost = ({ user, post } : {
                         marginLeft: "10px",
                         position: "relative",
                         top: "0.2rem",
-                        fontSize: "18px",
+                        fontSize: "21px",
                     }}
                 >
                     { post.shares }
@@ -195,7 +253,7 @@ const UserPost = ({ user, post } : {
                         marginLeft: "10px",
                         position: "relative",
                         top: "0.2rem",
-                        fontSize: "18px",
+                        fontSize: "21px",
                     }}
                 >
                     { post.saves }

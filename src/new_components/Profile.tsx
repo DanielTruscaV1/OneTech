@@ -62,7 +62,7 @@ const Profile = () => {
 
     const handleFollow = async () => {
 
-        if(user && (!user.followedUsers || !user.followedUsers.includes("456")))
+        if(user && (!user.followedBy || !user.followedBy.includes(`${user_id}`)))
         {
             const response = await axios.get(
                 "https://onetech.onrender.com/api/emails"
@@ -79,7 +79,7 @@ const Profile = () => {
             }
 
             const isOk = await axios.put(
-                `https://onetech.onrender.com/api/follow_user/${user.user_id}/123`
+                `https://onetech.onrender.com/api/follow_user/${user_id}/${global_user_id}`
                 //`http://localhost:3000/api/follow_user/${user.user_id}/456`
             );
             console.log(isOk.data);
@@ -211,7 +211,10 @@ const Profile = () => {
             </h2>
             {
                 followers.map((follower: any) => {
-                    return <div className={styles.follower}>
+                    return <div 
+                        className={styles.follower}
+                        onClick={() => navigate(`/profile/${follower.data.user_id}`)}
+                    >
                         <img src={follower.data.image}/>
                         <h1>
                             {follower.data.username}
