@@ -28,7 +28,7 @@ const Profile = () => {
     useEffect(() => {
         const fetchUserInfo = async () => {
           const userData = await axios.get(
-            `http://localhost:3000/api/users/${global_user_id}`
+            `https://onetech.onrender.com/api/users/${global_user_id}`
           ) as any;
 
           if (userData) {
