@@ -3,15 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const UserPost = ({ user, post } : {
     user : any;
-    post : {
-        post_id: string;
-        image: string;
-        likes: number;
-        comments: number;
-        shares: number;
-        saves: number;
-        likedBy: string[];
-    }
+    post : any;
 }) => {
     const navigate = useNavigate();
 
