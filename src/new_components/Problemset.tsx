@@ -29,11 +29,13 @@ const Problemset = () => {
 
   const containers = useRef<(HTMLDivElement | null)[]>([]);
 
+  const user_id = localStorage.getItem("userID");
+
   // Effect for fetching user data
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const userData = await getUserData();
+        const userData = await getUserData(user_id);
         if (userData) {
           setUser(userData);
         } else {

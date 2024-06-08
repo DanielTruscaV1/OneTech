@@ -10,9 +10,11 @@ const Theory = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);  
 
+    const user_id = localStorage.getItem("userID");
+
     useEffect(() => {
         const fetchUserInfo = async () => {
-          const userData = await getUserData();
+          const userData = await getUserData(user_id);
     
           if (userData) {
             setUser(userData);
