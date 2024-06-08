@@ -39,8 +39,10 @@ button:hover {
 .user_circle_container img {
     width: 60px !important;
     height: 60px !important;
+    max-width: 1000% !important;
 }
 .user_circle_container p {
+    width: 75px !important;
     height: 20px !important;
 }
 .disabled {
