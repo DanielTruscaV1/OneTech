@@ -197,10 +197,22 @@ async function updateUserInfo(user_id, data)
 
     const user = userResult.data[0];
 
+    const newImage = data.image != "" ? data.image : user.data.image;
+    const newUsername = data.username != "" ? data.username: user.data.username;
+    const newDescription = data.description != "" ? data.description: user.data.description;
+    const newLocation = data.location != "" ? data.location: user.data.location;
+    const newLanguage = data.language != "" ? data.language: user.data.language;
+
     const updatedUser = await client.query(
       q.Update(
           user.ref,
-          { data }
+          { data: {...data, 
+              image: newImage,
+              username: newUsername,
+              description: newDescription,
+              location: newLocation,
+              language: newLanguage,
+          }}
       )
   );
 
@@ -322,7 +334,25 @@ async function getHomeInfo(user_id) {
       )
     );
 
-    return { followedUsers };
+    const users = await client.query(
+      q.Map(
+        q.Paginate(q.Documents(q.Collection("Users"))),
+          q.Lambda(x => q.Get(x))
+        )
+      );
+
+    const posts = await client.query(
+      q.Map(
+        q.Paginate(q.Documents(q.Collection("Posts"))),
+          q.Lambda(x => q.Get(x))
+        )
+      );
+
+    return { 
+      followedUsers,
+      users,
+      posts,
+     };
   }
   catch(error) 
   {

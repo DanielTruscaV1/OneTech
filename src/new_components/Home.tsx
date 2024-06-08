@@ -4,8 +4,8 @@ import Sidebar from "./Sidebar"
 import Top from "./Top"
 import UserCircle from "../small_components/UserCircle"
 import UserPost from "../small_components/UserPost"
-import UserComment from "../small_components/UserComment"
-import UserCircleHorizontal from "../small_components/UserCircleHorizontal"
+//import UserComment from "../small_components/UserComment"
+//import UserCircleHorizontal from "../small_components/UserCircleHorizontal"
 import { getUserData, User } from '../getUser.tsx';
 
 import { useState, useEffect } from "react"
@@ -13,87 +13,13 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
 const Home = () => {
-  const mock_db = [
-    {
-      image: "/home_user_1.png",
-      name: "Kayn",
-      email: "kayn@gmail.com",
-    },
-    {
-      image: "/home_user_2.png",
-      name: "Yone",
-      email: "yone@gmail.com",
-    },
-    {
-      image: "/home_user_4.png",
-      name: "Sett",
-      email: "sett@gmail.com",
-    },
-    {
-      image: "/home_user_5.png",
-      name: "Aphelios",
-      email: "aphelios@gmail.com",
-    },
-  ]
-
-  const mock_feed_user = [
-    {
-      image: "/home_user_3.png",
-      name: "Ezreal",
-      email: "ezreal@email.com"
-    },
-    {
-      image: "/home_user_6.png",
-      name: "Akali",
-      email: "akali@email.com",
-    }
-  ]
-  
-  const mock_feed_post = [
-    {
-      image: "/home_post_1.jpg",
-      likes: 123,
-      comments: 45,
-      shares: 16,
-      saves: 7,
-    },
-    {
-      image: "/home_post_3.png",
-      likes: 123,
-      comments: 45,
-      shares: 16,
-      saves: 7,
-    }
-  ]
-
-  const mock_comment_user = [
-    {
-      image: "/home_user_4.png",
-      name: "Sett",
-      email: "sett@gmail.com",
-    },
-    {
-      image: "/home_user_7.png",
-      name: "Evelynn",
-      email: "evelynn@gmail.com",
-    }
-  ]
-
-  const mock_comment_content = [
-    {
-      text: `Heartsteel, the newly announced band made up of League of Legends champions, has released its first single PARANOIA, finally giving us an idea of just how the band will sound.      `,
-      tags: "8 minutes ago #HEARTSTEEL #paranoia #LoL"
-    },
-    {
-      text: `"More" (stylized in all caps) is a song by virtual girl group K/DA. The song was released on October 28, 2020, as the second single for the group's debut extended play All Out.`,
-      tags: "13 minutes ago #K/DA #MORE #LoL"
-    },
-  ]
 
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);  
     const [followedUsers, setFollowedUsers] = useState<any>([]);
+    const [users, setUsers] = useState<any>([]);
+    const [posts, setPosts] = useState<any>([]);
 
     const user_id = localStorage.getItem("userID") as string;
 
@@ -124,8 +50,8 @@ const Home = () => {
             );
 
             setFollowedUsers(response.data.followedUsers);
-
-            console.log(followedUsers)
+            setUsers(response.data.users.data);
+            setPosts(response.data.posts.data);
           }
           catch(error)
           {
@@ -140,7 +66,10 @@ const Home = () => {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
-   
+    const returnUser = (user_id: any) => {
+      const answer = users.filter((u: any) => u.data.user_id == user_id)[0];
+      return answer;
+    }
 
   return (
     <div className={styles.home}>
@@ -167,10 +96,17 @@ const Home = () => {
 
 
         <div className={styles.feed}>
-          <UserPost user={mock_feed_user[0]} post = {mock_feed_post[0]}/>
-          <UserComment user={mock_comment_user[0]} content={mock_comment_content[0]}/>
-          <UserPost user={mock_feed_user[1]} post = {mock_feed_post[1]}/>
-          <UserComment user={mock_comment_user[1]} content={mock_comment_content[1]}/>
+          {
+            posts && 
+            posts.map((post: any) => {
+              return <div>
+                <UserPost 
+                  user={returnUser(post.data.author_id).data}
+                  post={post.data}
+                />
+              </div>
+            })
+          }
         </div>
 
 
@@ -179,8 +115,7 @@ const Home = () => {
             className={styles.aside_image}
             src='/home_aside_1.jpg'
           />
-          <UserCircleHorizontal image={mock_db[0].image} name={mock_db[0].name} email={mock_db[0].email}/>
-          <UserCircleHorizontal image={mock_db[1].image} name={mock_db[1].name} email={mock_db[1].email}/>
+          
         </div>  
     </div>
   )

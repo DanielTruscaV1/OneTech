@@ -1,9 +1,5 @@
 const UserPost = ({ user, post } : {
-    user : {
-        image: string;
-        name: string;
-        email: string;
-    },
+    user : any;
     post : {
         image: string;
         likes: number;
@@ -50,7 +46,7 @@ const UserPost = ({ user, post } : {
             }}
             className="user_post_author2"
         >
-            { user.name }
+            { user.username }
         </p>
         <p
             style={{
