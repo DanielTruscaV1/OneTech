@@ -80,7 +80,15 @@ async function getUserById(id) {
         const newUser = await client.query(
             q.Create(
                 q.Collection('Users'),
-                { data: { username, email, password: hashedPassword } }
+                { data: { 
+                  username, 
+                  email, 
+                  password: hashedPassword,
+                  followedUsers: [],
+                  followedBy: [],
+                  posts: [],
+                } 
+              }
             )
         );
 

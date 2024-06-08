@@ -4,13 +4,17 @@ import EditProfile from "./EditProfile"
 import Sidebar from "./Sidebar"
 import Top from "./Top"
 
-import { getUserData, User } from '../getUser.tsx';
+import { User } from '../getUser.tsx';
 
 import emailjs from 'emailjs-com';
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
+import { useParams } from 'react-router-dom';
+
 const Profile = () => {
+
+    const { global_user_id } = useParams();
 
     const navigate = useNavigate();
 
@@ -23,10 +27,12 @@ const Profile = () => {
 
     useEffect(() => {
         const fetchUserInfo = async () => {
-          const userData = await getUserData();
-      
+          const userData = await axios.get(
+            `http://localhost:3000/api/users/${global_user_id}`
+          ) as any;
+
           if (userData) {
-            setUser(userData);
+            setUser(userData.data);
             await fetchData(userData); // Call fetchData after setUser
           } else {
             setError('Failed to fetch user data');
@@ -37,7 +43,7 @@ const Profile = () => {
         const fetchData = async (userData : User) => { // Accept userData as parameter
           if(userData) {
             const result = await axios.get(
-              `https://onetech.onrender.com/api/followers/${userData.user_id}`,
+              `https://onetech.onrender.com/api/followers/${global_user_id}`,
               //`http://localhost:3000/api/followers/${userData.user_id}`
             );
             setFollowers(result.data.followers);
@@ -122,17 +128,28 @@ const Profile = () => {
         }
     }
 
+    const user_id = localStorage.getItem("userID") as string;
+
   return (
     <div className={styles.profile}>
         <Sidebar/>
-        <Top user={user}/>
-        <EditProfile user={user}/>
-        <button 
-            className={styles.logout}
-            onClick={handleLogOut}
-        >
-            Log-out
-        </button>
+        {
+            user && user.user_id == parseInt(user_id, 10) &&
+            <Top user={user}/>
+        }
+        {
+            user && user.user_id == parseInt(user_id, 10) &&
+            <EditProfile user={user}/>
+        }
+        {
+            user && user.user_id == parseInt(user_id, 10) &&
+            <button 
+                className={styles.logout}
+                onClick={handleLogOut}
+            >
+                Log-out
+            </button>
+        }
         { user &&
         <>
             <div className={styles.left}>

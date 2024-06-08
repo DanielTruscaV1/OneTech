@@ -9,6 +9,8 @@ const Sidebar = () => {
 
     const navigate = useNavigate();
 
+    const user_id = localStorage.getItem("userID");
+
   return (
     <>
     {   sidebar ?
@@ -34,7 +36,7 @@ const Sidebar = () => {
             <button>
                 <img src="/nav5.png"/>
             </button>
-            <button onClick={() => navigate('/profile')}>
+            <button onClick={() => navigate(`/profile/${user_id}`)}>
                 <img src="/nav6.png"/>
             </button>
             <button>

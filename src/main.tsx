@@ -72,7 +72,7 @@ const router = createBrowserRouter([
     element: <SignUp/>
   },
   {
-    path: "/profile",
+    path: "/profile/:global_user_id",
     element: ( 
       <RequireAuth>
         <Profile/>

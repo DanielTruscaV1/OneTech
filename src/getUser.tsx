@@ -13,8 +13,8 @@ export interface User
     followedBy: string[];
   }
 
-export const getUserData = async (): Promise<User | null> => {
-  const userIDString = localStorage.getItem("userID");
+export const getUserData = async (global_user_id : any): Promise<User | null> => {
+  const userIDString = global_user_id
   const userID = userIDString !== null ? parseInt(userIDString, 10) : null;
   
   const userData = localStorage.getItem('user');

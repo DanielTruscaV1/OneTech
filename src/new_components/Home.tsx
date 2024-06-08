@@ -10,6 +10,7 @@ import { getUserData, User } from '../getUser.tsx';
 
 import { useState, useEffect } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 const Home = () => {
   const mock_db = [
@@ -94,9 +95,13 @@ const Home = () => {
     const [error, setError] = useState<string | null>(null);  
     const [followedUsers, setFollowedUsers] = useState<any>([]);
 
+    const user_id = localStorage.getItem("userID") as string;
+
+    const navigate = useNavigate();
+
     useEffect(() => {
         const fetchUserInfo = async () => {
-          const userData = await getUserData();
+          const userData = await getUserData(user_id);
     
           if (userData) {
             setUser(userData);
@@ -147,10 +152,15 @@ const Home = () => {
           {
             followedUsers &&
             followedUsers.map((user: any) => {
-              return <UserCircle 
-                image={user.data.image}
-                name={user.data.username}
-              />
+              return <div 
+                  onClick={() => navigate(`/profile/${user.data.user_id}`)}
+                  className="inline-block"
+                >
+                <UserCircle 
+                  image={user.data.image}
+                  name={user.data.username}
+                />
+              </div>
             })
           }   
         </div>

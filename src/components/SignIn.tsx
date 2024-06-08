@@ -45,7 +45,7 @@ const SignUp = () => {
             
             localStorage.setItem("userID", response.data.result.user_id)
 
-            navigate('/profile');
+            navigate(`/profile/${response.data.result.user_id}`);
         }
       }
       catch(error)
