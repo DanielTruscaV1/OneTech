@@ -2,7 +2,7 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo } = require('./database');
+const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo, createPost } = require('./database');
 const cors = require('cors');
 const app = express();
 const encoder = require('./encoder');
@@ -193,6 +193,24 @@ app.get('/api/documents', async (req, res) => {
       console.log("Back-end (server) error: ", error);
     }
   });
+
+  app.post("/api/createPost/:user_id", async (req, res) => {
+    const { user_id } = req.params;
+    const { post_id, image, title, description, tags } = req.body;
+    try {
+      const result = await createPost(user_id, {
+        post_id,
+        image,
+        title,
+        description,
+        tags,
+      });
+
+      res.status(201).json({ message: 'Post created successfully.', result});
+    } catch (error) {
+      res.status(400).send('Post creation failed: ' + error.message);
+    }
+}); 
 
 // Start the server
 app.listen(port, () => {

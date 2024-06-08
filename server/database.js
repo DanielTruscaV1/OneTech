@@ -330,6 +330,50 @@ async function getHomeInfo(user_id) {
   }
 }
 
+async function createPost(user_id, data) {
+  try {
+      const response = await client.query(
+          q.Create(
+              q.Collection('Posts'),
+              { data: { 
+                post_id: data.post_id,
+                author_id: user_id,
+                image: data.image,
+                title: data.title,
+                description: data.description,
+                tags: data.tags,
+                likes: 0,
+                comments: 0,
+                shares: 0,
+                saves: 0,
+              } 
+            }
+          )
+      );
+
+      const userResult = await client.query(
+        q.Map(
+            q.Paginate(q.Match(q.Index("getUserById"), user_id)),
+            q.Lambda("X", q.Get(q.Var("X")))
+        )
+      );
+  
+      const user = userResult.data[0];
+  
+      const updatedUser = await client.query(
+        q.Update(
+            user.ref,
+            { data: {...user.data, posts: q.Append(data.post_id, user.data.posts || [])} }
+        )
+      );
+
+      return updatedUser;
+  } catch (error) {
+      console.error('Error creating post:', error);
+      throw error;
+  }
+}
+
 
 module.exports = {
   createDocument,
@@ -343,4 +387,5 @@ module.exports = {
   getFollowers,
   updatePostInfo,
   getHomeInfo,
+  createPost,
 };

@@ -25,6 +25,8 @@ const Profile = () => {
     const [followers, setFollowers] = useState<any>([]);
     const [posts, setPosts] = useState<any>([]);
 
+    const user_id = localStorage.getItem("userID") as string;
+
     useEffect(() => {
         const fetchUserInfo = async () => {
           const userData = await axios.get(
@@ -103,7 +105,7 @@ const Profile = () => {
             likedBy: string[];
         },
     }) => {
-        if(!p.likedBy || !p.likedBy.includes(`${user?.user_id}`))
+        if(!p.likedBy || !p.likedBy.includes(`${user_id}`))
         {
             try {
                 const response = await axios.put(
@@ -115,11 +117,11 @@ const Profile = () => {
                         shares: p.shares,
                         saves: p.saves,
 
-                        user_id: user?.user_id,
+                        user_id,
                     }
                 )
         
-                console.log(response.data);
+                console.log(response);
             }
             catch(error)
             {
@@ -127,8 +129,6 @@ const Profile = () => {
             }
         }
     }
-
-    const user_id = localStorage.getItem("userID") as string;
 
   return (
     <div className={styles.profile}>
@@ -232,6 +232,15 @@ const Profile = () => {
             <h2>
                 Posts:
             </h2>
+            {
+                user && user.user_id == parseInt(user_id, 10) &&
+                <button 
+                    className={styles.create_post}
+                    onClick={() => navigate('/create_post')}
+                >
+                    New Post
+                </button>
+            }
             {
                 posts.map((post: any) => {
                     return <div className={styles.post}>

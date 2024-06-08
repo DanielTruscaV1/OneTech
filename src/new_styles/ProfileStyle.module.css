@@ -142,6 +142,17 @@
         background-color: #00ADB5;
         border-radius: 50%;
     }
+    .posts h2 {
+        display: inline-block !important;
+        width: 60% !important;
+    }
+    .create_post {
+        display: inline-block;
+        width: 30%;
+        height: 4vh;
+        background-color: #F8F8F8;
+        border-radius: 5px;
+    }
 }
 @media screen and (min-width: 600px) {
     .profile {
@@ -336,6 +347,17 @@
         height: 35px;
         background-color: #00ADB5;
         border-radius: 50%;
+    }
+    .posts h2 {
+        display: inline-block !important;
+        width: 80% !important;
+    }
+    .create_post {
+        display: inline-block;
+        width: 15%;
+        height: 4vh;
+        background-color: #F8F8F8;
+        border-radius: 5px;
     }
 }
 .post img {

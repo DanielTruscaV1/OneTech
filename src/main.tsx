@@ -25,6 +25,7 @@ import Problem from './components/Problem';
 import Profile from './new_components/Profile';
 import { AuthProvider } from './auth';
 import RequireAuth from './requireAuth';
+import CreatePost from './new_components/CreatePost';
 
 const router = createBrowserRouter([
   {
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
   {
     path: "/user-profile",
     element: <UserProfile/>
+  },
+  {
+    path: "/create_post",
+    element: <CreatePost/>
   },
 ]);
 
