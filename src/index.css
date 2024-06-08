@@ -68,7 +68,7 @@ button:hover {
     .user_post {
         position: relative;
         width: 100vw !important;
-        height: 390px !important;
+        height: 400px !important;
     }
     .user_post_image {
         position: relative !important;
@@ -76,7 +76,7 @@ button:hover {
         margin-left: 5vw !important;
         margin-top: 1vh !important;
         width: 90vw !important;
-        height: 60vw;
+        height: 65vw !important;
     }
     .user_post_author1 {
         left: 5vw !important;
