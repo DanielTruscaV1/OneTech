@@ -138,7 +138,7 @@ const UserPost = ({ user, post } : {
                 style={{
                     display: "inline-block",
                     marginLeft: "13%",
-                    background: "linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%)",
+                    background: post.likedBy.includes(user_id) ? "linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%)" : "",
                     padding: "7px",
                     paddingRight: "15px",
                     height: "50px",

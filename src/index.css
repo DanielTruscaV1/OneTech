@@ -76,7 +76,7 @@ button:hover {
         margin-left: 5vw !important;
         margin-top: 1vh !important;
         width: 90vw !important;
-        height: 60vw !important;
+        height: 60vw;
     }
     .user_post_author1 {
         left: 5vw !important;
@@ -125,4 +125,10 @@ button:hover {
 }
 .problem_small {
     width: 61vw !important;
+}
+@media screen and (min-width: 600px) {
+    .user_post_image {
+        width: 80%;
+        height: 400px !important;
+    }
 }
