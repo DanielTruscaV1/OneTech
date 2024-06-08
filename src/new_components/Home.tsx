@@ -6,9 +6,10 @@ import UserCircle from "../small_components/UserCircle"
 import UserPost from "../small_components/UserPost"
 import UserComment from "../small_components/UserComment"
 import UserCircleHorizontal from "../small_components/UserCircleHorizontal"
-import { useEffect, useState } from "react"
 import { getUserData, User } from '../getUser.tsx';
 
+import { useState, useEffect } from "react"
+import axios from "axios"
 
 const Home = () => {
   const mock_db = [
@@ -91,6 +92,7 @@ const Home = () => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);  
+    const [followedUsers, setFollowedUsers] = useState<any>([]);
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -98,34 +100,70 @@ const Home = () => {
     
           if (userData) {
             setUser(userData);
+
+            await fetchHomeInfo({user_id: userData.user_id});
           } else {
             setError('Failed to fetch user data');
           }
           setLoading(false);
         };
+
+        const fetchHomeInfo = async (user : {
+          user_id: number;
+        }) => {
+          try
+          {
+            const response  = await axios.get(
+              `https://onetech.onrender.com/api/getHomeInfo/${user.user_id}`,
+              //`http://localhost:3000/api/getHomeInfo/${user.user_id}`,
+            );
+
+            setFollowedUsers(response.data.followedUsers);
+
+            console.log(followedUsers)
+          }
+          catch(error)
+          {
+            console.log("Front-end error: ", error);
+          }
+        }
     
         fetchUserInfo();
+
       }, []);
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
+   
+
   return (
     <div className={styles.home}>
         <Sidebar/>
         <Top user={user}/>
+
+
         <div className={styles.stories}>
-          <UserCircle image={mock_db[0].image} name={mock_db[0].name}/>
-          <UserCircle image={mock_db[1].image} name={mock_db[1].name}/>
-          <UserCircle image={mock_db[2].image} name={mock_db[2].name}/>   
-          <UserCircle image={mock_db[3].image} name={mock_db[3].name}/>   
+          {
+            followedUsers &&
+            followedUsers.map((user: any) => {
+              return <UserCircle 
+                image={user.data.image}
+                name={user.data.username}
+              />
+            })
+          }   
         </div>
+
+
         <div className={styles.feed}>
           <UserPost user={mock_feed_user[0]} post = {mock_feed_post[0]}/>
           <UserComment user={mock_comment_user[0]} content={mock_comment_content[0]}/>
           <UserPost user={mock_feed_user[1]} post = {mock_feed_post[1]}/>
           <UserComment user={mock_comment_user[1]} content={mock_comment_content[1]}/>
         </div>
+
+
         <div className={styles.aside}>
           <img 
             className={styles.aside_image}

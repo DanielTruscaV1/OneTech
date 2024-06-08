@@ -25,7 +25,8 @@ const UserCircle = ({image, name} : {
         />
         <p 
             style={{
-                marginLeft: "3rem",
+                marginLeft: "2.5rem",
+                marginTop: "1vh",
                 width: "calc(100% - 3.2rem)",
                 textAlign: "center",
                 fontWeight: "500",

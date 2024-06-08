@@ -2,7 +2,7 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo } = require('./database');
+const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo } = require('./database');
 const cors = require('cors');
 const app = express();
 const encoder = require('./encoder');
@@ -177,6 +177,20 @@ app.get('/api/documents', async (req, res) => {
     } catch (error) {
       console.error('Error creating user:', error);
       res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+  app.get("/api/getHomeInfo/:user_id", async (req, res) => {
+    const { user_id } = req.params;
+    try 
+    {
+      const response = await getHomeInfo(user_id);
+
+      res.json(response);
+    }
+    catch(error)
+    {
+      console.log("Back-end (server) error: ", error);
     }
   });
 

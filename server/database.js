@@ -286,6 +286,42 @@ async function getFollowers(user_id) {
   }
 }
 
+async function getHomeInfo(user_id) {
+  try 
+  {
+    const userResult = await client.query(
+      q.Map(
+          q.Paginate(q.Match(q.Index("getUserById"), user_id)),
+          q.Lambda("X", q.Get(q.Var("X")))
+      )
+    );
+
+    const user = userResult.data[0];
+
+    const followedUsersIds = user.data.followedUsers;
+
+    const followedUsers = await client.query(
+      q.Map(
+        followedUsersIds,
+        q.Lambda(
+          'user_id',
+          q.If(
+            q.Exists(q.Match(q.Index('getUserById'), q.Var('user_id'))),
+            q.Get(q.Match(q.Index('getUserById'), q.Var('user_id'))),
+            []
+          )
+        )
+      )
+    );
+
+    return { followedUsers };
+  }
+  catch(error) 
+  {
+    console.log("Back-end (database) error: ", error);
+  }
+}
+
 
 module.exports = {
   createDocument,
@@ -298,4 +334,5 @@ module.exports = {
   updateUserInfo,
   getFollowers,
   updatePostInfo,
+  getHomeInfo,
 };
