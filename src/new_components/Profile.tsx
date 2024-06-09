@@ -134,15 +134,15 @@ const Profile = () => {
     <div className={styles.profile}>
         <Sidebar/>
         {
-            user && user.user_id == parseInt(user_id, 10) &&
+            user && user.user_id == user_id &&
             <Top user={user}/>
         }
         {
-            user && user.user_id == parseInt(user_id, 10) &&
+            user && user.user_id == user_id &&
             <EditProfile user={user}/>
         }
         {
-            user && user.user_id == parseInt(user_id, 10) &&
+            user && user.user_id == user_id &&
             <button 
                 className={styles.logout}
                 onClick={handleLogOut}
@@ -236,7 +236,7 @@ const Profile = () => {
                 Posts:
             </h2>
             {
-                user && user.user_id == parseInt(user_id, 10) &&
+                user && user.user_id == user_id &&
                 <button 
                     className={styles.create_post}
                     onClick={() => navigate('/create_post')}

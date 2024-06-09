@@ -3,7 +3,7 @@ import styles from "../new_styles/EditProfile.module.css"
 import axios from "axios";
 
 interface User {
-  user_id: number;
+  user_id: string;
   username: string;
   email: string;
   image: string;

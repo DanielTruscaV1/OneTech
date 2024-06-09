@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export interface User
 {
-    user_id: number;
+    user_id: string;
     username: string;
     email: string;
     image: string;
@@ -15,7 +15,7 @@ export interface User
 
 export const getUserData = async (global_user_id : any): Promise<User | null> => {
   const userIDString = global_user_id
-  const userID = userIDString !== null ? parseInt(userIDString, 10) : null;
+  const userID = userIDString;
   
   const userData = localStorage.getItem('user');
 
