@@ -250,7 +250,14 @@ const Profile = () => {
                         <h1>
                             {post.data.title}
                         </h1>
-                        <img src={post.data.image}/>
+                        <img 
+                            className={styles.post_image} 
+                            src={post.data.image}
+                            style={{
+                                maxWidth: "90%",
+                                maxHeight: "300px",
+                            }}
+                        />
                         {
                             post.data.likedBy && post.data.likedBy.includes(`${user?.user_id}`) &&
                             <div className={styles.button_bg}>

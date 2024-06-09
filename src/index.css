@@ -142,7 +142,7 @@ button:hover {
     }
     .user_post_schema {
         position: absolute;
-        top: 400px;
+        top: 430px;
     }
     .user_post_info h1{
         padding-left: 20px;
@@ -167,6 +167,9 @@ button:hover {
     width: 61vw !important;
 }
 @media screen and (min-width: 600px) {
+    .user_post {
+        height: 62vh !important;
+    }
     .user_post_info {
         display: flex !important;
         flex-direction: row;
@@ -176,10 +179,11 @@ button:hover {
         left: 0 !important;
         margin-left: 5% !important;
         width: 60% !important;
-        height: 300px!important;
+        height: 330px!important;
     }
     .user_post_actions {
         left: -2% !important;
+        top: 2vh !important;
     }
     .user_post_info {
         position: relative;
