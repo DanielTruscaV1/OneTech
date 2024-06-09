@@ -437,6 +437,8 @@ async function deletePost(post_id) {
 
     const post = postResult.data[0];
 
+    const user_id = post.data.author_id;
+
     const result = await client.query(
       q.Delete(
         post.ref 
