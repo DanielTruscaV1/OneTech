@@ -92,8 +92,8 @@ async function getUserById(id) {
               {
                 data: {
                   user_id: newUserID,
-                  username: data.username,
-                  email: data.email,
+                  username,
+                  email,
                   password: hashedPassword,
                   followedUsers: [],
                   followedBy: [],
