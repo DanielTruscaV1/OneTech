@@ -72,7 +72,6 @@ const UserPost = ({ user, post } : {
             display: "block",
             marginTop: "3vh",
             width: "100%",
-            height: "100%",
             backgroundColor: "#F8F8F8",
             borderRadius: "10px",
         }}

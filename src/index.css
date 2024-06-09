@@ -168,7 +168,7 @@ button:hover {
 }
 @media screen and (min-width: 600px) {
     .user_post {
-        height: 62vh !important;
+        height: 70vh !important;
     }
     .user_post_info {
         display: flex !important;
