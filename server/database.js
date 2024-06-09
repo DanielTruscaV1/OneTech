@@ -245,12 +245,18 @@ async function updatePostInfo(post_id, data)
 
     const post = postResult.data[0];
 
-    const updatedPost = await client.query(
+    const updatedPost = data.likes > post.data.likes ? await client.query(
       q.Update(
           post.ref,
           { data: { ...data, likedBy: q.Append(data.user_id, post.data.likedBy || []) } }
       )
-  );
+    ) :
+    await client.query(
+      q.Update(
+          post.ref,
+          { data: { ...data, likedBy: post.data.likedBy.filter(userId => userId !== data.user_id)} }
+      )
+    )
 
     return updatedPost;
   } catch (error) {

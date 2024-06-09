@@ -49,7 +49,29 @@ const UserPost = ({ user, post } : {
                     `https://onetech.onrender.com/api/update_post/${id}`,
                     //`http://localhost:3000/api/update_post/${id}`,
                     {
-                        likes: p.likes,
+                        likes: p.likes + 1,
+                        comments: p.comments,
+                        shares: p.shares,
+                        saves: p.saves,
+
+                        user_id,
+                    }
+                )
+
+                console.log(response);
+            }
+            catch(error)
+            {
+                console.log(error);
+            }
+        }
+        else {
+            try {
+                const response = await axios.put(
+                    `https://onetech.onrender.com/api/update_post/${id}`,
+                    //`http://localhost:3000/api/update_post/${id}`,
+                    {
+                        likes: p.likes - 1,
                         comments: p.comments,
                         shares: p.shares,
                         saves: p.saves,
@@ -211,7 +233,7 @@ const UserPost = ({ user, post } : {
                         height: "22px",
                     }}
                     onClick={() => handleUpdate({id: post.post_id, p: {
-                        likes: post.likes + 1,
+                        likes: post.likes,
                         comments: post.comments,
                         shares: post.shares,
                         saves: post.saves,
