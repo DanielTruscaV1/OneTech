@@ -442,6 +442,24 @@ async function deletePost(post_id) {
         post.ref 
       )
     );
+
+    const userResult = await client.query(
+      q.Map(
+          q.Paginate(q.Match(q.Index("getUserById"), user_id)),
+          q.Lambda("X", q.Get(q.Var("X")))
+      )
+    );
+
+    const user = userResult.data[0];
+
+    const updatedUser = await client.query(
+      q.Update(
+        user.ref,
+        { data: { ...user.data, posts: q.Filter(user.data.posts || [], q.Lambda('post', q.Not(q.Equals(post_id, q.Var('post'))))) } }
+      )
+    );
+
+    return updatedUser;
   }
   catch(error)
   {
