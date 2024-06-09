@@ -40,7 +40,7 @@ const Home = () => {
         };
 
         const fetchHomeInfo = async (user : {
-          user_id: number;
+          user_id: string;
         }) => {
           try
           {
