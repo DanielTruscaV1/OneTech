@@ -20,7 +20,6 @@ const CreatePost = () => {
                 `https://onetech.onrender.com/api/createPost/${user_id}`,
                 //`http://localhost:3000/api/createPost/${user_id}`,
                 {
-                    post_id: "854",
                     image,
                     title,
                     description,

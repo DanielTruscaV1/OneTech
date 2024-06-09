@@ -68,7 +68,7 @@ button:hover {
     .user_post {
         position: relative;
         width: 100vw !important;
-        height: 400px !important;
+        height: 450px !important;
     }
     .user_post_image {
         position: relative !important;
@@ -119,6 +119,27 @@ button:hover {
         font-size: 13px;
         text-align: center;
     }
+    .settings {
+        position: relative;
+        top: -10vh;
+        left: 75%;
+        width: 25%;
+        height: 4vh;
+    }
+    .settings img {
+        display: inline-block;
+    }
+    .settings p {
+        display: block;
+        width: 100%;
+        font-size: 14px;
+        text-align: center;
+    }
+    .settings p:hover {
+        cursor: pointer;
+        color: rgb(0,173,181);
+        text-decoration: underline;
+    }
 }
 .greater {
     width: 20% !important;
@@ -130,5 +151,25 @@ button:hover {
     .user_post_image {
         width: 80%;
         height: 400px !important;
+    }
+    .settings {
+        position: relative;
+        top: -8vh;
+        left: 70%;
+        width: 30%;
+        height: 4vh;
+    }
+    .settings img {
+        display: inline-block;
+    }
+    .settings p {
+        margin-right: 2vw;
+        display: inline-block;
+        font-size: 18px;
+    }
+    .settings p:hover {
+        cursor: pointer;
+        color: rgb(0,173,181);
+        text-decoration: underline;
     }
 }

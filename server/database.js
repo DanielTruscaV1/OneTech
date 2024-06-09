@@ -4,6 +4,8 @@ const faunadb = require('faunadb');
 const q = faunadb.query;
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { v4: uuidv4 } = require('uuid');
+
 
 // Replace with your FaunaDB secret key
 const client = new faunadb.Client({
@@ -77,20 +79,30 @@ async function getUserById(id) {
         const hashedPassword = await bcrypt.hash(password, salt);
 
         // Now you can store the hashed password in your database
+
+        const newUserID = uuidv4();
+
         const newUser = await client.query(
+          q.Let(
+            {
+              count: q.Count(q.Documents(q.Collection('Users')))
+            },
             q.Create(
-                q.Collection('Users'),
-                { data: { 
-                  username, 
-                  email, 
+              q.Collection('Users'),
+              {
+                data: {
+                  user_id: newUserID,
+                  username: data.username,
+                  email: data.email,
                   password: hashedPassword,
                   followedUsers: [],
                   followedBy: [],
                   posts: [],
-                } 
+                }
               }
             )
-        );
+          )
+        );        
 
         return newUser.data;
     } catch (error) {
@@ -114,10 +126,9 @@ async function getUserById(id) {
       const isPasswordValid = await bcrypt.compare(password, user.password);
       if (isPasswordValid) {
 
-        const response = await client.query(q.Create(
-          q.Collection('Sessions'),
-          { data: { email } }
-        ));
+        const response = {
+
+        };
 
         response.status = 201;
 
@@ -362,11 +373,19 @@ async function getHomeInfo(user_id) {
 
 async function createPost(user_id, data) {
   try {
+
+      const unique_id = uuidv4();
+
       const response = await client.query(
+        q.Let(
+          {
+            count: q.Count(q.Documents(q.Collection('Posts')))
+          },
           q.Create(
-              q.Collection('Posts'),
-              { data: { 
-                post_id: data.post_id,
+            q.Collection('Posts'),
+            {
+              data: {
+                post_id: unique_id,
                 author_id: user_id,
                 image: data.image,
                 title: data.title,
@@ -376,10 +395,12 @@ async function createPost(user_id, data) {
                 comments: 0,
                 shares: 0,
                 saves: 0,
-              } 
+                likedBy: [],
+              }
             }
           )
-      );
+        )
+      );    
 
       const userResult = await client.query(
         q.Map(
@@ -393,7 +414,7 @@ async function createPost(user_id, data) {
       const updatedUser = await client.query(
         q.Update(
             user.ref,
-            { data: {...user.data, posts: q.Append(data.post_id, user.data.posts || [])} }
+            { data: {...user.data, posts: q.Append(response.data.post_id, user.data.posts || [])} }
         )
       );
 

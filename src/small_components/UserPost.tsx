@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const UserPost = ({ user, post } : {
@@ -8,6 +9,8 @@ const UserPost = ({ user, post } : {
     const navigate = useNavigate();
 
     const user_id = localStorage.getItem("userID");
+
+    const [settings, setSettings] = useState(false);
 
     const handleUpdate = async ({ id, p } : {
         id: string;
@@ -99,18 +102,42 @@ const UserPost = ({ user, post } : {
         >
             { user.email }
         </p>
-        <img 
-            src="/home2.png"
-            style={{
-                position: "relative",
-                left: "90%",
-                top: "-9vh",
-                width: "2rem",
-                height: "2rem",
-                cursor: "pointer",
-            }}
-            className="user_post_settings"
-        />
+        {
+            user_id && post.author_id == user_id && settings == false &&
+            <img 
+                src="/home2.png"
+                style={{
+                    position: "relative",
+                    left: "90%",
+                    top: "-9vh",
+                    width: "2rem",
+                    height: "2rem",
+                    cursor: "pointer",
+                }}
+                className="user_post_settings"
+                onClick={() => setSettings(true)}
+            />
+        }
+        {
+            user_id && post.author_id == user_id && settings == true &&
+            <div className="settings">
+                <p>
+                    Edit
+                </p>
+                <p>
+                    Delete
+                </p>
+                <p onClick={() => setSettings(false)}>
+                    Cancel
+                </p>
+            </div>
+        }
+        {
+            !(user_id && post.author_id == user_id) && 
+            <>
+                <br/>
+            </>
+        }
         <img 
             src={ post.image }
             style={{

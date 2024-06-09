@@ -196,10 +196,9 @@ app.get('/api/documents', async (req, res) => {
 
   app.post("/api/createPost/:user_id", async (req, res) => {
     const { user_id } = req.params;
-    const { post_id, image, title, description, tags } = req.body;
+    const { image, title, description, tags } = req.body;
     try {
       const result = await createPost(user_id, {
-        post_id,
         image,
         title,
         description,
