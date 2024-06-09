@@ -1,0 +1,99 @@
+@media screen and (max-width: 600px) {
+    .comments {
+        position: relative;
+        margin-top: -3px;
+        padding-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: #f6f6f6;
+    }
+    .comments hr {
+        margin-left: 5%;
+        margin-top: 2vh;
+        width: 90%;
+        border: 0.3px solid rgb(200, 200, 200);
+    }
+    .comments img {
+        position: realtive;
+        margin-top: 0px;
+        margin-left: 5%;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 3px solid #00ADB5;
+    }
+    .comments h2 {
+        position: realtive;
+        margin-top: -50px;
+        margin-left: calc(50px + 12%);
+        font-size: 20px;
+    }
+    .container {
+        position: realtive;
+        margin-top: 4vh;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin-left: 5%;
+        font-size: 16px;
+        text-align: justify;
+    }
+    .comments p {
+        font-size: 16px;
+    }
+    .comments h3 {
+        font-size: 16px;
+        color: rgb(200, 200, 200);
+    }
+}
+@media screen and (min-width: 600px) {
+    .comments {
+        position: relative;
+        margin-top: -15px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+        background-color: #f6f6f6;
+        border-radius: 10px;
+    }
+    .comments hr {
+        margin-left: 5%;
+        margin-top: 2vh;
+        width: 90%;
+        border: 0.3px solid rgb(200, 200, 200);
+    }
+    .comments img {
+        position: realtive;
+        margin-top: 0px;
+        margin-left: 5%;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 3px solid #00ADB5;
+    }
+    .comments h2 {
+        position: realtive;
+        margin-top: -50px;
+        margin-left: calc(50px + 8%);
+        font-size: 20px;
+    }
+    .container {
+        position: realtive;
+        margin-top: 4vh;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin-left: 5%;
+        font-size: 16px;
+        text-align: justify;
+    }
+    .comments p {
+        font-size: 16px;
+    }
+    .comments h3 {
+        font-size: 16px;
+        color: rgb(200, 200, 200);
+    }
+}

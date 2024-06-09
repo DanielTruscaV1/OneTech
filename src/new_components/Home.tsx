@@ -104,19 +104,11 @@ const Home = () => {
                   user={returnUser(post.data.author_id).data}
                   post={post.data}
                 />
+                
               </div>
             })
           }
         </div>
-
-
-        <div className={styles.aside}>
-          <img 
-            className={styles.aside_image}
-            src='/home_aside_1.jpg'
-          />
-          
-        </div>  
     </div>
   )
 }

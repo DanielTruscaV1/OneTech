@@ -29,6 +29,8 @@
     }
     .feed {
         position: absolute;
+        display: flex;
+        flex-direction: column;
         top: 32vh;
         left: 11vw;
         width: 55vw;

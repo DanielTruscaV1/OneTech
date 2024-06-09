@@ -66,9 +66,15 @@ button:hover {
         font-size: 14px !important;
     }
     .user_post {
-        position: relative;
+        position: relative !important;
+        
         width: 100vw !important;
-        height: 600px !important;
+    }
+    .user_post_info {
+        display: flex !important;
+        flex-direction: column;
+        position: relative;
+        padding-bottom: 60px;
     }
     .user_post_image {
         position: relative !important;
@@ -91,9 +97,9 @@ button:hover {
         height: 20px !important;
     }
     .user_post_actions {
-        position: relative !important;
+        position: absolute !important;
         left: 1.1vw !important;
-        top: -15px !important;
+        top: 46vh !important;
         width: 100vw !important;
     }
     .user_post_actions div {
@@ -141,8 +147,8 @@ button:hover {
         text-decoration: underline;
     }
     .user_post_schema {
-        position: absolute;
-        top: 430px;
+        position: relative;
+        top: 50px;
     }
     .user_post_info h1{
         padding-left: 20px;
@@ -168,7 +174,8 @@ button:hover {
 }
 @media screen and (min-width: 600px) {
     .user_post {
-        height: 70vh !important;
+        width: 60vw !important;
+    
     }
     .user_post_info {
         display: flex !important;

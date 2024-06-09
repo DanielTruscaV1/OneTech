@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PostComments from "../new_components/PostComments";
 
 const UserPost = ({ user, post } : {
     user : any;
@@ -11,6 +12,8 @@ const UserPost = ({ user, post } : {
     const user_id = localStorage.getItem("userID");
 
     const [settings, setSettings] = useState(false);
+
+    const [showComments, setShowComments] = useState(false);
 
     const handleDelete = async () => {
         try 
@@ -91,8 +94,11 @@ const UserPost = ({ user, post } : {
   return (
     <div
         style={{
-            display: "block",
+            position: "relative",
+            display: "flex",
+            flexDirection: "column",
             marginTop: "3vh",
+            marginBottom: "6vh",
             width: "100%",
             backgroundColor: "#F8F8F8",
             borderRadius: "10px",
@@ -332,6 +338,35 @@ const UserPost = ({ user, post } : {
                 </p>
             </div>
         </div>
+        <p 
+            className="mt-8 text-center cursor-pointer"
+            onClick={() => setShowComments(!showComments)}
+        >
+            {
+                !showComments && 
+                <>
+                    <img className="inline-block w-6 h-6 mr-3" src="/expand1.png"/>
+                    Show Comments
+                </>
+                
+            }
+            {
+                showComments && 
+                <>
+                    <img className="inline-block w-6 h-6 mr-3" src="/expand2.png"/>
+                    Hide Comments
+                </>
+                
+            }
+        </p>
+        <br/>
+        
+        {
+            showComments &&
+            <>
+                <PostComments/>
+            </>
+        }
     </div>
   )
 }
