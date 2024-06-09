@@ -68,7 +68,7 @@ button:hover {
     .user_post {
         position: relative;
         width: 100vw !important;
-        height: 450px !important;
+        height: 600px !important;
     }
     .user_post_image {
         position: relative !important;
@@ -140,6 +140,25 @@ button:hover {
         color: rgb(0,173,181);
         text-decoration: underline;
     }
+    .user_post_schema {
+        position: absolute;
+        top: 400px;
+    }
+    .user_post_info h1{
+        padding-left: 20px;
+        font-size: 20px;
+    }
+    .user_post_info h2 {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        padding-left: 20px;
+        font-size: 16px;
+    }
+    .user_post_info p {
+        padding-left: 20px;
+        font-size: 16px;
+        color: rgb(170, 170, 170);
+    }
 }
 .greater {
     width: 20% !important;
@@ -148,14 +167,57 @@ button:hover {
     width: 61vw !important;
 }
 @media screen and (min-width: 600px) {
+    .user_post_info {
+        display: flex !important;
+        flex-direction: row;
+    }
     .user_post_image {
-        width: 80%;
-        height: 400px !important;
+        display: inline-block;
+        left: 0 !important;
+        margin-left: 5% !important;
+        width: 60% !important;
+        height: 300px!important;
+    }
+    .user_post_actions {
+        left: -2% !important;
+    }
+    .user_post_info {
+        position: relative;
+        margin-left: 0%;
+        top: 0px;
+        display: inline-block;
+        width: 100%;
+        height: 300px;
+    }
+    .user_post_info h1{
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 23px;
+    }
+    .user_post_info h2 {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 18px;
+    }
+    .user_post_info p {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 18px;
+        color: rgb(170, 170, 170);
+    }
+    .user_post_schema {
+        position: absolute;
+        top: -3vh;
+        right: 0;
+        width: 35%;
+        height: 300px;
     }
     .settings {
         position: relative;
         top: -8vh;
-        left: 70%;
+        left: 75%;
         width: 30%;
         height: 4vh;
     }

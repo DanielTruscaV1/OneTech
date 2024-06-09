@@ -425,6 +425,31 @@ async function createPost(user_id, data) {
   }
 }
 
+async function deletePost(post_id) {
+  try 
+  {
+    const postResult = await client.query(
+      q.Map(
+          q.Paginate(q.Match(q.Index("getPostById"), post_id)),
+          q.Lambda("X", q.Get(q.Var("X")))
+      )
+    );
+
+    const post = postResult.data[0];
+
+    const result = await client.query(
+      q.Delete(
+        post.ref 
+      )
+    );
+  }
+  catch(error)
+  {
+    console.error('Error deleting post:', error);
+    throw error;
+  }
+}
+
 
 module.exports = {
   createDocument,
@@ -439,4 +464,5 @@ module.exports = {
   updatePostInfo,
   getHomeInfo,
   createPost,
+  deletePost,
 };

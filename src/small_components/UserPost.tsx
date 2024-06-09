@@ -12,6 +12,25 @@ const UserPost = ({ user, post } : {
 
     const [settings, setSettings] = useState(false);
 
+    const handleDelete = async () => {
+        try 
+        {
+            const response = await axios.delete(
+                `https://onetech.onrender.com/api/deletePost/${post.post_id}`
+                //`http://localhost:3000/api/deletePost/${post.post_id}`
+            );
+
+            if(response)
+            {
+                window.location.reload();
+            }
+        }
+        catch(error) 
+        {
+            console.log("Front-end error: ", error);
+        }
+    }
+
     const handleUpdate = async ({ id, p } : {
         id: string;
         p: {
@@ -108,7 +127,7 @@ const UserPost = ({ user, post } : {
                 src="/home2.png"
                 style={{
                     position: "relative",
-                    left: "90%",
+                    left: "93%",
                     top: "-9vh",
                     width: "2rem",
                     height: "2rem",
@@ -124,7 +143,7 @@ const UserPost = ({ user, post } : {
                 <p>
                     Edit
                 </p>
-                <p>
+                <p onClick={handleDelete}>
                     Delete
                 </p>
                 <p onClick={() => setSettings(false)}>
@@ -138,19 +157,32 @@ const UserPost = ({ user, post } : {
                 <br/>
             </>
         }
-        <img 
-            src={ post.image }
-            style={{
-                position: "relative",
-                left: "12%",
-                top: "-3.5vh",
-                width: "80%",
-                height: "65%",
-                borderRadius: "10px",
-                cursor: "pointer",
-            }}
-            className="user_post_image"
-        />
+        <div className="user_post_info">
+            <img 
+                src={ post.image }
+                style={{
+                    position: "relative",
+                    left: "12%",
+                    top: "-3.5vh",
+                    width: "80%",
+                    height: "65%",
+                    borderRadius: "10px",
+                    cursor: "pointer",
+                }}
+                className="user_post_image"
+            />
+            <div className="user_post_schema">
+                <h1>
+                    {post.title}
+                </h1>
+                <h2>
+                    {post.description}
+                </h2>
+                <p>
+                    {post.tags}
+                </p>
+            </div>
+        </div>
         <div 
             style={{
                 position: "relative",
