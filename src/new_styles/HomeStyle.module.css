@@ -38,10 +38,11 @@
     }
     .aside {
         position: absolute;
+        display: flex;
+        flex-direction: column;
         top: 35vh;
         right: 4vw;
-        width: 26vw;
-        height: 60vh;
+        width: 20vw;
         background-color: #F8F8F8;
         border-radius: 10px;
     }

@@ -1,6 +1,8 @@
 import styles from "../new_styles/PostCommentsStyle.module.css";
 
 const PostComments = () => {
+  const user_info = JSON.parse(localStorage.getItem("user") as string);
+
   return (
     <div className={styles.comments}>
         <hr/>
@@ -17,6 +19,24 @@ const PostComments = () => {
                 5 minutes ago
             </h3>
         </div>
+        <div>
+          <img 
+            className={styles.icon}
+            src="/add1.png"
+          />
+          <p className="inline-block w-50 ml-3 mt-3 text-3xl">
+            Create a new comment as {user_info.username}
+          </p>
+          <br/>
+          <input 
+            type="text"
+            placeholder="New comment....."
+          />
+          <button>
+            Submit
+          </button>
+        </div>
+        
     </div>
   )
 }

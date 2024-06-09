@@ -6,17 +6,17 @@ const UserCircleHorizontal= ({image, name, email} : {
   return (
     <div
         style={{
-            marginTop: "2rem",
+            paddingTop: "1.5rem",
             display: "block",
             width: "100%",
-            height: "15%",
         }}
+        className="user_circle_horizontal"
     >
         <img 
             src={ image }
             style={{
                 display: "inline-block",
-                marginLeft: "3vw",
+                marginLeft: "1vw",
                 width: "60px",
                 height: "60px",
                 borderRadius: "50%",
@@ -29,7 +29,7 @@ const UserCircleHorizontal= ({image, name, email} : {
                 position: "relative",
                 top: "-1rem",
                 display: "inline-block",
-                marginLeft: "0vw",
+                marginLeft: "1vw",
                 width: "25%",
                 textAlign: "center",
                 fontWeight: "500",
@@ -39,23 +39,10 @@ const UserCircleHorizontal= ({image, name, email} : {
         </p>
         <p 
             style={{
-                display: "inline-block",
-                marginLeft: "4.5vw",
-                width: "7.5%",
-                textAlign: "center",
-                fontWeight: "500",
-                color: "#00ADB5",
-                cursor: "pointer",
-            }}
-        >
-            Follow
-        </p>
-        <p 
-            style={{
                 position: "relative",
-                top: "-2.5rem",
+                top: "-1.5rem",
                 display: "inline-block",
-                marginLeft: "9vw",
+                marginLeft: "6vw",
                 width: "25%",
                 textAlign: "left",
                 fontWeight: "500",

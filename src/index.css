@@ -172,10 +172,16 @@ button:hover {
 .problem_small {
     width: 61vw !important;
 }
+.user_circle_horizontal {
+    max-height: 100px;
+}
+.user_circle_horizontal:hover {
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
 @media screen and (min-width: 600px) {
     .user_post {
         width: 60vw !important;
-    
     }
     .user_post_info {
         display: flex !important;

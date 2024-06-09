@@ -11,6 +11,7 @@ import { getUserData, User } from '../getUser.tsx';
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import UserCircleHorizontal from "../small_components/UserCircleHorizontal.tsx"
 
 const Home = () => {
 
@@ -108,6 +109,19 @@ const Home = () => {
               </div>
             })
           }
+        </div>
+
+        <div className={styles.aside}>
+          {
+            followedUsers.map((u: any) => {
+              return <UserCircleHorizontal
+                image={u.data.image}
+                name={u.data.username}
+                email={u.data.email}
+              />
+            })
+          }
+          
         </div>
     </div>
   )
