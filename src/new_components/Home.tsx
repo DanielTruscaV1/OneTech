@@ -58,6 +58,8 @@ const Home = () => {
               setPosts(response.data.posts.data.reverse());
             else if(order == "oldest")
               setPosts(response.data.posts.data);
+            else
+              setPosts(response.data.posts.data.reverse());
           }
           catch(error)
           {
