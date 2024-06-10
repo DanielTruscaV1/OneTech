@@ -15,6 +15,8 @@ const UserPost = ({ user, post } : {
 
     const [showComments, setShowComments] = useState(false);
 
+    const [postComments, setPostComments] = useState<any>([]);
+
     const handleDelete = async () => {
         try 
         {
@@ -115,6 +117,23 @@ const UserPost = ({ user, post } : {
       
         return 'just now';
       }
+
+    const handleComments = async () => {
+        setShowComments(!showComments);
+
+        try 
+        {
+            const response = await axios.get(
+                `https://onetech.onrender.com/api/getComments/${post.post_id}`,
+            );
+
+            setPostComments(response.data.result.data);
+        }
+        catch(error)
+        {
+            console.log("Front-end error: ", error);
+        }
+    }
 
   return (
     <div
@@ -371,7 +390,7 @@ const UserPost = ({ user, post } : {
         </div>
         <p 
             className="mt-8 text-center cursor-pointer"
-            onClick={() => setShowComments(!showComments)}
+            onClick={handleComments}
         >
             {
                 !showComments && 
@@ -395,7 +414,7 @@ const UserPost = ({ user, post } : {
         {
             showComments &&
             <>
-                <PostComments/>
+                <PostComments post_id={post.post_id} comments={postComments}/>
             </>
         }
     </div>

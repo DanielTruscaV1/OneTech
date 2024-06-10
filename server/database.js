@@ -479,6 +479,75 @@ async function deletePost(post_id) {
 }
 
 
+
+async function createComment(post_id, author_id, content)
+{
+  try
+  {
+    const unique_id = uuidv4();
+
+    const userResult = await client.query(
+      q.Map(
+          q.Paginate(q.Match(q.Index("getUserById"), author_id)),
+          q.Lambda("X", q.Get(q.Var("X")))
+      )
+    );
+
+    const user = userResult.data[0];
+
+    const newComment = await client.query(
+        q.Create(
+          q.Collection('Comments'),
+          {
+            data: 
+            {
+              post_id,
+              comment_id: unique_id, 
+              author_id,
+              author_image: user.data.image,
+              author_username: user.data.username,
+              content,
+              likes: 0,
+              date: new Date().toISOString(),
+            }
+          }
+        )
+    ); 
+
+    return newComment;
+  }
+  catch(error)
+  {
+    console.log("Database error: ", error);
+    throw error;
+  }
+}
+
+
+async function getComments(post_id)
+{
+  try 
+  {
+    const comments = await client.query(q.Map(
+      q.Paginate(
+        q.Match(
+          q.Index("getCommentsByPostId"), 
+          post_id 
+        )
+      ),
+      q.Lambda('X', q.Get(q.Var('X')))
+    ));
+
+    return comments;
+  }
+  catch(error)
+  {
+    console.log("Database error: ", error);
+    throw error;
+  }
+}
+
+
 module.exports = {
   createDocument,
   getDocumentById,
@@ -493,4 +562,6 @@ module.exports = {
   getHomeInfo,
   createPost,
   deletePost,
+  createComment,
+  getComments,
 };

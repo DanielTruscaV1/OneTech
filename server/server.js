@@ -2,7 +2,7 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo, createPost, deletePost } = require('./database');
+const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo, createPost, deletePost, createComment, getComments } = require('./database');
 const cors = require('cors');
 const app = express();
 const encoder = require('./encoder');
@@ -220,6 +220,30 @@ app.get('/api/documents', async (req, res) => {
       } catch (error) {
         res.status(400).send('Post deletion failed: ' + error.message);
       }
+  })
+
+  app.post("/api/createComment", async (req, res) => {
+    const { post_id, author_id, content } = req.body;
+
+    try {
+      const result = await createComment(post_id, author_id, content);
+
+      res.status(201).json({ message: 'Comment created successfully.', result});
+    } catch (error) {
+      res.status(400).send('Comment creation failed: ' + error.message);
+    }
+  })
+
+  app.get("/api/getComments/:post_id", async (req, res) => {
+    const { post_id } = req.params;
+
+    try {
+      const result = await getComments(post_id);
+
+      res.status(201).json({ message: 'Comments fetched successfully.', result});
+    } catch (error) {
+      res.status(400).send('Comments fetched failed: ' + error.message);
+    }
   })
 
 // Start the server
