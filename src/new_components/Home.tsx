@@ -21,6 +21,8 @@ const Home = () => {
     const [followedUsers, setFollowedUsers] = useState<any>([]);
     const [users, setUsers] = useState<any>([]);
     const [posts, setPosts] = useState<any>([]);
+    const [filter, setFilter] = useState<any>(window.innerWidth <= 768);
+    const [order, setOrder] = useState<any>(localStorage.getItem("post_order"));
 
     const user_id = localStorage.getItem("userID") as string;
 
@@ -52,7 +54,10 @@ const Home = () => {
 
             setFollowedUsers(response.data.followedUsers);
             setUsers(response.data.users.data);
-            setPosts(response.data.posts.data);
+            if(order == "newest")
+              setPosts(response.data.posts.data.reverse());
+            else if(order == "oldest")
+              setPosts(response.data.posts.data);
           }
           catch(error)
           {
@@ -62,7 +67,7 @@ const Home = () => {
     
         fetchUserInfo();
 
-      }, []);
+      }, [order]);
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
@@ -76,7 +81,6 @@ const Home = () => {
     <div className={styles.home}>
         <Sidebar/>
         <Top user={user}/>
-
 
         <div className={styles.stories}>
           {
@@ -95,6 +99,53 @@ const Home = () => {
           }   
         </div>
 
+        <div className={styles.filter}>
+          <div>
+            <h1>
+              Your Feed
+            </h1>
+            { !(window.innerWidth <= 768) &&
+              <button style={{
+                  marginLeft: "0vw",
+                  width: "17.5%",
+                }}
+                onClick={() => {
+                  setFilter(!filter)
+                }}
+              >
+                {
+                  !filter ?
+                  <img className="" src="/show1.png"/> :
+                  <img className="" src="/hide1.png"/>
+                }
+                Filters
+              </button>
+            }
+            {
+              filter &&
+              <>
+                <button 
+                  onClick={() => {localStorage.setItem("post_order", "newest"); setOrder("newest");}}
+                  style={{background: order == "newest" ? "linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%)" : "#f5f5f5"}}
+                >
+                  Newest
+                </button>
+                <button  
+                  onClick={() => {localStorage.setItem("post_order", "oldest"); setOrder("oldest");}}
+                  style={{background: order == "oldest" ? "linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%)" : "#f5f5f5"}}
+                >
+                  Oldest
+                </button>
+                <button>
+                  Top
+                </button>
+                <button>
+                  Hot
+                </button>
+              </>
+            }
+          </div>
+        </div>
 
         <div className={styles.feed}>
           {
