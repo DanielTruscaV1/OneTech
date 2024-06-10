@@ -119,20 +119,22 @@ const UserPost = ({ user, post } : {
       }
 
     const handleComments = async () => {
+        if(showComments == false)
+        {
+            try 
+            {
+                const response = await axios.get(
+                    `https://onetech.onrender.com/api/getComments/${post.post_id}`,
+                );
+
+                setPostComments(response.data.result.data);
+            }
+            catch(error)
+            {
+                console.log("Front-end error: ", error);
+            }
+        }
         setShowComments(!showComments);
-
-        try 
-        {
-            const response = await axios.get(
-                `https://onetech.onrender.com/api/getComments/${post.post_id}`,
-            );
-
-            setPostComments(response.data.result.data);
-        }
-        catch(error)
-        {
-            console.log("Front-end error: ", error);
-        }
     }
 
   return (
