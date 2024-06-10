@@ -393,6 +393,7 @@ async function createPost(user_id, data) {
               data: {
                 post_id: unique_id,
                 author_id: user_id,
+                date: new Date().toISOString(), // Current date in ISO format
                 image: data.image,
                 title: data.title,
                 description: data.description,
@@ -406,7 +407,8 @@ async function createPost(user_id, data) {
             }
           )
         )
-      );    
+      );
+      
 
       const userResult = await client.query(
         q.Map(
