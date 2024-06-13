@@ -109,7 +109,7 @@ const Home = () => {
             { !(window.innerWidth <= 768) &&
               <button style={{
                   marginLeft: "0vw",
-                  width: "17.5%",
+                  width: "11%",
                 }}
                 onClick={() => {
                   setFilter(!filter)
@@ -120,7 +120,7 @@ const Home = () => {
                   <img className="" src="/show1.png"/> :
                   <img className="" src="/hide1.png"/>
                 }
-                Filters
+                Sort
               </button>
             }
             {

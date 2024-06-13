@@ -246,6 +246,36 @@ app.get('/api/documents', async (req, res) => {
     }
   })
 
+  const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
+  const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
+
+  // Configure the S3 client with your credentials and region
+  const s3Client = new S3Client({
+    region: process.env.VITE_AWS_REGION,
+    credentials: {
+      accessKeyId: process.env.VITE_AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.VITE_AWS_SECRET_ACCESS_KEY,
+    },
+  });
+
+  // Function to generate a presigned URL for the image
+  const generatePresignedUrl = async (bucketName, objectKey) => {
+    try {
+      const command = new GetObjectCommand({
+        Bucket: bucketName,
+        Key: objectKey,
+      });
+
+      const signedUrl = await getSignedUrl(s3Client, command, { expiresIn: 180 }); // URL expires in 1 hour (adjust as needed)
+
+      console.log('Presigned URL:', signedUrl);
+      return signedUrl;
+    } catch (err) {
+      console.error('Error generating presigned URL:', err);
+      return null;
+    }
+  };
+  
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
