@@ -4,6 +4,7 @@ import Top from "./Top"
 
 import { getUserData, User } from '../getUser.tsx';
 import { useEffect, useState } from "react";
+import Subject from "../small_components/Subject.tsx";
 
 const Theory = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -34,59 +35,19 @@ const Theory = () => {
     <div className={styles.theory}>
         <Sidebar/>
         <Top user={user}/>
-        <div className={styles.current}>
-            <h1>
-                Current Chapter - 1. Variables
-            </h1>
-            <p>
-                30 minutes reading
-            </p>
-            <p>
-                50% completed
-            </p>
-            <div className={styles.progress1}>
-                <div className={styles.progress2}>
-                
-                </div>
-            </div>
-        </div>
         <div className={styles.content}>
             <h1>
-                What is a variable?
+                Data Structures and Algorithms (DSA)
             </h1>
-            <p>
-            Variables are fundamental building blocks in programming. They serve as named storage locations that hold data which can be manipulated during the execution of a program. Here's an overview of key concepts related to variables in programming:
-            </p>
+            <Subject/>
             <h1>
-                What is a variable?
+                React.js fundamentals
             </h1>
-            <p>
-            Variables are fundamental building blocks in programming. They serve as named storage locations that hold data which can be manipulated during the execution of a program. Here's an overview of key concepts related to variables in programming:
-            </p>
+            <Subject/>
             <h1>
-                What is a variable?
+                Vue.js fundamentals
             </h1>
-            <p>
-            Variables are fundamental building blocks in programming. They serve as named storage locations that hold data which can be manipulated during the execution of a program. Here's an overview of key concepts related to variables in programming:
-            </p>
-            <h1>
-                What is a variable?
-            </h1>
-            <p>
-            Variables are fundamental building blocks in programming. They serve as named storage locations that hold data which can be manipulated during the execution of a program. Here's an overview of key concepts related to variables in programming:
-            </p>
-            <h1>
-                What is a variable?
-            </h1>
-            <p>
-            Variables are fundamental building blocks in programming. They serve as named storage locations that hold data which can be manipulated during the execution of a program. Here's an overview of key concepts related to variables in programming:
-            </p>
-            <h1>
-                What is a variable?
-            </h1>
-            <p>
-            Variables are fundamental building blocks in programming. They serve as named storage locations that hold data which can be manipulated during the execution of a program. Here's an overview of key concepts related to variables in programming:
-            </p>
+            <Subject/>
         </div>
     </div>
   )

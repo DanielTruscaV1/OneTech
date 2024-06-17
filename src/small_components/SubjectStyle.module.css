@@ -1,0 +1,11 @@
+.subject {
+    width: 100vw;
+    height: 20vh;
+    background-color: rgb(247, 247, 247);
+}
+@media screen and (min-width: 600px) {
+    .subject {       
+        width: 84vw;
+        border-radius: 10px;
+    }
+}

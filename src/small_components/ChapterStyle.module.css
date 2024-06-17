@@ -1,0 +1,26 @@
+.chapter {
+    display: inline-block;
+    position: relative;
+    margin-left: 6.66vw;
+    top: 10%;
+    width: 40vw;
+    height: 80%;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    cursor:pointer;
+}
+.chapter img {
+    display: inline-block;
+    height: 100%;
+}
+.chapter h1 {
+    width: 40%;
+    text-align: center;
+    display: inline-block;
+}
+@media screen and (min-width: 600px) {
+    .chapter {
+        margin-left: 2vw;
+        width: 15vw;
+    }
+}
