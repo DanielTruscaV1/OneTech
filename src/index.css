@@ -6,10 +6,7 @@
 body {
     overflow-x: hidden;
 }
-button:hover {
-    background-color: rgb(0,173,181) !important;
-    background: linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%) !important;
-}
+
 
 .slide-left{animation:slide-left 1s cubic-bezier(.25,.46,.45,.94) both}
 

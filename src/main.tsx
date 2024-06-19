@@ -26,6 +26,7 @@ import Profile from './new_components/Profile';
 import { AuthProvider } from './auth';
 import RequireAuth from './requireAuth';
 import CreatePost from './new_components/CreatePost';
+import Article from './new_components/Article';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,14 @@ const router = createBrowserRouter([
     element: ( 
       <RequireAuth>
         <Theory/>
+      </RequireAuth>
+    )
+  },
+  {
+    path: "/article",
+    element: ( 
+      <RequireAuth>
+        <Article/>
       </RequireAuth>
     )
   },

@@ -4,7 +4,6 @@ import Top from "./Top"
 
 import { getUserData, User } from '../getUser.tsx';
 import { useEffect, useState } from "react";
-import Subject from "../small_components/Subject.tsx";
 
 const Theory = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -36,18 +35,46 @@ const Theory = () => {
         <Sidebar/>
         <Top user={user}/>
         <div className={styles.content}>
-            <h1>
-                Data Structures and Algorithms (DSA)
-            </h1>
-            <Subject/>
-            <h1>
-                React.js fundamentals
-            </h1>
-            <Subject/>
-            <h1>
-                Vue.js fundamentals
-            </h1>
-            <Subject/>
+          <input 
+            type="text"
+            placeholder="Search for an article.........."
+          />
+
+          <div className={styles.article}>
+            <img src="theory1.png"/>
+            <div className={styles.article_info}>
+              <h1>
+                Data Structures and Algorithms introduction
+              </h1>
+              <p>
+                | 0 views | 0 upvotes | 5 minutes read |
+              </p>
+            </div>
+          </div>
+          
+          <div className={styles.article}>
+            <img src="theory2.png"/>
+            <div className={styles.article_info}>
+              <h1>
+                Developing Software in React
+              </h1>
+              <p>
+                | 0 views | 0 upvotes | 5 minutes read |
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.article}>
+            <img src="theory3.png"/>
+            <div className={styles.article_info}>
+              <h1>
+                Competitive Programming introduction
+              </h1>
+              <p>
+                | 0 views | 0 upvotes | 5 minutes read |
+              </p>
+            </div>
+          </div>
         </div>
     </div>
   )

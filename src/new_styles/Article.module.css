@@ -1,0 +1,54 @@
+@media screen and (min-width: 600px)
+{
+    .content 
+    {
+        position: absolute;
+        left: 11vw;
+        top: 15vh;
+        width: 84vw;
+        min-height: 90vh;
+        display: flex;
+        flex-direction: row;
+    }
+    .content1
+    {
+        width: 20%;
+        height: 100%;
+    }
+    .content1 ul
+    {
+        list-style-type: disc;
+    }
+    .content1 li 
+    {
+        margin-bottom: 2vh;
+        font-size: 20px;
+    }
+    .content2
+    {
+        width: 60%;
+        height: 100%;
+        text-align: justify;
+    }
+    .content2 h1, .content2 p
+    {
+        margin-bottom: 2vh;
+        width: 90%;
+    }
+    .content2 h1 
+    {
+        font-size: 30px;
+    }
+    .content3
+    {
+        padding-left: 2%;
+        width: 20%;
+        height: 100%;
+        text-align: justify;
+    }
+    .content3 h1 
+    {
+        font-size: 20px;
+        margin-bottom: 2vh;
+    }
+}

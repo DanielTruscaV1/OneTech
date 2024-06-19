@@ -25,13 +25,7 @@ const Top : React.FC<UserProps> = ({ user }) => {
         </h1>
         <img src={ user.image} />
         <div className={styles.search}>
-            <input 
-                type="text"
-            />
-            <img src="/top1.png"/>
-            <p>
-                Search
-            </p>
+           
         </div>
         </>
         }
