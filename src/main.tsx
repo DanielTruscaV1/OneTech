@@ -58,7 +58,7 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: "/article",
+    path: "/article/:article_id",
     element: ( 
       <RequireAuth>
         <Article/>

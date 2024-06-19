@@ -4,13 +4,19 @@ import Top from "./Top"
 
 import { getUserData, User } from '../getUser.tsx';
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Theory = () => {
+    const navigate = useNavigate();
+
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);  
 
     const user_id = localStorage.getItem("userID");
+
+    const [articles, setArticles] = useState<any>([]);
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -24,7 +30,24 @@ const Theory = () => {
           setLoading(false);
         };
     
+        const fetchArticles = async () => {
+          try 
+          {
+              const response = await axios.get(
+                "http://localhost:3000/api/getArticles"
+              );
+
+              setArticles(response.data.result.data)
+          }
+          catch(error)
+          {
+              console.log(error);
+          }
+        }
+
         fetchUserInfo();
+
+        fetchArticles();
       }, []);
 
     if (loading) return <div>Loading...</div>;
@@ -40,41 +63,25 @@ const Theory = () => {
             placeholder="Search for an article.........."
           />
 
-          <div className={styles.article}>
-            <img src="theory1.png"/>
-            <div className={styles.article_info}>
-              <h1>
-                Data Structures and Algorithms introduction
-              </h1>
-              <p>
-                | 0 views | 0 upvotes | 5 minutes read |
-              </p>
-            </div>
-          </div>
           
-          <div className={styles.article}>
-            <img src="theory2.png"/>
-            <div className={styles.article_info}>
-              <h1>
-                Developing Software in React
-              </h1>
-              <p>
-                | 0 views | 0 upvotes | 5 minutes read |
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.article}>
-            <img src="theory3.png"/>
-            <div className={styles.article_info}>
-              <h1>
-                Competitive Programming introduction
-              </h1>
-              <p>
-                | 0 views | 0 upvotes | 5 minutes read |
-              </p>
-            </div>
-          </div>
+            {
+              articles.map((a: any) => {
+                return <div 
+                    className={styles.article}
+                    onClick={() => navigate(`/article/${a.data.article_id}`)}
+                  >
+                  <img src={a.data.thumbnail}/>
+                  <div className={styles.article_info}>
+                    <h1>
+                      {a.data.title}
+                    </h1>
+                    <p>
+                      | {a.data.views} views | {a.data.likes} likes | {a.data.read} |
+                    </p>
+                  </div>
+                </div>
+              })
+            }
         </div>
     </div>
   )

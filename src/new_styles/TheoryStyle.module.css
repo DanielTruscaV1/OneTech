@@ -39,6 +39,7 @@
 }
 .article_info p
 {
+    font-size: 12px;
     color: rgb(180, 180, 180);
 }
 .content input 
@@ -66,7 +67,7 @@
     .content img 
     {
         margin-left: 0;
-        width: 10%;
+        width: 15%;
     }
     .article_info 
     {
@@ -75,6 +76,10 @@
     .article_info h1 
     {
         font-size: 30px;
+    }
+    .article_info p 
+    {
+        font-size: 16px;
     }
     .content input 
     {

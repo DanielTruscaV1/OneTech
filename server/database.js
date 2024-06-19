@@ -547,6 +547,49 @@ async function getComments(post_id)
   }
 }
 
+async function getArticles()
+{
+  try 
+  {
+    const articles = await client.query(
+      q.Map(
+      q.Paginate(q.Documents(q.Collection("Articles"))),
+      q.Lambda(x => q.Get(x))
+      )
+    );
+
+    return articles;
+  }
+  catch(error)
+  {
+    console.log("Database error: ", error);
+    throw error;
+  }
+}
+
+async function getArticleById(article_id)
+{
+  try 
+  {
+    const article = await client.query(q.Map(
+      q.Paginate(
+        q.Match(
+          q.Index("getArticleById"), 
+          article_id
+        )
+      ),
+      q.Lambda('X', q.Get(q.Var('X')))
+    ));
+
+    return article;
+  }
+  catch(error)
+  {
+    console.log("Database error: ", error);
+    throw error;
+  }
+}
+
 
 module.exports = {
   createDocument,
@@ -564,4 +607,6 @@ module.exports = {
   deletePost,
   createComment,
   getComments,
+  getArticles,
+  getArticleById,
 };

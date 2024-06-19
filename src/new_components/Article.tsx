@@ -5,14 +5,19 @@ import Top from "./Top"
 
 import { getUserData, User } from '../getUser.tsx';
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const Article = () => {
+    const { article_id } = useParams();
 
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);  
 
     const user_id = localStorage.getItem("userID");
+
+    const [article, setArticle] = useState<any>(null);
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -25,8 +30,25 @@ const Article = () => {
           }
           setLoading(false);
         };
+
+        const fetchArticleById = async () => {
+            try 
+            {
+                const response = await axios.get(
+                  `http://localhost:3000/api/getArticleById/${article_id}`
+                );
+
+                setArticle(response.data.result.data[0])
+            }
+            catch(error)
+            {
+                console.log(error);
+            }
+        }
     
         fetchUserInfo();
+
+        fetchArticleById();
       }, []);
 
     if (loading) return <div>Loading...</div>;
@@ -39,56 +61,44 @@ const Article = () => {
         <div className={styles.content}>
             <div className={styles.content1}>
                 <ul>
-                    <li>
-                        Usage
-                    </li>
-                    <li>
-                        Implementation
-                    </li>
-                    <li>
-                        Examples
-                    </li>
-                    <li>
-                        Language support
-                    </li>
-                    <li>
-                        References
-                    </li>
+                    {article && article.data.sections.map((s : any) => {
+                        return <li>
+                            {s}
+                        </li>
+                    })}
                 </ul>
             </div>
             <div className={styles.content2}>
-            <h1>
-                Definition
-            </h1>
-            <p>
-            In computer science, a data structure is a data organization, and storage format that is usually chosen for efficient access to data.[1][2][3] More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data,[4] i.e., it is an algebraic structure about data.                    
-            </p>
-            <h1>
-                Usage
-            </h1>
-            <p>
-            Data structures serve as the basis for abstract data types (ADT). The ADT defines the logical form of the data type. The data structure implements the physical form of the data type.[5]
-            </p>
-            <h1>
-                Definition
-            </h1>
-            <p>
-            In computer science, a data structure is a data organization, and storage format that is usually chosen for efficient access to data.[1][2][3] More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data,[4] i.e., it is an algebraic structure about data.                    
-            </p>
-            <h1>
-                Usage
-            </h1>
-            <p>
-            Data structures serve as the basis for abstract data types (ADT). The ADT defines the logical form of the data type. The data structure implements the physical form of the data type.[5]
-            </p>
+                {
+                  article && article.data.sections.map((s: any, index: number) => {
+                        return (
+                            <>
+                                <h1>
+                                    {s}
+                                </h1>
+                                <p>
+                                    {article.data.content[index]}
+                                </p>
+                            </>
+                        );
+                    })
+                }
             </div>
             <div className={styles.content3}>
-                <h1>
-                    What is a data structure?
-                </h1>
-                <p>
-                A data structure is a specialized format for organizing, managing, and storing data in a computer so that it can be accessed and modified efficiently. Data structures are fundamental to computer science and software engineering, as they provide the means to handle data in ways that enable efficient processing and retrieval.
-                </p>
+            {
+                  article && article.data.questions.map((q: any, index: number) => {
+                        return (
+                            <>
+                                <h1>
+                                    {q}
+                                </h1>
+                                <p>
+                                    {article.data.answers[index]}
+                                </p>
+                            </>
+                        );
+                    })
+                }
             </div>
         </div>
     </div>

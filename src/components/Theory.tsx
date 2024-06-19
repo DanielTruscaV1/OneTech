@@ -5,6 +5,7 @@ import styles from "./TheoryStyle.module.css"
 import IDE from "../small_components/IDE"
 
 const Theory = () => {
+
   return (
     <div className={styles.container}>
         <LeftSidebar/>
