@@ -35,7 +35,7 @@ const Article = () => {
             try 
             {
                 const response = await axios.get(
-                  `http://localhost:3000/api/getArticleById/${article_id}`
+                  `https://onetech.onrender.com/api/getArticleById/${article_id}`
                 );
 
                 setArticle(response.data.result.data[0])

@@ -34,7 +34,7 @@ const Theory = () => {
           try 
           {
               const response = await axios.get(
-                "http://localhost:3000/api/getArticles"
+                "https://onetech.onrender.com/api/getArticles"
               );
 
               setArticles(response.data.result.data)

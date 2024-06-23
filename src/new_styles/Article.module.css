@@ -3,16 +3,17 @@
     .content 
     {
         position: absolute;
-        left: 11vw;
+        left: 0vw;
         top: 15vh;
-        width: 84vw;
+        width: 100vw;
         min-height: 90vh;
         display: flex;
         flex-direction: row;
     }
     .content1
     {
-        width: 20%;
+        padding-left: 5vw;
+        width: 15%;
         height: 100%;
     }
     .content1 ul
@@ -26,14 +27,14 @@
     }
     .content2
     {
-        width: 60%;
+        width: 65%;
         height: 100%;
         text-align: justify;
     }
     .content2 h1, .content2 p
     {
         margin-bottom: 2vh;
-        width: 90%;
+        width: 95%;
     }
     .content2 h1 
     {
@@ -41,7 +42,7 @@
     }
     .content3
     {
-        padding-left: 2%;
+        padding-right: 5vw;
         width: 20%;
         height: 100%;
         text-align: justify;

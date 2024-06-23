@@ -154,6 +154,7 @@
 }
 .show {
     position: fixed;
+    left: 3vw;
     margin-top: 0.5vh;
     width: 50px;
     cursor: pointer;
