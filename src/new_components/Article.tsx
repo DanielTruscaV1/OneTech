@@ -76,6 +76,10 @@ const Article = () => {
                                 <h1>
                                     {s}
                                 </h1>
+                                {
+                                    article.data.images[index] && 
+                                    <img src={article.data.images[index]}/>
+                                }
                                 <p>
                                     {article.data.content[index]}
                                 </p>

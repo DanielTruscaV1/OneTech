@@ -23,7 +23,7 @@
     .content1 li 
     {
         margin-bottom: 2vh;
-        font-size: 20px;
+        font-size: 16px;
     }
     .content2
     {
@@ -31,8 +31,23 @@
         height: 100%;
         text-align: justify;
     }
+    .content2 img 
+    {
+        display: inline-block;
+        margin-left: 2.5%;
+        margin-bottom: 2vh;
+        scale: 80%;
+    }
     .content2 h1, .content2 p
     {
+        margin-left: 2.5%;
+        margin-bottom: 2vh;
+        width: 95%;
+    }
+    .content2 p
+    {
+        display: block;
+        margin-left: 2.5%;
         margin-bottom: 2vh;
         width: 95%;
     }
