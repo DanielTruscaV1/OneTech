@@ -1,0 +1,115 @@
+@media screen and (max-width: 600px)
+{
+
+}
+@media screen and (min-width: 600px)
+{
+    .square1 
+    {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 10vw;
+        height: 10vw;
+        background-color: #323232;
+    }
+    .square2 
+    {
+        position: absolute;
+        left: 10vw;
+        bottom: 0;
+        width: 10vw;
+        height: 10vw;
+        background-color: #F0F0F0;
+    }
+    .square3
+    {
+        position: absolute;
+        left: 0;
+        bottom: 10vw;
+        width: 10vw;
+        height: 10vw;
+        background-color: #3ECFC9;
+    }
+    .square4
+    {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 10vw;
+        height: 10vw;
+        background-color: #323232;
+    }
+    .square5 
+    {
+        position: absolute;
+        right: 10vw;
+        top: 0;
+        width: 10vw;
+        height: 10vw;
+        background-color: #F0F0F0;
+    }
+    .square6
+    {
+        position: absolute;
+        right: 0;
+        top: 10vw;
+        width: 10vw;
+        height: 10vw;
+        background-color: #3ECFC9;
+    }
+    .title 
+    {
+        display: inline-block;
+        margin-left: 10vw;
+        margin-top: 10vh;
+        font-size: 100px;
+        font-weight: 500;
+    }
+    p 
+    {
+        display: inline-block;
+        width: 33vw;
+        margin-left: 10vw;
+        margin-top: 0vh;
+        font-size: 25px;
+    }
+    .button_container 
+    {
+        margin-left: 10vw;
+        margin-top: 5vh;
+    }
+    .button_container p 
+    {
+        width: 1.5vw;
+        margin-left: -1.2vw;
+        margin-right: 0.5vw;
+    }
+    button 
+    {
+        background-color: #F0F0F0;
+        width: 15vw;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        margin-right: 1.5vw;
+        font-size: 18px;
+    }
+    img 
+    {
+        width: 32.5vw;
+    }
+    .image1 
+    {
+        position: absolute;
+        right: 10vw;
+        top: 10vw;
+    }
+    .image2 
+    {
+        position: absolute;
+        right: 20vw;
+        top: 30vw;
+    }
+}
+

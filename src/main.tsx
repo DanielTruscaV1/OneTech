@@ -9,11 +9,10 @@ import {
 } from "react-router-dom";
 
 //Import the components
-import App from './App';
 import SignUp from "./components/SignUp"
 import SignIn from "./components/SignIn"
 import Home from "./new_components/Home"
-import Landing from "./components/Landing"
+import Landing from "./new_components/Landing"
 import UserProfile from './components/UserProfile';
 
 //Import the CSS file
@@ -38,8 +37,8 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: "/app",
-    element: <App/>
+    path: "/",
+    element: <Landing/>
   },
   {
     path: "/landing",
