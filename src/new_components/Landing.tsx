@@ -1,6 +1,10 @@
 import styles from "./LandingStyle.module.css";
 
+import { useNavigate } from "react-router-dom";
+
 const Landing = () => {
+    const navigate = useNavigate();
+
   return (
     <div className={styles.container}>
         <div className={styles.square1}>
@@ -36,13 +40,13 @@ const Landing = () => {
             The number one online educational platform for computer science and artificial inteligence.
         </p>
         <div className={styles.button_container}>
-            <button>
+            <button onClick={() => navigate('/sign-up')}>
                 Sign-up for free
             </button>
             <p>
                 or
             </p>
-            <button>
+            <button onClick={() => navigate('/sign-in')}>
                 Sign-in to your account
             </button>
         </div>
