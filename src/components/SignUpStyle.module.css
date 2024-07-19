@@ -43,49 +43,54 @@
     }
 }
 @media screen and (min-width: 600px) {
-    .background3 {
-        display: none;
-    }
-    .container {
+    .container 
+    {
         width: 100vw;
-        height: 100vh;
-        background-color: rgb(240, 240, 240);
-    }
-    .background {
-        position:absolute;
-        width: 100vw;
-        height: 100vh;
-    }
-    .card2 {
-        position: absolute;
-        left: 30%;
-        top: 10%;
-        width: 40%;
-        height: 80%;
+        height: 100vh;;
         background-color: rgb(245, 245, 245);
-        border-radius: 20px;
-        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
-        z-index: 2;
     }
-    .input {
+    .card2 
+    {
+        position: absolute;
+        left: 7.5vw;
+        top: 10vh;
+        width:85vw;
+        height:95vh;
+        background-color: rgb(255, 255, 255);
+        border: 8px solid rgb(230, 230, 230);
+        border-radius: 30px;
+    }
+    .card2 p 
+    {
         margin-left: 10%;
-        margin-top: 30px;
-        width: 80%;
-        height: 50px;
-        background-color: #EEEEEE;
-        border-radius: 10px;
+        margin-top: 1%;
+        font-size: 30px;
+    }
+    .input 
+    {
+        margin-left: 10%;
+        margin-top: 2vh;
+        width: 50%;
+        height: 55px;
+        background-color: rgb(245, 245, 245);
+        font-size: 20px;
         padding-left: 20px;
-        font-size: 18px;
     }
-    .card button, .card2 button {
-        margin-left: 10%;
-        margin-top: 20px;
-        width: 80%;
-        height: 40px;
-        background: rgb(0,173,181);
-        background: linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%);
-        border-radius: 10px;
-        font-size: 18px;
+    .card2 .special 
+    {
+        color: rgb(180, 180, 180);
+        font-size: 30px;
+        width: auto;
+        display: inline-block;
     }
-    
+    button 
+    {
+        position: absolute;
+        right: 10%;
+        top: 43%;
+        width: 10vw !important;
+        height: 10vw;
+        border-radius: 50% !important;
+        font-size: 25px !important;
+    }
 }

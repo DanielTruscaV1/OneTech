@@ -42,20 +42,12 @@ const SignUp = () => {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
-      <img 
-        src="/auth1.png"
-        className={styles.background}
-      />
-      <img 
-          src="/auth3.png"
-          className={styles.background3}
-        />
       <div className={styles.card2}>
-        <h1 className="mt-4 text-3xl text-center font-semibold">
-          Welcome to <span style={{ color: "#00ADB5"}}>OneTech!</span>
+        <h1 className="mt-4 text-4xl text-center font-semibold">
+          Sign-up on One<span style={{ color: "#00ADB5"}}>Tech</span> for free
         </h1>
-        <p className="my-2 text-l text-center text-gray-400">
-          Sign-Up for free 
+        <p>
+          Username
         </p>
         <input 
           type="text"
@@ -65,6 +57,9 @@ const SignUp = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        <p>
+          Email
+        </p>
         <input 
           type="email"
           className={styles.input}
@@ -72,6 +67,9 @@ const SignUp = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <p>
+          Password
+        </p>
         <input 
           type="password"
           className={styles.input}
@@ -79,6 +77,9 @@ const SignUp = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <p>
+          Confirm Password
+        </p>
         <input 
           type="password"
           className={styles.input}
@@ -89,16 +90,17 @@ const SignUp = () => {
         <button className={`${!button && "disabled"}`} disabled={!button}>
           Submit
         </button>
-        <p className="mt-2 text-l text-center text-gray-400">
+        <br/>
+        <p className={styles.special}>
           Already have an account?
         </p>
         <p 
-          className="mt-2 text-l text-center cursor-pointer"
-          style={{ color: "#00ADB5"}}
+          className={styles.special}
+          style={{ color: "#00ADB5", marginLeft: "20px"}}
           onClick={() => navigate('/sign-in')}
 
         >
-          Log-In
+          Sign-in
         </p>
       </div>
     </form>
