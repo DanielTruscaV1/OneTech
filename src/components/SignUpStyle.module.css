@@ -53,9 +53,9 @@
     {
         position: absolute;
         left: 7.5vw;
-        top: 10vh;
+        top: 7vh;
         width:85vw;
-        height:95vh;
+        height:90vh;
         background-color: rgb(255, 255, 255);
         border: 8px solid rgb(230, 230, 230);
         border-radius: 30px;
@@ -71,7 +71,7 @@
         margin-left: 10%;
         margin-top: 2vh;
         width: 50%;
-        height: 55px;
+        height: 50px;
         background-color: rgb(245, 245, 245);
         font-size: 20px;
         padding-left: 20px;
@@ -92,5 +92,17 @@
         height: 10vw;
         border-radius: 50% !important;
         font-size: 25px !important;
+    }
+    .card2 button:hover 
+    {
+        background: rgb(0,173,181);
+        background: linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%);
+    }
+    .card2 .loader 
+    {
+        position: absolute;
+        right: 8.5vw;
+        top: 34.5vh;
+        z-index: 3;
     }
 }

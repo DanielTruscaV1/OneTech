@@ -40,9 +40,12 @@ const SignUp = () => {
     }
   };
 
+  const [shouldBeColored, setShouldBeColored] = useState(false); 
+  const [shouldBeFullyColored, setShouldBeFullyColored] = useState(false); 
+
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
-      <div className={styles.card2}>
+      <div className={`${styles.card2} ${shouldBeFullyColored && "bg-pan-left1"}`}>
         <h1 className="mt-4 text-4xl text-center font-semibold">
           Sign-up on One<span style={{ color: "#00ADB5"}}>Tech</span> for free
         </h1>
@@ -51,8 +54,7 @@ const SignUp = () => {
         </p>
         <input 
           type="text"
-          className={styles.input}
-          placeholder="Username..."
+          className={`${styles.input} ${shouldBeColored && "bg-pan-left2"}`}
           name="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -62,8 +64,7 @@ const SignUp = () => {
         </p>
         <input 
           type="email"
-          className={styles.input}
-          placeholder="Email..."
+          className={`${styles.input} ${shouldBeColored && "bg-pan-left2"}`}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -72,8 +73,7 @@ const SignUp = () => {
         </p>
         <input 
           type="password"
-          className={styles.input}
-          placeholder="Password..."
+          className={`${styles.input} ${shouldBeColored && "bg-pan-left2"}`}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -82,16 +82,22 @@ const SignUp = () => {
         </p>
         <input 
           type="password"
-          className={styles.input}
-          placeholder="Confirm Password..."
+          className={`${styles.input} ${shouldBeColored && "bg-pan-left2"}`}
           value={confirm}
           onChange={(e) => setConfirm(e.target.value)}
         />
-        <button className={`${!button && "disabled"}`} disabled={!button}>
+        <button 
+          disabled={!button}
+          className={`${!button && "disabled"} ${shouldBeColored && "bg-pan-left2"}`}
+          onClick={() => {setShouldBeColored(true); setShouldBeFullyColored(true);}}
+        >
           Submit
         </button>
         <br/>
-        <p className={styles.special}>
+        <p 
+          className={styles.special}
+          style={{ color: shouldBeColored? "black" : "rgb(180, 180, 180)"}}
+        >
           Already have an account?
         </p>
         <p 
@@ -102,6 +108,10 @@ const SignUp = () => {
         >
           Sign-in
         </p>
+        {
+          shouldBeFullyColored && 
+          <div className={`${styles.loader} ${"loader"}`}></div>
+        } 
       </div>
     </form>
   )

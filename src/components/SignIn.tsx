@@ -59,54 +59,66 @@ const SignUp = () => {
     }
   }
 
+  const [shouldBeColored, setShouldBeColored] = useState(false); 
+  const [shouldBeFullyColored, setShouldBeFullyColored] = useState(false); 
+
   return (
     <>
       <form 
         className={styles.container}
         onSubmit={(event) => handleSubmit(event)}
       >
-        <img 
-          src="/auth1.png"
-          className={styles.background}
-        />
-        <img 
-          src="/auth3.png"
-          className={styles.background3}
-        />
-        <div className={styles.card2}>
+        <div 
+          className={`${styles.card2} ${shouldBeFullyColored && "bg-pan-left1"}`}
+        >
           <h1 className="mt-4 text-3xl text-center font-semibold">
-            Welcome to <span style={{ color: "#00ADB5"}}>OneTech!</span>
+            Welcome to One<span style={{ color: "#00ADB5"}}>Tech</span>
           </h1>
-          <p className="my-2 text-l text-center text-gray-400">
-            Log-In to your account 
+          <p>
+            Email
           </p>
           <input 
             type="email"
-            className={styles.input}
-            placeholder="Email..."
+            className={`${styles.input} ${shouldBeColored && "bg-pan-left2"}`}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            style={{backgroundColor: !shouldBeColored ? "rgb(245, 245, 245)" : "rgba(150,255,230,1)"}}
           />
+          <p>
+            Password
+          </p>
           <input 
             type="password"
-            className={styles.input}
-            placeholder="Password..."
+            className={`${styles.input} ${shouldBeColored && "bg-pan-left2"}`}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            style={{backgroundColor: !shouldBeColored ? "rgb(245, 245, 245)" : "rgba(150,255,230,1)"}}
           />
-          <button type="submit" className={`${!button && "disabled"}`} disabled={!button}>
+          <button 
+            type="submit" 
+            className={`${!button && "disabled"} ${shouldBeColored && "bg-pan-left2"}`} disabled={!button}
+            onClick={() => {setShouldBeColored(true); setShouldBeFullyColored(true);}}
+          >
             Submit
           </button>
-          <p className="mt-2 text-l text-center text-gray-400">
+          <br/>
+          <p 
+            className={styles.special}
+            style={{ color: shouldBeColored? "black" : "rgb(180, 180, 180)"}}
+          >
             Don't have an account?
           </p>
           <p 
-            className="mt-2 text-l text-center cursor-pointer"
-            style={{ color: "#00ADB5"}}
+            className={styles.special}
+            style={{ color: "#00ADB5", marginLeft: "20px"}}
             onClick={() => navigate('/sign-up')}
           >
-            Sign-Up
+            Sign-up
           </p>
+          {
+            shouldBeFullyColored && 
+            <div className={`${styles.loader} ${"loader"}`}></div>
+          } 
         </div>
       </form>
     </>
