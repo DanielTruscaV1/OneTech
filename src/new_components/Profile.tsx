@@ -198,18 +198,20 @@ const Profile = () => {
                         Chat
                     </button>
                 </div>
-                <h2>
-                    <img src="/location1.png"/>
-                    Location: {user.location}
-                </h2>
-                <h2>
-                    <img src="/language1.png"/>
-                    Language: {user.language}
-                </h2>
-                <h2>
-                    <img src="/sign1.png"/>
-                    Joined: 26/05/2024
-                </h2>
+                <div className={styles.info3}>
+                    <h2>
+                        <img src="/location1.png"/>
+                        Location: {user.location}
+                    </h2>
+                    <h2>
+                        <img src="/language1.png"/>
+                        Language: {user.language}
+                    </h2>
+                    <h2>
+                        <img src="/sign1.png"/>
+                        Joined: 26/05/2024
+                    </h2>
+                </div>
             </div>     
         </div>
         <div className={styles.followers}>

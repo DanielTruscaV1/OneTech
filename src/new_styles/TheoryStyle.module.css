@@ -62,8 +62,9 @@
     }
     .article 
     {
-        width: 70%;
-        height: 22.5vh;
+        width: 75%;
+        height: 25vh;
+        border: 2px solid rgb(220, 220, 220);
     }
     .content img 
     {

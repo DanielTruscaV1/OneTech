@@ -231,6 +231,10 @@ body {
 .problem_small {
     width: 61vw !important;
 }
+.problem_small p 
+{
+    min-width: 8%;
+}
 .user_circle_horizontal {
     max-height: 100px;
 }

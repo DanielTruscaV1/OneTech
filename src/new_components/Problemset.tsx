@@ -204,7 +204,10 @@ const Problemset = () => {
               position: "relative",
               width: "60vw",
               height: "7vh",
-              backgroundColor: "#F3F3F3",
+              borderTop: "2px solid rgb(220, 220, 220)",
+              borderBottom: "2px solid rgb(220, 220, 220)",
+              borderLeft: "2px solid rgb(220, 220, 220)",
+              borderRight: "2px solid rgb(220, 220, 220)",
             }}
             className="problem_small"
           >

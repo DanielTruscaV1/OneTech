@@ -47,8 +47,7 @@
         margin-bottom: 3vh;
         width: 40%;
         height: 6vh;
-        background-color: #F8F8F8;
-        border-radius: 10px;
+        border: 2px solid rgb(220, 220, 220);
     }
     .info2 button img {
         display: inline-block;
@@ -71,10 +70,10 @@
         top: 20vh;
         width: 15vw;
         height: 5vh;
-        border-radius: 7.5px;
+        
         text-align: center;
         font-size: 14px;
-        background-color: #F8F8F8;
+        border: 2px solid rgb(220, 220, 220);
         color: red;
     }
     .follower {
@@ -120,8 +119,7 @@
         margin-bottom: 3vh;
         width: 90%;
         height: 42vh;
-        background-color: #F8F8F8;
-        border-radius: 10px;
+        border: 2px solid rgb(220, 220, 220);
     }
     .post img {
         margin-left: 5%;
@@ -151,7 +149,7 @@
         display: inline-block;
         width: 30%;
         height: 4vh;
-        background-color: #F8F8F8;
+        border: 2px solid rgb(220, 220, 220);
         border-radius: 5px;
     }
 }
@@ -254,8 +252,7 @@
         margin-bottom: 3vh;
         width: 40%;
         height: 6vh;
-        background-color: #F8F8F8;
-        border-radius: 10px;
+        border: 2px solid rgb(220, 220, 220);
     }
     .info2 button img {
         display: inline-block;
@@ -278,10 +275,10 @@
         top: 15vh;
         width: 4vw;
         height: 5vh;
-        border-radius: 7.5px;
+        
         text-align: center;
         font-size: 14px;
-        background-color: #F8F8F8;
+        border: 2px solid rgb(220, 220, 220);
         color: red;
         z-index: 3;
     }
@@ -333,7 +330,7 @@
         height: 20px;
     }
     .follower:hover {
-        background-color: #F8F8F8;
+        border: 2px solid rgb(220, 220, 220);
         cursor: pointer;
     }
     .followers hr {
@@ -355,8 +352,7 @@
         margin-bottom: 5vh;
         width: 70%;
         height: 56vh;
-        background-color: #F8F8F8;
-        border-radius: 10px;
+        border: 2px solid rgb(220, 220, 220);
     }
     .post img {
         margin-left: 5%;
@@ -386,8 +382,7 @@
         display: inline-block;
         width: 17.5%;
         height: 8vh;
-        background-color: rgb(240, 240, 240);
-        border-radius: 5px;
+        border: 2px solid rgb(220, 220, 220);
         font-size: 20px;
     }
     .create_post img 
@@ -400,4 +395,10 @@
     position: relative;
     cursor: pointer;
     z-index: 3;
+}
+.info3 
+{
+    width: 70%;
+    padding: 30px;
+    border: 2px solid rgb(220, 220, 220);
 }

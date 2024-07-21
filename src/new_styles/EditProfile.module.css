@@ -5,10 +5,10 @@
         top: 12.5vh;
         width: 15vw;
         height: 5vh;
-        border-radius: 7.5px;
+        
         text-align: center;
         font-size: 16px;
-        background-color: #F8F8F8;
+       border: 2px solid rgb(220, 220, 220);
     }
     .edit_card {
         position: absolute;
@@ -38,8 +38,7 @@
         margin-top: 2vh;
         width: 70vw;
         height: 4.5vh;
-        background-color: #F5F5F5;
-        border-radius: 10px;
+        border: 2px solid rgb(220, 220, 220);
         padding-left: 10px;
     }
     .edit_card textarea {
@@ -67,10 +66,10 @@
         top: 15vh;
         width: 3vw;
         height: 5vh;
-        border-radius: 7.5px;
+        
         text-align: center;
         font-size: 16px;
-        background-color: #F8F8F8;
+       border: 2px solid rgb(220, 220, 220);
         z-index: 3;
     }
     .edit_card {
@@ -106,8 +105,7 @@
         margin-top: 1vh;
         width: 90%;
         height: 4.5vh;
-        background-color: #F5F5F5;
-        border-radius: 10px;
+        border: 2px solid rgb(220, 220, 220);
         padding-left: 10px;
     }
     .edit_card textarea {

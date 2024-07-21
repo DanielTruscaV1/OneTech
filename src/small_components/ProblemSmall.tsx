@@ -1,4 +1,4 @@
-const ProblemSmall = ({ problem, index } : {
+const   ProblemSmall = ({ problem, index } : {
     problem: {
         id: string;
         name: string;
@@ -15,7 +15,9 @@ const ProblemSmall = ({ problem, index } : {
             position: "relative",
             width: "60vw",
             height: "7vh",
-            backgroundColor: index%2 == 0 ? "#F8F8F8" : "#F3F3F3",
+            borderBottom: "2px solid rgb(220, 220, 220)",
+            borderLeft: "2px solid rgb(220, 220, 220)",
+            borderRight: "2px solid rgb(220, 220, 220)",
             cursor: "pointer",
         }}
         className="problem_small"
@@ -48,7 +50,7 @@ const ProblemSmall = ({ problem, index } : {
                     className="icon absolute rounded-full"
                     style={{ 
                         top: "0",
-                        marginLeft: "1.2vw",
+                        marginLeft: "2vw",
                         marginTop: "1.5vh",
                         width: "2vw",
                         height: "2vw",
@@ -69,13 +71,6 @@ const ProblemSmall = ({ problem, index } : {
         </p>
         <p className="inline-block w-24 ml-4 pl-4 mt-3 text-l text-center">
              {problem.frequency} %
-        </p>
-        <p className="inline-block w-4 ml-4 mt-3 text-l">
-             <img 
-                src="/link1.png"
-                width="26px"
-                className="relative top-1"
-            />
         </p>
     </div>
   )

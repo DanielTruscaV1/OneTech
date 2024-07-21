@@ -5,7 +5,7 @@
         top: 12.5vh;
         width: 100vw;
         height: 15vh;
-        background-color: #F8F8F8;
+        border: 2px solid rgb(220, 220, 220);
     }
     .filter {
         position: absolute;
@@ -30,13 +30,13 @@
     }
     .filter div button {
         position: relative;
-        background-color: #EEEEEE;
+        border: 2px solid rgb(220, 220, 220);
         width: 20%;
         margin-left: 3vw;
         height: 6vh !important;
         z-index: 3;
         font-size: 16px;
-        border-radius: 10px;
+        
     }
     .filter img {
         display: inline-block;
@@ -61,8 +61,8 @@
         top: 15vh;
         width: 84vw;
         height: 17vh;
-        background-color: #F8F8F8;
-        border-radius: 10px;
+        border: 2px solid rgb(220, 220, 220);
+        
     }
     .filter {
         position: absolute;
@@ -83,13 +83,13 @@
     }
     .filter div button {
         position: relative;
-        background-color: #EEEEEE;
+       border: 2px solid rgb(220, 220, 220);
         width: 10%;
         margin-left: 2vw;
         height: 8vh !important;
         z-index: 3;
         font-size: 18px;
-        border-radius: 10px;
+        
     }
     .filter img {
         display: inline-block;
@@ -113,14 +113,14 @@
         top: 46vh;
         right: 4vw;
         width: 20vw;
-        background-color: #F8F8F8;
-        border-radius: 10px;
+        border: 2px solid rgb(220, 220, 220);
+        
     }
     .aside_image {
         width: 80%;
         margin-left: 10%;
         margin-top: 2rem;
-        border-radius: 10px;
+        
         cursor: pointer;
     }
 }

@@ -131,8 +131,8 @@
         top: 15vh;
         width: 20vw;
         height: 20vh;
-        background-color: #F8F8F8;
-        border-radius: 10px;
+        border: 2px solid rgb(220, 220, 220);
+        padding: 10px;
     }
     .daily h1 {
         padding-top: 1vh;
@@ -141,12 +141,12 @@
     }
     .daily button {
         position: absolute;
-        bottom: 1vh;
+        bottom: 2vh;
+        left: 0vw;
         width: 40%;
         height: 4.5vh;
-        background-color: #E5E5E5;
-        border-radius: 10px;
         text-align: left;
+        border: 2px solid rgb(220, 220, 220);
     }
     .daily .tags {
         margin-left: 6.66%;
@@ -164,7 +164,7 @@
     }
     .daily button img {
         display: inline-block;
-        margin-left: 1vw;
+        margin-left: 0.5vw;
         margin-top: -0.75vh;
         width: 3vh;
     }
@@ -174,8 +174,7 @@
         top: 15vh;
         width: 25vw;
         height: 20vh;
-        background-color: #F8F8F8;
-        border-radius: 10px;
+        border: 2px solid rgb(220, 220, 220);
     }
     .calendar p {
         width: 30%;
@@ -229,14 +228,14 @@
         padding-bottom: 5px;
         width: 86%;
         height: 13%;
-        background-color: #F5F5F5;
-        border-radius: 10px;
         text-align: left;
         font-size: 16px;
+        border: 2px solid rgb(220, 220, 220);
       }
       .filter input {
         padding-left: 50px;
         font-size: 16px;
+        border: 2px solid rgb(220, 220, 220);
       }
       .problems p {
         margin-right: 4.5%;

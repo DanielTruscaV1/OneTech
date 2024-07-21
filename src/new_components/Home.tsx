@@ -109,7 +109,8 @@ const Home = () => {
             { !(window.innerWidth <= 768) &&
               <button style={{
                   marginLeft: "0vw",
-                  width: "11%",
+                  width: "15%",
+                  height: "3vh",
                 }}
                 onClick={() => {
                   setFilter(!filter)

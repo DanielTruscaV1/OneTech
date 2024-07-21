@@ -146,8 +146,10 @@ const UserPost = ({ user, post } : {
             marginTop: "3vh",
             marginBottom: "6vh",
             width: "100%",
-            backgroundColor: "#F8F8F8",
-            borderRadius: "10px",
+            borderTop: "2px solid rgb(220, 220, 220)",
+              borderBottom: "2px solid rgb(220, 220, 220)",
+              borderLeft: "2px solid rgb(220, 220, 220)",
+              borderRight: "2px solid rgb(220, 220, 220)",
         }}
         className="user_post"
     >

@@ -1,6 +1,6 @@
 @media screen and (max-width: 600px){
     .comment {
-        background-color: #F8F8F8;
+        border: 2px solid rgb(220, 220, 220);
     }
     .comment hr {
         margin-left: 5%;
@@ -40,7 +40,7 @@
 
 @media screen and (min-width: 600px){
     .comment {
-        background-color: #F8F8F8;
+        border: 2px solid rgb(220, 220, 220);
     }
     .comment hr {
         margin-left: 5%;
