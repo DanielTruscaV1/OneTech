@@ -153,30 +153,33 @@ const Profile = () => {
         { user &&
         <>
             <div className={styles.left}>
-            <img 
-                src={user.image}
-                className={styles.image}
-            />
-            <div className={styles.info}>
-                <h1 className="text-2xl mb-4">
-                    { user.username }
-                </h1>
-                <h1 className="text-orange-400 font-semibold">
-                    <img className="inline-block w-5 mr-3" src="/crown1.png"/>
-                    Premium Member
-                </h1>
-                <div className="w-full">
-                    <h1 className={styles.status1}>&#9679;</h1>
-                    <h1 className={styles.status2}>
-                        Online
+
+            <div className={styles.left_wrap}>
+                <img 
+                    src={user.image}
+                    className={styles.image}
+                />
+
+                <div className={styles.info}>
+                    <h1 className="text-2xl mb-4">
+                        { user.username }
                     </h1>
+                    <div className="w-full">
+                        <h2 className={styles.status1}>&#9679;</h2>
+                        <h2 className={styles.status2}>
+                            Online
+                        </h2>
+                    </div>
+                    <h2>
+                        { user.followedBy && user.followedBy.length } Followers
+                    </h2>
                 </div>
-                <h1>
-                    { user.followedBy && user.followedBy.length } Followers
-                </h1>
+
             </div>
+            
+            <hr/>
+
             <div className={styles.info2}>
-                <hr/>
                 <p>
                     { user.description }
                 </p>
@@ -207,7 +210,7 @@ const Profile = () => {
         <div className={styles.followers}>
             <hr/>
             <h2>
-                Followers:
+                Followers
             </h2>
             {
                 followers.map((follower: any) => {
@@ -233,7 +236,7 @@ const Profile = () => {
         <div className={styles.posts}>
             <hr/>
             <h2>
-                Posts:
+                Posts
             </h2>
             {
                 user && user.user_id == user_id &&
@@ -241,6 +244,10 @@ const Profile = () => {
                     className={styles.create_post}
                     onClick={() => navigate('/create_post')}
                 >
+                    <img 
+                        className={styles.icon}
+                        src="/add1.png"
+                    /> 
                     New Post
                 </button>
             }

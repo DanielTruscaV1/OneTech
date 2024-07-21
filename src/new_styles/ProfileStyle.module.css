@@ -162,19 +162,44 @@
     .left {
         position: fixed;
     }
+    .left_wrap 
+    {
+        position: absolute;
+        width: 31vw;
+        height: 30vh;
+        left: 11vw;
+        top: 13vh;
+    }
     .left .image {
         position: relative;
-        left: 11vw;
-        top: 16.5vh;
-        width: 120px !important;
-        height: 120px;
+        margin-left: 1vw;
+        margin-top: calc(15vh - 75px);
+        width: 150px !important;
+        height: 150px;
         border-radius: 50%;
+    }
+    .info 
+    {
+        position: absolute;
+        left: calc(2vw + 150px) !important;
+        top: 0 !important;
+        width: calc(100% - calc(2vw + 150px)) !important;
+        height: 100% !important; 
     }
     .info h1 {
         margin-bottom: 0vh !important;
-        margin-left: 5%;
+        margin-left: 0%;
+        margin-top: 3vw;
         width: 90%;
         text-align: left;
+        font-size: 30px;
+        font-weight: 500;
+    }
+    .left hr 
+    {
+        position: relative !important;
+        left: 11vw !important;
+        top: 42vh !important;
     }
     .status1 {
         display: inline-block;
@@ -205,14 +230,14 @@
     .info2 {
         position: absolute;
         left: 11vw;
-        top: calc(15vh + 120px);
+        top: calc(23vh + 120px);
         padding-top: 3vh;
         width: 31vw;
         height: 60vh;
         border-right: 2px solid rgb(230, 230, 230);
     }
     .profile hr {
-        width: 100%;
+        width: 31vw;
         margin-left: 0vw;
         margin-top: 0vh;
         margin-bottom: 2vh;
@@ -315,7 +340,7 @@
         display: none;
     }
     .followers h2 {
-        font-size: 20px;
+        font-size: 30px;
         margin-left: 2%;
         margin-bottom: 2vh;
     }
@@ -323,12 +348,12 @@
         margin-left: 2%;
         margin-top: 2vh;
         margin-bottom: 2vh;
-        font-size: 23px;
+        font-size: 30px;
     }
     .post {
         margin-left: 2%;
         margin-bottom: 5vh;
-        width: 60%;
+        width: 70%;
         height: 56vh;
         background-color: #F8F8F8;
         border-radius: 10px;
@@ -337,6 +362,7 @@
         margin-left: 5%;
         margin-top: 2vh;
         width: 90%;
+        height: 80%;
     }
     .post h1 {
         padding-left: 5%;
@@ -358,10 +384,16 @@
     }
     .create_post {
         display: inline-block;
-        width: 15%;
-        height: 4vh;
-        background-color: #F8F8F8;
+        width: 17.5%;
+        height: 8vh;
+        background-color: rgb(240, 240, 240);
         border-radius: 5px;
+        font-size: 20px;
+    }
+    .create_post img 
+    {
+        display: inline-block;
+        margin-right: 0.5vw;
     }
 }
 .post img {
