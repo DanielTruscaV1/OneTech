@@ -120,6 +120,7 @@
         height: 10vw;
         border-radius: 50% !important;
         font-size: 25px !important;
+        background-color: rgb(245, 245, 245);
     }
     .card2 button:hover 
     {
