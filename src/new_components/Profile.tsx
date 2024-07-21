@@ -130,6 +130,11 @@ const Profile = () => {
         }
     }
 
+
+    const createChat = () => {
+        navigate(`/chat`);
+    }
+
   return (
     <div className={styles.profile}>
         <Sidebar/>
@@ -188,7 +193,7 @@ const Profile = () => {
                         <img src="/follow1.png"/>
                         Follow
                     </button>
-                    <button>
+                    <button onClick={createChat}>
                         <img src="/chat1.png"/>
                         Chat
                     </button>

@@ -26,6 +26,7 @@ import { AuthProvider } from './auth';
 import RequireAuth from './requireAuth';
 import CreatePost from './new_components/CreatePost';
 import Article from './new_components/Article';
+import Chat from './new_components/Chat';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,14 @@ const router = createBrowserRouter([
     element: ( 
       <RequireAuth>
         <Home/>
+      </RequireAuth>
+    )
+  },
+  {
+    path: "/chat",
+    element: ( 
+      <RequireAuth>
+        <Chat/>
       </RequireAuth>
     )
   },

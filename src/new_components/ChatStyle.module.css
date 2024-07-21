@@ -1,0 +1,111 @@
+@media screen and (max-width:600px)
+{
+
+}
+@media screen and (min-width:600px)
+{
+    .followers 
+    {
+        position: absolute;
+        left: 10vw;
+        border-right: 2px solid rgb(220, 220, 220);
+    }
+    .follower {
+        top: 0;
+        margin-top: 3vh;
+        width: 20vw;
+        height: 12vh;
+        border-radius: 10px;
+    }
+    .follower img {
+        margin-left: 1vw;
+        margin-top: 1.5vh;
+        display: inline-block;
+        width: 9vh;
+        height: 9vh;
+        border-radius: 50%;
+    }
+    .follower h1 {
+        position: relative;
+        top: 1.5vh;
+        margin-left: 1.5vw;
+        display: inline-block;
+        font-size: 25px;
+    }
+    .follower p {
+        margin-left: 7.2vw;
+        margin-top: -3vh;
+        font-size: 16px;
+        color:rgb(170, 170, 170);
+    }
+    .follower .continue {
+        position: absolute;
+        margin-top: -5vh;
+        right: 20vw;
+        width: 25px !important;
+        height: 20px;
+    }
+    .follower:hover {
+        background-color: #F8F8F8;
+        cursor: pointer;
+    }
+    .followers hr {
+        display: none;
+    }
+    .followers h2 {
+        font-size: 30px;
+        margin-left: 2%;
+        margin-bottom: 2vh;
+    }
+    .messages 
+    {
+        position: absolute;
+        left: 30vw;
+        width: 40vw;
+        min-height: 100%;
+        border-right: 2px solid rgb(220, 220, 220);
+    }
+    .user_message 
+    {
+        display: inline-block;
+        position: relative;
+        margin-left: 26vw;
+        margin-top: 0vh;
+        margin-bottom: 3vh;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 20px;
+        background: rgb(0,173,181);
+        background: linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%);
+    }
+    .friend_message 
+    {
+        display: inline-block;
+        position: relative;
+        margin-left: 30px;
+        margin-top: 0vh;
+        margin-bottom: 3vh;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 20px;
+        background-color: rgb(240, 240, 240);
+    }
+    .messages h1 
+    {
+        margin-left: 2vw;
+        font-size: 30px;
+    }
+    .messages hr 
+    {
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 2vh;
+        margin-bottom: 3vh;
+        border: 1px solid rgb(220, 220, 220);
+        
+    }
+}
