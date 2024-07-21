@@ -1,45 +1,73 @@
 @media screen and (max-width: 600px) {
-    .background {
-        display: none;
-    }
-    .background3 {
-        position: absolute;
+    .container 
+    {
         width: 100vw;
-        height: 100vh;
-    }
-    .card2 {
-        position: absolute;
-        left: 10vw;
-        top: 15vh;
-        width: 80vw;
-        height: 67vh;
+        height: 100vh;;
         background-color: rgb(245, 245, 245);
-        border-radius: 20px;
-        box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
-        z-index: 2;
     }
-    .card2 h1{
-        font-size: 24px !important;
+    .card2 
+    {
+        position: absolute;
+        left: 7.5vw;
+        top: 10vh;
+        width:85vw;
+        height:85vh;
+        background-color: rgb(255, 255, 255);
+        border: 8px solid rgb(230, 230, 230);
+        border-radius: 30px;
     }
-    .input {
+    .card2 h1
+    {
         margin-left: 10%;
-        margin-top: 30px;
         width: 80%;
-        height: 50px;
-        background-color: #EEEEEE;
-        border-radius: 10px;
+        font-size: 25px;
+    }
+    .card2 p 
+    {
+        margin-left: 10%;
+        margin-top: 1%;
+        font-size: 25px;
+    }
+    .card2 .input 
+    {
+        margin-left: 10%;
+        margin-top: 2vh;
+        width: 80%;
+        height: 35px;
+        background-color: rgb(245, 245, 245);
+        font-size: 20px;
         padding-left: 20px;
-        font-size: 18px;
     }
-    .card button, .card2 button {
-        margin-left: 10%;
-        margin-top: 20px;
-        width: 80%;
-        height: 40px;
+    .card2 .special 
+    {
+        color: rgb(180, 180, 180);
+        font-size: 15px;
+        width: auto;
+        display: inline-block;
+        margin-top: 2vh;
+    }
+    .card2 button 
+    {
+        position: absolute;
+        left: 35%;
+        top: 82.5%;
+        width: 25vw !important;
+        height: 25vw;
+        border-radius: 50% !important;
+        font-size: 20px !important;
+        background-color: rgb(245, 245, 245);
+    }
+    .card2 button:hover 
+    {
         background: rgb(0,173,181);
         background: linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%);
-        border-radius: 10px;
-        font-size: 18px;
+    }
+    .card2 .loader 
+    {
+        position: absolute;
+        right: 8.5vw;
+        top: 17vh;
+        z-index: 3;
     }
 }
 @media screen and (min-width: 600px) {
