@@ -220,7 +220,7 @@ const Problemset = () => {
           </div>
           {problemsData.map((problem, index) => (
             <div key={index} onScroll={syncScroll} ref={(ref) => (containers.current[index] = ref)}>
-              <ProblemSmall problem={problem} index={index} />
+              <ProblemSmall problem={problem} />
             </div>
           ))}
         </div>
