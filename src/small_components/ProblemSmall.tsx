@@ -1,4 +1,4 @@
-const   ProblemSmall = ({ problem, index } : {
+const   ProblemSmall = ({ problem } : {
     problem: {
         id: string;
         name: string;
@@ -7,7 +7,6 @@ const   ProblemSmall = ({ problem, index } : {
         status: string;
         frequency: string;
     }
-    index: number;
 }) => {
   return (
     <div
