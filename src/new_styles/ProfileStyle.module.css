@@ -116,7 +116,7 @@
     }
     .post {
         margin-left: 5%;
-        margin-bottom: 3vh;
+        margin-bottom: 5vh;
         width: 90%;
         height: 42vh;
         border: 2px solid rgb(220, 220, 220);
@@ -125,6 +125,7 @@
         margin-left: 5%;
         margin-top: 2vh;
         width: 90%;
+        height: 90%;
         max-height: 200px !important;
     }
     .post h1 {
@@ -151,6 +152,11 @@
         height: 4vh;
         border: 2px solid rgb(220, 220, 220);
         border-radius: 5px;
+    }
+    .info3 
+    {
+        margin-left: 5%;
+        width: 90%;
     }
 }
 @media screen and (min-width: 600px) {
@@ -390,6 +396,10 @@
         display: inline-block;
         margin-right: 0.5vw;
     }
+    .info3 
+    {
+        width: 70%;
+    }
 }
 .post img {
     position: relative;
@@ -397,8 +407,7 @@
     z-index: 3;
 }
 .info3 
-{
-    width: 70%;
-    padding: 30px;
-    border: 2px solid rgb(220, 220, 220);
-}
+    {
+        padding: 30px;
+        border: 2px solid rgb(220, 220, 220);
+    }
