@@ -38,7 +38,7 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: "/chat",
+    path: "/chat/:follower_id",
     element: ( 
       <RequireAuth>
         <Chat/>

@@ -132,7 +132,7 @@ const Profile = () => {
 
 
     const createChat = () => {
-        navigate(`/chat`);
+        navigate(`/chat/${global_user_id}`);
     }
 
   return (
@@ -256,6 +256,8 @@ const Profile = () => {
                     New Post
                 </button>
             }
+            <br/>
+            <br/>
             {
                 posts.map((post: any) => {
                     return <div className={styles.post}>

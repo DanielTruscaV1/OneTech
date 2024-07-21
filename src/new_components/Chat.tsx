@@ -5,7 +5,12 @@ import { User } from '../getUser.tsx';
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+import { useParams } from 'react-router-dom';
+import Sidebar from "./Sidebar.tsx";
+
 const Chat = () => {
+
+    const { follower_id } = useParams();
 
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);  
@@ -14,6 +19,8 @@ const Chat = () => {
 
     const user_id = localStorage.getItem("userID") as string;
 
+    const [follower, setFollower] = useState<any>(null);
+
     useEffect(() => {
         const fetchUserInfo = async () => {
             const userData = await axios.get(
@@ -21,6 +28,21 @@ const Chat = () => {
             ) as any;
   
             if (userData) {
+              await fetchData(userData); // Call fetchData after setUser
+              await fetchFollowerInfo();
+            } else {
+              setError('Failed to fetch user data');
+            }
+            setLoading(false);
+          };
+
+          const fetchFollowerInfo = async () => {
+            const userData = await axios.get(
+              `https://onetech.onrender.com/api/users/${follower_id}`
+            ) as any;
+  
+            if (userData) {
+              setFollower(userData.data);
               await fetchData(userData); // Call fetchData after setUser
             } else {
               setError('Failed to fetch user data');
@@ -46,7 +68,8 @@ const Chat = () => {
 
   return (
     <div className={styles.container}>
-        Chat
+        <Sidebar/>  
+        <br/>
         <div className={styles.followers}>
             <hr/>
             <h2>
@@ -66,9 +89,10 @@ const Chat = () => {
             }
         </div>
         <div className={styles.messages}>
-            <h1>
-                Your chat with InertGlobe
+            <h1 style={{display: "inline-block"}}>
+                Your chat with {follower && follower.username}
             </h1>
+            <img src="/call3.png" style={{display: "inline-block", marginLeft: "12vw", border: "2px solid black"}}/>
             <hr/>
             
             <p style={{fontSize: "12px", marginLeft: "88%"}}>
@@ -81,9 +105,11 @@ const Chat = () => {
             </div>
             <br/>
 
-            <p style={{fontSize: "12px", marginLeft: "6%"}}>
+            <img src={follower.image}/>
+            <p style={{fontSize: "12px", marginLeft: "1.5%"}}>
                 12:11
             </p>
+            <br/>
             <div className={styles.friend_message}>
                 <p>
                     Hi! I'm doing well, you?
@@ -101,12 +127,47 @@ const Chat = () => {
             </div>
             <br/>
             
-            <p style={{fontSize: "12px", marginLeft: "6%"}}>
+            <img src={follower.image}/>
+            <p style={{fontSize: "12px", marginLeft: "1.5%"}}>
                 12:11
             </p>
+            <br/>
             <div className={styles.friend_message}>
                 <p>
                     Hi! I'm doing well, you?
+                </p>
+            </div>
+
+            <div className={styles.inputs}>
+                <img src="/inputs2.png"/>
+                <img src="/inputs3.png"/>
+                <img src="/inputs4.png"/>
+                <input type="text"/>
+            </div>
+        </div>
+        <div className={styles.aside}>
+            <p>
+                Search in coversation
+            </p>
+            <div className={styles.aside_flex1}>
+                <input type="text"/>
+                <button>
+                    <img src="/search2.png"/>
+                </button>
+            </div>
+            <h1>
+                Call History
+            </h1>
+            <div className={styles.good_call}>
+                <img src="/call1.png"/>
+                <p>
+                    3 hours ago
+                </p>
+            </div>
+            <div className={styles.bad_call}>
+                <img src="/call2.png"/>
+                 <p>
+                    3 hours ago
                 </p>
             </div>
         </div>

@@ -380,7 +380,7 @@
     }
     .posts h2 {
         display: inline-block !important;
-        width: 80% !important;
+        margin-right: 30px;
     }
     .create_post {
         display: inline-block;
