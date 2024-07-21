@@ -68,8 +68,11 @@
     }
     .content img 
     {
-        margin-left: 0;
-        width: 22.5%;
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 2%;
+        width: 15%;
+        height: 80%;
     }
     .article_info 
     {
