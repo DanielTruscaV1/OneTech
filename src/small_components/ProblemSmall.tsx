@@ -1,13 +1,4 @@
-const   ProblemSmall = ({ problem } : {
-    problem: {
-        id: string;
-        name: string;
-        difficulty: string;
-        success: string;
-        status: string;
-        frequency: string;
-    }
-}) => {
+const   ProblemSmall = ({ problem } : any) => {
   return (
     <div
         style={{
