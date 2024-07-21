@@ -62,12 +62,13 @@
     }
     .article 
     {
-        width: 100%;
+        width: 70%;
+        height: 22.5vh;
     }
     .content img 
     {
         margin-left: 0;
-        width: 15%;
+        width: 22.5%;
     }
     .article_info 
     {
@@ -76,6 +77,7 @@
     .article_info h1 
     {
         font-size: 30px;
+        margin-bottom: 0px;
     }
     .article_info p 
     {

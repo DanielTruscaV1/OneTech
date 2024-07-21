@@ -57,13 +57,7 @@ const Theory = () => {
     <div className={styles.theory}>
         <Sidebar/>
         <Top user={user}/>
-        <div className={styles.content}>
-          <input 
-            type="text"
-            placeholder="Search for an article.........."
-          />
-
-          
+        <div className={styles.content}>          
             {
               articles.map((a: any) => {
                 return <div 
@@ -75,6 +69,16 @@ const Theory = () => {
                     <h1>
                       {a.data.title}
                     </h1>
+                    <div style={{display: "inline-block"}}>
+                      <div style={{width: "40vw", height: "20px", backgroundColor: "rgb(245, 245, 245)"}}>
+                      </div>
+                      <div style={{marginTop: "-20px", width: "20vw", height: "20px", backgroundColor: "#00ADB5"}}>
+                      </div>
+                    </div>
+                    <h1 style={{marginLeft: "1.5vw", display: "inline-block"}}>
+                      50%
+                    </h1>
+                    <br/>
                     <p>
                       | {a.data.views} views | {a.data.likes} likes | {a.data.read} |
                     </p>
