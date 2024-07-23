@@ -20,7 +20,7 @@ import "./App.css";
 import Problemset from './new_components/Problemset';
 import Rankings from './components/Rankings';
 import Theory from './new_components/Theory';
-import Problem from './components/Problem';
+import Problem from './new_components/Problem';
 import Profile from './new_components/Profile';
 import { AuthProvider } from './auth';
 import RequireAuth from './requireAuth';
@@ -42,6 +42,14 @@ const router = createBrowserRouter([
     element: ( 
       <RequireAuth>
         <Chat/>
+      </RequireAuth>
+    )
+  },
+  {
+    path: "/problem",
+    element: ( 
+      <RequireAuth>
+        <Problem/>
       </RequireAuth>
     )
   },

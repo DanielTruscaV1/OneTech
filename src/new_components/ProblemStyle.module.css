@@ -1,0 +1,75 @@
+@media screen and (max-width: 600px){
+    
+}
+@media screen and (min-width: 600px){
+    .left 
+    {
+        margin-left: 5vw;
+        margin-top: 5vh;
+        width: 45vw;
+        height: 90vh;
+    }
+    .left h1 
+    {
+        display: inline-block;
+        border: 2px solid rgb(220, 220, 220);
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 25px;
+    }
+    .box 
+    {
+        display: inline-block;
+        margin-top: 3vh;
+        margin-right: 1.5vw;
+        border: 2px solid rgb(220, 220, 220);
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .left button
+    {
+        display: inline-block;
+        position: relative;
+        top: 0vh;
+        margin-right: 1.5vw;
+        margin-top: 3vh;
+        
+        border: 2px solid rgb(220, 220, 220);
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .left img 
+    {
+        display: inline-block;
+        margin-right: 0.5vw;
+        width: 25px;
+    }
+    .example_image 
+    {
+        width: auto !important;
+        height: auto !important;
+        scale: 0.6;
+    }
+    .content
+    {
+        display: inline-block;
+        width: 90%;
+        margin-top: 3vh;
+        margin-right: 1.5vw;
+        border: 2px solid rgb(220, 220, 220);
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .left h2 
+    {
+        font-size: 20px;
+    }
+}
