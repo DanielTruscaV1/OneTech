@@ -9,22 +9,25 @@ const Problem = () =>
             </h1>
             <br/>
             <div className={styles.box}>
-                Not attempted
+                Status - Not attempted
             </div>
             <div className={styles.box}>
-                Easy
+                Difficulty - Easy
             </div>
             <div className={styles.box}>
-                123 / 456 (43%)
+                Success rate - 123 / 456 (43%)
             </div>
             <br/>
             <button>
+                <img src="/problem2.png"/>
                 View problem info
             </button>
             <button>
+                <img src="/problem9.png"/>
                 Get solutions
             </button>
             <button>
+                <img src="/problem10.png"/>
                 Post your solution
             </button>
             <div className={styles.content}>
@@ -68,7 +71,25 @@ const Problem = () =>
             </div>
         </div>
         <div className={styles.right}>
-            
+            <button>
+                <img src="/problem4.png"/>
+                Language - C++
+            </button>
+            <button>
+                <img src="/problem5.png"/>
+                Editor Settings
+            </button>
+            <button style={{float: "right", marginLeft: "1.5vw", marginRight: "0"}}>
+                <img src="/problem7.png"/>
+                Submit Code
+            </button>
+            <button style={{float: "right", marginLeft: "1.5vw", marginRight: "0"}}>
+                <img src="/problem6.png"/>
+                Test Code
+            </button>
+            <div className={styles.editor}>
+                Idk
+            </div>
         </div>
     </div>
 }
