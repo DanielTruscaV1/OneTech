@@ -76,7 +76,7 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <p>
-          Confirm Password
+          Confirm
         </p>
         <input 
           type="password"
