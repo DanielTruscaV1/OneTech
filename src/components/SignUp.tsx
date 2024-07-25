@@ -5,10 +5,7 @@ import { useState, FormEvent } from 'react';
 
 import axios from 'axios';
 
-import { useNavigate } from "react-router-dom"
-
 const SignUp = () => {
-  const navigate = useNavigate();
   
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
