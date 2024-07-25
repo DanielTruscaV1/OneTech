@@ -51,7 +51,6 @@ const Home = () => {
               `https://onetech.onrender.com/api/getHomeInfo/${user.user_id}`,
               //`http://localhost:3000/api/getHomeInfo/${user.user_id}`,
             );
-
             setFollowedUsers(response.data.followedUsers);
             setUsers(response.data.users.data);
             if(order == "newest")
@@ -167,6 +166,7 @@ const Home = () => {
 
         <div className={styles.aside}>
           {
+            followedUsers &&
             followedUsers.map((u: any) => {
               return <UserCircleHorizontal
                 image={u.data.image}

@@ -1,6 +1,117 @@
 @media screen and (max-width: 600px)
 {
-
+    .container 
+    {
+        width: 100vw;
+    }
+    .square1 
+    {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 20vw;
+        height: 20vw;
+        background-color: #323232;
+    }
+    .square2 
+    {
+        position: absolute;
+        left: 20vw;
+        bottom: 0;
+        width: 20vw;
+        height: 20vw;
+        background-color: var(--color2);
+    }
+    .square3
+    {
+        position: absolute;
+        left: 0;
+        bottom: 20vw;
+        width: 20vw;
+        height: 20vw;
+        background-color: var(--color3);
+    }
+    .square4
+    {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 20vw;
+        height: 20vw;
+        background-color: #323232;
+    }
+    .square5 
+    {
+        position: absolute;
+        right: 20vw;
+        top: 0;
+        width: 20vw;
+        height: 20vw;
+        background-color: var(--color2);
+    }
+    .square6
+    {
+        position: absolute;
+        right: 0;
+        top: 20vw;
+        width: 20vw;
+        height: 20vw;
+        background-color: var(--color3);
+    }
+    .container .title 
+    {
+        display: block;
+        margin-left: 0vw;
+        margin-top: 20vh;
+        font-size: 50px;
+        font-weight: 500;
+        text-align: center;
+    }
+    .container p 
+    {
+        display: inline-block;
+        width: 90vw;
+        margin-left: 5vw;
+        margin-top: 0vh;
+        font-size: 18px;
+        text-align: center;
+    }
+    .container .button_container p 
+    {
+        display: block;
+        margin-top: 1vh;
+        margin-bottom: -1vh;
+        width: 100vw;
+        text-align: center;
+    }
+    .container button 
+    {
+        background-color: var(--color2);
+        width: 80vw;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        margin-left: 10vw;
+        margin-top: 2vh;
+        font-size: 18px;
+    }
+    .container img 
+    {
+        width: 32.5vw;
+    }
+    .container .image1 
+    {
+        position: absolute;
+        right: 15vw;
+        top: 60vh;
+        width: 70vw;
+    }
+    .container .image2 
+    {
+        position: absolute;
+        right: 20vw;
+        top: 30vw;
+    }
 }
 @media screen and (min-width: 600px)
 {
@@ -20,7 +131,7 @@
         bottom: 0;
         width: 10vw;
         height: 10vw;
-        background-color: #F0F0F0;
+        background-color: var(--color2);
     }
     .square3
     {
@@ -29,7 +140,7 @@
         bottom: 10vw;
         width: 10vw;
         height: 10vw;
-        background-color: #3ECFC9;
+        background-color: var(--color3);
     }
     .square4
     {
@@ -47,7 +158,7 @@
         top: 0;
         width: 10vw;
         height: 10vw;
-        background-color: #F0F0F0;
+        background-color: var(--color2);
     }
     .square6
     {
@@ -56,7 +167,7 @@
         top: 10vw;
         width: 10vw;
         height: 10vw;
-        background-color: #3ECFC9;
+        background-color: var(--color3);
     }
     .container .title 
     {
@@ -87,7 +198,7 @@
     }
     .container button 
     {
-        background-color: #F0F0F0;
+        background-color: var(--color2);
         width: 15vw;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -102,8 +213,9 @@
     .container .image1 
     {
         position: absolute;
-        right: 10vw;
-        top: 10vw;
+        right: 15vw;
+        top: 15vw;
+        scale: 1.35;
     }
     .container .image2 
     {

@@ -30,7 +30,7 @@ const Landing = () => {
         <h1 className={styles.title}>
             One 
             <span style={{
-                color:"#3ECFC9",
+                color:"var(--color3)",
                 fontWeight: "500",
             }}>
             Tech</span>
@@ -51,12 +51,8 @@ const Landing = () => {
             </button>
         </div>
         <img 
-            src="/new_landing1.png"
+            src="/landingSVG1.svg"
             className={styles.image1}
-        />
-        <img 
-            src="/new_landing2.png"
-            className={styles.image2}
         />
     </div>
   )

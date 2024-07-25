@@ -4,9 +4,16 @@
 
 
 body {
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 
+:root 
+{
+    --color1: #FFFFFF;
+    --color2: #E6F0FF;
+    --color3: #0047FF;
+    --color4: rgba(0, 71, 255, 0.3);
+}
 
 .slide-left{animation:slide-left 1s cubic-bezier(.25,.46,.45,.94) both}
 
