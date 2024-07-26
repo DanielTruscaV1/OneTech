@@ -9,26 +9,26 @@
         position: absolute;
         left: 0;
         bottom: 0;
-        width: 20vw;
-        height: 20vw;
+        width: 15vw;
+        height: 15vw;
         background-color: #323232;
     }
     .square2 
     {
         position: absolute;
-        left: 20vw;
+        left: 15vw;
         bottom: 0;
-        width: 20vw;
-        height: 20vw;
+        width: 15vw;
+        height: 15vw;
         background-color: var(--color2);
     }
     .square3
     {
         position: absolute;
         left: 0;
-        bottom: 20vw;
-        width: 20vw;
-        height: 20vw;
+        bottom: 15vw;
+        width: 15vw;
+        height: 15vw;
         background-color: var(--color3);
     }
     .square4
@@ -36,26 +36,26 @@
         position: absolute;
         right: 0;
         top: 0;
-        width: 20vw;
-        height: 20vw;
+        width: 15vw;
+        height: 15vw;
         background-color: #323232;
     }
     .square5 
     {
         position: absolute;
-        right: 20vw;
+        right: 15vw;
         top: 0;
-        width: 20vw;
-        height: 20vw;
+        width: 15vw;
+        height: 15vw;
         background-color: var(--color2);
     }
     .square6
     {
         position: absolute;
         right: 0;
-        top: 20vw;
-        width: 20vw;
-        height: 20vw;
+        top: 15vw;
+        width: 15vw;
+        height: 15vw;
         background-color: var(--color3);
     }
     .container .title 
@@ -104,7 +104,7 @@
     {
         position: absolute;
         right: 25vw;
-        top: 60vh;
+        top: 70vh;
         width: 50vw;
     }
     .container .image2 

@@ -228,14 +228,15 @@
     .row4 h2  
     {
         padding-left: 1vw;
-        padding-top: 1vh;
-        margin-right: 8vw;
+        padding-top: 0vh;
+        padding-right: 3vw;
         display: inline-block;
+        width: auto;
     }
     .row4 .gap 
     {
         display: inline-block;
-        width: 24vw;
+        width: 20vw;
         height: 1vh;
     }
 }
