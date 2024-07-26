@@ -81,6 +81,7 @@
         display: block;
         margin-top: 1vh;
         margin-bottom: -1vh;
+        margin-left: 0;
         width: 100vw;
         text-align: center;
     }
@@ -97,14 +98,14 @@
     }
     .container img 
     {
-        width: 32.5vw;
+        width: 20vw;
     }
     .container .image1 
     {
         position: absolute;
-        right: 15vw;
+        right: 25vw;
         top: 60vh;
-        width: 70vw;
+        width: 50vw;
     }
     .container .image2 
     {

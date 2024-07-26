@@ -84,13 +84,7 @@ const SignUp = () => {
           value={confirm}
           onChange={(e) => setConfirm(e.target.value)}
         />
-        <button 
-          disabled={!button}
-          className={`${!button && "disabled"} ${shouldBeColored && "bg-pan-left2"}`}
-          onClick={() => {setShouldBeColored(true); setShouldBeFullyColored(true);}}
-        >
-          Submit
-        </button>
+        
         <div className={styles.terms}>
           <button>
 
@@ -99,6 +93,13 @@ const SignUp = () => {
             I agree to the terms and conditions of One<span style={{ color: "#0047FF"}}>Tech</span>
           </p>
         </div>
+        <button 
+          disabled={!button}
+          className={`${!button && "disabled"} ${shouldBeColored && "bg-pan-left2"}`}
+          onClick={() => {setShouldBeColored(true); setShouldBeFullyColored(true);}}
+        >
+          Submit
+        </button>
         <br/>
         {
           shouldBeFullyColored && 
