@@ -96,15 +96,11 @@ const SignUp = () => {
         <button 
           disabled={!button}
           className={`${!button && "disabled"} ${shouldBeColored && "bg-pan-left2"}`}
-          onClick={() => {setShouldBeColored(true); setShouldBeFullyColored(true);}}
+          onClick={() => {setShouldBeColored(false); setShouldBeFullyColored(false);}}
         >
           Submit
         </button>
         <br/>
-        {
-          shouldBeFullyColored && 
-          <div className={`${styles.loader} ${"loader"}`}></div>
-        } 
       </div>
     </form>
   )

@@ -121,125 +121,123 @@
     }
 }
 @media screen and (min-width: 600px){
-    .daily {
-        position: absolute;
-        margin-left: 11vw;
-        top: 15vh;
-        width: 20vw;
-        height: 20vh;
-        border: 2px solid rgb(220, 220, 220);
+    .problemset 
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .problemset h1 
+    {
+        display: inline-block;
+        position: relative;
+        top: 3vh;
+        left: 10vw;
         padding: 10px;
+        font-size: 35px;
+        font-weight: 700;
+        border-bottom: 4px solid var(--color3);
     }
-    .daily h1 {
-        padding-top: 1vh;
-        padding-left: 1vw;
-        font-size: 20px;
+    .row1, .row2, .row3, .row4
+    {
+        display: flex;
+        flex-direction: row;
     }
-    .daily button {
-        position: absolute;
-        bottom: 2vh;
-        left: 0vw;
-        width: 40%;
-        height: 4.5vh;
-        text-align: left;
-        border: 2px solid rgb(220, 220, 220);
+    .row2 
+    {
+        padding-left: 10vw;
+        padding-top: 8vh;
     }
-    .daily .tags {
-        margin-left: 6.66%;
-    }
-    .daily .info {
-        margin-left: 53.33% !important;
-    }
-    .daily button p {
+    .box 
+    {
+        margin-right: 2.5vw;
+        width: 25vw;
         display: inline-block;
+        position: relative;
+        padding: 10px;
+        border: 4px solid var(--color4);
+    }
+    .box h2 
+    {
+        margin-bottom: 3vh;
+        font-size: 22px;
+        font-weight: 600;
+        text-align: center;
+    }
+    .box p 
+    {
+        font-size: 17px;
+        font-weight: 500;
+    }
+    .box button 
+    {
         position: absolute;
-        margin-left: 0.75vw;
-        margin-top: 0;
-        width: 70%;
-        font-size: 14px;
-    }
-    .daily button img {
-        display: inline-block;
-        margin-left: 0.5vw;
-        margin-top: -0.75vh;
-        width: 3vh;
-    }
-    .calendar {
-        position: absolute;
-        margin-left: 34vw;
-        top: 15vh;
-        width: 30vw;
-        height: 20vh;
-        border: 2px solid rgb(220, 220, 220);
-    }
-    .calendar p {
-        width: 30%;
-        padding-top: 1vh;
-        padding-left: 1vw;
-        font-size: 20px;
-    }
-    .grid {
-        position: absolute !important;
-        top: 2vh !important;
-        left: 30%;
-    }
-    .calendar img {
-        position: absolute;
-        top: 2.5vh;
+        width: 5vw;
         right: 1vw;
-        width: 15vh;
-        height: 15vh;
+        bottom: 1.5vh;
+        background-color: var(--color2);
+        padding: 5px;
+        font-size: 17px;
+        font-weight: 500;
     }
-    .filter {
-        position: absolute !important;
-        top: 42vh !important;
+    .box img 
+    {
+        display: inline-block;
+        margin-right: 1vw;
+        margin-top: -0.5vh;
+        width: 40px;
     }
-    .filter h1 {
-        margin-top: 2vh;
-        font-size: 20px;
+    .row3 
+    {
+        padding-left: 10vw;
+        padding-top: 5vh;
     }
-    .filter img {
-        position: absolute;
-        left: 0.75vw;
-        top: 10vh; 
+    .row3 p 
+    {
+        font-size: 22px;
+        font-weight: 500;
     }
-    .filter, .problems {
-        position: absolute;
-        left: 11vw;
-        top: 45vh;
-        width: 23vw;
-        height: 50vh;
-        border-radius: 10px;
-      }
-      .problems {
-        left: 34vw;
-        position: absolute !important;
-        top: 42vh !important;
-      }
-      .filter button, .filter input {
-        margin-left: 0%;
-        margin-top: 2.3vh;
-        padding-left: 20px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        width: 86%;
-        height: 13%;
-        text-align: left;
-        font-size: 16px;
-        border: 2px solid rgb(220, 220, 220);
-      }
-      .filter input {
-        padding-left: 50px;
-        font-size: 16px;
-        border: 2px solid rgb(220, 220, 220);
-      }
-      .problems p {
-        margin-right: 4.5%;
-        width: 6.5%;
-      }
-      .greater {
-        width: 14% !important;
-      }
+    .row3 button 
+    {
+        margin-left: 1vw;
+        width: 5vw;
+        right: 1vw;
+        background-color: var(--color2);
+        padding: 5px;
+        font-size: 17px;
+        font-weight: 500;
+    }
+    .row3 .gap 
+    {
+        width: 52vw;
+    }
+    .row4 
+    {
+        padding-left: 10vw;
+        padding-top: 5vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .row4 .box 
+    {
+        margin-bottom: 4vh;
+        width: 80vw;
+        height: 8.5vh;
+        display: flex;
+        flex-direction: row;
+    }
+    .row4 h2  
+    {
+        padding-left: 1vw;
+        padding-top: 1vh;
+        margin-right: 8vw;
+        display: inline-block;
+    }
+    .row4 .gap 
+    {
+        display: inline-block;
+        width: 24vw;
+        height: 1vh;
+    }
 }
 .grid {
     margin-left: 1vw;
