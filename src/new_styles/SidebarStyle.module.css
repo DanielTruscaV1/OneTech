@@ -154,9 +154,9 @@
 }
 .show {
     position: fixed;
-    left: 3vw;
-    margin-top: 0.5vh;
-    width: 50px;
+    left: 2.5vw;
+    margin-top: 1.5vh;
+    width: 80px;
     cursor: pointer;
     z-index: 3;
     background-color: white;

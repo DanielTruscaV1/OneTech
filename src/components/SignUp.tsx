@@ -5,10 +5,7 @@ import { useState, FormEvent } from 'react';
 
 import axios from 'axios';
 
-import { useNavigate } from "react-router-dom"
-
 const SignUp = () => {
-  const navigate = useNavigate();
   
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -46,9 +43,10 @@ const SignUp = () => {
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
       <div className={`${styles.card2} ${shouldBeFullyColored && "bg-pan-left1"}`}>
-        <h1 className="mt-4 text-4xl text-center font-semibold">
-          Sign-up on One<span style={{ color: "#00ADB5"}}>Tech</span> for free
+        <h1 className="mt-4 text-2xl text-center font-semibold">
+          Sign-up for One<span style={{ color: "#0047FF"}}>Tech</span>
         </h1>
+        <br/>
         <p>
           Username
         </p>
@@ -78,7 +76,7 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <p>
-          Confirm Password
+          Confirm
         </p>
         <input 
           type="password"
@@ -86,32 +84,23 @@ const SignUp = () => {
           value={confirm}
           onChange={(e) => setConfirm(e.target.value)}
         />
+        
+        <div className={styles.terms}>
+          <button>
+
+          </button>
+          <p>
+            I agree to the terms and conditions of One<span style={{ color: "#0047FF"}}>Tech</span>
+          </p>
+        </div>
         <button 
           disabled={!button}
           className={`${!button && "disabled"} ${shouldBeColored && "bg-pan-left2"}`}
-          onClick={() => {setShouldBeColored(true); setShouldBeFullyColored(true);}}
+          onClick={() => {setShouldBeColored(false); setShouldBeFullyColored(false);}}
         >
           Submit
         </button>
         <br/>
-        <p 
-          className={styles.special}
-          style={{ color: shouldBeColored? "black" : "rgb(180, 180, 180)"}}
-        >
-          Already have an account?
-        </p>
-        <p 
-          className={styles.special}
-          style={{ color: "#00ADB5", marginLeft: "20px"}}
-          onClick={() => navigate('/sign-in')}
-
-        >
-          Sign-in
-        </p>
-        {
-          shouldBeFullyColored && 
-          <div className={`${styles.loader} ${"loader"}`}></div>
-        } 
       </div>
     </form>
   )

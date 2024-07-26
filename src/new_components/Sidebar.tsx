@@ -60,7 +60,7 @@ const Sidebar = () => {
         </div>
         :
         <img 
-            src="/menu1.png"
+            src="/menu2.png"
             className={styles.show}
             onClick={() => setSidebar(true)}
         />

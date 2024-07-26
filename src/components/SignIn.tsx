@@ -72,8 +72,9 @@ const SignUp = () => {
           className={`${styles.card2} ${shouldBeFullyColored && "bg-pan-left1"}`}
         >
           <h1 className="mt-4 text-3xl text-center font-semibold">
-            Welcome to One<span style={{ color: "#00ADB5"}}>Tech</span>
+            Sign-in to One<span style={{ color: "#0047FF"}}>Tech</span>
           </h1>
+          <br/>
           <p>
             Email
           </p>
@@ -97,28 +98,11 @@ const SignUp = () => {
           <button 
             type="submit" 
             className={`${!button && "disabled"} ${shouldBeColored && "bg-pan-left2"}`} disabled={!button}
-            onClick={() => {setShouldBeColored(true); setShouldBeFullyColored(true);}}
+            onClick={() => {setShouldBeColored(false); setShouldBeFullyColored(false);}}
           >
             Submit
           </button>
           <br/>
-          <p 
-            className={styles.special}
-            style={{ color: shouldBeColored? "black" : "rgb(180, 180, 180)"}}
-          >
-            Don't have an account?
-          </p>
-          <p 
-            className={styles.special}
-            style={{ color: "#00ADB5", marginLeft: "20px"}}
-            onClick={() => navigate('/sign-up')}
-          >
-            Sign-up
-          </p>
-          {
-            shouldBeFullyColored && 
-            <div className={`${styles.loader} ${"loader"}`}></div>
-          } 
         </div>
       </form>
     </>

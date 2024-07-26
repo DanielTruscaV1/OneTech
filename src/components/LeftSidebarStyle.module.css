@@ -58,7 +58,7 @@
         top: 0vh;
         width: 6vw;
         height: 100vh;
-        border-right: 2.5px solid rgb(230, 230, 230);
+        border-right: 2.5px solid var(--color3);
     }
     .button {
         display: inline-block;
