@@ -66,8 +66,9 @@ const Chat = () => {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
-    const fetchChat = () => {
-        
+    const fetchChat = (user_id : any, follower_id: any) => {
+        console.log(user_id);
+        console.log(follower_id);   
     }
 
   return (
