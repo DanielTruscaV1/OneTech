@@ -590,6 +590,31 @@ async function getArticleById(article_id)
   }
 }
 
+async function getChatByIds(user1_id, user2_id)
+{
+  try 
+  {
+    const chat = await client.query(
+      q.Map(
+        q.Paginate(
+          q.Match(
+            q.Index('getChatByIds'),
+            user1_id,
+            user2_id
+          )
+        ),
+        q.Lambda('ref', q.Get(q.Var('ref')))
+      )
+    );
+    return chat.data;
+  }
+  catch(error)
+  {
+    console.log("Database error: ", error);
+    throw error;
+  }
+}
+
 
 module.exports = {
   createDocument,
@@ -609,4 +634,5 @@ module.exports = {
   getComments,
   getArticles,
   getArticleById,
+  getChatByIds,
 };

@@ -66,6 +66,10 @@ const Chat = () => {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
+    const fetchChat = () => {
+        
+    }
+
   return (
     <div className={styles.container}>
         <Sidebar/>  
@@ -79,6 +83,7 @@ const Chat = () => {
                 followers.map((follower: any) => {
                     return <div 
                         className={styles.follower}
+                        onClick={() => fetchChat(user_id, follower.data.user_id)}
                     >
                         <img src={follower.data.image}/>
                         <h1>

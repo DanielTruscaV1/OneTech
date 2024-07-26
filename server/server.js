@@ -2,7 +2,7 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo, createPost, deletePost, createComment, getComments, getArticles, getArticleById } = require('./database');
+const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo, createPost, deletePost, createComment, getComments, getArticles, getArticleById, getChatByIds } = require('./database');
 const cors = require('cors');
 const app = express();
 const encoder = require('./encoder');
@@ -265,6 +265,18 @@ app.get('/api/documents', async (req, res) => {
       res.status(201).json({ message: 'Article fetched successfully.', result});
     } catch (error) {
       res.status(400).send('Article fetch failed: ' + error.message);
+    }
+  })
+
+  app.get("/api/getChatByIds/:user1_id/:user2_id", async (req, res) => {
+    const { user1_id, user2_id } = req.params;
+
+    try {
+      const result = await getChatByIds(user1_id, user2_id);
+
+      res.status(201).json({ message: 'Chat fetched successfully.', result});
+    } catch (error) {
+      res.status(400).send('Chat fetch failed: ' + error.message);
     }
   })
 
