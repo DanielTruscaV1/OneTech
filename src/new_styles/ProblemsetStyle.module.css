@@ -1,41 +1,126 @@
 @media screen and (max-width: 600px){
-    .daily {
-        position: absolute;
-        margin-left: 5vw;
-        top: 12.5vh;
-        width: 90vw;
-        height: 25vh;
-        border: 2px solid rgb(220, 220, 220);
+    .problemset 
+    {
+        display: flex;
+        flex-direction: column;
     }
-    .daily h1 {
-        padding-top: 1vh;
-        padding-left: 5vw;
-        font-size: 16px;
-    }
-    .daily button {
-        position: absolute;
-        left: 5vw;
-        width: 30vw;
-        height: 5vh;
-        border: 2px solid rgb(220, 220, 220);
-        text-align: left;
-    }
-    .daily .info {
-        left: 45%;
-    }
-    .daily button img {
+    .problemset h1 
+    {
         display: inline-block;
-        margin-left: 2vw;
-        margin-top: -0.75vh;
-        width: 20px;
-    }
-    .daily button p {
         position: relative;
-        margin-left: 3vw;
-        top: -0.2vh;
-        display: inline-block;
-        font-size: 14px;
+        margin-top: 15vh;
+        left: 10vw;
+        padding: 10px;
+        width: 80vw;
+        font-size: 7vw;
+        font-weight: 700;
+        border-bottom: 4px solid var(--color3);
     }
+    .row1, .row2, .row3, .row4
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .row2 
+    {
+        padding-left: 10vw;
+        padding-top: 8vh;
+    }
+    .box 
+    {
+        margin-bottom: 3vh;
+        width: 80vw;
+        display: inline-block;
+        position: relative;
+        padding: 10px;
+        border: 4px solid var(--color4);
+    }
+    .box h2 
+    {
+        margin-bottom: 3vh;
+        font-size: 4vw;
+        font-weight: 600;
+        text-align: center;
+    }
+    .box p 
+    {
+        font-size: 3vw;
+        font-weight: 500;
+    }
+    .box button 
+    {
+        position: absolute;
+        width: 12vw;
+        right: 3vw;
+        bottom: 1vh;
+        background-color: var(--color2);
+        padding: 1vw;
+        font-size: 3.5vw;
+        font-weight: 500;
+    }
+    .box img 
+    {
+        display: inline-block;
+        margin-right: 1vw;
+        margin-top: -0.5vh;
+        width: 40px;
+    }
+    .row3 
+    {
+        padding-left: 10vw;
+        padding-top: 5vh;
+        flex-direction: row;
+    }
+    .row3 p 
+    {
+        font-size: 22px;
+        font-weight: 500;
+    }
+    .row3 button 
+    {
+        margin-left: 2vw;
+        margin-top: 1vh;
+        width: 14vw;
+        right: 1vw;
+        background-color: var(--color2);
+        padding: 1vw;
+        font-size: 3.5vw;
+        font-weight: 500;
+    }
+    .row3 .gap 
+    {
+        width: 0vw;
+    }
+    .row4 
+    {
+        padding-left: 10vw;
+        padding-top: 5vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .row4 .box 
+    {
+        margin-bottom: 4vh;
+        width: 80vw;
+        height: 6.5vh;
+        display: flex;
+        flex-direction: row;
+    }
+    .row4 h2  
+    {
+        padding-left: 1vw;
+        padding-top: 0vh;
+        padding-right: 1vw;
+        display: inline-block;
+        width: auto;
+        font-size: 3vw;
+    }
+    .row4 .gap 
+    {
+        display: inline-block;
+        width: 1vw;
+        height: 1vh;
+    }   
 }
 @media screen and (min-width: 350px) and (max-width: 600px) {
     .daily button {
