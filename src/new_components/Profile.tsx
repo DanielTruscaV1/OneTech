@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react"
 import styles from "../new_styles/ProfileStyle.module.css"
+//@ts-expect-error
 import EditProfile from "./EditProfile"
 import Sidebar from "./Sidebar"
+//@ts-expect-error
 import Top from "./Top"
 
 import { User } from '../getUser.tsx';
@@ -22,7 +24,9 @@ const Profile = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);  
 
+    //@ts-expect-error
     const [followers, setFollowers] = useState<any>([]);
+    //@ts-expect-error
     const [posts, setPosts] = useState<any>([]);
 
     const user_id = localStorage.getItem("userID") as string;
@@ -60,6 +64,7 @@ const Profile = () => {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
+    //@ts-expect-error
     const handleFollow = async () => {
 
         if(user && (!user.followedBy || !user.followedBy.includes(`${user_id}`)))
@@ -88,12 +93,14 @@ const Profile = () => {
             alert("User is already followed.");
     }
 
+    //@ts-expect-error
     const handleLogOut = async () => {
         localStorage.setItem("user", "");
         localStorage.setItem("userID", "");
         navigate("/sign-in");
     }
 
+    //@ts-expect-error
     const handleUpdate = async ({ id, p } : {
         id: number;
         p: {
@@ -131,6 +138,7 @@ const Profile = () => {
     }
 
 
+    //@ts-expect-error
     const createChat = () => {
         navigate(`/chat/${global_user_id}`);
     }
@@ -138,262 +146,56 @@ const Profile = () => {
   return (
     <div className={styles.profile}>
         <Sidebar/>
-        {
-            user && user.user_id == user_id &&
-            <Top user={user}/>
-        }
-        {
-            user && user.user_id == user_id &&
-            <EditProfile user={user}/>
-        }
-        {
-            user && user.user_id == user_id &&
-            <button 
-                className={styles.logout}
-                onClick={handleLogOut}
-            >
-                Log-out
-            </button>
-        }
         { user &&
         <>
-            <div className={styles.left}>
+            <h1 className={styles.path}>
+                OneTech / Profile / {user.username}
+            </h1>
 
+            <div className={styles.left}>
             <div className={styles.left_wrap}>
                 <img 
                     src={user.image}
                     className={styles.image}
                 />
-
-                <div className={styles.info}>
-                    <h1 className="text-2xl mb-4">
-                        { user.username }
-                    </h1>
-                    <div className="w-full">
-                        <h2 className={styles.status1}>&#9679;</h2>
-                        <h2 className={styles.status2}>
-                            Online
-                        </h2>
-                    </div>
-                    <h2>
-                        { user.followedBy && user.followedBy.length } Followers
-                    </h2>
-                </div>
-
+                <h1>
+                    {user.username}
+                </h1>
             </div>
-            
-            <hr/>
 
-            <div className={styles.info2}>
-                <p>
-                    { user.description }
-                </p>
-                <div>
-                    <button onClick={handleFollow}>
-                        <img src="/follow1.png"/>
-                        Follow
-                    </button>
-                    <button onClick={createChat}>
-                        <img src="/chat1.png"/>
-                        Chat
-                    </button>
-                </div>
-                <div className={styles.info3}>
-                    <h2>
-                        <img src="/location1.png"/>
-                        Location: {user.location}
-                    </h2>
-                    <h2>
-                        <img src="/language1.png"/>
-                        Language: {user.language}
-                    </h2>
-                    <h2>
-                        <img src="/sign1.png"/>
-                        Joined: 26/05/2024
-                    </h2>
-                </div>
-            </div>     
-        </div>
-        <div className={styles.followers}>
-            <hr/>
-            <h2>
-                Followers
-            </h2>
-            {
-                followers.map((follower: any) => {
-                    return <div 
-                        className={styles.follower}
-                        onClick={() => navigate(`/profile/${follower.data.user_id}`)}
-                    >
-                        <img src={follower.data.image}/>
-                        <h1>
-                            {follower.data.username}
-                        </h1>
-                        <p>
-                            {follower.data.email}
-                        </p>
-                        <img
-                            src="/right.png"
-                            className={styles.continue}
-                        />
-                    </div>
-                })
-            }
-        </div>
-        <div className={styles.posts}>
-            <hr/>
-            <h2>
-                Posts
-            </h2>
-            {
-                user && user.user_id == user_id &&
-                <button 
-                    className={styles.create_post}
-                    onClick={() => navigate('/create_post')}
-                >
-                    <img 
-                        className={styles.icon}
-                        src="/add1.png"
-                    /> 
-                    New Post
+            <br/>
+            <div className={styles.box}>
+                <h1>
+                   {user.followedBy.length} followers 
+                </h1>
+                <button>
+                    View followers
                 </button>
-            }
-            <br/>
-            <br/>
-            {
-                posts.map((post: any) => {
-                    return <div className={styles.post}>
-                        <h1>
-                            {post.data.title}
-                        </h1>
-                        <img 
-                            className={styles.post_image} 
-                            src={post.data.image}
-                            style={{
-                                maxWidth: "90%",
-                                maxHeight: "300px",
-                            }}
-                        />
-                        {
-                            post.data.likedBy && post.data.likedBy.includes(`${user?.user_id}`) &&
-                            <div className={styles.button_bg}>
-                                .
-                            </div>
-                        }
-                        <img 
-                    src="/home_icon_1.png"
-                    onClick={() => handleUpdate({id: post.data.post_id, p: {
-                        likes: post.data.likes + 1,
-                        comments: post.data.comments,
-                        shares: post.data.shares,
-                        saves: post.data.saves,
-
-                        likedBy: post.data.likedBy,
-                    }})}
-                    style={{
-                        display: "inline-block",
-                        width: "22px",
-                        height: "22px",
-                    }}
-                />
-                <p 
-                    style={{
-                        display: "inline-block",
-                        marginLeft: "10px",
-                        position: "relative",
-                        top: "0.5rem",
-                        fontSize: "18px",
-                    }}
-                >
-                    { post.data.likes }
-                </p>
-                <img 
-                    src="/home_icon_2.png"
-                    onClick={() => handleUpdate({id: post.data.post_id, p: {
-                        likes: post.data.likes,
-                        comments: post.data.comments + 1,
-                        shares: post.data.shares,
-                        saves: post.data.saves,
-
-                        likedBy: post.data.likedBy,
-                    }})}
-                    style={{
-                        display: "inline-block",
-                        width: "22px",
-                        height: "22px",
-                    }}
-                />
-                <p 
-                    style={{
-                        display: "inline-block",
-                        marginLeft: "10px",
-                        position: "relative",
-                        top: "0.5rem",
-                        fontSize: "18px",
-                    }}
-                >
-                    { post.data.comments }
-                </p>
-                <img 
-                    src="/home_icon_3.png"
-                    onClick={() => handleUpdate({id: post.data.post_id, p: {
-                        likes: post.data.likes,
-                        comments: post.data.comments,
-                        shares: post.data.shares + 1,
-                        saves: post.data.saves,
-
-                        likedBy: post.data.likedBy,
-                    }})}
-                    style={{
-                        display: "inline-block",
-                        width: "22px",
-                        height: "22px",
-                    }}
-                />
-                <p 
-                    style={{
-                        display: "inline-block",
-                        marginLeft: "10px",
-                        position: "relative",
-                        top: "0.5rem",
-                        fontSize: "18px",
-                    }}
-                >
-                    { post.data.shares }
-                </p>
-                <img 
-                    src="/home_icon_4.png"
-                    onClick={() => handleUpdate({id: post.data.post_id, p: {
-                        likes: post.data.likes,
-                        comments: post.data.comments,
-                        shares: post.data.shares,
-                        saves: post.data.saves + 1,
-
-                        likedBy: post.data.likedBy,
-                    }})}
-                    style={{
-                        display: "inline-block",
-                        width: "22px",
-                        height: "22px",
-                    }}
-                />
-                <p 
-                    style={{
-                        display: "inline-block",
-                        marginLeft: "10px",
-                        position: "relative",
-                        top: "0.5rem",
-                        fontSize: "18px",
-                    }}
-                >
-                    { post.data.saves }
-                </p>
-                <br/>
-                <br/>
-                <br/>
+                <button>
+                    Follow
+                </button>
+            </div>  
+            <div className={styles.box}>
+                <h1>
+                   About - {user.description}  
+                </h1>
+                
+            </div>     
+            <div className={styles.right}>
+                <div className={styles.row}>
+                    <p>
+                        Posts
+                    </p>
+                    <button>
+                        Search
+                    </button>
+                    <button>
+                        Filter
+                    </button>
                 </div>
-                })
-            }
+                
+                   
+            </div>
         </div>
         </>
         }
