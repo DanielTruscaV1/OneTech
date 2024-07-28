@@ -306,7 +306,7 @@
     {
         margin-bottom: 4vh;
         width: 80vw;
-        height: 8.5vh;
+        height: 7vh;
         display: flex;
         flex-direction: row;
     }
@@ -317,6 +317,7 @@
         padding-right: 3vw;
         display: inline-block;
         width: auto;
+        font-size: 2.5vh;
     }
     .row4 .gap 
     {
