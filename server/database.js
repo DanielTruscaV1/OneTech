@@ -619,15 +619,15 @@ async function getProblemById(problem_id)
 {
   try 
   {
-    const problem = await client.query(
-      q.Get(
-        q.Ref(q.Collection("Problems"), problem_id)
-      )
-    );
-
-    console.log(problem);
-    
-    return {};
+    const problem = await client.query(q.Map(
+      q.Paginate(
+        q.Match(
+          q.Index("getProblemById"), 
+          problem_id
+        )
+      ),
+      q.Lambda('X', q.Get(q.Var('X')))
+    ));
 
     return problem;
   }
