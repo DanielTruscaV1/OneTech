@@ -13,7 +13,7 @@ const Problemset = () => {
 
       console.log(result);
 
-      
+      setProblems(result.data.result.data);
     }
 
     getProblems();
@@ -111,48 +111,25 @@ const Problemset = () => {
             Difficulty
           </h2>
         </div>
-        <div className={styles.box}>
-          <h2>
-            Problem ID - Problem Name
-          </h2>
-          <div className={styles.gap}>
 
-          </div>
-          <h2>
-            Status
-          </h2>
-          <h2>
-            Difficulty
-          </h2>
-        </div>
-        <div className={styles.box}>
-          <h2>
-            Problem ID - Problem Name
-          </h2>
-          <div className={styles.gap}>
-
-          </div>
-          <h2>
-            Status
-          </h2>
-          <h2>
-            Difficulty
-          </h2>
-        </div>
-        <div className={styles.box}>
-          <h2>
-            Problem ID - Problem Name
-          </h2>
-          <div className={styles.gap}>
-
-          </div>
-          <h2>
-            Status
-          </h2>
-          <h2>
-            Difficulty
-          </h2>
-        </div>
+        {
+          problems.map((p : any) => {
+            return <div className={styles.box}>
+              <h2>
+                {p.data.problem_id} - {p.data.title}
+              </h2>
+              <div className={styles.gap}>
+    
+              </div>
+              <h2>
+                Not solved
+              </h2>
+              <h2>
+                {p.data.difficulty}
+              </h2>
+            </div>
+          })
+        }
       </div>
     </div>
   );
