@@ -638,6 +638,26 @@ async function getProblemById(problem_id)
   }
 }
 
+async function getProblems()
+{
+  try 
+  {
+    const problems = await client.query(
+      q.Map(
+      q.Paginate(q.Documents(q.Collection("Problems"))),
+      q.Lambda(x => q.Get(x))
+      )
+    );
+
+    return problems;
+  }
+  catch(error)
+  {
+    console.log("Database error: ", error);
+    throw error;
+  }
+}
+
 
 module.exports = {
   createDocument,
@@ -659,4 +679,5 @@ module.exports = {
   getArticleById,
   getChatByIds,
   getProblemById,
+  getProblems,
 };

@@ -292,6 +292,16 @@ app.get('/api/documents', async (req, res) => {
     }
   })
 
+  app.get("/api/getProblems", async (req, res) => {
+    try {
+      const result = await getProblems();
+
+      res.status(201).json({ message: 'Problems fetched successfully.', result});
+    } catch (error) {
+      res.status(400).send('Problems fetch failed: ' + error.message);
+    }
+  })
+
   const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
   const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
 
