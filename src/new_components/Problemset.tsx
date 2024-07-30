@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import axios from "axios";
 
 const Problemset = () => {
-
+  //@ts-ignore
   const [problems, setProblems] = useState<any>([]);
 
   useEffect(() => {
