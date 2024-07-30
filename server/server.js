@@ -2,7 +2,7 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo, createPost, deletePost, createComment, getComments, getArticles, getArticleById, getChatByIds } = require('./database');
+const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo, createPost, deletePost, createComment, getComments, getArticles, getArticleById, getChatByIds, getProblemById } = require('./database');
 const cors = require('cors');
 const app = express();
 const encoder = require('./encoder');
@@ -277,6 +277,18 @@ app.get('/api/documents', async (req, res) => {
       res.status(201).json({ message: 'Chat fetched successfully.', result});
     } catch (error) {
       res.status(400).send('Chat fetch failed: ' + error.message);
+    }
+  })
+
+  app.get("/api/getProblemById/:problem_id", async (req, res) => {
+    const { problem_id } = req.params;
+
+    try {
+      const result = await getProblemById(problem_id);
+
+      res.status(201).json({ message: 'Problem fetched successfully.', result});
+    } catch (error) {
+      res.status(400).send('Problem fetch failed: ' + error.message);
     }
   })
 

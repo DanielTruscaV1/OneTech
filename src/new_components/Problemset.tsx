@@ -1,7 +1,20 @@
+import { useEffect } from "react";
 import styles from "../new_styles/ProblemsetStyle.module.css";
 import Sidebar from "./Sidebar";
+import axios from "axios";
 
 const Problemset = () => {
+
+  useEffect(() => {
+    const getProblems = async () => {
+      const result = await axios.get("https://onetech.onrender.com/api/getProblemById/1");
+
+      console.log(result);
+    }
+
+    getProblems();
+  }, []);
+
   return (
     <div className={styles.problemset}>
       <Sidebar />
