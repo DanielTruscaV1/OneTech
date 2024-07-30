@@ -1,15 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "../new_styles/ProblemsetStyle.module.css";
 import Sidebar from "./Sidebar";
 import axios from "axios";
 
 const Problemset = () => {
 
+  const [problems, setProblems] = useState<any>([]);
+
   useEffect(() => {
     const getProblems = async () => {
-      const result = await axios.get("https://onetech.onrender.com/api/getProblemById/1");
+      const result = await axios.get("https://onetech.onrender.com/api/getProblems");
 
       console.log(result);
+
+      
     }
 
     getProblems();
