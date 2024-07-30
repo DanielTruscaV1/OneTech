@@ -133,8 +133,6 @@ body {
     }
     .user_post {
         position: relative !important;
-        
-        width: 100vw !important;
     }
     .user_post_info {
         display: flex !important;
@@ -147,7 +145,7 @@ body {
         left: 0 !important;
         margin-left: 5vw !important;
         margin-top: 1vh !important;
-        width: 90vw !important;
+        width: 80vw !important;
         height: 65vw !important;
     }
     .user_post_author1 {
@@ -158,18 +156,19 @@ body {
         font-size: 16px !important;
     }
     .user_post_settings {
+        margin-left: -3vw !important;
         margin-top: 1.7vw !important;
         width: 20px !important;
         height: 20px !important;
     }
     .user_post_actions {
         position: absolute !important;
-        left: 1.1vw !important;
+        left: 5.1vw !important;
         top: 46vh !important;
-        width: 100vw !important;
+        width: 90vw !important;
     }
     .user_post_actions div {
-        margin-left: 5vw !important;
+        margin-left: 0vw !important;
         width: 20vw !important;
     }
     .problem_small {

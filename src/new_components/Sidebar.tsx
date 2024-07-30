@@ -30,33 +30,12 @@ const Sidebar = () => {
             <button onClick={() => navigate('/problemset')}>
                 <img src="/nav33.png"/>
             </button>
-            <button>
-                <img src="/nav4.png"/>
-            </button>
-            <button>
-                <img src="/nav5.png"/>
-            </button>
             <button onClick={() => navigate(`/profile/${user_id}`)}>
                 <img src="/nav6.png"/>
             </button>
             <button>
                 <img src="/nav77.png"/>
             </button>
-            <div className={styles.theme}>
-                <img 
-                    className={styles.sun}
-                    src="/nav88.png"
-                />
-                <img 
-                    className={styles.moon}
-                    src="/nav99.png"
-                />
-                <div className={styles.toggle1}>  
-                    <div className={styles.toggle2}>
-
-                    </div>
-                </div>
-            </div>
         </div>
         :
         <img 

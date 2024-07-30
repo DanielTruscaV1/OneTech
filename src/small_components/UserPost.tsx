@@ -145,11 +145,12 @@ const UserPost = ({ user, post } : {
             flexDirection: "column",
             marginTop: "3vh",
             marginBottom: "6vh",
-            width: "100%",
-            borderTop: "2px solid rgb(220, 220, 220)",
-              borderBottom: "2px solid rgb(220, 220, 220)",
-              borderLeft: "2px solid rgb(220, 220, 220)",
-              borderRight: "2px solid rgb(220, 220, 220)",
+            marginLeft: "5%",
+            width: "90%",
+            borderTop: "4px solid var(--color4)",
+              borderBottom: "4px solid var(--color4)",
+              borderLeft: "4px solid var(--color4)",
+              borderRight: "4px solid var(--color4)",
         }}
         className="user_post"
     >
@@ -161,7 +162,7 @@ const UserPost = ({ user, post } : {
                 top: "2vh",
                 width: "3.5rem",
                 height: "3.5rem",
-                border: "3px solid #00ADB5",
+                border: "4px solid var(--color4)",
                 borderRadius: "50%",
                 cursor: "pointer",
             }}

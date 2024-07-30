@@ -9,7 +9,7 @@
         width: 18vw;
         height: 100vh;
         background-color: white;
-        border-right: 2.5px solid rgb(220, 220, 220);
+        border-right: 4px solid var(--color3);
     }
     .sidebar button {
         display: block;
@@ -102,7 +102,7 @@
         width: 6vw;
         height: 100vh;
         background-color: white;
-        border-right: 2.5px solid rgb(220, 220, 220);
+        border-right: 4px solid var(--color3);
     }
     .sidebar button {
         display: block;

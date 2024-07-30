@@ -1,6 +1,7 @@
 import styles from "../new_styles/HomeStyle.module.css"
 
 import Sidebar from "./Sidebar"
+//@ts-expect-error
 import Top from "./Top"
 import UserCircle from "../small_components/UserCircle"
 import UserPost from "../small_components/UserPost"
@@ -15,6 +16,7 @@ import UserCircleHorizontal from "../small_components/UserCircleHorizontal.tsx"
 
 const Home = () => {
 
+    //@ts-expect-error
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);  
@@ -81,8 +83,6 @@ const Home = () => {
   return (
     <div className={styles.home}>
         <Sidebar/>
-        <Top user={user}/>
-
         <div className={styles.stories}>
           {
             followedUsers &&
@@ -102,9 +102,6 @@ const Home = () => {
 
         <div className={styles.filter}>
           <div>
-            <h1>
-              Your Feed
-            </h1>
             { !(window.innerWidth <= 768) &&
               <button style={{
                   marginLeft: "0vw",
