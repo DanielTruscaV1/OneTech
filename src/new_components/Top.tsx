@@ -23,7 +23,7 @@ const Top : React.FC<UserProps> = ({ user }) => {
         <h1>
             Welcome back, <span>{ user.username }!</span>
         </h1>
-        <img src={ user.image} />
+        <img src={ user.image } />
         <div className={styles.search}>
            
         </div>

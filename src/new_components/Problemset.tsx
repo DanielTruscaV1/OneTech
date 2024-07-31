@@ -23,9 +23,18 @@ const Problemset = () => {
     getProblems();
   }, []);
 
+  const user = JSON.parse(localStorage.getItem("user") as string) as any;
+
   return (
     <div className={styles.problemset}>
       <Sidebar />
+      {
+        user && 
+        <>
+          <img src="/settings1.png" className="user_settings"/>
+          <img src={user.image} className="user_image"/>
+        </>
+      }
       <div className={styles.row1}>
         <h1>
           OneTech / Problemset

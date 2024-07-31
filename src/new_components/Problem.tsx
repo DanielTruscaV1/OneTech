@@ -36,8 +36,17 @@ const Problem = () =>
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
+    const user = JSON.parse(localStorage.getItem("user") as string) as any;
+
     return <div className={styles.container}>
        <Sidebar />
+       {
+        user && 
+        <>
+            <img src="/settings1.png" className="user_settings"/>
+            <img src={user.image} className="user_image"/>
+        </>
+       }
        <div className={styles.row1}>
             <h1>
             OneTech / Problemset / Problem # {problem.problem_id}

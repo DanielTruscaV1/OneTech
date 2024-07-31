@@ -3,9 +3,18 @@ import Sidebar from "./Sidebar"
 
 const Theory = () => {
 
+  const user = JSON.parse(localStorage.getItem("user") as string) as any;
+
   return (
     <div className={styles.theory}>
         <Sidebar/>
+        {
+          user && 
+          <>
+            <img src="/settings1.png" className="user_settings"/>
+            <img src={user.image} className="user_image"/>
+          </>
+        }
         <div className={styles.problemset}>
       <Sidebar />
       <div className={styles.row1}>

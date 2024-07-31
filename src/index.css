@@ -20,6 +20,23 @@ button:hover
     background-color: var(--color3) !important;
     color: var(--color1);
 }
+.user_settings 
+{
+    position: absolute;
+    right: calc(10vw + 90px);
+    top: calc(5vh + 15px);
+    width: 30px !important;
+    height: 30px !important;
+}
+.user_image 
+{
+    position: absolute;
+    right: 10vw;
+    top: 5vh;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50%;
+}
 
 .slide-left{animation:slide-left 1s cubic-bezier(.25,.46,.45,.94) both}
 
