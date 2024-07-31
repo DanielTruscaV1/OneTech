@@ -46,7 +46,7 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: "/problem",
+    path: "/problem/:problem_id",
     element: ( 
       <RequireAuth>
         <Problem/>
