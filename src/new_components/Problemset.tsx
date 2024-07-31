@@ -103,7 +103,7 @@ const Problemset = () => {
       <div className={styles.row4}>
         <div className={styles.box}>
           <h2>
-            Problem ID - Problem Name
+            ID - Name
           </h2>
           <div className={styles.gap}>
 
