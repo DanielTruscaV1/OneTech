@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import styles from "../new_styles/ProblemsetStyle.module.css";
 import Sidebar from "./Sidebar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Problemset = () => {
+
+  const navigate = useNavigate();
+
   //@ts-ignore
   const [problems, setProblems] = useState<any>([]);
 
@@ -114,7 +118,7 @@ const Problemset = () => {
 
         {
           problems.map((p : any) => {
-            return <div className={styles.box}>
+            return <div className={styles.box} onClick={() => navigate(`/problem/${p.data.problem_id}`)}>
               <h2>
                 {p.data.problem_id} - {p.data.title}
               </h2>
