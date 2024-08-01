@@ -5,10 +5,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import AceEditor from "react-ace";
 
-// Importing themes
+// Importing modes and themes
 import "ace-builds/src-noconflict/mode-c_cpp";
-
-// Light Themes
 import "ace-builds/src-noconflict/theme-chrome";
 import "ace-builds/src-noconflict/theme-clouds";
 import "ace-builds/src-noconflict/theme-clouds_midnight";
@@ -17,19 +15,14 @@ import "ace-builds/src-noconflict/theme-dawn";
 import "ace-builds/src-noconflict/theme-dreamweaver";
 import "ace-builds/src-noconflict/theme-eclipse";
 import "ace-builds/src-noconflict/theme-github";
-//import "ace-builds/src-noconflict/theme-ipad";
 import "ace-builds/src-noconflict/theme-solarized_light";
 import "ace-builds/src-noconflict/theme-textmate";
 import "ace-builds/src-noconflict/theme-tomorrow";
 import "ace-builds/src-noconflict/theme-xcode";
 import "ace-builds/src-noconflict/theme-sqlserver";
 import "ace-builds/src-noconflict/theme-cloud_editor";
-import "ace-builds/src-noconflict/theme-solarized_light";
-
-// Dark Themes
 import "ace-builds/src-noconflict/theme-ambiance";
 import "ace-builds/src-noconflict/theme-chaos";
-import "ace-builds/src-noconflict/theme-clouds_midnight";
 import "ace-builds/src-noconflict/theme-dracula";
 import "ace-builds/src-noconflict/theme-cobalt";
 import "ace-builds/src-noconflict/theme-gruvbox";
@@ -53,7 +46,6 @@ import "ace-builds/src-noconflict/theme-vibrant_ink";
 import "ace-builds/src-noconflict/theme-github_dark";
 import "ace-builds/src-noconflict/theme-cloud_editor_dark";
 
-
 import "ace-builds/src-noconflict/ext-language_tools";
 
 import { themes } from "./themes";
@@ -70,8 +62,8 @@ const Problem = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
   const [editorTheme, setEditorTheme] = useState<string>("monokai");
-  const [editorFontFamily, setEditorFontFamily] = useState<string>();
-  const [editorFontSize, setEditorFontSize] = useState<string>("100px");
+  const [editorFontFamily, setEditorFontFamily] = useState<string>("'Courier New', Courier, monospace");
+  const [editorFontSize, setEditorFontSize] = useState<string>("16px");
   const [isBlurred, setIsBlurred] = useState<boolean>(false);
 
   const editorRef = useRef<AceEditor | null>(null);
@@ -108,15 +100,20 @@ const Problem = () => {
     getProblem();
   }, [problem_id]);
 
+  const handleEditorLoad = (editor: any) => {
+    editorRef.current = editor; // Store editor instance
+    editor.setOptions({
+      fontSize: editorFontSize,
+      fontFamily: editorFontFamily,
+    });
+  };
+
   useEffect(() => {
     const editor = editorRef.current?.editor;
     if (editor) {
       editor.setOptions({ fontSize: editorFontSize });
     }
   }, [editorFontSize]); // Run effect when editorFontSize changes
-
-
-  const user = JSON.parse(localStorage.getItem("user") as string);
 
   const handleSettings = () => {
     setIsBlurred((prev) => !prev);
@@ -130,15 +127,18 @@ const Problem = () => {
   const handleFontChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedFont = event.target.value;
     setEditorFontFamily(selectedFont);
-
-    const t = editorFontSize;
-    setEditorFontSize("1px");
-    setEditorFontSize(t);
   };
 
-  const handleFontSizeChange = (x : any) => {
-    setEditorFontSize(`${x}px`);
-  }
+  const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const size = e.target.value;
+    if(size === '')
+    {
+      setEditorFontSize("");
+    }
+    else if (!isNaN(Number(size))) { // Check if input is empty or valid number
+      setEditorFontSize(`${size}px`); // Default to '16px' if empty
+    }
+  };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -147,12 +147,6 @@ const Problem = () => {
     <div>
       <div className={`${styles.container} ${isBlurred ? styles.blurred : ''}`}>
         <Sidebar />
-        {user && (
-          <>
-            <img src="/settings1.png" className="user_settings" alt="Settings"/>
-            <img src={user.image} className="user_image" alt="User"/>
-          </>
-        )}
         <div className={styles.row1}>
           <h1>
             OneTech / Problemset / Problem # {problem?.problem_id}
@@ -171,8 +165,6 @@ const Problem = () => {
         </div>
       </div>
       {isBlurred && (
-
-
         <div className={styles.modal}>
           <img src='/close.png' onClick={handleSettings} alt="Close"/>
 
@@ -188,14 +180,7 @@ const Problem = () => {
 
           <h1>Font options</h1>
 
-          <p>
-            Font family
-          </p>
-          <p>
-            Font size
-          </p>
-          
-          <br/>
+          <p>Font family</p>
           <select onChange={handleFontChange} value={editorFontFamily}>
             {fontFamilies.map(fontFamily => (
               <option key={fontFamily} value={fontFamily}>
@@ -203,37 +188,28 @@ const Problem = () => {
               </option>
             ))}
           </select>
-          <input type="text" maxLength={2} onChange={(e : any) => handleFontSizeChange(e.target.value)}/>
-          
+          <p>Font size</p>
+          <input type="text" minLength={1} maxLength={2} value={parseInt(editorFontSize)} onChange={handleFontSizeChange}/>
         </div>
       )}
       <div className={styles.editor}>
           <AceEditor
             ref={editorRef}
-            className="editor"
-            key={`${editorTheme} ${editorFontFamily}`}
             mode="c_cpp"
-            theme={`${editorTheme}`} // Apply the theme correctly
+            theme={editorTheme} // Apply the theme correctly
             name="editor"
             editorProps={{ $blockScrolling: true }}
             setOptions={{
               enableBasicAutocompletion: true,
               enableLiveAutocompletion: true,
               enableSnippets: true,
-              
             }}
-            style={{ width: '100%', height: '100%', fontFamily: editorFontFamily}}
+            style={{ width: '100%', height: '100%', fontFamily: editorFontFamily, fontSize: editorFontSize }}
             showPrintMargin={false}
-            value={`
-#include <stdio.h> 
-int main() 
-{ 
-    printf("Hello, world!\\n"); 
-    return 0; 
-}
-`}
+            value={`#include <stdio.h>\nint main() {\n    printf("Hello, world!\\n");\n    return 0;\n}\n`}
+            onLoad={handleEditorLoad} // Ensure options are applied when editor loads
           />
-        </div>
+      </div>
     </div>
   );
 };
