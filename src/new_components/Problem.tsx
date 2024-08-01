@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./ProblemStyle.module.css";
 import Sidebar from "./Sidebar";
 import axios from "axios";
@@ -70,7 +70,29 @@ const Problem = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
   const [editorTheme, setEditorTheme] = useState<string>("monokai");
+  const [editorFontFamily, setEditorFontFamily] = useState<string>();
+  const [editorFontSize, setEditorFontSize] = useState<string>("100px");
   const [isBlurred, setIsBlurred] = useState<boolean>(false);
+
+  const editorRef = useRef<AceEditor | null>(null);
+
+  const fontFamilies = [
+    "Arial, Helvetica, sans-serif",
+    "'Times New Roman', Times, serif",
+    "'Courier New', Courier, monospace",
+    "Georgia, serif",
+    "Verdana, Geneva, sans-serif",
+    "Tahoma, Geneva, sans-serif",
+    "'Trebuchet MS', Helvetica, sans-serif",
+    "'Lucida Console', Monaco, monospace",
+    "'Palatino Linotype', 'Book Antiqua', Palatino, serif",
+    "Garamond, serif",
+    "'Comic Sans MS', cursive, sans-serif",
+    "Impact, Charcoal, sans-serif",
+    "'Lucida Sans Unicode', 'Lucida Grande', sans-serif",
+    "'Roboto', sans-serif",
+    "'Open Sans', sans-serif"
+  ];
 
   useEffect(() => {
     const getProblem = async () => {
@@ -86,6 +108,14 @@ const Problem = () => {
     getProblem();
   }, [problem_id]);
 
+  useEffect(() => {
+    const editor = editorRef.current?.editor;
+    if (editor) {
+      editor.setOptions({ fontSize: editorFontSize });
+    }
+  }, [editorFontSize]); // Run effect when editorFontSize changes
+
+
   const user = JSON.parse(localStorage.getItem("user") as string);
 
   const handleSettings = () => {
@@ -96,6 +126,19 @@ const Problem = () => {
     const selectedTheme = event.target.value;
     setEditorTheme(selectedTheme);
   };
+
+  const handleFontChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedFont = event.target.value;
+    setEditorFontFamily(selectedFont);
+
+    const t = editorFontSize;
+    setEditorFontSize("1px");
+    setEditorFontSize(t);
+  };
+
+  const handleFontSizeChange = (x : any) => {
+    setEditorFontSize(`${x}px`);
+  }
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -122,9 +165,53 @@ const Problem = () => {
         </div>
         <h2>Statement</h2>
         <div className={styles.box}>{problem?.statement}</div>
-        <div className={styles.editor}>
+        <div className={styles.editor_actions}>
+            <button onClick={handleSettings}>Settings</button>
+            <p>Copyright (c) 2010, Ajax.org B.V. All rights reserved.</p>
+        </div>
+      </div>
+      {isBlurred && (
+
+
+        <div className={styles.modal}>
+          <img src='/close.png' onClick={handleSettings} alt="Close"/>
+
+          <h1>Theme options</h1>
+
+          <select onChange={handleThemeChange} value={editorTheme}>
+            {themes.map(theme => (
+              <option key={theme.name} value={theme.name}>
+                {theme.caption}
+              </option>
+            ))}
+          </select>
+
+          <h1>Font options</h1>
+
+          <p>
+            Font family
+          </p>
+          <p>
+            Font size
+          </p>
+          
+          <br/>
+          <select onChange={handleFontChange} value={editorFontFamily}>
+            {fontFamilies.map(fontFamily => (
+              <option key={fontFamily} value={fontFamily}>
+                {fontFamily}
+              </option>
+            ))}
+          </select>
+          <input type="text" maxLength={2} onChange={(e : any) => handleFontSizeChange(e.target.value)}/>
+          
+        </div>
+      )}
+      <div className={styles.editor}>
           <AceEditor
-            key={editorTheme}
+            ref={editorRef}
+            className="editor"
+            key={`${editorTheme} ${editorFontFamily}`}
             mode="c_cpp"
             theme={`${editorTheme}`} // Apply the theme correctly
             name="editor"
@@ -133,9 +220,9 @@ const Problem = () => {
               enableBasicAutocompletion: true,
               enableLiveAutocompletion: true,
               enableSnippets: true,
+              
             }}
-            style={{ width: '100%', height: '100%' }}
-            fontSize={20}
+            style={{ width: '100%', height: '100%', fontFamily: editorFontFamily}}
             showPrintMargin={false}
             value={`
 #include <stdio.h> 
@@ -146,26 +233,7 @@ int main()
 }
 `}
           />
-          <div className={styles.editor_actions}>
-            <button onClick={handleSettings}>Settings</button>
-            <p>Copyright (c) 2010, Ajax.org B.V. All rights reserved.</p>
-          </div>
         </div>
-      </div>
-      {isBlurred && (
-        <div className={styles.modal}>
-          <img src='/close.png' onClick={handleSettings} alt="Close"/>
-          <h1>Select editor theme</h1>
-          <select onChange={handleThemeChange} value={editorTheme}>
-            {themes.map(theme => (
-              <option key={theme.name} value={theme.name}>
-                {theme.caption}
-              </option>
-            ))}
-          </select>
-          <h1>Select editor font</h1>
-        </div>
-      )}
     </div>
   );
 };
