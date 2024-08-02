@@ -105,10 +105,10 @@
     .editor 
     {
         position: absolute;
-        right: 10vw;
-        top: 15vh;
+        right: 8vw;
+        top: 17vh;
         width: 40vw;
-        height: 76vh;
+        height: 73vh;
     }
     .modal 
     {
@@ -134,8 +134,8 @@
     .editor_actions 
     {
         position: absolute;
-        bottom: 2vh;
-        right: 26.2vw;
+        bottom: 1.8vh;
+        right: 24.2vw;
         display: flex;
         flex-direction: row;
 
@@ -170,14 +170,14 @@
         padding-left: 5%;
         padding-top: 1vh;
         padding-right: 20.5%;
-        font-size: 1vw;
+        font-size: 3vh;
     }
     .modal select 
     {
         margin-left: 5%;
         margin-top: 2vh;
         width: 15vw;
-        height: 2vw;
+        height: 6vh;
         padding: 5px;
         border: 2px solid var(--color4);
     }
@@ -185,7 +185,7 @@
     {
         margin-left: 5%;
         margin-top: 1vh;
-        height: 2vw;
+        height: 6vh;
         padding-left: 10px;
         padding-right: 10px;
         padding-top: 10px;

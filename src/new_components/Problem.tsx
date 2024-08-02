@@ -66,6 +66,8 @@ const Problem = () => {
   const [editorFontSize, setEditorFontSize] = useState<string>("16px");
   const [isBlurred, setIsBlurred] = useState<boolean>(false);
 
+  const user = JSON.parse(localStorage.getItem("user") as string) as any;
+
   const editorRef = useRef<AceEditor | null>(null);
 
   const fontFamilies = [
@@ -133,7 +135,7 @@ const Problem = () => {
     const size = e.target.value;
     if(size === '')
     {
-      setEditorFontSize("");
+      setEditorFontSize("16px");
     }
     else if (!isNaN(Number(size))) { // Check if input is empty or valid number
       setEditorFontSize(`${size}px`); // Default to '16px' if empty
@@ -147,6 +149,13 @@ const Problem = () => {
     <div>
       <div className={`${styles.container} ${isBlurred ? styles.blurred : ''}`}>
         <Sidebar />
+        {
+          user && 
+          <>
+            <img src="/settings1.png" className="user_settings"/>
+            <img src={user.image} className="user_image"/>
+          </>
+        }
         <div className={styles.row1}>
           <h1>
             OneTech / Problemset / Problem # {problem?.problem_id}
@@ -181,6 +190,11 @@ const Problem = () => {
           <h1>Font options</h1>
 
           <p>Font family</p>
+
+          <p>Font size</p>
+
+          <br/>
+
           <select onChange={handleFontChange} value={editorFontFamily}>
             {fontFamilies.map(fontFamily => (
               <option key={fontFamily} value={fontFamily}>
@@ -188,8 +202,8 @@ const Problem = () => {
               </option>
             ))}
           </select>
-          <p>Font size</p>
-          <input type="text" minLength={1} maxLength={2} value={parseInt(editorFontSize)} onChange={handleFontSizeChange}/>
+          
+          <input type="text" minLength={1} maxLength={2} onChange={handleFontSizeChange}/>
         </div>
       )}
       <div className={styles.editor}>

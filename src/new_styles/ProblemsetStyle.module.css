@@ -318,11 +318,11 @@
     .row4 h2  
     {
         padding-left: 1vw;
-        padding-top: 0.5vh;
+        padding-top: -0.5vh;
         padding-right: 3vw;
         display: inline-block;
         width: 20vw;
-        font-size: 2vh;
+        font-size: 1.1vw;
         text-align: left;
     }
     .row4 .gap 

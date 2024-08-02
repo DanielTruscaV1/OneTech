@@ -39,6 +39,7 @@ const Profile = () => {
 
           if (userData) {
             setUser(userData.data);
+            localStorage.setItem("user", JSON.stringify(userData.data));
             await fetchData(userData); // Call fetchData after setUser
           } else {
             setError('Failed to fetch user data');
