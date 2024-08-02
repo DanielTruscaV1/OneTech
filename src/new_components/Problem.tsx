@@ -95,7 +95,7 @@ const Problem = () => {
 
   const [toggle, setToggle] = useState<boolean>(false);
 
-  
+  const [section, setSection] = useState<number>(0);
 
   const editorRef = useRef<AceEditor | null>(null);
 
@@ -255,12 +255,27 @@ const Problem = () => {
           </h1>
         </div>
         <div className={styles.row2}>
-          <button>Statement</button>
-          <button>Cases</button>
-          <button>Solutions</button>
+          <button onClick={() => setSection(0)}>Statement</button>
+          <button onClick={() => setSection(1)}>Cases</button>
+          <button onClick={() => setSection(2)}>Solutions</button>
         </div>
-        <h2>Statement</h2>
-        <div className={styles.box}>{problem?.statement}</div>
+        {
+          section == 0 &&
+          <>
+            <h2>Statement</h2>
+            <div className={styles.box}>{problem?.statement}</div>
+          </>
+        }
+        {
+          section == 1 &&
+          <>
+          </>
+        }
+        {
+          section == 2 &&
+          <>
+          </>
+        }
         <div className={styles.editor_actions}>
             <button onClick={handleSettings}>Settings</button>
             <p>Copyright (c) 2010, Ajax.org B.V. All rights reserved.</p>
