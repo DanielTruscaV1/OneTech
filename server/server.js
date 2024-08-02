@@ -2,7 +2,7 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo, createPost, deletePost, createComment, getComments, getArticles, getArticleById, getChatByIds, getProblemById, getProblems } = require('./database');
+const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo, createPost, deletePost, createComment, getComments, getArticles, getArticleById, getChatByIds, getProblemById, getProblems, updateUserById } = require('./database');
 const cors = require('cors');
 const app = express();
 const encoder = require('./encoder');
@@ -299,6 +299,19 @@ app.get('/api/documents', async (req, res) => {
       res.status(201).json({ message: 'Problems fetched successfully.', result});
     } catch (error) {
       res.status(400).send('Problems fetch failed: ' + error.message);
+    }
+  })
+
+  app.patch("/api/updateUserById/:user_id", async (req, res) => {
+    try {
+      const userId = req.params.user_id;
+      const newUserData = req.body;
+
+      const result = await updateUserById(userId, newUserData);
+
+      res.status(201).json({ message: 'User update successfull.', result});
+    } catch (error) {
+      res.status(400).send('User update failed: ' + error.message);
     }
   })
 
