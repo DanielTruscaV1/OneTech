@@ -77,6 +77,7 @@ import { themes } from "./themes";
 interface Problem {
   problem_id: number;
   statement: string;
+  example: string[];
 }
 
 const Problem = () => {
@@ -245,8 +246,8 @@ const Problem = () => {
         {
           user && 
           <>
-            <img src="/settings1.png" className="user_settings"/>
-            <img src={user.image} className="user_image"/>
+            <img src="/settings1.png" className="user_settings" style={{position: "fixed"}}/>
+            <img src={user.image} className="user_image" style={{position: "fixed"}}/>
           </>
         }
         <div className={styles.row1}>
@@ -264,6 +265,13 @@ const Problem = () => {
           <>
             <h2>Statement</h2>
             <div className={styles.box}>{problem?.statement}</div>
+            <h2>Examples</h2>
+            {
+              problem?.example.map((e : any) => {
+                return <div className={styles.box}>{e}</div>
+              })
+              
+            }
           </>
         }
         {
