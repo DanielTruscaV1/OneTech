@@ -303,6 +303,7 @@ app.get('/api/documents', async (req, res) => {
   })
 
   app.get('/keep-alive', (req, res) => {
+      console.log("All systems online.");
       res.status(200).send('OK');
   });
 
