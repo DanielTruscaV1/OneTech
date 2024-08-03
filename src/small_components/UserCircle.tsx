@@ -19,7 +19,6 @@ const UserCircle = ({image, name} : {
                 width: "calc(100% - 3.2rem)",
                 height: "60%",
                 borderRadius: "50%",
-                border: "3px solid #00ADB5",
                 cursor: "pointer",
             }}
         />

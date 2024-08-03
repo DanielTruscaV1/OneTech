@@ -9,7 +9,6 @@
         display: flex;
         flex-direction: row;
         overflow-x: scroll;
-        border: 4px solid var(--color4);
     }
     .filter 
     {
@@ -31,5 +30,38 @@
 }
 @media screen and (min-width: 600px)
 {
-
+    .stories 
+    {
+        position: absolute;
+        left: 11vw;
+        top: 5vh;
+    }
+    .filter 
+    {
+        position: absolute;
+        left: 11vw;
+        top: 27vh;
+    }
+    .filter button 
+    {
+        margin-left: 3vw !important;
+        margin-right: -1vw !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        width: 7vw !important;
+        background-color: var(--color2) !important;
+    }
+    .filter button:hover 
+    {
+        background-color: var(--color3) !important;
+        color: var(--color1) !important;
+    }
+    .feed 
+    {
+        position: absolute;
+        left: 11vw;
+        top: 35vh;
+    }
 }

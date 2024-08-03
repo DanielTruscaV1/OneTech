@@ -125,14 +125,26 @@ button:hover
   }
   @keyframes l3 {to{transform: rotate(1turn)}}
 
+  .user_circle_container 
+  {
+    margin-left: 3vw;
+    margin-right: -1vw;
+    width: 7vw !important;
+    height: 18vh !important;
+    border: 2px solid var(--color4);
+    border-radius: 10px;
+  }
 .user_circle_container img {
+    margin-left: calc(3.5vw - 30px) !important;
     width: 60px !important;
     height: 60px !important;
     max-width: 1000% !important;
 }
 .user_circle_container p {
-    width: 75px !important;
-    height: 20px !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+    height: 3vh !important;
+    text-align: center !important;
 }
 .disabled {
     opacity: 0.5 !important;
@@ -142,17 +154,21 @@ button:hover
         margin-left: 5vw !important;
         padding-top: 2vh;
         width: 25vw !important;
+        height: 16vh !important;
     }
     .user_circle_container img {
         margin: 0px !important;
+        margin-left: calc(12.5vw - 30px) !important;
         width: 60px !important;
         height: 60px !important;
     }
     .user_circle_container p {
         margin: 0px !important;
-        width: 60px !important;
+        margin-top: 1vh !important;
+        width: 100% !important;
         height: 20px !important;
         font-size: 14px !important;
+        text-align: center;
     }
     .user_post {
         position: relative !important;

@@ -147,10 +147,11 @@ const UserPost = ({ user, post } : {
             marginBottom: "6vh",
             marginLeft: "5%",
             width: "90%",
-            borderTop: "4px solid var(--color4)",
-              borderBottom: "4px solid var(--color4)",
-              borderLeft: "4px solid var(--color4)",
-              borderRight: "4px solid var(--color4)",
+            borderTop: "2px solid var(--color4)",
+              borderBottom: "2px solid var(--color4)",
+              borderLeft: "2px solid var(--color4)",
+              borderRight: "2px solid var(--color4)",
+              borderRadius: "10px",
         }}
         className="user_post"
     >

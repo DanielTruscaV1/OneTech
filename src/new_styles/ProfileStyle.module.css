@@ -43,7 +43,8 @@
         margin-top: 2vh;
         width: 90vw;
         height: 8.5vh;
-        border: 1px solid var(--color4);
+        border: 2px solid var(--color4);
+        border-radius: 10px;
     }
     .box h1 
     {
@@ -130,7 +131,8 @@
         margin-top: 2vh;
         width: 25vw;
         height: 9vh;
-        border: 1px solid var(--color4);
+        border: 2px solid var(--color4);
+        border-radius: 10px;
     }
     .box h1 
     {

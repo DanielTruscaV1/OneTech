@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar"
 //@ts-expect-error
 import Top from "./Top"
 import UserCircle from "../small_components/UserCircle"
+//@ts-ignore
 import UserPost from "../small_components/UserPost"
 //import UserComment from "../small_components/UserComment"
 //import UserCircleHorizontal from "../small_components/UserCircleHorizontal"
@@ -12,7 +13,9 @@ import { getUserData, User } from '../getUser.tsx';
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+//@ts-ignore
 import UserCircleHorizontal from "../small_components/UserCircleHorizontal.tsx"
+import Post from "./Post.tsx"
 
 const Home = () => {
 
@@ -23,6 +26,7 @@ const Home = () => {
     const [followedUsers, setFollowedUsers] = useState<any>([]);
     const [users, setUsers] = useState<any>([]);
     const [posts, setPosts] = useState<any>([]);
+    //@ts-ignore
     const [filter, setFilter] = useState<any>(window.innerWidth <= 768);
     const [order, setOrder] = useState<any>(localStorage.getItem("post_order"));
 
@@ -102,36 +106,15 @@ const Home = () => {
 
         <div className={styles.filter}>
           <div>
-            { !(window.innerWidth <= 768) &&
-              <button style={{
-                  marginLeft: "0vw",
-                  width: "15%",
-                  height: "3vh",
-                }}
-                onClick={() => {
-                  setFilter(!filter)
-                }}
-              >
-                {
-                  !filter ?
-                  <img className="" src="/show1.png"/> :
-                  <img className="" src="/hide1.png"/>
-                }
-                Sort
-              </button>
-            }
             {
-              filter &&
               <>
                 <button 
                   onClick={() => {localStorage.setItem("post_order", "newest"); setOrder("newest");}}
-                  style={{background: order == "newest" ? "linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%)" : "#f5f5f5"}}
                 >
                   Newest
                 </button>
                 <button  
                   onClick={() => {localStorage.setItem("post_order", "oldest"); setOrder("oldest");}}
-                  style={{background: order == "oldest" ? "linear-gradient(90deg, rgba(0,173,181,1) 0%, rgba(150,255,230,1) 100%)" : "#f5f5f5"}}
                 >
                   Oldest
                 </button>
@@ -150,8 +133,8 @@ const Home = () => {
           {
             posts && 
             posts.map((post: any) => {
-              return <div>
-                <UserPost 
+              return <div style={{display: "inline-block"}}>
+                <Post 
                   user={returnUser(post.data.author_id).data}
                   post={post.data}
                 />
@@ -159,20 +142,6 @@ const Home = () => {
               </div>
             })
           }
-        </div>
-
-        <div className={styles.aside}>
-          {
-            followedUsers &&
-            followedUsers.map((u: any) => {
-              return <UserCircleHorizontal
-                image={u.data.image}
-                name={u.data.username}
-                email={u.data.email}
-              />
-            })
-          }
-          
         </div>
     </div>
   )
