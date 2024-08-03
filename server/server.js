@@ -302,6 +302,10 @@ app.get('/api/documents', async (req, res) => {
     }
   })
 
+  app.get('/keep-alive', (req, res) => {
+      res.status(200).send('OK');
+  });
+
   app.patch("/api/updateUserById/:user_id", async (req, res) => {
     try {
       const userId = req.params.user_id;
