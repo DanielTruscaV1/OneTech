@@ -32,15 +32,15 @@
 {
     .stories 
     {
-        position: absolute;
+        position: relative;
         left: 11vw;
         top: 5vh;
     }
     .filter 
     {
-        position: absolute;
+        position: relative;
         left: 11vw;
-        top: 27vh;
+        top: 10vh;
     }
     .filter button 
     {
@@ -60,8 +60,22 @@
     }
     .feed 
     {
-        position: absolute;
+        position: relative;
         left: 11vw;
-        top: 35vh;
+        top: 12vh;
     }
+}
+.container
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.home 
+{
+    position: relative;
+    background-color: var(--color1) !important;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
 }

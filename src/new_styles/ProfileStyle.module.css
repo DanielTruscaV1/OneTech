@@ -175,3 +175,8 @@
         font-size: 2vh;
     }
 }
+.profile 
+{
+    background-color: var(--color1);
+    height: 100vh;
+}

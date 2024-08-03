@@ -3,16 +3,18 @@
 @tailwind utilities;
 
 
-body {
-    overflow-x: hidden !important;
-}
-
 :root 
 {
     --color1: #FFFFFF;
     --color2: #E6F0FF;
     --color3: #0047FF;
     --color4: rgba(0, 71, 255, 0.3);
+    --color5: black;
+}
+
+body {
+    overflow-x: hidden !important;
+    color: var(--color5);
 }
 
 button:hover 
@@ -148,6 +150,11 @@ button:hover
 }
 .disabled {
     opacity: 0.5 !important;
+}
+.blurred 
+{
+    filter: blur(5px);
+    pointer-events: none;
 }
 @media screen and (max-width: 600px) {
     .user_circle_container {
@@ -359,4 +366,8 @@ button:hover
         color: rgb(0,173,181);
         text-decoration: underline;
     }
+}
+.user_settings 
+{
+    cursor: pointer;
 }

@@ -11,6 +11,8 @@ const Sidebar = () => {
 
     const user_id = localStorage.getItem("userID");
 
+    const theme = localStorage.getItem("theme");
+
   return (
     <>
     {   sidebar ?
@@ -38,11 +40,20 @@ const Sidebar = () => {
             </button>
         </div>
         :
-        <img 
-            src="/menu2.png"
-            className={styles.show}
-            onClick={() => setSidebar(true)}
-        />
+        <>
+        {   theme === "light" ?
+            <img 
+                src="/menu2.png"
+                className={styles.show}
+                onClick={() => setSidebar(true)}
+            /> :
+            <img 
+                src="/menu3.png"
+                className={styles.show}
+                onClick={() => setSidebar(true)}
+            /> 
+        }
+        </>
     }
     </>
   )

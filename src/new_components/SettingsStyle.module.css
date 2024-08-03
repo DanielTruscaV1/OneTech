@@ -1,0 +1,44 @@
+@media screen and (max-width: 600px)
+{
+
+}
+@media screen and (min-width: 600px)
+{
+    .container 
+    {
+        position: absolute;
+        left: 30vw;
+        top: 10vh;
+        width: 40vw;
+        height: 20vh;
+        background-color: var(--color1);
+        border: 2px solid var(--color4);
+        z-index: 4;
+    }
+    .container img 
+    {
+        position: absolute;
+        right: 1vw;
+        top: 2vh;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+    .container h1 
+    {
+        margin-left: 1vw;
+        margin-top: 1vh;
+        display: inline-block;
+        font-size: 2vw;
+    }
+    .container button 
+    {
+        margin-left: 1vw;
+        margin-top: 4vh;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom :5px;
+        background-color: var(--color2);
+    }
+}

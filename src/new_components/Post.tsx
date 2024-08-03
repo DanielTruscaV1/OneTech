@@ -138,6 +138,8 @@ const Post = ({ user, post } : {
         setShowComments(!showComments);
     }
 
+    const theme = localStorage.getItem("theme");
+
   return (
     <div className={styles.container}>
         <div className={styles.row}>
@@ -149,6 +151,8 @@ const Post = ({ user, post } : {
             </h1>
             {
                 user_id && post.author_id == user_id && settings == false &&
+                <>
+                {   theme == "light" ?
                     <img 
                         src="/home2.png"
                         style={{
@@ -161,6 +165,21 @@ const Post = ({ user, post } : {
                         }}
                         onClick={() => setSettings(true)}
                     />
+                    :
+                    <img 
+                        src="/home22.png"
+                        style={{
+                            marginLeft: "17vw",
+                            marginRight: "1vw",
+                            marginTop: "15px",
+                            width: "30px",
+                            height: "30px",
+                            cursor: "pointer",
+                        }}
+                        onClick={() => setSettings(true)}
+                    />
+                }
+                </>
             }
             {
                 user_id && post.author_id == user_id && settings == true &&
@@ -185,29 +204,55 @@ const Post = ({ user, post } : {
         </div>
         <div className={styles.row}>
             <button>
-                <img 
-                    src="/like1.png"
-                    style={{
-                        display: "inline-block",
-                        marginRight: "0.7vw",
-                        width: "20px",
-                        height: "20px",
-                        borderRadius: "0",
-                    }}
-                />
+                {
+                    theme == "light" ?
+                    <img 
+                        src="/like1.png"
+                        style={{
+                            display: "inline-block",
+                            marginRight: "0.7vw",
+                            width: "20px",
+                            height: "20px",
+                            borderRadius: "0",
+                        }}
+                    /> :
+                    <img 
+                        src="/like2.png"
+                        style={{
+                            display: "inline-block",
+                            marginRight: "0.7vw",
+                            width: "20px",
+                            height: "20px",
+                            borderRadius: "0",
+                        }}
+                    />
+                }
                 Upvote
             </button>
             <button>
-                <img 
-                    src="/comment1.png"
-                    style={{
-                        display: "inline-block",
-                        marginRight: "0.7vw",
-                        width: "30px",
-                        height: "30px",
-                        borderRadius: "0",
-                    }}
-                />
+                {
+                    theme == "light" ?
+                    <img 
+                        src="/comment1.png"
+                        style={{
+                            display: "inline-block",
+                            marginRight: "0.7vw",
+                            width: "30px",
+                            height: "30px",
+                            borderRadius: "0",
+                        }}
+                    /> :
+                    <img 
+                        src="/comment2.png"
+                        style={{
+                            display: "inline-block",
+                            marginRight: "0.7vw",
+                            width: "30px",
+                            height: "30px",
+                            borderRadius: "0",
+                        }}
+                    />
+                }
                 Comment
             </button>
             <h2 style={{color: "rgb(150, 150, 150)"}}>

@@ -3,6 +3,7 @@ import styles from "../new_styles/ProblemsetStyle.module.css";
 import Sidebar from "./Sidebar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Settings from "./Settings";
 
 const Problemset = () => {
 
@@ -25,13 +26,22 @@ const Problemset = () => {
 
   const user = JSON.parse(localStorage.getItem("user") as string) as any;
 
+  const [settings, setSettings] = useState<boolean>(false)
+
+  const theme = localStorage.getItem("theme");
+
   return (
-    <div className={styles.problemset}>
+    <>
+      {
+        settings &&
+        <Settings setSettings={setSettings}/>
+      }
+    <div className={`${styles.problemset} ${settings ? 'blurred' : ''}`}>
       <Sidebar />
       {
         user && 
         <>
-          <img src="/settings1.png" className="user_settings"/>
+          <img src={theme == "light" ? "/settings1.png" : "/settings2.png"} className="user_settings" onClick={() => setSettings(true)}/>
           <img src={user.image} className="user_image"/>
         </>
       }
@@ -145,6 +155,7 @@ const Problemset = () => {
         }
       </div>
     </div>
+    </>
   );
 };
 

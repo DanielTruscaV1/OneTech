@@ -159,7 +159,11 @@
     width: 80px;
     cursor: pointer;
     z-index: 3;
-    background-color: white;
+    background-color: var(--color1);
     padding: 10px;
     border-radius: 30%;
+}
+.sidebar 
+{
+    background-color: var(--color1);
 }

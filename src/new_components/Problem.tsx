@@ -72,6 +72,7 @@ import 'ace-builds/src-noconflict/mode-json';
 
 
 import { themes } from "./themes";
+import Settings from "./Settings";
 
 // Define types
 interface Problem {
@@ -83,6 +84,8 @@ interface Problem {
 const Problem = () => {
 
   const user = JSON.parse(localStorage.getItem("user") as string) as any;
+
+  const [settings, setSettings] = useState<boolean>(false)
 
   const { problem_id } = useParams<{ problem_id: string }>();
   const [problem, setProblem] = useState<Problem | null>(null);
@@ -239,14 +242,20 @@ const Problem = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
+  const theme = localStorage.getItem("theme");
+
   return (
     <div>
-      <div className={`${styles.container} ${isBlurred ? styles.blurred : ''}`}>
+      {
+        settings &&
+        <Settings setSettings={setSettings}/>
+      }
+      <div className={`${styles.container} ${isBlurred ? styles.blurred : ''} ${settings ? 'blurred' : ''}`}>
         <Sidebar />
         {
           user && 
           <>
-            <img src="/settings1.png" className="user_settings" style={{position: "fixed"}}/>
+            <img src={theme == "light" ? "/settings1.png" : "/settings2.png"} className="user_settings" style={{position: "fixed"}} onClick={() => setSettings(true)}/>
             <img src={user.image} className="user_image" style={{position: "fixed"}}/>
           </>
         }
@@ -291,7 +300,7 @@ const Problem = () => {
       </div>
       {isBlurred && (
         <div className={styles.modal}>
-          <img src='/close.png' onClick={handleSettings} alt="Close"/>
+          <img src={theme == "light" ? '/close.png': "/close2.png"} onClick={handleSettings} alt="Close"/>
 
           <h1>Theme options</h1>
 
@@ -332,7 +341,7 @@ const Problem = () => {
           <input type="text" minLength={1} maxLength={2} onChange={handleFontSizeChange}/>
         </div>
       )}
-      <div className={styles.editor}>
+      <div className={`${styles.editor} ${settings ? 'blurred' : ''}`}>
           <AceEditor
             ref={editorRef}
             mode={editorLanguage}

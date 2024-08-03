@@ -85,6 +85,7 @@ const Home = () => {
     }
 
   return (
+    <div className={styles.container}>
     <div className={styles.home}>
         <Sidebar/>
         <div className={styles.stories}>
@@ -143,6 +144,7 @@ const Home = () => {
             })
           }
         </div>
+    </div>
     </div>
   )
 }
