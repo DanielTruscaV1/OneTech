@@ -245,7 +245,7 @@ const Problem = () => {
   const theme = localStorage.getItem("theme");
 
   return (
-    <div>
+    <div className={styles.container2}>
       {
         settings &&
         <Settings setSettings={setSettings}/>

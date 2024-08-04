@@ -56,7 +56,7 @@
         position: absolute;
         width: 15vw;
         right: 3vw;
-        bottom: 1vh;
+        bottom: 1.7vh;
         background-color: var(--color2);
         padding: 5px;
         font-size: 3.5vw;
@@ -149,6 +149,7 @@
         flex-direction: column;
         background-color: var(--color1);
         height: 100vh;
+        padding-left: 1vw;
     }
     .problemset h1 
     {
@@ -198,7 +199,7 @@
         position: absolute;
         width: 5vw;
         right: 1vw;
-        bottom: 1.5vh;
+        bottom: 2.5vh;
         background-color: var(--color2);
         padding: 5px;
         font-size: 17px;

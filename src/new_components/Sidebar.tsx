@@ -21,22 +21,22 @@ const Sidebar = () => {
                 
             </div>
             <button onClick={() => setSidebar(false)}>
-                <img src="/nav0.png"/>
+                <img src={theme == "light" ? "/nav0.png" : "/nav000.png"}/>
             </button>
             <button onClick={() => navigate('/home')}>
-                <img src="/nav11.png"/>
+                Home
             </button>
             <button onClick={() => navigate('/theory')}>
-                <img src="/nav22.png"/>
+                Theory
             </button>
             <button onClick={() => navigate('/problemset')}>
-                <img src="/nav33.png"/>
+                Problemset
             </button>
             <button onClick={() => navigate(`/profile/${user_id}`)}>
-                <img src="/nav6.png"/>
+                Profile
             </button>
             <button>
-                <img src="/nav77.png"/>
+                Terms
             </button>
         </div>
         :

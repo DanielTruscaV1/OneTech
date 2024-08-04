@@ -214,6 +214,7 @@
         flex-direction: column;
         background-color: var(--color1);
         height: 100vh;
+        padding-left: 1vw;
     }
     .problemset h1 
     {

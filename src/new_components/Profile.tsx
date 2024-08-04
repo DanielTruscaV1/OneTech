@@ -145,6 +145,7 @@ const Profile = () => {
     }
 
   return (
+    <div className={styles.container}>
     <div className={styles.profile}>
         <Sidebar/>
         { user &&
@@ -200,6 +201,7 @@ const Profile = () => {
         </div>
         </>
         }
+    </div>
     </div>
   )
 }
