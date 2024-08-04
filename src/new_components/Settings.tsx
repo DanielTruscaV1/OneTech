@@ -1,3 +1,4 @@
+import { useAuth } from "../auth";
 import styles from "./SettingsStyle.module.css"
 
 const Settings = ({setSettings} : {setSettings: any;}) => {
@@ -25,6 +26,14 @@ const Settings = ({setSettings} : {setSettings: any;}) => {
     }
   }
 
+  const {logout} = useAuth();
+
+  const handleSignOut = () => {
+    localStorage.setItem("theme", "light");
+    window.location.reload();
+    logout();
+  }
+
   const theme = localStorage.getItem("theme");
 
   return (
@@ -41,7 +50,7 @@ const Settings = ({setSettings} : {setSettings: any;}) => {
         <button onClick={handleTheme}>
             Dark mode
         </button>
-        <button>
+        <button onClick={handleSignOut}>
             Sign-out
         </button>
     </div>
