@@ -1,6 +1,42 @@
 @media screen and (max-width: 600px)
 {
-
+    .container 
+    {
+        position: absolute;
+        left: 10vw;
+        top: 10vh;
+        width: 80vw;
+        height: 18vh;
+        background-color: var(--color1);
+        border: 2px solid var(--color4);
+        z-index: 4;
+    }
+    .container img 
+    {
+        position: absolute;
+        right: 3vw;
+        top: 2vh;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+    .container h1 
+    {
+        margin-left: 3vw;
+        margin-top: 2vh;
+        display: inline-block;
+        font-size: 3.5vh;
+    }
+    .container button 
+    {
+        margin-left: 3vw;
+        margin-top: 4vh;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom :5px;
+        background-color: var(--color2);
+    }
 }
 @media screen and (min-width: 600px)
 {

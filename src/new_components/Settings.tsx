@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useAuth } from "../auth";
 import styles from "./SettingsStyle.module.css"
 
@@ -14,6 +15,8 @@ const Settings = ({setSettings} : {setSettings: any;}) => {
         document.documentElement.style.setProperty('--color3', "#00ADB5");
         document.documentElement.style.setProperty('--color4', "#00ADB5");
         document.documentElement.style.setProperty('--color5', "#EEEEEE");
+
+        setCurrentTheme("dark");
     }
     else 
     {
@@ -23,6 +26,8 @@ const Settings = ({setSettings} : {setSettings: any;}) => {
         document.documentElement.style.setProperty('--color3', "#0047FF");
         document.documentElement.style.setProperty('--color4', "rgba(0, 71, 255, 0.3)");
         document.documentElement.style.setProperty('--color5', "black");
+
+        setCurrentTheme("light");
     }
   }
 
@@ -36,6 +41,8 @@ const Settings = ({setSettings} : {setSettings: any;}) => {
 
   const theme = localStorage.getItem("theme");
 
+  const [currentTheme, setCurrentTheme] = useState<string>(theme as string);
+
   return (
     <div className={styles.container}>
         <h1>
@@ -48,7 +55,9 @@ const Settings = ({setSettings} : {setSettings: any;}) => {
         />
         <br/>
         <button onClick={handleTheme}>
-            Dark mode
+          {
+            currentTheme === "light" ? "Dark mode" : "Light mode"
+          }
         </button>
         <button onClick={handleSignOut}>
             Sign-out
