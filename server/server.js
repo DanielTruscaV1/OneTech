@@ -9,6 +9,14 @@ const encoder = require('./encoder');
 const { sendEmail } = require('./emailService');
 const port = 3000; // You can change the port number as needed
 
+const http = require('http');
+http.globalAgent.maxSockets = 10000000;
+
+const server = http.createServer(app);
+
+server.keepAliveTimeout = 60000;
+server.headersTimeout = 65000; 
+
 const validApiKeys = [process.env.VITE_VALID_API_KEY];
 
 const limiter = rateLimit({
@@ -333,6 +341,6 @@ app.get('/api/documents', async (req, res) => {
   };
   
 // Start the server
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
