@@ -39,6 +39,7 @@ const Profile = () => {
 
           if (userData) {
             setUser(userData.data);
+            localStorage.setItem("user", JSON.stringify(userData.data));
             await fetchData(userData); // Call fetchData after setUser
           } else {
             setError('Failed to fetch user data');
@@ -144,6 +145,7 @@ const Profile = () => {
     }
 
   return (
+    <div className={styles.container}>
     <div className={styles.profile}>
         <Sidebar/>
         { user &&
@@ -199,6 +201,7 @@ const Profile = () => {
         </div>
         </>
         }
+    </div>
     </div>
   )
 }

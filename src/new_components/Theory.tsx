@@ -1,17 +1,28 @@
 import styles from "../new_styles/TheoryStyle.module.css"
 import Sidebar from "./Sidebar"
+import { useState } from "react";
+import Settings from "./Settings";
 
 const Theory = () => {
 
   const user = JSON.parse(localStorage.getItem("user") as string) as any;
 
+  const [settings, setSettings] = useState<boolean>(false)
+
+  const theme = localStorage.getItem("theme");
+  
   return (
-    <div className={styles.theory}>
+    <>
+    {
+      settings &&
+      <Settings setSettings={setSettings}/>
+    }
+    <div className={`${styles.theory} ${settings ? 'blurred' : ''}`}>
         <Sidebar/>
         {
           user && 
           <>
-            <img src="/settings1.png" className="user_settings"/>
+            <img src={theme == "light" ? "/settings1.png" : "/settings2.png"} className="user_settings" onClick={() => setSettings(true)}/>
             <img src={user.image} className="user_image"/>
           </>
         }
@@ -106,6 +117,7 @@ const Theory = () => {
       </div>
     </div>
     </div>
+    </>
   )
 }
 

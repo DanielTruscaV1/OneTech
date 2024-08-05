@@ -43,7 +43,8 @@ const SignUp = () => {
             const token = response.data.result.token;
             login(token);
             
-            localStorage.setItem("userID", response.data.result.user_id)
+            localStorage.setItem("userID", response.data.result.user_id);
+            localStorage.setItem("theme", "light");
 
             navigate(`/profile/${response.data.result.user_id}`);
         }

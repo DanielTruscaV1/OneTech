@@ -48,23 +48,58 @@ import "ace-builds/src-noconflict/theme-cloud_editor_dark";
 
 import "ace-builds/src-noconflict/ext-language_tools";
 
+
+import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/mode-python';
+import 'ace-builds/src-noconflict/mode-java';
+import 'ace-builds/src-noconflict/mode-c_cpp';
+import 'ace-builds/src-noconflict/mode-ruby';
+import 'ace-builds/src-noconflict/mode-php';
+import 'ace-builds/src-noconflict/mode-swift';
+import 'ace-builds/src-noconflict/mode-typescript';
+//import 'ace-builds/src-noconflict/mode-go';
+import 'ace-builds/src-noconflict/mode-rust';
+import 'ace-builds/src-noconflict/mode-kotlin';
+import 'ace-builds/src-noconflict/mode-csharp';
+import 'ace-builds/src-noconflict/mode-objectivec';
+import 'ace-builds/src-noconflict/mode-perl';
+import 'ace-builds/src-noconflict/mode-sql';
+import 'ace-builds/src-noconflict/mode-html';
+import 'ace-builds/src-noconflict/mode-css';
+import 'ace-builds/src-noconflict/mode-sass';
+import 'ace-builds/src-noconflict/mode-less';
+import 'ace-builds/src-noconflict/mode-json';
+
+
 import { themes } from "./themes";
+import Settings from "./Settings";
 
 // Define types
 interface Problem {
   problem_id: number;
   statement: string;
+  example: string[];
 }
 
 const Problem = () => {
+
+  const user = JSON.parse(localStorage.getItem("user") as string) as any;
+
+  const [settings, setSettings] = useState<boolean>(false)
+
   const { problem_id } = useParams<{ problem_id: string }>();
   const [problem, setProblem] = useState<Problem | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
-  const [editorTheme, setEditorTheme] = useState<string>("monokai");
-  const [editorFontFamily, setEditorFontFamily] = useState<string>("'Courier New', Courier, monospace");
-  const [editorFontSize, setEditorFontSize] = useState<string>("16px");
+  const [editorTheme, setEditorTheme] = useState<string>(user.editorTheme);
+  const [editorFontFamily, setEditorFontFamily] = useState<string>(user.editorFontFamily);
+  const [editorFontSize, setEditorFontSize] = useState<string>(user.editorFontSize);
+  const [editorLanguage, setEditorLanguage] = useState<string>(user.editorLanguage);
   const [isBlurred, setIsBlurred] = useState<boolean>(false);
+
+  const [toggle, setToggle] = useState<boolean>(false);
+
+  const [section, setSection] = useState<number>(0);
 
   const editorRef = useRef<AceEditor | null>(null);
 
@@ -86,6 +121,31 @@ const Problem = () => {
     "'Open Sans', sans-serif"
   ];
 
+  const aceEditorModes = [
+    'javascript',
+    'python',
+    'java',
+    'c_cpp',
+    'ruby',
+    'php',
+    'swift',
+    'typescript',
+    'golang',
+    'rust',
+    'kotlin',
+    'csharp',
+    'objectivec',
+    'perl',
+    'sql',
+    'html',
+    'css',
+    'sass',
+    'less',
+    'json'
+  ];
+  
+  const user_id = localStorage.getItem("userID") as string;
+
   useEffect(() => {
     const getProblem = async () => {
       try {
@@ -99,6 +159,38 @@ const Problem = () => {
 
     getProblem();
   }, [problem_id]);
+
+  useEffect(() => {
+    const updateUser = async () => {
+      try {
+        // Update the user via the API
+        await axios.patch(
+          `https://onetech.onrender.com/api/updateUserById/${user_id}`,
+          {
+            editorTheme, 
+            editorLanguage, 
+            editorFontFamily, 
+            editorFontSize
+          }
+        );
+
+        // Update the user in local storage
+        const user = JSON.parse(localStorage.getItem('user') as string) || {};
+        const updatedUser = {
+          ...user,
+          editorTheme,
+          editorLanguage,
+          editorFontFamily,
+          editorFontSize
+        };
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+      } catch (error) {
+        console.error('Error updating user:', error);
+      }
+    };
+
+    updateUser();
+  }, [toggle]);
 
   const handleEditorLoad = (editor: any) => {
     editorRef.current = editor; // Store editor instance
@@ -117,6 +209,8 @@ const Problem = () => {
 
   const handleSettings = () => {
     setIsBlurred((prev) => !prev);
+
+    setToggle(prev => !prev);
   };
 
   const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -129,11 +223,16 @@ const Problem = () => {
     setEditorFontFamily(selectedFont);
   };
 
+  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedLanguage = event.target.value;
+    setEditorLanguage(selectedLanguage);
+  };
+
   const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const size = e.target.value;
     if(size === '')
     {
-      setEditorFontSize("");
+      setEditorFontSize("16px");
     }
     else if (!isNaN(Number(size))) { // Check if input is empty or valid number
       setEditorFontSize(`${size}px`); // Default to '16px' if empty
@@ -143,22 +242,57 @@ const Problem = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
+  const theme = localStorage.getItem("theme");
+
   return (
-    <div>
-      <div className={`${styles.container} ${isBlurred ? styles.blurred : ''}`}>
+    <div className={styles.container2}>
+      {
+        settings &&
+        <Settings setSettings={setSettings}/>
+      }
+      <div className={`${styles.container} ${isBlurred ? styles.blurred : ''} ${settings ? 'blurred' : ''}`}>
         <Sidebar />
+        {
+          user && 
+          <>
+            <img src={theme == "light" ? "/settings1.png" : "/settings2.png"} className="user_settings" style={{position: "fixed"}} onClick={() => setSettings(true)}/>
+            <img src={user.image} className="user_image" style={{position: "fixed"}}/>
+          </>
+        }
         <div className={styles.row1}>
           <h1>
             OneTech / Problemset / Problem # {problem?.problem_id}
           </h1>
         </div>
         <div className={styles.row2}>
-          <button>Statement</button>
-          <button>Cases</button>
-          <button>Solutions</button>
+          <button onClick={() => setSection(0)}>Statement</button>
+          <button onClick={() => setSection(1)}>Cases</button>
+          <button onClick={() => setSection(2)}>Solutions</button>
         </div>
-        <h2>Statement</h2>
-        <div className={styles.box}>{problem?.statement}</div>
+        {
+          section == 0 &&
+          <>
+            <h2>Statement</h2>
+            <div className={styles.box}>{problem?.statement}</div>
+            <h2>Examples</h2>
+            {
+              problem?.example.map((e : any) => {
+                return <div className={styles.box}>{e}</div>
+              })
+              
+            }
+          </>
+        }
+        {
+          section == 1 &&
+          <>
+          </>
+        }
+        {
+          section == 2 &&
+          <>
+          </>
+        }
         <div className={styles.editor_actions}>
             <button onClick={handleSettings}>Settings</button>
             <p>Copyright (c) 2010, Ajax.org B.V. All rights reserved.</p>
@@ -166,7 +300,7 @@ const Problem = () => {
       </div>
       {isBlurred && (
         <div className={styles.modal}>
-          <img src='/close.png' onClick={handleSettings} alt="Close"/>
+          <img src={theme == "light" ? '/close.png': "/close2.png"} onClick={handleSettings} alt="Close"/>
 
           <h1>Theme options</h1>
 
@@ -178,9 +312,24 @@ const Problem = () => {
             ))}
           </select>
 
+          <h1>Coding language</h1>
+
+          <select onChange={handleLanguageChange} value={editorLanguage}>
+            {aceEditorModes.map(language => (
+              <option key={language} value={language}>
+                {language}
+              </option>
+            ))}
+          </select>
+
           <h1>Font options</h1>
 
           <p>Font family</p>
+
+          <p>Font size</p>
+
+          <br/>
+
           <select onChange={handleFontChange} value={editorFontFamily}>
             {fontFamilies.map(fontFamily => (
               <option key={fontFamily} value={fontFamily}>
@@ -188,14 +337,14 @@ const Problem = () => {
               </option>
             ))}
           </select>
-          <p>Font size</p>
-          <input type="text" minLength={1} maxLength={2} value={parseInt(editorFontSize)} onChange={handleFontSizeChange}/>
+          
+          <input type="text" minLength={1} maxLength={2} onChange={handleFontSizeChange}/>
         </div>
       )}
-      <div className={styles.editor}>
+      <div className={`${styles.editor} ${settings ? 'blurred' : ''}`}>
           <AceEditor
             ref={editorRef}
-            mode="c_cpp"
+            mode={editorLanguage}
             theme={editorTheme} // Apply the theme correctly
             name="editor"
             editorProps={{ $blockScrolling: true }}

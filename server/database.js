@@ -658,6 +658,38 @@ async function getProblems()
   }
 }
 
+const updateUserById = async (user_id, newUserData) => {
+  try {
+    // Get the user by the custom index
+    const userRef = await client.query(
+      q.Let(
+        {
+          match: q.Match(q.Index('getUserById'), user_id),
+        },
+        q.If(
+          q.Exists(q.Var('match')),
+          q.Get(q.Var('match')),
+          q.Abort('User not found')
+        )
+      )
+    );
+
+    // Merge existing user data with new data
+    const updatedData = {
+      ...userRef.data,
+      ...newUserData,
+    };
+
+    // Update the user in the database
+    const result = await client.query(
+      q.Update(userRef.ref, { data: updatedData })
+    );
+
+    return result;
+  } catch (error) {
+    console.error('Error updating user:', error);
+  }
+};
 
 module.exports = {
   createDocument,
@@ -680,4 +712,5 @@ module.exports = {
   getChatByIds,
   getProblemById,
   getProblems,
+  updateUserById,
 };

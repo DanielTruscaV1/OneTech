@@ -3,6 +3,7 @@
     {
         display: flex;
         flex-direction: column;
+        background-color: var(--color1);
     }
     .problemset h1 
     {
@@ -14,7 +15,7 @@
         width: 80vw;
         font-size: 7vw;
         font-weight: 700;
-        border-bottom: 4px solid var(--color3);
+        border-bottom: 4px solid var(--color4);
     }
     .row1, .row2, .row3, .row4
     {
@@ -33,7 +34,8 @@
         display: inline-block;
         position: relative;
         padding: 10px;
-        border: 4px solid var(--color4);
+        border: 2px solid var(--color4);
+        border-radius: 10px;
     }
     .box h2 
     {
@@ -210,6 +212,9 @@
     {
         display: flex;
         flex-direction: column;
+        background-color: var(--color1);
+        height: 100vh;
+        padding-left: 1vw;
     }
     .problemset h1 
     {
@@ -220,7 +225,7 @@
         padding: 10px;
         font-size: 35px;
         font-weight: 700;
-        border-bottom: 4px solid var(--color3);
+        border-bottom: 4px solid var(--color4);
     }
     .row1, .row2, .row3, .row4
     {
@@ -239,7 +244,8 @@
         display: inline-block;
         position: relative;
         padding: 10px;
-        border: 4px solid var(--color4);
+        border: 2px solid var(--color4);
+        border-radius: 10px;
     }
     .box h2 
     {
@@ -293,7 +299,7 @@
     }
     .row3 .gap 
     {
-        width: 52vw;
+        width: 51vw;
     }
     .row4 
     {
@@ -312,17 +318,17 @@
     }
     .row4 .box:hover
     {
-        border: 4px solid var(--color3);
+        border: 1px solid var(--color3);
         cursor: pointer;
     }
     .row4 h2  
     {
         padding-left: 1vw;
-        padding-top: 0.5vh;
+        margin-top: 0.3vh;
         padding-right: 3vw;
         display: inline-block;
         width: 20vw;
-        font-size: 2vh;
+        font-size: 1.1vw;
         text-align: left;
     }
     .row4 .gap 
