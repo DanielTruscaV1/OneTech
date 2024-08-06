@@ -1,0 +1,67 @@
+@media screen and (max-width: 600px)
+{
+    .container 
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .body 
+    {
+        flex: 1;
+        position: absolute;
+        top: 14vh;
+        width: 100vw;
+        background-color: var(--color1);
+    }
+    .path 
+    {
+        padding-left: 8vw;
+        padding-top: 4vh;
+        font-size: 3vh;
+    }
+    .username 
+    {
+        padding-top: 4vh;
+        text-align: center;
+        font-size: 3.75vh;
+    }
+    .image
+    {
+        margin-left: 15vw;
+        margin-top: 4vh;
+        margin-bottom: 4vh;
+        width: 70vw;
+        height: 70vw;
+        border-radius: 50%;
+    }
+    .card 
+    {
+        margin-left: 5vw;
+        margin-top: 2vh;
+        padding: 1.5vh;
+        width: 90vw;
+        border: 2px solid rgb(225, 225, 225);
+        border-radius: 7.5px;
+    }
+    .card p 
+    {
+        text-align: center;
+    }
+    .card button 
+    {
+        margin-left: 6.66%;
+        width: 40%;
+        height: 6vh;
+        border: 2px solid rgb(225, 225, 225);
+        border-radius: 7.5px;
+    }
+}
+@media screen and (min-width: 600px)
+{
+    .body 
+    {
+        position: absolute;
+        left: 3vw;
+        top: 12vh;
+    }
+}

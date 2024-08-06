@@ -21,7 +21,7 @@ import Problemset from './new_components/Problemset';
 import Rankings from './components/Rankings';
 import Theory from './new_components/Theory';
 import Problem from './new_components/Problem';
-import Profile from './new_components/Profile';
+import Profile from './ComponentsV4/Profile';
 import { AuthProvider } from './auth';
 import RequireAuth from './requireAuth';
 import CreatePost from './new_components/CreatePost';

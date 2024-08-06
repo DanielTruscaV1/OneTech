@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    //For Tailwind
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
     "composite": true,
     "skipLibCheck": true,
     "module": "ESNext",

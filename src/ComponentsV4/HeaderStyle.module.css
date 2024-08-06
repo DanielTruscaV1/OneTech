@@ -1,0 +1,52 @@
+@media screen and (max-width: 600px)
+{
+    .container 
+    {
+        position: fixed;
+        width:100vw;
+        height: 14vh;
+        border-bottom: 2px solid rgb(225, 225, 225);
+    }
+    .title 
+    {
+        position: fixed;
+        left: 8vw;
+        top: 4vh;
+        font-size: 3.75vh;
+        font-weight: 500;
+    }
+    .avatar 
+    {
+        position: fixed;
+        right: 8vw;
+        top: 4vh;
+    }
+}
+@media screen and (min-width: 600px)
+{
+    .container 
+    {
+        position: fixed;
+        left: 3vw;
+        top: 2vh;
+        width: 94vw;
+        height: 8vh;
+        border: 2px solid rgb(225, 225, 225);
+        border-radius: 10px;
+    }
+    .title 
+    {
+        position: fixed;
+        left: 4vw;
+        top: 3vh;
+        font-size: 1.75vw;
+        font-weight: 500;
+    }
+    .avatar 
+    {
+        position: fixed;
+        right: 4vw;
+        top: 4vh;
+        scale: 1.25;
+    }
+}
