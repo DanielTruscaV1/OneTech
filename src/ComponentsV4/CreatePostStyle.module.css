@@ -42,7 +42,7 @@
     .create_post 
     {
         margin-left: 25vw;
-        margin-top: 7vh;
+        margin-top: 15vh;
         width: 50vw;
         border: 2px solid var(--color3);
         border-radius: 7.5px;

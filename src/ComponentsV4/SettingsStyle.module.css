@@ -20,7 +20,7 @@
         margin-top: 4vh;
         padding: 2vh;
         width: 90vw;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
         text-align: justify;
     }
@@ -44,5 +44,34 @@
 }
 @media screen and (min-width: 600px)
 {
-
+  .card 
+  {
+      display: flex;
+      flex-direction: row;
+      margin-left: 3vw;
+      margin-top: 13vh;
+      padding: 2vh;
+      width: 15vw;
+      border: 2px solid var(--color3);
+      border-radius: 7.5px;
+      text-align: justify;
+  }
+  .card h1 
+  {
+      margin-left: 1vw;
+      margin-top: -0.75vh;
+      padding-bottom: 0vh;
+      font-size: 1.5vw;
+      font-weight: 500;
+  }
+  .card h2 
+  {
+      padding-bottom: 2vh;
+      font-size: 2vh;
+      font-weight: 500;
+  }
+  .card p 
+  {
+      text-align: center;
+  }
 }

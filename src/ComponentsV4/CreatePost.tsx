@@ -64,6 +64,7 @@ const CreatePost = () => {
         <button onClick={createPost}>
             Submit
         </button>
+        <br/>
     </div>
     </div>
     

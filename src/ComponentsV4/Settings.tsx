@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./Header"
 import styles from "./SettingsStyle.module.css"
 
@@ -34,6 +34,10 @@ const Settings = () => {
       const theme = localStorage.getItem("theme");
     
       const [currentTheme, setCurrentTheme] = useState<string>(theme as string);
+
+      useEffect(() => {
+        handleTheme();
+      }, [])
 
   return (
     <div className={styles.container}>
