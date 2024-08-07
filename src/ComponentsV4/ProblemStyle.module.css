@@ -38,4 +38,12 @@
         font-size: 3vh;
         font-weight: 500;
     }
+    .ide 
+    {
+        width: 50vw;
+        height: 50vh;
+        position: absolute;
+        right: 3vw;
+        top: 14vh;
+    }
 }

@@ -25,6 +25,31 @@ const Header = () => {
     const [list, setList] = useState<boolean>(false);
     const [list2, setList2] = useState<boolean>(false);
 
+    const handleTheme = () => {
+      const theme = localStorage.getItem("theme");
+      
+      if(theme == "light")
+      {
+          localStorage.setItem("theme", "dark");
+          document.documentElement.style.setProperty('--color1', "rgb(50, 50, 50)");
+          document.documentElement.style.setProperty('--color2', "rgb(70, 70, 70)");
+          document.documentElement.style.setProperty('--color3', "rgb(100, 100, 100)");
+          document.documentElement.style.setProperty('--color4', "rgb(235, 235, 235)");
+          document.documentElement.style.setProperty('--color5', "white");
+
+      }
+      else 
+      {
+          localStorage.setItem("theme", "light");
+          document.documentElement.style.setProperty('--color1', "white");
+          document.documentElement.style.setProperty('--color2', "rgb(245, 245, 245)");
+          document.documentElement.style.setProperty('--color3', "rgb(235, 235, 235)");
+          document.documentElement.style.setProperty('--color4', "rgb(100, 100, 100)");
+          document.documentElement.style.setProperty('--color5', "black");
+
+      }
+    }
+
     useEffect(() => {
         const fetchUserInfo = async () => {
           const userData = await axios.get(
@@ -40,6 +65,8 @@ const Header = () => {
         };
       
         fetchUserInfo();
+
+        handleTheme();
       }, []);
 
      if(loading)

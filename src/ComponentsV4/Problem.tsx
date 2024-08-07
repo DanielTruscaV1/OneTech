@@ -243,24 +243,22 @@ const Problem = () => {
                     </div>
                 })
             }
-            <div>
+            <div className={styles.ide}>
                 {
                     isLargeDevice && 
                     <>
                         <AceEditor
-                        ref={editorRef}
-                        mode={editorLanguage}
-                        theme={editorTheme} // Apply the theme correctly
-                        name="editor"
-                        editorProps={{ $blockScrolling: true }}
-                        setOptions={{
-                        enableBasicAutocompletion: true,
-                        enableLiveAutocompletion: true,
-                        enableSnippets: true,
-                        }}
-                        style={{ width: '100%', height: '100%', fontFamily: editorFontFamily, fontSize: editorFontSize }}
-                        showPrintMargin={false}
-                        value={`#include <stdio.h>\nint main() {\n    printf("Hello, world!\\n");\n    return 0;\n}\n`}
+                            mode="javascript" // Set the language mode
+                            theme="monokai"   // Set the theme
+                            name="ace-editor"
+                            editorProps={{ $blockScrolling: true }}
+                            value={`console.log('Hello, world!');`} // Set the initial content
+                            onChange={(newValue) => {
+                                console.log('Editor content:', newValue);
+                            }}
+                            width="100%" // Make the editor responsive
+                            height="100%" // Set the height
+                            style={{fontSize: "22px"}}
                         />
                     </>
                 }
