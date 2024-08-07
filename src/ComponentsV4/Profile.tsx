@@ -35,13 +35,15 @@ const Profile = () => {
         <div className={styles.container}>
             <Header/>
             <div className={styles.body}>
-                <h1 className={styles.username}>
-                    {user.username}
-                </h1>
-                <img 
-                    src={user.image}
-                    className={styles.image}
-                />
+                <div className={styles.big_card}>
+                    <h1 className={styles.username}>
+                        {user.username}
+                    </h1>
+                    <img 
+                        src={user.image}
+                        className={styles.image}
+                    />
+                </div>
 
                 <div className={styles.tabs_container}>
                     <button 

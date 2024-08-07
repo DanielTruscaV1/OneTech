@@ -4,20 +4,25 @@ import axios from "axios";
 
 import { useState, useEffect } from "react";
 
-import { useParams } from "react-router-dom"
-
 import {
     Avatar,
     AvatarFallback,
     AvatarImage,
   } from "@/components/ui/avatar"
 
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
-    const { global_user_id } = useParams();
+    const navigate = useNavigate();
+
+    const  global_user_id  = JSON.parse(localStorage.getItem("user") as string).user_id;
 
     const [user, setUser] = useState<any>();
 
     const [loading, setLoading] = useState<boolean>(true);
+
+    const menu = localStorage.getItem("page");
+    const [list, setList] = useState<boolean>(false);
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -41,11 +46,48 @@ const Header = () => {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>
-                OneTech
-            </h1>
+            { 
+              !list &&
+              <h1 
+                className={styles.title}
+                onClick={() => setList(true)}
+              >
+                  { menu == "0" && "OneTech"}
+                  { menu == "1" && "Home"}
+                  { menu == "2" && "Theory"}
+                  { menu == "3" && "Problemset"}
+                  { menu == "4" && "Legal Terms"}
+                  { menu == "5" && "Profile"}
+              </h1>
+            }
+            {
+              list &&
+              <div className={styles.list}>
+                <h1 onClick={() => {setList(false); localStorage.setItem("page", "0"); navigate('/landing');}}>
+                  OneTech
+                </h1>
+                <h1 onClick={() => {setList(false); localStorage.setItem("page", "1"); navigate('/home');}}>
+                  Home
+                </h1>
+                <h1 onClick={() => {setList(false); localStorage.setItem("page", "2"); navigate('/theory')}}>
+                  Theory
+                </h1>
+                <h1 onClick={() => {setList(false); localStorage.setItem("page", "3"); navigate('/problemset')}}>
+                  Problemset
+                </h1>
+                <h1 onClick={() => {setList(false); localStorage.setItem("page", "4"); navigate('/terms')}}>
+                  Legal Terms
+                </h1>
+                <h1 onClick={() => {setList(false); localStorage.setItem("page", "5"); navigate('/terms')}}>
+                  Profile
+                </h1>
+              </div>
+            }
 
-            <Avatar className={styles.avatar}>
+            <Avatar 
+              className={styles.avatar} 
+              onClick={() => {localStorage.setItem("page", "5"); navigate(`/profile/${global_user_id}`)}}
+            >
             <AvatarImage 
                 src={user.image} 
                 alt="@shadcn" 

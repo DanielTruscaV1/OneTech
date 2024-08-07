@@ -11,7 +11,7 @@ import {
 //Import the components
 import SignUp from "./components/SignUp"
 import SignIn from "./components/SignIn"
-import Home from "./new_components/Home"
+import Home from "./ComponentsV4/Home"
 import Landing from "./new_components/Landing"
 import UserProfile from './components/UserProfile';
 
