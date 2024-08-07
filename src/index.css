@@ -5,11 +5,11 @@
 
 :root 
 {
-    --color1: #FFFFFF;
-    --color2: #E6F0FF;
-    --color3: #0047FF;
-    --color4: rgba(0, 71, 255, 0.3);
-    --color5: black;
+    --color1: rgb(255, 255, 255);
+    --color2: rgb(245, 245, 245);
+    --color3: rgb(235, 235, 235);
+    --color4: rgb(100, 100, 100);
+    --color5: rgb(0, 0, 0);
 }
 
 body {
@@ -17,11 +17,6 @@ body {
     color: var(--color5);
 }
 
-button:hover 
-{
-    background-color: var(--color3) !important;
-    color: var(--color1);
-}
 .user_settings 
 {
     position: absolute;
