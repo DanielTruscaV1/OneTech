@@ -14,6 +14,7 @@ const Profile = () => {
     const user = JSON.parse(localStorage.getItem("user") as string);
 
     const [tab, setTab] = useState<number>(0);
+    const isLargeDevice = window.matchMedia("(min-width: 600px)").matches;
 
     const [followers, setFollowers] = useState<any>([]);
     const [posts, setPosts] = useState<any>([]);
@@ -45,6 +46,8 @@ const Profile = () => {
                     />
                 </div>
 
+                {
+                    !isLargeDevice &&
                 <div className={styles.tabs_container}>
                     <button 
                         className={styles.tab} 
@@ -77,11 +80,12 @@ const Profile = () => {
                         Progress
                     </button>
                 </div>
+                }
 
                 {
-                    tab == 0 &&
-                    <>
-                        <div className={styles.card}>
+                    (tab == 0 || isLargeDevice) &&
+                    <div className={styles.about}>
+                        <div className={styles.card} style={{overflowY: "hidden"}}>
                             <h1>
                                 About
                             </h1>
@@ -95,7 +99,7 @@ const Profile = () => {
                             <br/>
                             {user.email}
                         </div>
-                        <div className={styles.card}>
+                        <div className={`${styles.card} ${styles.followers}`}>
                             <h1>
                                 {followers.length} Followers
                             </h1>
@@ -115,12 +119,12 @@ const Profile = () => {
                                 }
                             </div>
                         </div>
-                    </>
+                    </div>
                 }
 
                 {
-                    tab == 1 && 
-                    <>
+                    (tab == 1 || isLargeDevice) && 
+                    <div className={styles.posts}>
                         {
                             posts.map((post : any) => {
                                 return <div className={styles.card}>
@@ -131,6 +135,11 @@ const Profile = () => {
                                 </div>
                             })
                         }
+                    </div>
+                }
+                {
+                    (tab == 2 || isLargeDevice) && 
+                    <>
                     </>
                 }
                 <br/>

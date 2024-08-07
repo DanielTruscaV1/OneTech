@@ -24,7 +24,7 @@ import Problem from './new_components/Problem';
 import Profile from './ComponentsV4/Profile';
 import { AuthProvider } from './auth';
 import RequireAuth from './requireAuth';
-import CreatePost from './new_components/CreatePost';
+import CreatePost from './ComponentsV4/CreatePost';
 import Article from './new_components/Article';
 import Chat from './new_components/Chat';
 

@@ -39,6 +39,24 @@
         font-size: 2.5vh;
         font-weight: 500;
     }
+    .list2 
+    {
+        position: relative;
+        margin-left: 44vw;
+        margin-top: 4vh;
+        width: 50vw;
+        background-color: var(--color2);
+        z-index: 4;
+        border-radius: 7.5px;
+    }
+    .list2 h1 
+    {
+        padding-left: 1.5vh;
+        padding-top: 0.5vh;
+        padding-bottom: 0.5vh;
+        font-size: 2.5vh;
+        font-weight: 500;
+    }
 }
 @media screen and (min-width: 600px)
 {
@@ -80,6 +98,25 @@
         border-radius: 7.5px;
     }
     .list h1 
+    {
+        padding-left: 1.5vh;
+        padding-top: 0.5vh;
+        padding-bottom: 0.5vh;
+        font-size: 2.5vh;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    .list2 
+    {
+        position: relative;
+        margin-left: 82.5vw;
+        margin-top: 0vh;
+        width: 10vw;
+        background-color: var(--color2);
+        z-index: 4;
+        border-radius: 7.5px;
+    }
+    .list2 h1 
     {
         padding-left: 1.5vh;
         padding-top: 0.5vh;

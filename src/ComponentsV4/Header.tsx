@@ -23,6 +23,7 @@ const Header = () => {
 
     const menu = localStorage.getItem("page");
     const [list, setList] = useState<boolean>(false);
+    const [list2, setList2] = useState<boolean>(false);
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -58,6 +59,8 @@ const Header = () => {
                   { menu == "3" && "Problemset"}
                   { menu == "4" && "Legal Terms"}
                   { menu == "5" && "Profile"}
+                  { menu == "6" && "Create"}
+                  { menu == "7" && "Settings"}
               </h1>
             }
             {
@@ -86,7 +89,7 @@ const Header = () => {
 
             <Avatar 
               className={styles.avatar} 
-              onClick={() => {localStorage.setItem("page", "5"); navigate(`/profile/${global_user_id}`)}}
+              onClick={() => {setList2(true);}}
             >
             <AvatarImage 
                 src={user.image} 
@@ -94,6 +97,24 @@ const Header = () => {
             />
             <AvatarFallback>CN</AvatarFallback>
             </Avatar>   
+
+            {
+              list2 &&
+              <div className={styles.list2}>
+                <h1 onClick={() => {setList2(false); localStorage.setItem("page", "5"); navigate(`/profile/${global_user_id}`);}}>
+                  Profile
+                </h1>
+                <h1 onClick={() => {setList2(false); localStorage.setItem("page", "6"); navigate('/create_post');}}>
+                  Create
+                </h1>
+                <h1 onClick={() => {setList2(false); localStorage.setItem("page", "7"); navigate('/settings')}}>
+                  Settings
+                </h1>
+                <h1 onClick={() => {setList2(false); localStorage.setItem("page", "8"); navigate('/sign-in')}}>
+                  Sign-out
+                </h1>
+              </div>
+            }
         </div>
     )
 }
