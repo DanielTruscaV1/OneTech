@@ -10,7 +10,7 @@
         margin-top: 4vh;
         padding: 2vh;
         width: 90vw;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
         text-align: justify;
     }
@@ -37,7 +37,7 @@
         left: 48vw;
         width: 40%;
         height: 6vh;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
     }
     .tabs_container 
@@ -45,7 +45,7 @@
         margin-left: 5vw;
         width: 90vw;
         height: 8vh;
-        background-color: rgb(245, 245, 245);
+        background-color: var(--color3);
         border-radius: 7.5px;
     }
     .tab 
@@ -69,7 +69,7 @@
         margin-top: 2vh;
         padding: 2vh;
         width: 90%;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
         text-align: justify;
     }
@@ -100,7 +100,7 @@
         padding: 2vh;
         width: 23vw;
         height: 40vh;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
         text-align: justify;
     }
@@ -127,7 +127,7 @@
         left: 48vw;
         width: 40%;
         height: 6vh;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
     }
     .card img 
@@ -142,7 +142,7 @@
         margin-top: 2vh;
         padding: 2vh;
         width: 15vw;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
         text-align: justify;
     }
@@ -164,4 +164,8 @@
         right: 3vw;
         top: 14vh;
     }
+}
+.container 
+{
+    background-color: var(--color1);
 }

@@ -1,0 +1,48 @@
+.custom_switch {
+    --switch-bg: #4a90e2; /* Custom background color */
+    --switch-thumb: #fff; /* Custom thumb color */
+  }
+  
+  .custom_switch input:checked + .switch-thumb {
+    background-color: var(--switch-bg);
+  }
+  
+  .custom_switch input:checked {
+    background-color: var(--switch-bg);
+  }
+@media screen and (max-width: 600px)
+{
+    .card 
+    {
+        display: flex;
+        flex-direction: row;
+        margin-left: 5vw;
+        margin-top: 4vh;
+        padding: 2vh;
+        width: 90vw;
+        border: 2px solid rgb(225, 225, 225);
+        border-radius: 7.5px;
+        text-align: justify;
+    }
+    .card h1 
+    {
+        margin-left: 6vw;
+        padding-bottom: 0vh;
+        font-size: 3vh;
+        font-weight: 500;
+    }
+    .card h2 
+    {
+        padding-bottom: 2vh;
+        font-size: 2vh;
+        font-weight: 500;
+    }
+    .card p 
+    {
+        text-align: center;
+    }
+}
+@media screen and (min-width: 600px)
+{
+
+}

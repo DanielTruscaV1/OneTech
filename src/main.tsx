@@ -27,6 +27,7 @@ import RequireAuth from './requireAuth';
 import CreatePost from './ComponentsV4/CreatePost';
 import Article from './new_components/Article';
 import Chat from './new_components/Chat';
+import Settings from './ComponentsV4/Settings';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,14 @@ const router = createBrowserRouter([
     element: ( 
       <RequireAuth>
         <Home/>
+      </RequireAuth>
+    )
+  },
+  {
+    path: "/settings",
+    element: ( 
+      <RequireAuth>
+        <Settings/>
       </RequireAuth>
     )
   },

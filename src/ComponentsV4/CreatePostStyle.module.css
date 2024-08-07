@@ -39,5 +39,41 @@
 }
 @media screen and (min-width: 600px)
 {
-    
+    .create_post 
+    {
+        margin-left: 25vw;
+        margin-top: 7vh;
+        width: 50vw;
+        border: 2px solid var(--color3);
+        border-radius: 7.5px;
+    }
+    .create_post h1 
+    {
+        margin-top: 2vh;
+        text-align: center;
+        font-size: 3vh;
+        font-weight: 500;
+    }
+    .create_post input 
+    {
+        padding-left: 20px;
+        margin-left: 15%;
+        margin-top: 2vh;
+        width: 70%;
+        height: 4vh;
+        border: 2px solid var(--color3);
+        border-radius: 7.5px;
+    }
+    .create_post button 
+    {
+        width: 50%;
+        height: 6vh;
+        margin-left: 25%;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        background-color: var(--color3);
+        border-radius: 7.5px;
+        font-size: 3vh;
+        font-weight: 500;
+    }   
 }

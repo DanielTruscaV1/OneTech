@@ -5,7 +5,7 @@
         position: relative;
         width:100vw;
         height: 14vh;
-        border-bottom: 2px solid rgb(225, 225, 225);
+        border-bottom: 2px solid var(--color3);
     }
     .title 
     {
@@ -67,7 +67,7 @@
         top: 2vh;
         width: 94vw;
         height: 8vh;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 10px;
     }
     .title 
@@ -125,4 +125,8 @@
         font-weight: 500;
         cursor: pointer;
     }
+}
+.container
+{
+    background-color: var(--color1);
 }

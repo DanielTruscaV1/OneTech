@@ -78,7 +78,7 @@ const Home = () => {
             <button 
               className={styles.tab} 
               style={{
-                backgroundColor: tab == 0 ? "var(--color1)" : "transparent",
+                backgroundColor: tab == 0 ? "var(--color1)" : "var(--color3)",
                 color: tab == 0 ? "var(--color5)" : "var(--color4)",
               }}
               onClick={() => setTab(0)}
@@ -88,7 +88,7 @@ const Home = () => {
             <button 
               className={styles.tab}
               style={{
-                backgroundColor: tab == 1 ? "var(--color1)" : "transparent",
+                backgroundColor: tab == 1 ? "var(--color1)" : "var(--color3)",
                 color: tab == 1 ? "var(--color5)" : "var(--color4)",
               }}
               onClick={() => setTab(1)}

@@ -44,7 +44,7 @@
         margin-top: 4vh;
         padding: 2vh;
         width: 90vw;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
         text-align: justify;
     }
@@ -71,7 +71,7 @@
         left: 48vw;
         width: 40%;
         height: 6vh;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
     }
     .tabs_container 
@@ -79,7 +79,7 @@
         margin-left: 5vw;
         width: 90vw;
         height: 8vh;
-        background-color: rgb(245, 245, 245);
+        background-color: var(--color3);
         border-radius: 7.5px;
     }
     .tab 
@@ -103,7 +103,7 @@
         margin-top: 2vh;
         padding: 2vh;
         width: 90%;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
         text-align: justify;
     }
@@ -159,7 +159,7 @@
         margin-top: 4vh;
         padding: 2vh;
         width: 90%;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
         text-align: justify;
     }
@@ -186,7 +186,7 @@
         left: 10vw;
         width: 40%;
         height: 10vh;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
     }
     .about 
@@ -218,7 +218,7 @@
         padding-top: 2vh;
         padding-bottom: 1vh;
         width: 90%;
-        border: 2px solid rgb(225, 225, 225);
+        border: 2px solid var(--color3);
         border-radius: 7.5px;
         text-align: justify;
     }

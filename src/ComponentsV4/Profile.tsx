@@ -52,7 +52,7 @@ const Profile = () => {
                     <button 
                         className={styles.tab} 
                         style={{
-                            backgroundColor: tab == 0 ? "var(--color1)" : "transparent",
+                            backgroundColor: tab == 0 ? "var(--color1)" : "var(--color3)",
                             color: tab == 0 ? "var(--color5)" : "var(--color4)",
                         }}
                         onClick={() => setTab(0)}
@@ -62,7 +62,7 @@ const Profile = () => {
                     <button 
                         className={styles.tab}
                         style={{
-                            backgroundColor: tab == 1 ? "var(--color1)" : "transparent",
+                            backgroundColor: tab == 1 ? "var(--color1)" : "var(--color3)",
                             color: tab == 1 ? "var(--color5)" : "var(--color4)",
                         }}
                         onClick={() => setTab(1)}
@@ -72,7 +72,7 @@ const Profile = () => {
                     <button 
                         className={styles.tab}
                         style={{
-                            backgroundColor: tab == 2 ? "var(--color1)" : "transparent",
+                            backgroundColor: tab == 2 ? "var(--color1)" : "var(--color3)",
                             color: tab == 2 ? "var(--color5)" : "var(--color4)",
                         }}
                         onClick={() => setTab(2)}
