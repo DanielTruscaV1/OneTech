@@ -17,7 +17,7 @@ import UserProfile from './components/UserProfile';
 
 //Import the CSS file
 import "./App.css";
-import Problemset from './new_components/Problemset';
+import Problemset from './ComponentsV4/Problemset';
 import Rankings from './components/Rankings';
 import Theory from './new_components/Theory';
 import Problem from './new_components/Problem';
