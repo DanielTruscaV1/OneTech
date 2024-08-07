@@ -1,5 +1,9 @@
 @media screen and (max-width: 600px)
 {
+    .body 
+    {
+        margin-top: 3vh;
+    }
     .card 
     {
         margin-left: 5vw;
@@ -36,6 +40,51 @@
         border: 2px solid rgb(225, 225, 225);
         border-radius: 7.5px;
     }
+    .tabs_container 
+    {
+        margin-left: 5vw;
+        width: 90vw;
+        height: 8vh;
+        background-color: rgb(245, 245, 245);
+        border-radius: 7.5px;
+    }
+    .tab 
+    {
+        flex: 1;
+        margin-left: 2.5vw;
+        margin-right: 2.5vw;
+        margin-top: 1vh;
+        padding-top: 0.5vh;
+        width: 40vw;
+        height: 75%;
+        background-color: var(--color1);
+        text-align: center;
+        border-radius: 7.5px;
+    }
+    .box 
+    {
+        display: flex;
+        flex-direction: row;
+        margin-left: 5%;
+        margin-top: 2vh;
+        padding: 2vh;
+        width: 90%;
+        border: 2px solid rgb(225, 225, 225);
+        border-radius: 7.5px;
+        text-align: justify;
+    }
+    .box img 
+    {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+    .box h2 
+    {
+        margin-left: 4vw;
+        margin-top: 2vh;
+        font-size: 2.5vh !important;
+    }
 }
 @media screen and (min-width: 600px)
 {
@@ -49,7 +98,7 @@
         margin-left: 3vw;
         margin-top: 3vh;
         padding: 2vh;
-        width: 25vw;
+        width: 23vw;
         height: 40vh;
         border: 2px solid rgb(225, 225, 225);
         border-radius: 7.5px;
@@ -84,5 +133,35 @@
     .card img 
     {
         height: 30vh;
+    }
+    .box 
+    {
+        display: flex;
+        flex-direction: row;
+        margin-left: 5%;
+        margin-top: 2vh;
+        padding: 2vh;
+        width: 13vw;
+        border: 2px solid rgb(225, 225, 225);
+        border-radius: 7.5px;
+        text-align: justify;
+    }
+    .box img 
+    {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+    .box h2 
+    {
+        margin-left: 1vw;
+        margin-top: 1.5vh;
+        font-size: 2.5vh !important;
+    }
+    .followers 
+    {
+        position: absolute;
+        right: 3vw;
+        top: 14vh;
     }
 }

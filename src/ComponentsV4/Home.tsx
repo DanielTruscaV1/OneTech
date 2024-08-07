@@ -62,14 +62,43 @@ const Home = () => {
 
   }, [order]);
 
-if (loading) return <>Loading...</>;
+  const [tab, setTab] = useState<number>(0);
+
+  const isLargeDevice = window.matchMedia("(min-width: 600px)").matches;
+
+  if (loading) return <>Loading...</>;
 
   return (
     <div className={styles.container}>
       <Header/>
       <div className={styles.body}>
         {
-          posts.map((post : any) => {
+          !isLargeDevice &&
+          <div className={styles.tabs_container}>
+            <button 
+              className={styles.tab} 
+              style={{
+                backgroundColor: tab == 0 ? "var(--color1)" : "transparent",
+                color: tab == 0 ? "var(--color5)" : "var(--color4)",
+              }}
+              onClick={() => setTab(0)}
+            >
+              Posts
+            </button>
+            <button 
+              className={styles.tab}
+              style={{
+                backgroundColor: tab == 1 ? "var(--color1)" : "transparent",
+                color: tab == 1 ? "var(--color5)" : "var(--color4)",
+              }}
+              onClick={() => setTab(1)}
+            >
+              Followers
+            </button>
+          </div>
+        }         
+        {
+          (tab == 0 || isLargeDevice) && posts.map((post : any) => {
             return <div className={styles.card}>
               <h2>
                 {post.data.title}
@@ -78,7 +107,23 @@ if (loading) return <>Loading...</>;
             </div>
           })
         }
+        {
+          (tab == 1  || isLargeDevice) && 
+          <div className={styles.followers}>
+            {
+            followedUsers.map((follower : any) => {
+                return <div className={styles.box}>
+                  <img src={follower.data.image}/>
+                  <h2>
+                    {follower.data.username}
+                  </h2>
+                </div>
+              })
+            }
+          </div>
+        }
       </div>
+      <br/>
     </div>
   )
 }
