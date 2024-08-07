@@ -1,0 +1,41 @@
+@media screen and (max-width: 600px)
+{
+    .card 
+    {
+        width: 90vw;
+        margin-left: 5vw;
+        margin-top: 4vh;
+        border: 2px solid var(--color3);
+        border-radius: 7.5px;
+        padding: 2vh;
+        text-align: justify;
+    }
+    .card h1 
+    {
+        font-size: 3vh;
+        font-weight: 500;
+    }
+}
+@media screen and (min-width: 600px)
+{
+    .body 
+    {
+        margin-left: -2vw;
+        margin-top: 14vh;
+    }
+    .card 
+    {
+        width: 40vw;
+        margin-left: 5vw;
+        margin-top: 2vh;
+        border: 2px solid var(--color3);
+        border-radius: 7.5px;
+        padding: 2vh;
+        text-align: justify;
+    }
+    .card h1 
+    {
+        font-size: 3vh;
+        font-weight: 500;
+    }
+}
