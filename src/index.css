@@ -18,6 +18,11 @@ body {
     color: var(--color5);
 }
 
+input 
+{
+  background-color: var(--color1);
+  color: var(--color5);
+}
 .user_settings 
 {
     position: absolute;

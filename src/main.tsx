@@ -10,7 +10,7 @@ import {
 
 //Import the components
 import SignUp from "./components/SignUp"
-import SignIn from "./components/SignIn"
+import Signin from "./ComponentsV4/Signin"
 import Home from "./ComponentsV4/Home"
 import Landing from "./new_components/Landing"
 import UserProfile from './components/UserProfile';
@@ -100,7 +100,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/sign-in",
-    element: <SignIn/>
+    element: <Signin/>
   },
   {
     path: "/sign-up",

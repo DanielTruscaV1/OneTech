@@ -1,0 +1,79 @@
+@media screen and (max-width: 600px)
+{
+    .body 
+    {
+        margin-left: 5vw;
+        margin-top: 20vh;
+        width: 90vw;
+        border: 2px solid var(--color3);
+        border-radius: 7.5px;
+    }
+    .body h1 
+    {
+        margin-top: 2vh;
+        text-align: center;
+        font-size: 3vh;
+        font-weight: 500;
+    }
+    .body input 
+    {
+        padding-left: 30px;
+        margin-left: 20vw;
+        margin-top: 2vh;
+        width: 50vw;
+        border: 2px solid var(--color3);
+        border-radius: 7.5px;
+    }
+    .body button 
+    {
+        width: 50vw;
+        height: 6vh;
+        margin-left: 20vw;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        background-color: var(--color3);
+        border-radius: 7.5px;
+        font-size: 3vh;
+        font-weight: 500;
+    }
+}
+@media screen and (min-width: 600px)
+{
+    .body 
+    {
+        margin-left: 25vw;
+        margin-top: 15vh;
+        width: 50vw;
+        border: 2px solid var(--color3);
+        border-radius: 7.5px;
+    }
+    .body h1 
+    {
+        margin-top: 2vh;
+        text-align: center;
+        font-size: 3vh;
+        font-weight: 500;
+    }
+    .body input 
+    {
+        padding-left: 20px;
+        margin-left: 30%;
+        margin-top: 2vh;
+        width: 40%;
+        height: 4vh;
+        border: 2px solid var(--color3);
+        border-radius: 7.5px;
+    }
+    .body button 
+    {
+        width: 40%;
+        height: 6vh;
+        margin-left: 30%;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        background-color: var(--color3);
+        border-radius: 7.5px;
+        font-size: 3vh;
+        font-weight: 500;
+    }   
+}

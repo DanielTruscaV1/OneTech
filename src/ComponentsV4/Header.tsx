@@ -11,6 +11,7 @@ import {
   } from "@/components/ui/avatar"
 
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/auth";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -68,6 +69,8 @@ const Header = () => {
 
         handleTheme();
       }, []);
+
+      const {logout} = useAuth();
 
      if(loading)
         return <>Loading...</>
@@ -137,7 +140,7 @@ const Header = () => {
                 <h1 onClick={() => {setList2(false); localStorage.setItem("page", "7"); navigate('/settings')}}>
                   Settings
                 </h1>
-                <h1 onClick={() => {setList2(false); localStorage.setItem("page", "8"); navigate('/sign-in')}}>
+                <h1 onClick={() => {logout(); setList2(false); localStorage.setItem("page", "8"); navigate('/sign-in')}}>
                   Sign-out
                 </h1>
               </div>

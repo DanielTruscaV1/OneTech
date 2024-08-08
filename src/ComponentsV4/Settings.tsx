@@ -39,6 +39,10 @@ const Settings = () => {
         handleTheme();
       }, [])
 
+      const [tab1, setTab1] = useState<boolean>(false);
+      const [tab2, setTab2] = useState<boolean>(false);
+      const [tab3, setTab3] = useState<boolean>(false);
+
   return (
     <div className={styles.container}>
         <Header/>
@@ -51,6 +55,87 @@ const Settings = () => {
                 <h1>
                     {currentTheme === "light" ? "Dark Mode" : "Light Mode"}
                 </h1>
+            </div>
+            <div className={styles.card}>
+                <h1>
+                    IDE Theme - <span onClick={() => setTab1(true)}>Monokai</span>
+                </h1>
+                {
+                    tab1 && 
+                    <div style={{ display:"flex", flexDirection: "column" }}>
+                        <div className={styles.list}>
+                            <h1 onClick={() => {setTab1(false)}}>
+                                Option1
+                            </h1>
+                            <h1>
+                                Option2
+                            </h1>
+                            <h1>
+                                Option3
+                            </h1>
+                            <h1>
+                                Option4
+                            </h1>
+                            <h1>
+                                Option5
+                            </h1>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div className={styles.card}>
+                <h1>
+                    IDE Font Family - <span onClick={() => setTab2(true)}>Verdana</span>
+                </h1>
+                {
+                    tab2 && 
+                    <div style={{ display:"flex", flexDirection: "column" }}>
+                        <div className={styles.list}>
+                            <h1 onClick={() => {setTab2(false)}}>
+                                Option1
+                            </h1>
+                            <h1>
+                                Option2
+                            </h1>
+                            <h1>
+                                Option3
+                            </h1>
+                            <h1>
+                                Option4
+                            </h1>
+                            <h1>
+                                Option5
+                            </h1>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div className={styles.card}>
+                <h1>
+                    IDE Font Size - <span onClick={() => setTab3(true)}>22px</span>
+                </h1>
+                {
+                    tab3 && 
+                    <div style={{ display:"flex", flexDirection: "column" }}>
+                        <div className={styles.list}>
+                            <h1 onClick={() => {setTab3(false)}}>
+                                Option1
+                            </h1>
+                            <h1>
+                                Option2
+                            </h1>
+                            <h1>
+                                Option3
+                            </h1>
+                            <h1>
+                                Option4
+                            </h1>
+                            <h1>
+                                Option5
+                            </h1>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     </div>
