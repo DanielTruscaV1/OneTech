@@ -19,7 +19,7 @@ import UserProfile from './components/UserProfile';
 import "./App.css";
 import Problemset from './ComponentsV4/Problemset';
 import Rankings from './components/Rankings';
-import Theory from './new_components/Theory';
+import Theory from './ComponentsV4/Theory';
 import Problem from './ComponentsV4/Problem';
 import Profile from './ComponentsV4/Profile';
 import { AuthProvider } from './auth';
