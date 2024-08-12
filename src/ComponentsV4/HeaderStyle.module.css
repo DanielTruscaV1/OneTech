@@ -130,3 +130,7 @@
 {
     background-color: var(--color1);
 }
+.svg 
+{
+    margin-top: 1vh !important;
+}

@@ -42,8 +42,8 @@ const Theory = () => {
           <img src="/theory_content7.png" alt="Backtracking" />
           Backtracking
         </div>
-  
         </div>
+        <br/>
       </div>
     </div>
   )

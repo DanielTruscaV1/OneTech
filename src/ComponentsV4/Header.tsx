@@ -83,15 +83,22 @@ const Header = () => {
                 className={styles.title}
                 onClick={() => setList(true)}
               >
-                  { menu == "0" && "OneTech"}
-                  { menu == "1" && "Home"}
-                  { menu == "2" && "Theory"}
-                  { menu == "3" && "Problemset"}
-                  { menu == "4" && "Legal Terms"}
-                  { menu == "5" && "Profile"}
-                  { menu == "6" && "Create"}
-                  { menu == "7" && "Settings"}
-              </h1>
+                    <div style={{display: "flex", flexDirection: "row"}}>
+                      {
+                        localStorage.getItem("theme") == "light" ?
+                          <svg viewBox="0 0 24 24" style={{marginTop: "0.5vh"}} width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="1"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H14M4 18H9" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
+                          :<svg viewBox="0 0 24 24" style={{marginTop: "0.5vh"}} width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="1"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H14M4 18H9" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
+                      }
+                      { menu == "0" && "OneTech"}
+                      { menu == "1" && "Home"}
+                      { menu == "2" && "Theory"}
+                      { menu == "3" && "Problemset"}
+                      { menu == "4" && "Legal Terms"}
+                      { menu == "5" && "Profile"}
+                      { menu == "6" && "Create"}
+                      { menu == "7" && "Settings"}
+                    </div>
+                </h1>
             }
             {
               list &&
