@@ -113,6 +113,13 @@ const BigPost = ({ post, user, setShowPost } : {post: any, user: any, setShowPos
                     }
                     Share
                 </button>
+                <button>
+                    {
+                        localStorage.getItem("theme") == "light" ? 
+                        <img src="/save_white.png"/>:<img src="/save_black.png"/>
+                    }
+                    Save
+                </button>
             </div>
 
             <div className={styles.comments}>

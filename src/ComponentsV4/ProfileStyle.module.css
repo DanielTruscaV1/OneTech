@@ -258,3 +258,8 @@
         display: inline-block;
     }
 }
+.box:hover 
+{
+    cursor: pointer;
+    background-color: var(--color2);
+}

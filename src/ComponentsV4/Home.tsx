@@ -4,8 +4,11 @@ import styles from "./HomeStyle.module.css"
 import { getUserData, User } from "@/getUser";
 import axios from "axios";
 import BigPost from "./BigPost";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+
+  const navigate = useNavigate();
 
   const  global_user_id  = JSON.parse(localStorage.getItem("user") as string).user_id;
 
@@ -128,7 +131,7 @@ const Home = () => {
           <div className={styles.followers}>
             {
             followedUsers.map((follower : any) => {
-                return <div className={styles.box}>
+                return <div className={styles.box} onClick={() => navigate(`/profile/${follower.user_id}`)}>
                   <img src={follower.data.image}/>
                   <h2>
                     {follower.data.username}

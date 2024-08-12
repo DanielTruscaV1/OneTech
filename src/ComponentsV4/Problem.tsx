@@ -79,6 +79,8 @@ interface Problem {
   example: string[];
 }
 
+import { themesByName } from "@/new_components/themes";
+
 const Problem = () => {
 
   const user = JSON.parse(localStorage.getItem("user") as string) as any;
@@ -91,7 +93,8 @@ const Problem = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
    //@ts-ignore
-  const [editorTheme, setEditorTheme] = useState<string>(user.editorTheme);
+  const [editorTheme, setEditorTheme] = useState<any>(themesByName[localStorage.getItem("IDE_theme") as string]);
+
    //@ts-ignore
   const [editorFontFamily, setEditorFontFamily] = useState<string>(user.editorFontFamily);
    //@ts-ignore
@@ -202,13 +205,15 @@ const Problem = () => {
     updateUser();
   }, [toggle]);
 
-  useEffect(() => {
-    const editor = editorRef.current?.editor;
-    if (editor) {
-      editor.setOptions({ fontSize: editorFontSize });
-    }
-  }, [editorFontSize]); // Run effect when editorFontSize changes
+  const setFontSize = (size : any) => {
+    if (editorRef.current) {
+        editorRef.current.editor.setOptions({
+            fontSize: size
+        });
+    } 
+  };    
 
+  setFontSize(localStorage.getItem('IDE_font_size') as string);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -248,17 +253,19 @@ const Problem = () => {
                     isLargeDevice && 
                     <>
                         <AceEditor
+                            ref={editorRef}
                             mode="javascript" // Set the language mode
-                            theme="monokai"   // Set the theme
+                            theme={editorTheme}   // Set the theme
                             name="ace-editor"
-                            editorProps={{ $blockScrolling: true }}
+                            editorProps={{ $blockScrolling: true,
+                              fontSize: "24px",
+                             }}
                             value={`console.log('Hello, world!');`} // Set the initial content
                             onChange={(newValue) => {
                                 console.log('Editor content:', newValue);
                             }}
                             width="100%" // Make the editor responsive
                             height="100%" // Set the height
-                            style={{fontSize: "22px"}}
                         />
                     </>
                 }

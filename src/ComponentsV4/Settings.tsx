@@ -2,6 +2,15 @@ import { useState, useEffect } from "react";
 import Header from "./Header"
 import styles from "./SettingsStyle.module.css"
 
+import "ace-builds/src-noconflict/theme-ambiance";
+import "ace-builds/src-noconflict/theme-chaos";
+import "ace-builds/src-noconflict/theme-dracula";
+import "ace-builds/src-noconflict/theme-cobalt";
+import "ace-builds/src-noconflict/theme-monokai";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Settings = () => {
 
     const handleTheme = () => {
@@ -43,6 +52,8 @@ const Settings = () => {
       const [tab2, setTab2] = useState<boolean>(false);
       const [tab3, setTab3] = useState<boolean>(false);
 
+      const notify = () => toast("Settings changed successfully!");
+
   return (
     <div className={styles.container}>
         <Header/>
@@ -58,26 +69,26 @@ const Settings = () => {
             </div>
             <div className={styles.card}>
                 <h1>
-                    IDE Theme - <span onClick={() => setTab1(true)}>Monokai</span>
+                    IDE Theme - <span onClick={() => setTab1(true)}>{localStorage.getItem("IDE_theme")}</span>
                 </h1>
                 {
                     tab1 && 
                     <div style={{ display:"flex", flexDirection: "column" }}>
                         <div className={styles.list}>
-                            <h1 onClick={() => {setTab1(false)}}>
-                                Option1
+                            <h1 onClick={() => {setTab1(false); localStorage.setItem("IDE_theme", "Monokai"); notify();}}>
+                            Monokai
                             </h1>
-                            <h1>
-                                Option2
+                            <h1 onClick={() => {setTab1(false); localStorage.setItem("IDE_theme", "Dracula"); notify();}}>
+                            Dracula
                             </h1>
-                            <h1>
-                                Option3
+                            <h1 onClick={() => {setTab1(false); localStorage.setItem("IDE_theme", "Cobalt"); notify();}}>
+                            Cobalt
                             </h1>
-                            <h1>
-                                Option4
+                            <h1 onClick={() => {setTab1(false); localStorage.setItem("IDE_theme", "Terminal"); notify();}}>
+                            Terminal
                             </h1>
-                            <h1>
-                                Option5
+                            <h1 onClick={() => {setTab1(false); localStorage.setItem("IDE_theme", "Eclipse"); notify();}}>
+                            Eclipse
                             </h1>
                         </div>
                     </div>
@@ -112,31 +123,33 @@ const Settings = () => {
             </div>
             <div className={styles.card}>
                 <h1>
-                    IDE Font Size - <span onClick={() => setTab3(true)}>22px</span>
+                    IDE Font Size - <span onClick={() => setTab3(true)}>{localStorage.getItem("IDE_font_size")}</span>
                 </h1>
                 {
                     tab3 && 
                     <div style={{ display:"flex", flexDirection: "column" }}>
                         <div className={styles.list}>
-                            <h1 onClick={() => {setTab3(false)}}>
-                                Option1
+                            <h1 onClick={() => {setTab3(false); localStorage.setItem("IDE_font_size", "16px"); notify();}}>
+                                16px
                             </h1>
-                            <h1>
-                                Option2
+                            <h1 onClick={() => {setTab3(false); localStorage.setItem("IDE_font_size", "18px"); notify();}}>
+                                18px
                             </h1>
-                            <h1>
-                                Option3
+                            <h1 onClick={() => {setTab3(false); localStorage.setItem("IDE_font_size", "20px"); notify();}}>
+                                20px
                             </h1>
-                            <h1>
-                                Option4
+                            <h1 onClick={() => {setTab3(false); localStorage.setItem("IDE_font_size", "22px"); notify();}}>
+                                22px
                             </h1>
-                            <h1>
-                                Option5
+                            <h1 onClick={() => {setTab3(false); localStorage.setItem("IDE_font_size", "24px"); notify();}}>
+                                24px
                             </h1>
                         </div>
                     </div>
                 }
             </div>
+
+            <ToastContainer />
         </div>
     </div>
   )

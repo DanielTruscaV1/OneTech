@@ -174,3 +174,8 @@
 {
     opacity: 0.25;
 }
+.box:hover 
+{
+    cursor: pointer;
+    background-color: var(--color2);
+}

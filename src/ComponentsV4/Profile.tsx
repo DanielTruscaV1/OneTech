@@ -4,11 +4,13 @@ import Header from "./Header"
 
 import { useState, useEffect } from "react";
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import axios from "axios";
 
 const Profile = () => {
+    const navigate = useNavigate();
+
     const { global_user_id } = useParams();
 
     const user = JSON.parse(localStorage.getItem("user") as string);
@@ -109,7 +111,7 @@ const Profile = () => {
                             <div style={{marginTop: "-5vh"}}>
                                 {
                                     followers.map((follower : any) => {
-                                        return <div className={styles.box}>
+                                        return <div className={styles.box} onClick={() => navigate(`/profile/${follower.user_id}`)}>
                                             <img src={follower.data.image}/>
                                             <h2>
                                                 {follower.data.username}
