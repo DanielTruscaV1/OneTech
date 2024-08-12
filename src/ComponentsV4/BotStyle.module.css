@@ -1,0 +1,21 @@
+@media screen and (max-width: 600px)
+{
+
+}
+@media screen and (min-width: 600px)
+{
+    .body 
+    {
+        position: relative;
+        width: 4vw;
+        height: 4vw;
+        background-color: var(--color5);
+        color: var(--color1);
+        border-radius: 50%;
+        z-index: 10;
+    }
+    .body img 
+    {
+        scale: 0.7;
+    }
+}

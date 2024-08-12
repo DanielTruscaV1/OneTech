@@ -31,7 +31,7 @@ const Profile = () => {
   
             if (userData) {
               setUserInfo(userData.data);
-              if(global_user_id == localStorage.getItem("user_id")) 
+              if(global_user_id == localStorage.getItem("userID")) 
               {
                 localStorage.setItem("user", JSON.stringify(userData.data));
               }

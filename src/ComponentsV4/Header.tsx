@@ -12,6 +12,7 @@ import {
 
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/auth";
+import Bot from "./Bot";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -146,6 +147,10 @@ const Header = () => {
                 </h1>
               </div>
             }
+
+            <div className={styles.bot}>
+              <Bot/>
+            </div>
         </div>
     )
 }
