@@ -10,7 +10,7 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  const  global_user_id  = JSON.parse(localStorage.getItem("user") as string).user_id;
+  const  global_user_id  = JSON.parse(localStorage.getItem("user_id") as string);
 
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -131,7 +131,7 @@ const Home = () => {
           <div className={styles.followers}>
             {
             followedUsers.map((follower : any) => {
-                return <div className={styles.box} onClick={() => navigate(`/profile/${follower.user_id}`)}>
+                return <div className={styles.box} onClick={() => navigate(`/profile/${follower.data.user_id}`)}>
                   <img src={follower.data.image}/>
                   <h2>
                     {follower.data.username}

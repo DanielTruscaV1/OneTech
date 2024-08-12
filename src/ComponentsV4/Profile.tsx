@@ -15,13 +15,29 @@ const Profile = () => {
 
     const user = JSON.parse(localStorage.getItem("user") as string);
 
+    const [userInfo, setUserInfo] = useState<any>(null);
+
     const [tab, setTab] = useState<number>(0);
     const isLargeDevice = window.matchMedia("(min-width: 600px)").matches;
 
     const [followers, setFollowers] = useState<any>([]);
     const [posts, setPosts] = useState<any>([]);
 
+    const [loading, setLoading] = useState<boolean>(true);
+
     useEffect(() => {
+        const fetchUserInfo = async () => {
+            const userData = await axios.get(
+              `https://onetech.onrender.com/api/users/${global_user_id}`
+            ) as any;
+  
+            if (userData) {
+              setUserInfo(userData.data);
+              localStorage.setItem("user_id", JSON.stringify(userData.data.user_id));
+              await fetchData(); // Call fetchData after setUser
+              setLoading(false);
+            } 
+          };
         const fetchData = async () => {
             const result = await axios.get(
               `https://onetech.onrender.com/api/followers/${global_user_id}`,
@@ -31,8 +47,10 @@ const Profile = () => {
             setPosts(result.data.posts);
         };
       
-        fetchData();
+        fetchUserInfo();
       }, []);
+
+      if (loading) return <div>Loading...</div>;
 
     return (
         <div className={styles.container}>
@@ -40,10 +58,10 @@ const Profile = () => {
             <div className={styles.body}>
                 <div className={styles.big_card}>
                     <h1 className={styles.username}>
-                        {user.username}
+                        {userInfo.username}
                     </h1>
                     <img 
-                        src={user.image}
+                        src={userInfo.image}
                         className={styles.image}
                     />
                 </div>
