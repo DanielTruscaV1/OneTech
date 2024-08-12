@@ -13,8 +13,6 @@ const Profile = () => {
 
     const { global_user_id } = useParams();
 
-    const user = JSON.parse(localStorage.getItem("user") as string);
-
     const [userInfo, setUserInfo] = useState<any>(null);
 
     const [tab, setTab] = useState<number>(0);
@@ -33,6 +31,10 @@ const Profile = () => {
   
             if (userData) {
               setUserInfo(userData.data);
+              if(global_user_id == localStorage.getItem("user_id")) 
+              {
+                localStorage.setItem("user", JSON.stringify(userData.data));
+              }
               localStorage.setItem("user_id", JSON.stringify(userData.data.user_id));
               await fetchData(); // Call fetchData after setUser
               setLoading(false);
@@ -117,7 +119,7 @@ const Profile = () => {
                             </h1>
                             Gorj, Romania
                             <br/>
-                            {user.email}
+                            {userInfo.email}
                         </div>
                         <div className={`${styles.card} ${styles.followers}`}>
                             <h1>
