@@ -3,7 +3,6 @@ import styles from "../new_styles/PostCommentsStyle.module.css";
 import axios from "axios";
 
 const PostComments = ({post_id, comments} : {post_id: string; comments: any;}) => {
-  const user_info = JSON.parse(localStorage.getItem("user") as string);
   const user_id = localStorage.getItem("userID");
 
   const [comment, setComment] = useState<any>();
@@ -55,36 +54,27 @@ const PostComments = ({post_id, comments} : {post_id: string; comments: any;}) =
 
   return (
     <div className={styles.comments}>
-        <hr/>
         <br/>
         {
           comments.map((c: any) => {
-            return <>
+            return <div className={styles.comment}>
+            <div className={styles.row}>
               <img src={c.data.author_image}/>
               <h2>
                   {c.data.author_username}
               </h2>
-              <div className={styles.container}>
-                  <p>
-                  {c.data.content}
-                  </p>
-                  <h3>
+              <h3>
                   {timeAgo(c.data.date)}
-                  </h3>
-              </div>
+              </h3>
               <br/>
-            </>
+            </div>
+            <p>
+              {c.data.content}
+            </p>
+            </div>
           })
         }
-        <hr/>
-        <div>
-          <img 
-            className={styles.icon}
-            src="/add1.png"
-          />
-          <p className="inline-block w-50 ml-3 mt-3 text-3xl">
-            Create a new comment as {user_info.username}
-          </p>
+        <div className={styles.row}>
           <br/>
           <input 
             type="text"
@@ -96,7 +86,7 @@ const PostComments = ({post_id, comments} : {post_id: string; comments: any;}) =
             Submit
           </button>
         </div>
-        
+        <br/>
     </div>
   )
 }

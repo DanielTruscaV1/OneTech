@@ -1,4 +1,7 @@
+import PostComments from "@/new_components/PostComments";
 import styles from "./BigPostStyle.module.css"
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const BigPost = ({ post, user, setShowPost } : {post: any, user: any, setShowPost: any}) => {
 
@@ -28,6 +31,28 @@ const BigPost = ({ post, user, setShowPost } : {post: any, user: any, setShowPos
 
       const isLargeDevice = window.matchMedia("(min-width: 600px)").matches;
 
+      const [postComments, setPostComments] = useState<any>([]);
+
+      const handleComments = async () => {
+        {
+            try 
+            {
+                const response = await axios.get(
+                    `https://onetech.onrender.com/api/getComments/${post.data.post_id}`,
+                );
+
+                setPostComments(response.data.result.data);
+            }
+            catch(error)
+            {
+                console.log("Front-end error: ", error);
+            }
+        }
+    }
+
+    useEffect(() => {
+        handleComments();
+    }, [])
 
   return (
     <div className={styles.container}>
@@ -69,6 +94,7 @@ const BigPost = ({ post, user, setShowPost } : {post: any, user: any, setShowPos
                 <h1>
                     Comments
                 </h1>
+                <PostComments post_id={post.data.post_id} comments={postComments}/>
             </div>
         </div>
     </div>

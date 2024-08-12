@@ -2,15 +2,16 @@
 {
     .body 
     {
-        position: absolute;
+        position: relative;
         left: 5vw;
-        top: 17vh;
+        top: 7vh;
         width: 90vw;
-        height: 80vh;
         background-color: var(--color1);
         border-radius: 10px;
         border: 2px solid var(--color3);
         z-index: 4;
+        display: flex;
+        flex-direction: column;
     }
     .row 
     {
@@ -43,7 +44,7 @@
         margin-top: 5%;
         margin-left: 5%;
         width: 90%;
-        height: 40%;
+        height: 25vh;
     }
     .date 
     {
@@ -64,15 +65,16 @@
     }
     .comments
     {
-        position: absolute;
+        position: relative;
         right: 0%;
-        top: 68%;
+        top: 2vh;
         width: 100%;
+        flex: 1;
     }
     .comments h1 
     {
         border-bottom: 2px solid var(--color3);
-        padding-bottom: 2%;
+        padding-bottom: 5%;
         text-align: center;
         font-size: 2.5vh;
     }
@@ -142,6 +144,8 @@
         right: 3%;
         top: 18%;
         width: 32%;
+        height: 68%;
+        overflow-y: scroll;
     }
     .comments h1 
     {
