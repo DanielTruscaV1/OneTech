@@ -1,0 +1,153 @@
+@media screen and (max-width: 600px)
+{
+    .body 
+    {
+        position: absolute;
+        left: 5vw;
+        top: 17vh;
+        width: 90vw;
+        height: 80vh;
+        background-color: var(--color1);
+        border-radius: 10px;
+        border: 2px solid var(--color3);
+        z-index: 4;
+    }
+    .row 
+    {
+        display: flex;
+        flex-direction: row;
+    }
+    .column
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .title 
+    {
+        display: inline-block;
+        font-size: 2.25vh;
+        margin-top: 4.5%;
+        text-align: center;
+    }
+    .author 
+    {
+        display: inline-block;
+        width: 60px !important;
+        height: 60px !important;
+        border-radius: 50%;
+        margin-left: calc(50% - 30px);
+        margin-top: 3%;
+    }
+    .body .post_image
+    {
+        margin-top: 5%;
+        margin-left: 5%;
+        width: 90%;
+        height: 40%;
+    }
+    .date 
+    {
+        margin-top: 2%;
+        font-size: 2vh;
+        opacity: 0.5;
+        text-align: center;
+    }
+    .exit 
+    {
+        position: absolute;
+        top: 3%;
+        right: 3%;
+        width: 15vw;
+        height: 5vh;
+        border-radius: 10px;
+        border: 2px solid var(--color3);
+    }
+    .comments
+    {
+        position: absolute;
+        right: 0%;
+        top: 68%;
+        width: 100%;
+    }
+    .comments h1 
+    {
+        border-bottom: 2px solid var(--color3);
+        padding-bottom: 2%;
+        text-align: center;
+        font-size: 2.5vh;
+    }
+}
+@media screen and (min-width: 600px)
+{
+    .body 
+    {
+        position: absolute;
+        left: 20vw;
+        top: 13vh;
+        width: 60vw;
+        height: 80vh;
+        background-color: var(--color1);
+        border-radius: 10px;
+        border: 2px solid var(--color3);
+        z-index: 4;
+    }
+    .row 
+    {
+        display: flex;
+        flex-direction: row;
+    }
+    .title 
+    {
+        display: inline-block;
+        font-size: 1.5vw;
+        margin-left: 2%;
+        margin-top: 4.5%;
+    }
+    .author 
+    {
+        display: inline-block;
+        width: 80px !important;
+        height: 80px !important;
+        border-radius: 50%;
+        margin-left: 3%;
+        margin-top: 3%;
+    }
+    .body .post_image
+    {
+        margin-top: 2%;
+        margin-left: 3%;
+        width: 60%;
+        height: 65%;
+    }
+    .date 
+    {
+        margin-left: 2%;
+        margin-top: 5%;
+        font-size: 1.2vw;
+        opacity: 0.5;
+    }
+    .exit 
+    {
+        position: absolute;
+        top: 7%;
+        right: 3%;
+        width: 5vw;
+        height: 5vh;
+        border-radius: 10px;
+        border: 2px solid var(--color3);
+    }
+    .comments
+    {
+        position: absolute;
+        right: 3%;
+        top: 18%;
+        width: 32%;
+    }
+    .comments h1 
+    {
+        border-bottom: 2px solid var(--color3);
+        padding-bottom: 2%;
+        text-align: center;
+        font-size: 1.2vw;
+    }
+}

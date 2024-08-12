@@ -169,3 +169,7 @@
 {
     background-color: var(--color1);
 }
+.shadow 
+{
+    opacity: 0.25;
+}

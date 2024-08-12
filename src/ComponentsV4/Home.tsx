@@ -3,6 +3,7 @@ import Header from "./Header"
 import styles from "./HomeStyle.module.css"
 import { getUserData, User } from "@/getUser";
 import axios from "axios";
+import BigPost from "./BigPost";
 
 const Home = () => {
 
@@ -66,12 +67,27 @@ const Home = () => {
 
   const isLargeDevice = window.matchMedia("(min-width: 600px)").matches;
 
+  const [showPost, setShowPost] = useState<number> (-1);
+
+  const returnUser = (user_id: any) => {
+    const answer = users.filter((u: any) => u.data.user_id == user_id)[0];
+    return answer;
+  }
+
   if (loading) return <>Loading...</>;
 
   return (
     <div className={styles.container}>
       <Header/>
-      <div className={styles.body}>
+      {
+        showPost != -1 &&
+        <BigPost 
+          post={posts[showPost]}
+          user={returnUser(posts[showPost].data.author_id).data}
+          setShowPost={setShowPost}
+        />
+      }
+       <div className={`${styles.body} ${showPost !== -1 ? styles.shadow : ''}`}>
         {
           !isLargeDevice &&
           <div className={styles.tabs_container}>
@@ -98,8 +114,8 @@ const Home = () => {
           </div>
         }         
         {
-          (tab == 0 || isLargeDevice) && posts.map((post : any) => {
-            return <div className={styles.card}>
+          (tab == 0 || isLargeDevice) && posts.map((post : any, index : any) => {
+            return <div className={styles.card} onClick={() => setShowPost(index)}>
               <h2>
                 {post.data.title}
               </h2>

@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 //Import the components
-import SignUp from "./components/SignUp"
+import SignUp from "./ComponentsV4/Signup"
 import Signin from "./ComponentsV4/Signin"
 import Home from "./ComponentsV4/Home"
 import Landing from "./new_components/Landing"
