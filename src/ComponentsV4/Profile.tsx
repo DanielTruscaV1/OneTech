@@ -111,7 +111,7 @@ const Profile = () => {
                             <div style={{marginTop: "-5vh"}}>
                                 {
                                     followers.map((follower : any) => {
-                                        return <div className={styles.box} onClick={() => navigate(`/profile/${follower.user_id}`)}>
+                                        return <div className={styles.box} onClick={() => navigate(`/profile/${follower.data.user_id}`)}>
                                             <img src={follower.data.image}/>
                                             <h2>
                                                 {follower.data.username}
