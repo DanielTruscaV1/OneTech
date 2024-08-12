@@ -1,6 +1,19 @@
 @media screen and (max-width: 600px)
 {
-
+    .body 
+    {
+        position: relative;
+        width: 7vh;
+        height: 7vh;
+        background-color: var(--color5);
+        color: var(--color1);
+        border-radius: 50%;
+        z-index: 10;
+    }
+    .body img 
+    {
+        scale: 0.7;
+    }
 }
 @media screen and (min-width: 600px)
 {
