@@ -78,6 +78,29 @@
         text-align: center;
         font-size: 2.5vh;
     }
+    .actions 
+    {
+        display: flex;
+        flex-direction: row;
+        margin-left: 3%;
+        margin-top: 3%;
+    }
+    .actions button
+    {
+        flex: 1;
+        margin-right: 3%;
+        margin-top: 2vh;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid var(--color3);
+        font-size: 1.5vh;
+    }
+    .actions img 
+    {
+        width: 15px;
+        display: inline-block;
+        margin-right: 0.5vw;
+    }
 }
 @media screen and (min-width: 600px)
 {
@@ -154,4 +177,26 @@
         text-align: center;
         font-size: 1.2vw;
     }
+    .actions 
+    {
+        margin-left: 3%;
+        margin-top: 3%;
+    }
+    .actions button
+    {
+        margin-right: 2%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid var(--color3);
+    }
+    .actions img 
+    {
+        width: 20px;
+        display: inline-block;
+        margin-right: 0.5vw;
+    }
+}
+button:hover 
+{
+    background-color: var(--color2);
 }

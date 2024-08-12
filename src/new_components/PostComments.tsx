@@ -55,6 +55,19 @@ const PostComments = ({post_id, comments} : {post_id: string; comments: any;}) =
   return (
     <div className={styles.comments}>
         <br/>
+        <div className={styles.row}>
+          <br/>
+          <input 
+            type="text"
+            placeholder="New comment....."
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <button onClick={handleSubmit}>
+            Submit
+          </button>
+        </div>
+        <br/>
         {
           comments.map((c: any) => {
             return <div className={styles.comment}>
@@ -74,18 +87,6 @@ const PostComments = ({post_id, comments} : {post_id: string; comments: any;}) =
             </div>
           })
         }
-        <div className={styles.row}>
-          <br/>
-          <input 
-            type="text"
-            placeholder="New comment....."
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-          />
-          <button onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
         <br/>
     </div>
   )

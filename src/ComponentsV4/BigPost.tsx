@@ -90,12 +90,38 @@ const BigPost = ({ post, user, setShowPost } : {post: any, user: any, setShowPos
                 </div>
             }
             <img src={post.data.image} className={styles.post_image}/>
+
+            <div className={styles.actions}>
+                <button>
+                    {
+                        localStorage.getItem("theme") == "light" ? 
+                        <img src="/upvote_white.png"/>:<img src="/upvote_black.png"/>
+                    }
+                    Upvote
+                </button>
+                <button>
+                    {
+                        localStorage.getItem("theme") == "light" ? 
+                        <img src="/downvote_white.png"/>:<img src="/downvote_black.png"/>
+                    }
+                    Downvote
+                </button>
+                <button>
+                    {
+                        localStorage.getItem("theme") == "light" ? 
+                        <img src="/share_white.png"/>:<img src="/share_black.png"/>
+                    }
+                    Share
+                </button>
+            </div>
+
             <div className={styles.comments}>
                 <h1>
                     Comments
                 </h1>
                 <PostComments post_id={post.data.post_id} comments={postComments}/>
             </div>
+            
         </div>
     </div>
   )
