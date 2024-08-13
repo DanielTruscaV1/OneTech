@@ -3,9 +3,21 @@ import { Controlled as CodeMirror } from 'react-codemirror2';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css'; // Default theme
-import 'codemirror/theme/dracula.css'; // Additional themes
-import 'codemirror/theme/solarized.css'; // Additional themes
+import 'codemirror/theme/dracula.css'; // Additional theme
+import 'codemirror/theme/solarized.css'; // Additional theme
+import 'codemirror/theme/eclipse.css'; // Additional theme
+import 'codemirror/theme/monokai.css'; // Additional theme
+import 'codemirror/theme/neo.css'; // Additional theme
 import './EditorStyles.css'; // Custom styles
+
+const themes = [
+  'material',
+  'dracula',
+  'solarized',
+  'eclipse',
+  'monokai',
+  'neo'
+];
 
 const MyEditor: React.FC = () => {
   const [code, setCode] = useState<string>('console.log("Hello, world!");');
@@ -35,8 +47,8 @@ const MyEditor: React.FC = () => {
     console.log('Code submitted:', code);
   };
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'material' ? 'dracula' : 'material')); // Toggle themes
+  const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setTheme(event.target.value);
   };
 
   const handleFontSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -55,12 +67,14 @@ const MyEditor: React.FC = () => {
       <div className="editor-header">
         <h2 className="editor-title">OneTech Editor</h2>
         <div className="editor-actions">
-            <button className="editor-button" onClick={handleClearCode}>Clear</button>
+          <button className="editor-button" onClick={handleClearCode}>Clear</button>
           <button className="editor-button" onClick={handleRunCode}>Run</button>
           <button className="editor-button" onClick={handleSubmitCode}>Submit</button>
-          <button className="editor-button" onClick={toggleTheme}>
-            {theme === 'material' ? 'Switch to Dracula' : 'Switch to Material'}
-          </button>
+          <select className="editor-dropdown" onChange={handleThemeChange} value={theme}>
+            {themes.map(t => (
+              <option key={t} value={t}>{t.charAt(0).toUpperCase() + t.slice(1)}</option>
+            ))}
+          </select>
           <select className="editor-font-size" onChange={handleFontSizeChange} value={fontSize}>
             <option value="12px">12px</option>
             <option value="14px">14px</option>
@@ -84,7 +98,7 @@ const MyEditor: React.FC = () => {
           onBeforeChange={handleChange}
           editorDidMount={(editor) => {
             setEditorInstance(editor);
-            // Initial font size
+            // Apply initial font size
             editor.getWrapperElement().style.fontSize = fontSize;
           }}
         />

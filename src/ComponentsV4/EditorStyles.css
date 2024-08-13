@@ -20,6 +20,7 @@
 
 .editor-actions {
   display: flex;
+  align-items: center;
 }
 
 .editor-button {
@@ -27,4 +28,16 @@
   margin-left: 8px;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.editor-dropdown, .editor-font-size {
+  margin-left: 8px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.CodeMirror {
+  font-size: var(--font-size); /* Use a CSS variable for font size */
 }
