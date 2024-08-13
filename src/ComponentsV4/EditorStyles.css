@@ -1,6 +1,5 @@
 .editor-container {
-  width: 80%;
-  max-width: 1000px;
+  width: 50vw;
   margin: 0 auto;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -39,5 +38,6 @@
 }
 
 .CodeMirror {
+  min-height: 50vh;
   font-size: var(--font-size); /* Use a CSS variable for font size */
 }
