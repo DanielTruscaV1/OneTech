@@ -67,11 +67,21 @@ const Header = () => {
 
       const {logout} = useAuth();
 
+      const isLargeDevice = window.matchMedia("(min-width: 600px)").matches;
+
      if(loading)
         return <>Loading...</>
 
     return (
         <div className={styles.container}>
+            {
+              menu == "1" &&
+              <div className={styles.streak}>
+                5 days
+                <img src="/fire.png" />
+              </div>
+              
+            }
             { 
               !list &&
               <h1 
@@ -118,7 +128,12 @@ const Header = () => {
                 </h1>
               </div>
             }
-
+            {
+              isLargeDevice && 
+              <h1 style={{position: "absolute", width:"20%", left:"40%", top:"1.2vh", textAlign: "center", fontSize: "3.5vh", fontWeight: "500"}}>
+                OneTech
+              </h1>    
+            }
             <Avatar 
               className={styles.avatar} 
               onClick={() => {setList2(true);}}

@@ -64,6 +64,22 @@
         bottom: 2vh;
         z-index: 10;
     }
+    .streak 
+    {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        right: 23vw;
+        top: 5vh;
+        font-size: 2.2vh;
+        font-weight: 500;
+    }
+    .streak img 
+    {
+        width: 30px;
+        height: 30px;
+        margin-left: 1vw;
+    }
 }
 @media screen and (min-width: 600px)
 {
@@ -139,6 +155,22 @@
         bottom: 3vh;
         z-index: 10;
     }
+    .streak 
+    {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        right: 6vw;
+        top: 2.2vh;
+        font-size: 2.2vh;
+        font-weight: 500;
+    }
+    .streak img 
+    {
+        width: 30px;
+        height: 30px;
+        margin-left: 0.3vw;
+    }
 }
 .container
 {
@@ -147,4 +179,8 @@
 .svg 
 {
     margin-top: 1vh !important;
+}
+.streak
+{
+    display: none;
 }

@@ -51,6 +51,7 @@ const BigPost = ({ post, user, setShowPost } : {post: any, user: any, setShowPos
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         handleComments();
     }, [])
 
