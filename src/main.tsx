@@ -25,7 +25,7 @@ import Profile from './ComponentsV4/Profile';
 import { AuthProvider } from './auth';
 import RequireAuth from './requireAuth';
 import CreatePost from './ComponentsV4/CreatePost';
-import Article from './new_components/Article';
+import Article from './ComponentsV4/Article';
 import Chat from './new_components/Chat';
 import Settings from './ComponentsV4/Settings';
 

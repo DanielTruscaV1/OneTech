@@ -1,0 +1,29 @@
+@media screen and (max-width: 600px)
+{
+
+}
+@media screen and (min-width: 600px)
+{
+    .body 
+    {
+        width: 50vw;
+        min-height: 100vh;
+        margin-left: 25vw;
+        border-left: 2px solid var(--color3);
+        border-right: 2px solid var(--color3);
+    }
+    .title 
+    {
+        padding-left: 3vw;
+        padding-top: 2vh;
+        font-size: 1.5vw;
+        font-weight: 500;
+    }
+    .body p 
+    {
+        padding-left: 3vw;
+        padding-right: 3vw;
+        padding-top: 2vh;
+        text-align: justify;
+    }
+}

@@ -1,73 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ProblemStyle.module.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import AceEditor from "react-ace";
 
-// Importing modes and themes
-import "ace-builds/src-noconflict/mode-c_cpp";
-import "ace-builds/src-noconflict/theme-chrome";
-import "ace-builds/src-noconflict/theme-clouds";
-import "ace-builds/src-noconflict/theme-clouds_midnight";
-import "ace-builds/src-noconflict/theme-crimson_editor";
-import "ace-builds/src-noconflict/theme-dawn";
-import "ace-builds/src-noconflict/theme-dreamweaver";
-import "ace-builds/src-noconflict/theme-eclipse";
-import "ace-builds/src-noconflict/theme-github";
-import "ace-builds/src-noconflict/theme-solarized_light";
-import "ace-builds/src-noconflict/theme-textmate";
-import "ace-builds/src-noconflict/theme-tomorrow";
-import "ace-builds/src-noconflict/theme-xcode";
-import "ace-builds/src-noconflict/theme-sqlserver";
-import "ace-builds/src-noconflict/theme-cloud_editor";
-import "ace-builds/src-noconflict/theme-ambiance";
-import "ace-builds/src-noconflict/theme-chaos";
-import "ace-builds/src-noconflict/theme-dracula";
-import "ace-builds/src-noconflict/theme-cobalt";
-import "ace-builds/src-noconflict/theme-gruvbox";
-import "ace-builds/src-noconflict/theme-gob";
-import "ace-builds/src-noconflict/theme-idle_fingers";
-import "ace-builds/src-noconflict/theme-merbivore";
-import "ace-builds/src-noconflict/theme-merbivore_soft";
-import "ace-builds/src-noconflict/theme-mono_industrial";
-import "ace-builds/src-noconflict/theme-monokai";
-import "ace-builds/src-noconflict/theme-nord_dark";
-import "ace-builds/src-noconflict/theme-one_dark";
-import "ace-builds/src-noconflict/theme-pastel_on_dark";
-import "ace-builds/src-noconflict/theme-solarized_dark";
-import "ace-builds/src-noconflict/theme-terminal";
-import "ace-builds/src-noconflict/theme-tomorrow_night";
-import "ace-builds/src-noconflict/theme-tomorrow_night_blue";
-import "ace-builds/src-noconflict/theme-tomorrow_night_bright";
-import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
-import "ace-builds/src-noconflict/theme-twilight";
-import "ace-builds/src-noconflict/theme-vibrant_ink";
-import "ace-builds/src-noconflict/theme-github_dark";
-import "ace-builds/src-noconflict/theme-cloud_editor_dark";
-
-import "ace-builds/src-noconflict/ext-language_tools";
-
-
-import 'ace-builds/src-noconflict/mode-javascript';
-import 'ace-builds/src-noconflict/mode-python';
-import 'ace-builds/src-noconflict/mode-java';
-import 'ace-builds/src-noconflict/mode-c_cpp';
-import 'ace-builds/src-noconflict/mode-ruby';
-import 'ace-builds/src-noconflict/mode-php';
-import 'ace-builds/src-noconflict/mode-swift';
-import 'ace-builds/src-noconflict/mode-typescript';
-//import 'ace-builds/src-noconflict/mode-go';
-import 'ace-builds/src-noconflict/mode-rust';
-import 'ace-builds/src-noconflict/mode-kotlin';
-import 'ace-builds/src-noconflict/mode-csharp';
-import 'ace-builds/src-noconflict/mode-objectivec';
-import 'ace-builds/src-noconflict/mode-perl';
-import 'ace-builds/src-noconflict/mode-sql';
-import 'ace-builds/src-noconflict/mode-html';
-import 'ace-builds/src-noconflict/mode-css';
-import 'ace-builds/src-noconflict/mode-sass';
-import 'ace-builds/src-noconflict/mode-less';
-import 'ace-builds/src-noconflict/mode-json';
 import Header from "./Header";
 
 
@@ -79,7 +14,11 @@ interface Problem {
   example: string[];
 }
 
+
 import { themesByName } from "@/new_components/themes";
+
+import './EditorStyles.css';
+import MyEditor from "./MyEditor";
 
 const Problem = () => {
 
@@ -110,53 +49,8 @@ const Problem = () => {
    //@ts-ignore
   const [section, setSection] = useState<number>(0);
 
-  const editorRef = useRef<AceEditor | null>(null);
-
   const isLargeDevice = window.matchMedia("(min-width: 600px)").matches;
 
-   //@ts-ignore
-  const fontFamilies = [
-    "Arial, Helvetica, sans-serif",
-    "'Times New Roman', Times, serif",
-    "'Courier New', Courier, monospace",
-    "Georgia, serif",
-    "Verdana, Geneva, sans-serif",
-    "Tahoma, Geneva, sans-serif",
-    "'Trebuchet MS', Helvetica, sans-serif",
-    "'Lucida Console', Monaco, monospace",
-    "'Palatino Linotype', 'Book Antiqua', Palatino, serif",
-    "Garamond, serif",
-    "'Comic Sans MS', cursive, sans-serif",
-    "Impact, Charcoal, sans-serif",
-    "'Lucida Sans Unicode', 'Lucida Grande', sans-serif",
-    "'Roboto', sans-serif",
-    "'Open Sans', sans-serif"
-  ];
-
-  //@ts-ignore
-  const aceEditorModes = [
-    'javascript',
-    'python',
-    'java',
-    'c_cpp',
-    'ruby',
-    'php',
-    'swift',
-    'typescript',
-    'golang',
-    'rust',
-    'kotlin',
-    'csharp',
-    'objectivec',
-    'perl',
-    'sql',
-    'html',
-    'css',
-    'sass',
-    'less',
-    'json'
-  ];
-  
   const user_id = localStorage.getItem("userID") as string;
 
   useEffect(() => {
@@ -203,17 +97,7 @@ const Problem = () => {
     };
 
     updateUser();
-  }, [toggle]);
-
-  const setFontSize = (size : any) => {
-    if (editorRef.current) {
-        editorRef.current.editor.setOptions({
-            fontSize: size
-        });
-    } 
-  };    
-
-  setFontSize(localStorage.getItem('IDE_font_size') as string);
+  }, [toggle]); 
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -250,24 +134,7 @@ const Problem = () => {
             }
             <div className={styles.ide}>
                 {
-                    isLargeDevice && 
-                    <>
-                        <AceEditor
-                            ref={editorRef}
-                            mode="javascript" // Set the language mode
-                            theme={editorTheme}   // Set the theme
-                            name="ace-editor"
-                            editorProps={{ $blockScrolling: true,
-                              fontSize: "24px",
-                             }}
-                            value={`console.log('Hello, world!');`} // Set the initial content
-                            onChange={(newValue) => {
-                                console.log('Editor content:', newValue);
-                            }}
-                            width="100%" // Make the editor responsive
-                            height="100%" // Set the height
-                        />
-                    </>
+                    isLargeDevice && <MyEditor/>
                 }
             </div>
             <br/>

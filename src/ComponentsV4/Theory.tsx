@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router-dom"
 import Header from "./Header"
 import styles from "./TheoryStyle.module.css"
 
 
 const Theory = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className={styles.container}>
       <Header/>
@@ -23,7 +27,10 @@ const Theory = () => {
           Graph Algorithms
         </div>
 
-        <div className={styles.grid_item}>
+        <div 
+          className={styles.grid_item}
+          onClick={() => navigate(`/article/${1}`)}
+        >
           <img src="/theory_content4.png" alt="Dynamic Programming" />
           Dynamic Programming
         </div>

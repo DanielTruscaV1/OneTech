@@ -7,29 +7,42 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preinstall": "npx npm-force-resolutions"
   },
   "dependencies": {
+    "@codemirror/basic-setup": "^0.20.0",
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/state": "^6.4.1",
+    "@codemirror/view": "^6.32.0",
+    "@editorjs/editorjs": "^2.30.4",
+    "@editorjs/header": "^2.8.7",
+    "@editorjs/image": "^2.9.3",
+    "@editorjs/list": "^1.10.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-menubar": "^1.1.1",
     "@radix-ui/react-navigation-menu": "^1.2.0",
     "@radix-ui/react-switch": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "ace-builds": "^1.35.4",
     "axios": "^1.6.8",
     "buffer": "^6.0.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "codemirror": "^5.65.17",
     "emailjs": "^4.0.3",
     "emailjs-com": "^3.2.0",
     "lucide-react": "^0.424.0",
     "react": "^18.2.0",
     "react-ace": "^12.0.0",
+    "react-codemirror2": "^8.0.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
     "react-scroll-sync": "^0.11.2",
     "react-toastify": "^10.0.5",
+    "rollup": "^4.20.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -44,9 +57,13 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "npm-force-resolutions": "^0.0.10",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.7",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
+  },
+  "resolutions": {
+    "@codemirror/state": "6.0.0"
   }
 }
