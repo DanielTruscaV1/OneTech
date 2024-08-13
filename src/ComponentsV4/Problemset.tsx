@@ -228,6 +228,60 @@ const Problemset = () => {
                                 </div>
                             })
                         }
+                        {
+                            problems.map((p : any) => {
+                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.data.problem_id}`)}>
+                                <h2>
+                                    {p.data.problem_id} - {p.data.title}
+                                </h2>
+                                <div className={styles.gap}>
+                        
+                                </div>
+                                <h2>
+                                    Not solved
+                                </h2>
+                                <h2>
+                                    {p.data.difficulty}
+                                </h2>
+                                </div>
+                            })
+                        }
+                        {
+                            problems.map((p : any) => {
+                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.data.problem_id}`)}>
+                                <h2>
+                                    {p.data.problem_id} - {p.data.title}
+                                </h2>
+                                <div className={styles.gap}>
+                        
+                                </div>
+                                <h2>
+                                    Not solved
+                                </h2>
+                                <h2>
+                                    {p.data.difficulty}
+                                </h2>
+                                </div>
+                            })
+                        }
+                        {
+                            problems.map((p : any) => {
+                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.data.problem_id}`)}>
+                                <h2>
+                                    {p.data.problem_id} - {p.data.title}
+                                </h2>
+                                <div className={styles.gap}>
+                        
+                                </div>
+                                <h2>
+                                    Not solved
+                                </h2>
+                                <h2>
+                                    {p.data.difficulty}
+                                </h2>
+                                </div>
+                            })
+                        }
                     </>
                 }
                 </div>
@@ -235,14 +289,29 @@ const Problemset = () => {
                     isLargeDevice &&
                     <div className={styles.chapters}>
                         <div className={styles.box}>
-                            #1 Numbers
+                            <img src="/tn1.png"/>
                         </div>
                         <div className={styles.box}>
-                            #2 Strings
+                            <img src="/tn2.png"/>
                         </div>
                         <div className={styles.box}>
-                            #3 Arrays
+                            <img src="/tn3.png"/>
                         </div>
+                        <div className={styles.box}>
+                            <img src="/tn4.png"/>
+                        </div>
+                    </div>
+                }
+                {
+                    isLargeDevice &&
+                    <div className={styles.daily}>
+                        <h1>
+                            Daily problem streak - 0
+                        </h1>
+                        <img src="/fire.png"/>
+                        <a href="#">
+                            See today's challenge
+                        </a>
                     </div>
                 }
             </div>

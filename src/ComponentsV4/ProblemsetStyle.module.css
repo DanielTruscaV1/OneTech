@@ -96,10 +96,10 @@
     {
         display: flex;
         flex-direction: row;
-        margin-left: 5vw;
+        margin-left: -5vw;
         margin-top: 4vh;
         padding: 2vh;
-        width: 100%;
+        width: 160%;
         height: 8vh;
         border: 2px solid var(--color3);
         border-radius: 7.5px;
@@ -114,11 +114,11 @@
     .card h2 
     {
         display: inline-block;
-        width: 33%;
-        margin-left: 2.5vw;
-        margin-right: 2.5vw;
+        width: 50%;
+        margin-left: 1vw;
+        margin-right: 1vw;
         padding-bottom: 2vh;
-        font-size: 1vw;
+        font-size: 1.2vw;
         font-weight: 500;
     }
     .card p 
@@ -188,9 +188,9 @@
     .chapters 
     {
         position: absolute;
-        left: 45vw;
+        left: 47vw;
         top: 14vh;
-        width: 15.5vw;
+        width: 18vw;
     }
     .chapters .box 
     {
@@ -210,6 +210,38 @@
         cursor: pointer;
         background-color: var(--color2);
     }
+    .daily
+     {
+        position: absolute;
+        left: 3vw;
+        top: 62vh;
+        width: 40vw;
+        border: 2px solid var(--color3);
+        border-radius: 10px;
+        padding: 1vw;
+        display: flex;
+        flex-direction: row;
+     }
+     .daily h1
+     {
+        padding-left: 1vw;
+        font-size: 1.3vw;
+        font-weight: 500;
+     }
+     .daily img 
+     {
+        margin-left: 0.5vw;
+        width: 40px;
+        height: 40px;
+     }
+     .daily a 
+     {
+        margin-left: 0.5vw;
+        margin-top: 0.3vw;
+        font-size: 1vw;
+        color: rgb(90, 90, 250);
+        text-decoration: underline;
+     }
 }
 .container 
 {
