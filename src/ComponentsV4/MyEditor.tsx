@@ -10,6 +10,9 @@ import 'codemirror/theme/monokai.css'; // Additional theme
 import 'codemirror/theme/neo.css'; // Additional theme
 import './EditorStyles.css'; // Custom styles
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const themes = [
   'material',
   'dracula',
@@ -20,6 +23,8 @@ const themes = [
 ];
 
 const MyEditor: React.FC = () => {
+  const notify = () => toast("Code Editor settings changed.");
+
   const [code, setCode] = useState<string>('console.log("Hello, world!");');
   const [theme, setTheme] = useState<string>('material'); // Default theme
   const [fontSize, setFontSize] = useState<string>('14px'); // Default font size
@@ -49,10 +54,12 @@ const MyEditor: React.FC = () => {
 
   const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setTheme(event.target.value);
+    notify();
   };
 
   const handleFontSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setFontSize(event.target.value);
+    notify();
   };
 
   useEffect(() => {
@@ -102,6 +109,7 @@ const MyEditor: React.FC = () => {
             editor.getWrapperElement().style.fontSize = fontSize;
           }}
         />
+        <ToastContainer />
       </div>
     </div>
   );
