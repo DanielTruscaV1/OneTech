@@ -183,6 +183,17 @@ const Problemset = () => {
                         </>
                     }
                 </div>
+                {
+                    <div className={styles.daily}>
+                        <h1>
+                            Daily problem streak - 0
+                        </h1>
+                        <img src="/fire.png"/>
+                        <a href="#">
+                            See today's challenge
+                        </a>
+                    </div>
+                }
                 <div className={styles.problemset}>
                 {
                     !isLargeDevice &&  
@@ -302,19 +313,8 @@ const Problemset = () => {
                         </div>
                     </div>
                 }
-                {
-                    isLargeDevice &&
-                    <div className={styles.daily}>
-                        <h1>
-                            Daily problem streak - 0
-                        </h1>
-                        <img src="/fire.png"/>
-                        <a href="#">
-                            See today's challenge
-                        </a>
-                    </div>
-                }
             </div>
+            <br/>
         </div>
     )
 }
