@@ -26,6 +26,7 @@ const MyEditor: React.FC = () => {
   const notify = () => toast("Code Editor settings changed.");
 
   const [code, setCode] = useState<string>('console.log("Hello, world!");');
+  const [result, setResult] = useState<any>(null);
   const [theme, setTheme] = useState<string>('material'); // Default theme
   const [fontSize, setFontSize] = useState<string>('14px'); // Default font size
   const [editorInstance, setEditorInstance] = useState<any>(null); // Track the editor instance
@@ -35,9 +36,18 @@ const MyEditor: React.FC = () => {
     setCode(value);
   };
 
-  const handleRunCode = () => {
+  const handleRunCode = async () => {
     try {
-      eval(code); // Caution with eval in production
+      const response = await fetch('https://testsite-lci1.onrender.com/compile', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({code:code}),
+      }) as any;
+
+      const data = await response.json();
+      setResult(data.output);
     } catch (error) {
       console.error('Error running code:', error);
     }
@@ -110,6 +120,9 @@ const MyEditor: React.FC = () => {
           }}
         />
         <ToastContainer />
+        <div className="editor-output">
+          {result}
+        </div>
       </div>
     </div>
   );
