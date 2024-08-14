@@ -11,6 +11,7 @@ interface Problem {
   title: string;
   problem_id: number;
   statement: string;
+  points: string;
   example: string[];
 }
 
@@ -108,8 +109,8 @@ const Problem = () => {
         <Header/>
         <div className={styles.body}>
             <div className={styles.card}>
-                <h1>
-                    #{problem && problem.problem_id } - {problem && problem.title}
+                <h1 style={{display:"flex", flexDirection:"row"}}>
+                    #{problem && problem.problem_id } - {problem && problem.title} - <span style={{color: "#00DD55", display: "flex", flexDirection: "row", marginLeft: "7.5px"}}>{problem && problem.points} <img src="/points6.png" style={{borderRadius: "50%", width:"20px", height: "20px", marginLeft:"7.5px", marginTop: "1.2vh"}}/></span>
                 </h1>
             </div>
             <div className={styles.card}>
