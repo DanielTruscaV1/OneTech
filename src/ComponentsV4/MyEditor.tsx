@@ -22,6 +22,8 @@ const themes = [
   'neo'
 ];
 
+import { RateLimiter } from './RateLimiter'
+
 const MyEditor: React.FC = () => {
   const notify = () => toast("Code Editor settings changed.");
 
@@ -36,20 +38,26 @@ const MyEditor: React.FC = () => {
     setCode(value);
   };
 
+  const rateLimiter = new RateLimiter(10, 1 * 60 * 1000); // 3 minutes in milliseconds
+
+
   const handleRunCode = async () => {
     try {
-      const response = await fetch('https://testsite-lci1.onrender.com/compile', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({code:code}),
-      }) as any;
+      rateLimiter.makeRequest(async () => {
+        const response = await fetch('https://testsite-lci1.onrender.com/compile', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({code:code}),
+        }) as any;
 
-      const data = await response.json();
-      setResult(data.output);
+        const data = await response.json();
+        setResult(data.output);
+      });
     } catch (error) {
       console.error('Error running code:', error);
+      setResult("We have encountered an unexpected error.");
     }
   };
 
