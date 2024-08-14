@@ -132,6 +132,7 @@
         flex-direction: row;
         margin-left: -5vw;
         margin-top: 4vh;
+        margin-bottom: -2vh;
         padding: 2vh;
         width: 160%;
         height: 8vh;
@@ -222,22 +223,21 @@
     .chapters 
     {
         position: absolute;
-        left: 47vw;
+        left: 48vw;
         top: 14vh;
         width: 18vw;
     }
     .chapters .box 
     {
         margin-bottom: 2vh;
-        border: 2px solid var(--color3);
-        border-radius: 10px;
-        padding: 1vw;
         font-size: 1.2vw;
+        width: 15vw;
         cursor: pointer;
     }
-    .chapters .box:hover
+    .chapters .box img 
     {
-        background-color: var(--color2);
+        width: 15vw;
+        border-radius: 10px;
     }
     .problemset div:hover
     {
