@@ -15,6 +15,9 @@ import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 import Tooltip from './Tooltip'; // Import the Tooltip component
 
+import Dialog from './Dialog'; // Adjust the import path as necessary
+
+
 
 
 interface BijObject {
@@ -60,6 +63,16 @@ import MyEditor from "./MyEditor";
 const Problem = () => {
 
   const [showAlert, setShowAlert] = useState<boolean>(false);
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+
+  const [submission, setSubmission] = useState<any>();
+
+  const openDialog = (s : any) => {
+    setIsDialogOpen(true)
+    setSubmission(s);
+  };
+  const closeDialog = () => setIsDialogOpen(false);
+
 
   const user = JSON.parse(localStorage.getItem("user") as string) as any;
 
@@ -256,7 +269,7 @@ const Problem = () => {
                 </h1>
                 {
                     user.submissions.reverse().map((s : any) => {
-                    return <div className={styles.case}>
+                    return <div className={styles.case} onClick={() => openDialog(s)}>
                       <h2> Submission <Tooltip text={s.submission_id}> #ID </Tooltip></h2>
                       <h2>
                           Test Cases {s.total_good}/{s.total}
@@ -270,6 +283,39 @@ const Problem = () => {
                     </div>
                   })
                 }
+                <Dialog
+                  isOpen={isDialogOpen}
+                  onClose={closeDialog}
+                  title="Submission Info"
+                >
+                  <pre>
+                    <SyntaxHighlighter language="python" style={dracula}>
+                      {`${submission && submission.code}`}
+                    </SyntaxHighlighter>
+                  </pre>
+                  <br/>
+                  {
+                    submission && submission.compiler_results.map((r : any, index : number) => {
+                      return <div className="matrix-item" style={{width: "40%", borderRadius: "10px", padding: "10px", border: r.success == true ? "2px solid rgb(80, 200, 80)": "rgb(200, 80, 80)"}}>
+                        <p>
+                        Test Case {index + 1} 
+                        </p>
+                        {
+                        r.success == true ? 
+                        <span style={{color: "rgb(80, 200, 80)"}}>Passed</span> :
+                        <span style={{color: "rgb(200, 80, 80)"}}>Failed</span>
+                        }
+                        <p>
+                        {r.actual_runtime.toFixed(2)} ms
+                        </p>
+                        <p>
+                        {r.actual_memory / 1048576} MB
+                        </p>
+                        
+                      </div>
+                    })
+                  }
+                </Dialog>
               </div>
             }
             <div className={styles.ide}>

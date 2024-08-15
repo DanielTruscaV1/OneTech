@@ -25,6 +25,14 @@ input
 }
 
 
+.case-matrix-item 
+  {
+    display: flex;
+    flex-direction: column;
+    width: 15vw !important;
+    border: 2px solid var(--color3) !important;
+  }
+
 pre {
   margin-left: 3vw;
   margin-right: 3vw;
