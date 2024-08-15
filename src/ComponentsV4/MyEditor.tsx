@@ -23,6 +23,7 @@ const themes = [
 ];
 
 import { RateLimiter } from './RateLimiter'
+//@ts-ignore
 import { stringify } from 'querystring';
 
 interface MyEditorProps {
