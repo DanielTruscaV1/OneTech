@@ -10,6 +10,10 @@ import 'codemirror/theme/monokai.css'; // Additional theme
 import 'codemirror/theme/neo.css'; // Additional theme
 import './EditorStyles.css'; // Custom styles
 
+
+import { v4 as uuidv4 } from 'uuid';
+
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -35,9 +39,10 @@ interface Example {
 interface MyEditorProps {
   setShowAlert: React.Dispatch<React.SetStateAction<boolean>>;
   cases: Example[] | undefined;
+  setTab: any;
 }
 
-const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases}) => {
+const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab}) => {
 
   const user = JSON.parse(localStorage.getItem("user") as string);
 
@@ -105,21 +110,37 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases}) => {
           setShowAlert(true);
           setHasError(false);
 
-          const response = await axios.patch(`https://onetech.onrender.com/api/updateUserById/${user_id}`, {
+          const uniqueId = uuidv4();
+
+          let p = 0;
+          for(let i = 0;i < data.compiler_results.length;i++)
+            if(data.compiler_results[i].success)
+                p++;
+
+          const newUser =  {
             ...user, // Spread the existing user data
             submissions: [ // Update the submissions field
               ...(Array.isArray(user.submissions) ? user.submissions : []), // Ensure submissions is an array
               { // Add the new submission
+                submission_id: uniqueId,
                 time: formatDate(now),
                 author: JSON.stringify(user),
                 code,
+                total_good: p,
+                total: data.compiler_results.length,
                 compiler_results: data.compiler_results,
               }
             ]
-          });
-          
+          }
 
-          console.log("Submission created: ", response);
+          const response = await axios.patch(`https://onetech.onrender.com/api/updateUserById/${user_id}`, newUser);
+          
+          if(response.status == 201)
+          {
+            setTab(1);
+            localStorage.setItem("user", JSON.stringify(newUser));
+            window.location.reload();
+          }
         }
 
         

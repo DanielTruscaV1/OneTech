@@ -658,36 +658,62 @@ async function getProblems()
   }
 }
 
-const updateUserById = async (user_id, newUserData) => {
+const sanitizeUserId = (id) => {
+  if (typeof id !== 'string') {
+    throw new Error('User ID must be a string');
+  }
+  
+  // Remove backslashes and quotes
+  const sanitizedId = id.replace(/\\/g, '').replace(/"/g, '');
+
+  // Ensure that sanitizedId is not empty
+  if (!sanitizedId) {
+    throw new Error('Sanitized user ID cannot be empty');
+  }
+  
+  return sanitizedId;
+};
+
+const updateUserById = async (userId, newUserData) => {
   try {
-    // Get the user by the custom index
-    const userRef = await client.query(
-      q.Let(
-        {
-          match: q.Match(q.Index('getUserById'), user_id),
-        },
-        q.If(
-          q.Exists(q.Var('match')),
-          q.Get(q.Var('match')),
-          q.Abort('User not found')
-        )
+    // Sanitize the user ID
+    const sanitizedUserId = sanitizeUserId(userId);
+
+    // Retrieve the user document by sanitizedUserId
+    const result = await client.query(
+      q.Map(
+        q.Paginate(
+          q.Match(q.Index('getUserById'), sanitizedUserId)
+        ),
+        q.Lambda('X', q.Get(q.Var('X')))
       )
     );
 
-    // Merge existing user data with new data
+    // Ensure that we have exactly one user document
+    if (result.data.length !== 1) {
+      throw new Error('User not found or multiple users returned');
+    }
+
+    // Get the user document and its reference
+    const userDoc = result.data[0];
+    
+    // Merge existing data with new data
     const updatedData = {
-      ...userRef.data,
-      ...newUserData,
+      ...userDoc.data, // Existing user data
+      ...newUserData, // New data to merge
     };
 
-    // Update the user in the database
-    const result = await client.query(
-      q.Update(userRef.ref, { data: updatedData })
+    // Update the user document in the database
+    const updatedUser = await client.query(
+      q.Update(userDoc.ref, { data: updatedData })
     );
 
-    return result;
+    return updatedUser; // Return the updated document
+
   } catch (error) {
+    // Log error details
     console.error('Error updating user:', error);
+    throw error; // Rethrow the error to handle it further up the call stack
   }
 };
 

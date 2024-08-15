@@ -164,10 +164,13 @@
         margin-top: 3vh;
         margin-bottom: -1vh;
         width: 35vw;
-        height: 5vh;
+        height: 8vh;
         border: 2px solid var(--color3);
         border-radius: 10px;
         cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
     .case:hover 
     {
@@ -184,8 +187,8 @@
         margin-left: 1vw;
         margin-top: 0.5vh;
         font-size: 1vw;
-        display: flex;
-        flex-direction: row;
+        text-align: center;
+        
     }
     .case img 
     {

@@ -13,6 +13,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
 
+import Tooltip from './Tooltip'; // Import the Tooltip component
+
 
 
 interface BijObject {
@@ -252,35 +254,27 @@ const Problem = () => {
                 <h1>
                   Submissions List
                 </h1>
-                <div className={styles.case}>
-                  <h2> Submission #123 - <div style={{width: "10%"}}></div> Total Time: 100 ms <div style={{width: "10%"}}></div> Total Memory: 123 KB</h2>
-                </div>
-                <h1>
-                  Test Cases List - 3/6 Passed 
-                </h1>
-                <div className={styles.case}>
-                  <h2> Case 1 - <span style={{color:"rgb(80, 200, 80)", fontWeight: "500"}}>Passed</span> <div style={{width: "10%"}}></div> Time: 100 ms <div style={{width: "10%"}}></div> Memory: 123 KB</h2>
-                </div>
-                <div className={styles.case}>
-                  <h2> Case 2 - <span style={{color:"rgb(80, 200, 80)", fontWeight: "500"}}>Passed</span> <div style={{width: "10%"}}></div> Time: 100 ms <div style={{width: "10%"}}></div> Memory: 123 KB</h2>
-                </div>
-                <div className={styles.case}>
-                  <h2> Case 3 - <span style={{color:"rgb(80, 200, 80)", fontWeight: "500"}}>Passed</span> <div style={{width: "10%"}}></div> Time: 100 ms <div style={{width: "10%"}}></div> Memory: 123 KB</h2>
-                </div>
-                <div className={styles.case}>
-                  <h2> Case 4 - <span style={{color:"rgb(200, 80, 80)", fontWeight: "500"}}>Failed</span> <div style={{width: "10%"}}></div> Time: 100 ms <div style={{width: "10%"}}></div> Memory: 123 KB</h2>
-                </div>
-                <div className={styles.case}>
-                  <h2> Case 5 - <span style={{color:"rgb(200, 80, 80)", fontWeight: "500"}}>Failed</span> <div style={{width: "10%"}}></div> Time: 100 ms <div style={{width: "10%"}}></div> Memory: 123 KB <div style={{width: "10%"}}></div><img src="/lock1.png"/></h2>
-                </div>
-                <div className={styles.case}>
-                  <h2> Case 6 - <span style={{color:"rgb(200, 80, 80)", fontWeight: "500"}}>Failed</span> <div style={{width: "10%"}}></div> Time: 100 ms <div style={{width: "10%"}}></div> Memory: 123 KB <div style={{width: "10%"}}></div><img src="/lock1.png"/></h2>
-                </div>
+                {
+                  user.submissions.map((s : any) => {
+                    return <div className={styles.case}>
+                      <h2> Submission <Tooltip text={s.submission_id}> #ID </Tooltip></h2>
+                      <h2>
+                          Test Cases {s.total_good}/{s.total}
+                      </h2>
+                      <h2>
+                        Total Time: 100 ms
+                      </h2>
+                      <h2>
+                          Total Memory: 78 KB
+                      </h2>
+                    </div>
+                  })
+                }
               </div>
             }
             <div className={styles.ide}>
                 {
-                    isLargeDevice && <MyEditor setShowAlert={setShowAlert} cases={problem?.problem.cases}/>
+                    isLargeDevice && <MyEditor setShowAlert={setShowAlert} cases={problem?.problem.cases} setTab={setTab}/>
                 }
             </div>
             {showAlert && (
