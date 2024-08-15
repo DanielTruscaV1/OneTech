@@ -23,6 +23,7 @@ const themes = [
 ];
 
 import { RateLimiter } from './RateLimiter'
+import { stringify } from 'querystring';
 
 interface MyEditorProps {
   setShowAlert: React.Dispatch<React.SetStateAction<boolean>>;
@@ -36,6 +37,7 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert }) => {
 
   const [code, setCode] = useState<string>('console.log("Hello, world!");');
   const [result, setResult] = useState<any>(null);
+  const [hasError, setHasError] = useState<boolean>(false);
   const [theme, setTheme] = useState<string>('material'); // Default theme
   const [fontSize, setFontSize] = useState<string>('14px'); // Default font size
   const [editorInstance, setEditorInstance] = useState<any>(null); // Track the editor instance
@@ -45,7 +47,7 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert }) => {
     setCode(value);
   };
 
-  const rateLimiter = new RateLimiter(10, 1 * 60 * 1000); // 3 minutes in milliseconds
+  const rateLimiter = new RateLimiter(20, 1 * 60 * 1000); // 3 minutes in milliseconds
 
 
   const handleRunCode = async () => {
@@ -57,12 +59,21 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert }) => {
               'Content-Type': 'application/json',
           },
           body: JSON.stringify({code:code}),
-        }) as any;
+        });
 
+        
         const data = await response.json();
-        setResult(data.output);
-
-        setShowAlert(true);
+        if(!data.ok)
+        {
+          setResult(JSON.stringify(data.error));
+          setHasError(true);
+        }
+        else 
+        {
+          setResult(data.output);
+          setShowAlert(true);
+          setHasError(false);
+        }
       });
     } catch (error) {
       console.error('Error running code:', error);
@@ -120,7 +131,7 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert }) => {
         <CodeMirror
           value={code}
           options={{
-            mode: 'javascript',
+            mode: 'text/x-c++src',
             theme: theme,
             lineNumbers: true,
             readOnly: false,
@@ -165,7 +176,18 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert }) => {
             }
             Run
           </button>
-          {result}
+          { 
+            hasError &&
+            <span style={{color: "rgb(200, 80, 80)"}}>
+              {result}
+            </span>
+          }
+          { 
+            !hasError &&
+            <span>
+              {result}
+            </span>
+          }
         </div>
       </div>
     </div>
