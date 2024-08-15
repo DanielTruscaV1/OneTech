@@ -23,6 +23,34 @@ input
   background-color: var(--color1);
   color: var(--color5);
 }
+
+
+pre {
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  background-color: #282c34;
+  color: #abb2bf;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-size: 16px;
+}
+
+code {
+  background-color: #1e1e1e;
+  color: #dcdcdc;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  display: block;
+}
+
+.highlight {
+  color: #c678dd; /* Purple color for keywords */
+}
 .user_settings 
 {
     position: absolute;

@@ -26,4 +26,12 @@
         padding-top: 2vh;
         text-align: justify;
     }
+    .body h2 
+    {
+        padding-left: 3vw;
+        padding-right: 3vw;
+        padding-top: 2vh;
+        text-align: justify;
+        font-size: 1.2vw;
+    }
 }
