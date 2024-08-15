@@ -111,7 +111,7 @@
     .body 
     {
         margin-left: -2vw;
-        margin-top: 14vh;
+        margin-top: 17vh;
     }
     .card 
     {
@@ -134,7 +134,7 @@
         height: 50vh;
         position: absolute;
         right: 3vw;
-        top: 14vh;
+        top: 17vh;
     }
     .tabs_container 
     {
@@ -215,7 +215,9 @@
         background-color: var(--color2);
         border: 2px solid var(--color3);
         width: 30vw;
+        height: 70vh;
         border-radius: 10px;
+        overflow-y: scroll;
         white-space: pre-line;
     }
     .solution pre, .solution code

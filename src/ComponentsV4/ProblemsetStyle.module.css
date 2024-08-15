@@ -135,10 +135,11 @@
         margin-bottom: -2vh;
         padding: 2vh;
         width: 35vw;
-        height: 8vh;
+        min-height: 8vh;
         border: 2px solid var(--color3);
         border-radius: 7.5px;
         text-align: justify;
+        justify-content: center;
     }
     .card h1 
     {
@@ -152,8 +153,9 @@
         display: inline-block;
         margin-left: 1vw;
         margin-right: 1vw;
+        padding-top: 2vh;
         padding-bottom: 2vh;
-        font-size: 1vw;
+        font-size: 1.2vw;
         font-weight: 500;
         text-align: center;
     }

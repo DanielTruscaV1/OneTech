@@ -59,6 +59,30 @@ code {
 .highlight {
   color: #c678dd; /* Purple color for keywords */
 }
+
+/* Global scrollbar styling for WebKit browsers */
+* {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--color2) var(--color1); /* Firefox */
+}
+
+/* WebKit scrollbars */
+*::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color2); /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Roundness of the scrollbar thumb */
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--color1); /* Color of the scrollbar track */
+  border-radius: 10px; /* Roundness of the scrollbar track */
+}
+
+
+
 .user_settings 
 {
     position: absolute;

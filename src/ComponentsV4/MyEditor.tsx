@@ -40,9 +40,10 @@ interface MyEditorProps {
   setShowAlert: React.Dispatch<React.SetStateAction<boolean>>;
   cases: Example[] | undefined;
   setTab: any;
+  problem_id: string | undefined;
 }
 
-const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab}) => {
+const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab, problem_id}) => {
 
   const user = JSON.parse(localStorage.getItem("user") as string);
 
@@ -55,7 +56,7 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab}) => {
   const [code, setCode] = useState<string>('console.log("Hello, world!");');
   const [result, setResult] = useState<any>(null);
   const [hasError, setHasError] = useState<boolean>(false);
-  const [theme, setTheme] = useState<string>('material'); // Default theme
+  const [theme, setTheme] = useState<string>('dracula'); // Default theme
   const [fontSize, setFontSize] = useState<string>('14px'); // Default font size
   const [editorInstance, setEditorInstance] = useState<any>(null); // Track the editor instance
 
@@ -106,8 +107,6 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab}) => {
         else 
         {
           setResult("Compilation sucessfull.");
-          console.log(data.compiler_results);
-          setShowAlert(true);
           setHasError(false);
 
           const uniqueId = uuidv4();
@@ -126,6 +125,7 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab}) => {
             submissions: [ // Update the submissions field
               ...(Array.isArray(user.submissions) ? user.submissions : []), // Ensure submissions is an array
               { // Add the new submission
+                problem_id,
                 submission_id: uniqueId,
                 time: formatDate(now),
                 author: JSON.stringify(user),
@@ -146,6 +146,9 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab}) => {
             setTab(1);
             localStorage.setItem("user", JSON.stringify(newUser));
             window.location.reload();
+
+            if(p == data.compiler_results.length)
+              setShowAlert(true);
           }
         }
 

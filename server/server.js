@@ -17,6 +17,12 @@ const server = http.createServer(app);
 server.keepAliveTimeout = 60000;
 server.headersTimeout = 65000; 
 
+// Increase the limit for JSON payloads
+app.use(bodyParser.json({ limit: '50mb' })); // Adjust the limit as needed
+
+// Increase the limit for URL-encoded payloads
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true })); // Adjust the limit as needed
+
 const validApiKeys = [process.env.VITE_VALID_API_KEY];
 
 const limiter = rateLimit({

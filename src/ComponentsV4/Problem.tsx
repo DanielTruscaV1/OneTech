@@ -53,6 +53,12 @@ interface Example {
 }
 
 
+interface Problem {
+  problem_id: string;
+}
+
+
+
 
 
 import { themesByName } from "@/new_components/themes";
@@ -269,6 +275,7 @@ const Problem = () => {
                 </h1>
                 {
                     user.submissions.reverse().map((s : any) => {
+                    if (s.problem_id === problem?.problem.problem_id) {
                     return <div className={styles.case} onClick={() => openDialog(s)}>
                       <h2> Submission <Tooltip text={s.submission_id}> #ID </Tooltip></h2>
                       <h2>
@@ -281,7 +288,7 @@ const Problem = () => {
                           Total Memory: {s.total_memory / 1048576} MB
                       </h2>
                     </div>
-                  })
+                  }})
                 }
                 <Dialog
                   isOpen={isDialogOpen}
@@ -294,33 +301,36 @@ const Problem = () => {
                     </SyntaxHighlighter>
                   </pre>
                   <br/>
-                  {
-                    submission && submission.compiler_results.map((r : any, index : number) => {
-                      return <div className="matrix-item" style={{width: "40%", borderRadius: "10px", padding: "10px", border: r.success == true ? "2px solid rgb(80, 200, 80)": "rgb(200, 80, 80)"}}>
-                        <p>
-                        Test Case {index + 1} 
-                        </p>
-                        {
-                        r.success == true ? 
-                        <span style={{color: "rgb(80, 200, 80)"}}>Passed</span> :
-                        <span style={{color: "rgb(200, 80, 80)"}}>Failed</span>
-                        }
-                        <p>
-                        {r.actual_runtime.toFixed(2)} ms
-                        </p>
-                        <p>
-                        {r.actual_memory / 1048576} MB
-                        </p>
-                        
-                      </div>
-                    })
-                  }
+                  {submission?.compiler_results.map((r : any, index : number) => {
+                    
+                      return (
+                        <div
+                          key={index}
+                          className="matrix-item"
+                          style={{
+                            width: "40%",
+                            borderRadius: "10px",
+                            padding: "10px",
+                            border: r.success
+                              ? "2px solid rgb(80, 200, 80)"
+                              : "2px solid rgb(200, 80, 80)",
+                          }}
+                        >
+                          <p>Test Case {index + 1}</p>
+                          <span style={{ color: r.success ? "rgb(80, 200, 80)" : "rgb(200, 80, 80)" }}>
+                            {r.success ? "Passed" : "Failed"}
+                          </span>
+                          <p>{r.actual_runtime.toFixed(2)} ms</p>
+                          <p>{(r.actual_memory / 1048576).toFixed(2)} MB</p>
+                        </div>
+                      );
+                  })}
                 </Dialog>
               </div>
             }
             <div className={styles.ide}>
                 {
-                    isLargeDevice && <MyEditor setShowAlert={setShowAlert} cases={problem?.problem.cases} setTab={setTab}/>
+                    isLargeDevice && <MyEditor setShowAlert={setShowAlert} cases={problem?.problem.cases} setTab={setTab} problem_id={problem?.problem.problem_id}/>
                 }
             </div>
             {showAlert && (
