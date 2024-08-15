@@ -290,7 +290,7 @@ const Problem = () => {
                     <h1>
                       Official Solution 
                     </h1>
-                    <CopyToClipboard text={problem && problem.problem.solution} onCopy={handleCopy}>
+                    <CopyToClipboard text={problem && (problem.problem.solution) as any} onCopy={handleCopy}>
                           <button className={styles.copy}>
                             <FontAwesomeIcon icon={copied ? faCheck : faCopy} />
                             <span className="sr-only">{copied ? 'Copied!' : 'Copy'}</span>
@@ -299,7 +299,7 @@ const Problem = () => {
                   </div>
                   <pre>
                     <SyntaxHighlighter language="python" style={dracula}>
-                      {problem && problem.problem.solution}
+                      {`${problem && problem.problem.solution}`}
                     </SyntaxHighlighter>
                   </pre>
                 </div>
