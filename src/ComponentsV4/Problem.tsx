@@ -179,22 +179,22 @@ const Problem = () => {
                   Test Cases List - 3/6 Passed 
                 </h1>
                 <div className={styles.case}>
-                  <h2> Case 1 - <span style={{color:"rgb(80, 200, 80)", fontWeight: "500"}}>Passed</span> </h2>
+                  <h2> Case 1 - <span style={{color:"rgb(80, 200, 80)", fontWeight: "500"}}>Passed</span> <div style={{width: "10%"}}></div> Time: 100 ms <div style={{width: "10%"}}></div> Memory: 123 KB</h2>
                 </div>
                 <div className={styles.case}>
-                  <h2> Case 2 - <span style={{color:"rgb(80, 200, 80)", fontWeight: "500"}}>Passed</span> </h2>
+                  <h2> Case 2 - <span style={{color:"rgb(80, 200, 80)", fontWeight: "500"}}>Passed</span> <div style={{width: "10%"}}></div> Time: 100 ms <div style={{width: "10%"}}></div> Memory: 123 KB</h2>
                 </div>
                 <div className={styles.case}>
-                  <h2> Case 3 - <span style={{color:"rgb(80, 200, 80)", fontWeight: "500"}}>Passed</span> </h2>
+                  <h2> Case 3 - <span style={{color:"rgb(80, 200, 80)", fontWeight: "500"}}>Passed</span> <div style={{width: "10%"}}></div> Time: 100 ms <div style={{width: "10%"}}></div> Memory: 123 KB</h2>
                 </div>
                 <div className={styles.case}>
-                  <h2> Case 4 - <span style={{color:"rgb(200, 80, 80)", fontWeight: "500"}}>Failed</span> </h2>
+                  <h2> Case 4 - <span style={{color:"rgb(200, 80, 80)", fontWeight: "500"}}>Failed</span> <div style={{width: "10%"}}></div> Time: 100 ms <div style={{width: "10%"}}></div> Memory: 123 KB</h2>
                 </div>
                 <div className={styles.case}>
-                  <h2> Case 5 - <span style={{color:"rgb(200, 80, 80)", fontWeight: "500"}}>Failed</span> <img src="/lock1.png"/></h2>
+                  <h2> Case 5 - <span style={{color:"rgb(200, 80, 80)", fontWeight: "500"}}>Failed</span> <div style={{width: "10%"}}></div> Time: 100 ms <div style={{width: "10%"}}></div> Memory: 123 KB <div style={{width: "10%"}}></div><img src="/lock1.png"/></h2>
                 </div>
                 <div className={styles.case}>
-                  <h2> Case 6 - <span style={{color:"rgb(200, 80, 80)", fontWeight: "500"}}>Failed</span> <img src="/lock1.png"/></h2>
+                  <h2> Case 6 - <span style={{color:"rgb(200, 80, 80)", fontWeight: "500"}}>Failed</span> <div style={{width: "10%"}}></div> Time: 100 ms <div style={{width: "10%"}}></div> Memory: 123 KB <div style={{width: "10%"}}></div><img src="/lock1.png"/></h2>
                 </div>
               </div>
             }

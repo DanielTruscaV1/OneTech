@@ -130,7 +130,7 @@ const Header = () => {
             }
             {
               isLargeDevice && 
-              <h1 style={{position: "absolute", width:"20%", left:"40%", top:"1.2vh", textAlign: "center", fontSize: "3.5vh", fontWeight: "500"}}>
+              <h1 style={{position: "absolute", width:"20%", left:"40%", top:"2vh", textAlign: "center", fontSize: "3.5vh", fontWeight: "500"}}>
                 OneTech
               </h1>    
             }

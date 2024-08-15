@@ -132,7 +132,7 @@
         margin-left: 5vw;
         margin-top: 3vh;
         margin-bottom: -1vh;
-        width: 40vw;
+        width: 35vw;
         height: 5vh;
         border: 2px solid var(--color3);
         border-radius: 10px;
@@ -158,13 +158,13 @@
     }
     .case img 
     {
-        margin-left: 1vw;
-        margin-top: 5px;
+        margin-left: 10px;
+        margin-top: 2px;
         width: 20px;
         height: 20px;
     }
 }
-.span 
+.container span 
 {
-    margin-left: 10px;
+    margin-left: 7px;
 }
