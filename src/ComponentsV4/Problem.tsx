@@ -255,17 +255,17 @@ const Problem = () => {
                   Submissions List
                 </h1>
                 {
-                  user.submissions.map((s : any) => {
+                    user.submissions.reverse().map((s : any) => {
                     return <div className={styles.case}>
                       <h2> Submission <Tooltip text={s.submission_id}> #ID </Tooltip></h2>
                       <h2>
                           Test Cases {s.total_good}/{s.total}
                       </h2>
                       <h2>
-                        Total Time: 100 ms
+                        Total Time: {s.total_runtime.toFixed(2)} ms
                       </h2>
                       <h2>
-                          Total Memory: 78 KB
+                          Total Memory: {s.total_memory / 1048576} MB
                       </h2>
                     </div>
                   })

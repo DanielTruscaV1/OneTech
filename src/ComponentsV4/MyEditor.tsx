@@ -112,10 +112,14 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab}) => {
 
           const uniqueId = uuidv4();
 
-          let p = 0;
+          let p = 0, tr = 0, tm = 0;
           for(let i = 0;i < data.compiler_results.length;i++)
             if(data.compiler_results[i].success)
+            {
                 p++;
+                tr += data.compiler_results[i].actual_runtime;
+                tm += data.compiler_results[i].actual_memory;
+            }
 
           const newUser =  {
             ...user, // Spread the existing user data
@@ -128,6 +132,8 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab}) => {
                 code,
                 total_good: p,
                 total: data.compiler_results.length,
+                total_runtime: tr,
+                total_memory: tm,
                 compiler_results: data.compiler_results,
               }
             ]
