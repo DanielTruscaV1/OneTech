@@ -5,7 +5,14 @@ import { useParams } from "react-router-dom";
 
 import Header from "./Header";
 
-import AlertDialog from './AlertDialog'; // Adjust the import path as necessary
+import AlertDialog from './AlertDialog'; 
+
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
+
 
 
 interface BijObject {
@@ -23,6 +30,7 @@ interface Problem {
   examples: Example[];
   constraints: string[];
   points: number;
+  solution: string;
 }
 
 interface InputDescription {
@@ -131,6 +139,13 @@ const Problem = () => {
 
   const handleCloseAlert = () => {
     setShowAlert(false);
+  };
+
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000); // Reset "copied" state after 2 seconds
   };
 
   if (loading) return <div>Loading...</div>;
@@ -267,6 +282,29 @@ const Problem = () => {
                 onClose={handleCloseAlert}
               />
             )}
+            {
+              tab == 2 && 
+              <div className={styles.solutions}>
+                <div className={styles.solution}>
+                  <div style={{display: "flex", flexDirection: "row", width: "30vw", marginBottom: "1vh"}}>
+                    <h1>
+                      Official Solution 
+                    </h1>
+                    <CopyToClipboard text={problem && problem.problem.solution} onCopy={handleCopy}>
+                          <button className={styles.copy}>
+                            <FontAwesomeIcon icon={copied ? faCheck : faCopy} />
+                            <span className="sr-only">{copied ? 'Copied!' : 'Copy'}</span>
+                          </button>
+                    </CopyToClipboard>
+                  </div>
+                  <pre>
+                    <SyntaxHighlighter language="python" style={dracula}>
+                      {problem && problem.problem.solution}
+                    </SyntaxHighlighter>
+                  </pre>
+                </div>
+              </div>
+            }
             <br/>
         </div>
     </div>

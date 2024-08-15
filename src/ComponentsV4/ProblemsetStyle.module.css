@@ -119,7 +119,7 @@
 @media screen and (min-width: 600px){
     .body 
     {
-        margin-top: 10vh;
+        margin-top: 12vh;
     }
     .problemset 
     {
@@ -225,7 +225,7 @@
     {
         position: absolute;
         left: 45vw;
-        top: 14vh;
+        top: 16vh;
         width: 18vw;
     }
     .chapters .box 
@@ -249,7 +249,7 @@
      {
         position: absolute;
         left: 3vw;
-        top: 62vh;
+        top: 66vh;
         width: 40vw;
         border: 2px solid var(--color3);
         border-radius: 10px;

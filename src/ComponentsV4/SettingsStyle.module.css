@@ -64,6 +64,7 @@
 {
     .body 
     {
+        margin-top: 3vh;
         display: flex;
         flex-direction: row;
     }
