@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 
 import Header from "./Header";
 
+import AlertDialog from './AlertDialog'; // Adjust the import path as necessary
+
 
 interface BijObject {
   problem: Problem;
@@ -45,6 +47,8 @@ import './EditorStyles.css';
 import MyEditor from "./MyEditor";
 
 const Problem = () => {
+
+  const [showAlert, setShowAlert] = useState<boolean>(false);
 
   const user = JSON.parse(localStorage.getItem("user") as string) as any;
 
@@ -124,6 +128,10 @@ const Problem = () => {
   }, [toggle]); 
 
   const [tab, setTab] = useState<number>(0);
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -250,9 +258,15 @@ const Problem = () => {
             }
             <div className={styles.ide}>
                 {
-                    isLargeDevice && <MyEditor/>
+                    isLargeDevice && <MyEditor setShowAlert={setShowAlert}/>
                 }
             </div>
+            {showAlert && (
+              <AlertDialog
+                message={`Problem solved successfully! You have been awarded ${problem && problem.problem.points} TechPoints.`}
+                onClose={handleCloseAlert}
+              />
+            )}
             <br/>
         </div>
     </div>

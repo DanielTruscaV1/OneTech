@@ -24,7 +24,14 @@ const themes = [
 
 import { RateLimiter } from './RateLimiter'
 
-const MyEditor: React.FC = () => {
+interface MyEditorProps {
+  setShowAlert: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert }) => {
+
+  const general_theme = localStorage.getItem("theme");
+
   const notify = () => toast("Code Editor settings changed.");
 
   const [code, setCode] = useState<string>('console.log("Hello, world!");');
@@ -54,6 +61,8 @@ const MyEditor: React.FC = () => {
 
         const data = await response.json();
         setResult(data.output);
+
+        setShowAlert(true);
       });
     } catch (error) {
       console.error('Error running code:', error);
@@ -93,8 +102,6 @@ const MyEditor: React.FC = () => {
         <h2 className="editor-title">OneTech Editor</h2>
         <div className="editor-actions">
           <button className="editor-button" onClick={handleClearCode}>Clear</button>
-          <button className="editor-button" onClick={handleRunCode}>Run</button>
-          <button className="editor-button" onClick={handleSubmitCode}>Submit</button>
           <select className="editor-dropdown" onChange={handleThemeChange} value={theme}>
             {themes.map(t => (
               <option key={t} value={t}>{t.charAt(0).toUpperCase() + t.slice(1)}</option>
@@ -128,7 +135,36 @@ const MyEditor: React.FC = () => {
           }}
         />
         <ToastContainer />
+      </div>
+      <div style={{display: "flex", flexDirection: "row"}}>
+        <div className="editor-input">
+          <h1>
+            Input:
+          </h1>
+          <textarea >
+
+          </textarea>
+        </div>
         <div className="editor-output">
+          <h1>
+            Output:
+          </h1>
+          <button className="editor-button" style={{float:"right", marginRight: "10px", marginTop: "-4vh"}} onClick={handleSubmitCode}>
+            {
+              general_theme == "light" 
+              ? <img src="/upload_white.png"/>
+              : <img src="/upload_black.png"/>
+            }
+            Submit
+          </button>
+          <button className="editor-button" style={{float:"right", marginRight: "10px", marginTop: "-4vh"}} onClick={handleRunCode}>
+            {
+              general_theme == "light" 
+              ? <img src="/gears_white.png"/>
+              : <img src="/gears_black.png"/>
+            }
+            Run
+          </button>
           {result}
         </div>
       </div>
