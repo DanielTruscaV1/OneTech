@@ -15,6 +15,65 @@
         font-size: 3vh;
         font-weight: 500;
     }
+    .tabs_container 
+    {
+        margin-left: 5vw;
+        margin-top: 3vh;
+        margin-bottom: -1vh;
+        width: 90vw;
+        height: 8vh;
+        background-color: var(--color2);
+        border-radius: 7.5px;
+    }
+    .tab 
+    {
+        flex: 1;
+        margin-left: 2.5vw;
+        margin-right: 2.5vw;
+        margin-top: 1vh;
+        padding-top: 0.5vh;
+        width: 25vw;
+        height: 75%;
+        background-color: var(--color1);
+        text-align: center;
+        border-radius: 7.5px;
+    }
+    .case 
+    {
+        margin-left: 5vw;
+        margin-top: 3vh;
+        margin-bottom: -1vh;
+        width: 90vw;
+        height: 7vh;
+        border: 2px solid var(--color3);
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .case:hover 
+    {
+        background-color: var(--color2);
+    }
+    .cases h1
+    {
+        margin-left: 5vw;
+        margin-top: 3vh;
+        font-size: 3.5vh;
+    }
+    .case h2 
+    {
+        margin-left: 4vw;
+        margin-top: 0.75vh;
+        font-size: 3vh;
+        display: flex;
+        flex-direction: row;
+    }
+    .case img 
+    {
+        margin-left: 2vw;
+        margin-top: 7.5px;
+        width: 20px;
+        height: 20px;
+    }
 }
 @media screen and (min-width: 600px)
 {
@@ -45,5 +104,63 @@
         position: absolute;
         right: 3vw;
         top: 14vh;
+    }
+    .tabs_container 
+    {
+        margin-left: 5vw;
+        width: 40vw;
+        height: 8vh;
+        background-color: var(--color2);
+        border-radius: 7.5px;
+    }
+    .tab 
+    {
+        flex: 1;
+        margin-left: 1vw;
+        margin-right: 1vw;
+        margin-top: 1vh;
+        padding-top: 0vh;
+        width: 11vw;
+        height: 75%;
+        background-color: var(--color1);
+        text-align: center;
+        border-radius: 7.5px;
+        font-size: 1.2vw;
+    }
+    .case 
+    {
+        margin-left: 5vw;
+        margin-top: 3vh;
+        margin-bottom: -1vh;
+        width: 40vw;
+        height: 5vh;
+        border: 2px solid var(--color3);
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .case:hover 
+    {
+        background-color: var(--color2);
+    }
+    .cases h1
+    {
+        margin-left: 5vw;
+        margin-top: 3vh;
+        font-size: 1.5vw;
+    }
+    .case h2 
+    {
+        margin-left: 1vw;
+        margin-top: 0.5vh;
+        font-size: 1vw;
+        display: flex;
+        flex-direction: row;
+    }
+    .case img 
+    {
+        margin-left: 1vw;
+        margin-top: 5px;
+        width: 20px;
+        height: 20px;
     }
 }

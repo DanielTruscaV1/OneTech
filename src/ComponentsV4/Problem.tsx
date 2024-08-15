@@ -100,6 +100,8 @@ const Problem = () => {
     updateUser();
   }, [toggle]); 
 
+  const [tab, setTab] = useState<number>(0);
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
@@ -108,6 +110,41 @@ const Problem = () => {
     <div className={styles.container}>
         <Header/>
         <div className={styles.body}>
+          <div className={styles.tabs_container}>
+              <button 
+                className={styles.tab} 
+                style={{
+                  backgroundColor: tab == 0 ? "var(--color1)" : "var(--color2)",
+                  color: tab == 0 ? "var(--color5)" : "var(--color4)",
+                }}
+                onClick={() => setTab(0)}
+              >
+                Description
+              </button>
+              <button 
+                className={styles.tab}
+                style={{
+                  backgroundColor: tab == 1 ? "var(--color1)" : "var(--color2)",
+                  color: tab == 1 ? "var(--color5)" : "var(--color4)",
+                }}
+                onClick={() => setTab(1)}
+              >
+                Cases
+              </button>
+              <button 
+                className={styles.tab}
+                style={{
+                  backgroundColor: tab == 2 ? "var(--color1)" : "var(--color2)",
+                  color: tab == 2 ? "var(--color5)" : "var(--color4)",
+                }}
+                onClick={() => setTab(2)}
+              >
+                Solutions
+              </button>
+            </div>
+            {
+              tab == 0 &&
+              <>
             <div className={styles.card}>
                 <h1 style={{display:"flex", flexDirection:"row"}}>
                     #{problem && problem.problem_id } - {problem && problem.title} - <span style={{color: "#00DD55", display: "flex", flexDirection: "row", marginLeft: "7.5px"}}>{problem && problem.points} <img src="/points6.png" style={{borderRadius: "50%", width:"20px", height: "20px", marginLeft:"7.5px", marginTop: "1.2vh"}}/></span>
@@ -132,6 +169,34 @@ const Problem = () => {
                         </p>
                     </div>
                 })
+            }
+            </>
+            }
+            {
+              tab == 1 && 
+              <div className={styles.cases}>
+                <h1>
+                  Test Cases List - 3/6 Passed 
+                </h1>
+                <div className={styles.case}>
+                  <h2> Case 1 - <span style={{color:"rgb(80, 200, 80)", fontWeight: "500"}}>Passed</span> </h2>
+                </div>
+                <div className={styles.case}>
+                  <h2> Case 2 - <span style={{color:"rgb(80, 200, 80)", fontWeight: "500"}}>Passed</span> </h2>
+                </div>
+                <div className={styles.case}>
+                  <h2> Case 3 - <span style={{color:"rgb(80, 200, 80)", fontWeight: "500"}}>Passed</span> </h2>
+                </div>
+                <div className={styles.case}>
+                  <h2> Case 4 - <span style={{color:"rgb(200, 80, 80)", fontWeight: "500"}}>Failed</span> </h2>
+                </div>
+                <div className={styles.case}>
+                  <h2> Case 5 - <span style={{color:"rgb(200, 80, 80)", fontWeight: "500"}}>Failed</span> <img src="/lock1.png"/></h2>
+                </div>
+                <div className={styles.case}>
+                  <h2> Case 6 - <span style={{color:"rgb(200, 80, 80)", fontWeight: "500"}}>Failed</span> <img src="/lock1.png"/></h2>
+                </div>
+              </div>
             }
             <div className={styles.ide}>
                 {
