@@ -124,17 +124,17 @@
     .problemset 
     {
         position: absolute;
-        right: 8vw;
+        right: 2vw;
     }
     .card 
     {
         display: flex;
         flex-direction: row;
-        margin-left: -5vw;
+        margin-left: 5vw;
         margin-top: 4vh;
         margin-bottom: -2vh;
         padding: 2vh;
-        width: 160%;
+        width: 35vw;
         height: 8vh;
         border: 2px solid var(--color3);
         border-radius: 7.5px;
@@ -148,13 +148,14 @@
     }
     .card h2 
     {
+        width: 32%;
         display: inline-block;
-        width: 50%;
         margin-left: 1vw;
         margin-right: 1vw;
         padding-bottom: 2vh;
-        font-size: 1.2vw;
+        font-size: 1vw;
         font-weight: 500;
+        text-align: center;
     }
     .card p 
     {
@@ -223,7 +224,7 @@
     .chapters 
     {
         position: absolute;
-        left: 48vw;
+        left: 45vw;
         top: 14vh;
         width: 18vw;
     }

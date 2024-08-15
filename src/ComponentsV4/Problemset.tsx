@@ -200,9 +200,9 @@ const Problemset = () => {
                     <>
                         {
                             problems.map((p : any) => {
-                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.data.problem_id}`)}>
+                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.data.problem.problem_id}`)}>
                                 <h2>
-                                    {p.data.problem_id} - {p.data.title}
+                                    {p.data.problem.problem_id} - {p.data.problem.title}
                                 </h2>
                                 <div className={styles.gap}>
                         
@@ -211,7 +211,7 @@ const Problemset = () => {
                                     Not solved
                                 </h2>
                                 <h2>
-                                    {p.data.difficulty}
+                                    {p.data.problem.difficulty}
                                 </h2>
                                 </div>
                             })
@@ -223,9 +223,9 @@ const Problemset = () => {
                     <>
                         {
                             problems.map((p : any) => {
-                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.data.problem_id}`)}>
+                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.data.problem.problem_id}`)}>
                                 <h2>
-                                    {p.data.problem_id} - {p.data.title}
+                                    {p.data.problem.problem_id} - {p.data.problem.title}
                                 </h2>
                                 <div className={styles.gap}>
                         
@@ -234,61 +234,7 @@ const Problemset = () => {
                                     Not solved
                                 </h2>
                                 <h2>
-                                    {p.data.difficulty}
-                                </h2>
-                                </div>
-                            })
-                        }
-                        {
-                            problems.map((p : any) => {
-                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.data.problem_id}`)}>
-                                <h2>
-                                    {p.data.problem_id} - {p.data.title}
-                                </h2>
-                                <div className={styles.gap}>
-                        
-                                </div>
-                                <h2>
-                                    Not solved
-                                </h2>
-                                <h2>
-                                    {p.data.difficulty}
-                                </h2>
-                                </div>
-                            })
-                        }
-                        {
-                            problems.map((p : any) => {
-                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.data.problem_id}`)}>
-                                <h2>
-                                    {p.data.problem_id} - {p.data.title}
-                                </h2>
-                                <div className={styles.gap}>
-                        
-                                </div>
-                                <h2>
-                                    Not solved
-                                </h2>
-                                <h2>
-                                    {p.data.difficulty}
-                                </h2>
-                                </div>
-                            })
-                        }
-                        {
-                            problems.map((p : any) => {
-                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.data.problem_id}`)}>
-                                <h2>
-                                    {p.data.problem_id} - {p.data.title}
-                                </h2>
-                                <div className={styles.gap}>
-                        
-                                </div>
-                                <h2>
-                                    Not solved
-                                </h2>
-                                <h2>
-                                    {p.data.difficulty}
+                                    {p.data.problem.difficulty}
                                 </h2>
                                 </div>
                             })

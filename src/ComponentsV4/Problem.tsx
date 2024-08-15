@@ -6,14 +6,37 @@ import { useParams } from "react-router-dom";
 import Header from "./Header";
 
 
-// Define types
-interface Problem {
-  title: string;
-  problem_id: number;
-  statement: string;
-  points: string;
-  example: string[];
+interface BijObject {
+  problem: Problem;
 }
+
+interface Problem {
+  problem_id: string;
+  title: string;
+  description: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+  tags: string[];
+  input: InputDescription;
+  output: OutputDescription;
+  examples: Example[];
+  constraints: string[];
+  points: number;
+}
+
+interface InputDescription {
+  description: string;
+}
+
+interface OutputDescription {
+  description: string;
+}
+
+interface Example {
+  input: string;
+  output: string;
+}
+
+
 
 
 import { themesByName } from "@/new_components/themes";
@@ -29,7 +52,7 @@ const Problem = () => {
   const [settings, setSettings] = useState<boolean>(false)
 
   const { problem_id } = useParams<{ problem_id: string }>();
-  const [problem, setProblem] = useState<Problem | null>(null);
+  const [problem, setProblem] = useState<BijObject | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
    //@ts-ignore
@@ -147,7 +170,7 @@ const Problem = () => {
               <>
             <div className={styles.card}>
                 <h1 style={{display:"flex", flexDirection:"row"}}>
-                    #{problem && problem.problem_id } - {problem && problem.title} - <span style={{color: "#00DD55", display: "flex", flexDirection: "row", marginLeft: "7.5px"}}>{problem && problem.points} <img src="/points6.png" style={{borderRadius: "50%", width:"20px", height: "20px", marginLeft:"7.5px", marginTop: "1.2vh"}}/></span>
+                    #{problem && problem.problem.problem_id } - {problem && problem.problem.title} - <span style={{color: "#00DD55", display: "flex", flexDirection: "row", marginLeft: "7.5px"}}>{problem && problem.problem.points} <img src="/points6.png" style={{borderRadius: "50%", width:"20px", height: "20px", marginLeft:"7.5px", marginTop: "1.2vh"}}/></span>
                 </h1>
             </div>
             <div className={styles.card}>
@@ -155,17 +178,44 @@ const Problem = () => {
                     Statement
                 </h1>
                 <p>
-                    {problem && problem.statement}
+                    {problem && (problem.problem.description as any)}
+                </p>
+            </div>
+            <div className={styles.card}>
+                <h1>
+                    Input description
+                </h1>
+                <p>
+                    {problem && (problem.problem.input.description as any)}
+                </p>
+            </div>
+            <div className={styles.card}>
+                <h1>
+                    Output description
+                </h1>
+                <p>
+                    {problem && (problem.problem.output.description as any)}
+                </p>
+            </div>
+            <div className={styles.card}>
+                <h1>
+                    Constraints
+                </h1>
+                <p>
+                    {problem && (problem.problem.constraints as any)}
                 </p>
             </div>
             {
-                problem && problem.example.map((e : any, index : any) => {
+                problem && problem.problem.examples.map((e : any, index : any) => {
                     return  <div className={styles.card}>
                         <h1>
                             Example {index + 1}
                         </h1>
                         <p>
-                            {e}
+                            Input: {e.input}
+                        </p>
+                        <p>
+                            Output: {e.output}
                         </p>
                     </div>
                 })
