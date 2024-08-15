@@ -7,6 +7,7 @@ const cors = require('cors');
 const app = express();
 const encoder = require('./encoder');
 const { sendEmail } = require('./emailService');
+const bodyParser = require('body-parser');
 const port = 3000; // You can change the port number as needed
 
 const http = require('http');
