@@ -25,12 +25,23 @@ const themes = [
 import { RateLimiter } from './RateLimiter'
 //@ts-ignore
 import { stringify } from 'querystring';
+import axios from 'axios';
+
+interface Example {
+  input: string;
+  output: string;
+}
 
 interface MyEditorProps {
   setShowAlert: React.Dispatch<React.SetStateAction<boolean>>;
+  cases: Example[] | undefined;
 }
 
-const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert }) => {
+const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases}) => {
+
+  const user = JSON.parse(localStorage.getItem("user") as string);
+
+  const user_id = localStorage.getItem("user_id") as string;
 
   const general_theme = localStorage.getItem("theme");
 
@@ -48,8 +59,23 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert }) => {
     setCode(value);
   };
 
-  const rateLimiter = new RateLimiter(20, 1 * 60 * 1000); // 3 minutes in milliseconds
+  const rateLimiter = new RateLimiter(30, 1 * 60 * 1000); // 3 minutes in milliseconds
 
+
+  const formatDate = (date: Date): string => {
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false, // Use 24-hour time format; omit for 12-hour
+    };
+    return new Intl.DateTimeFormat('en-US', options).format(date);
+  };
+
+  const now = new Date(); 
 
   const handleRunCode = async () => {
     try {
@@ -59,22 +85,44 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert }) => {
           headers: {
               'Content-Type': 'application/json',
           },
-          body: JSON.stringify({code:code}),
+          body: JSON.stringify({
+            code: code,
+            testcases: cases,
+          }),
         });
 
         
         const data = await response.json();
-        if(!data.ok)
+        if(!data.compiler_results)
         {
-          setResult(JSON.stringify(data.error));
+          setResult("Compilation error.");
           setHasError(true);
         }
         else 
         {
-          setResult(data.output);
+          setResult("Compilation sucessfull.");
+          console.log(data.compiler_results);
           setShowAlert(true);
           setHasError(false);
+
+          const response = await axios.patch(`https://onetech.onrender.com/api/updateUserById/${user_id}`, {
+            ...user, // Spread the existing user data
+            submissions: [ // Update the submissions field
+              ...(Array.isArray(user.submissions) ? user.submissions : []), // Ensure submissions is an array
+              { // Add the new submission
+                time: formatDate(now),
+                author: JSON.stringify(user),
+                code,
+                compiler_results: data.compiler_results,
+              }
+            ]
+          });
+          
+
+          console.log("Submission created: ", response);
         }
+
+        
       });
     } catch (error) {
       console.error('Error running code:', error);

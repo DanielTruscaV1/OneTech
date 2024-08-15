@@ -31,6 +31,7 @@ interface Problem {
   constraints: string[];
   points: number;
   solution: string;
+  cases: Example[];
 }
 
 interface InputDescription {
@@ -249,6 +250,12 @@ const Problem = () => {
               tab == 1 && 
               <div className={styles.cases}>
                 <h1>
+                  Submissions List
+                </h1>
+                <div className={styles.case}>
+                  <h2> Submission #123 - <div style={{width: "10%"}}></div> Total Time: 100 ms <div style={{width: "10%"}}></div> Total Memory: 123 KB</h2>
+                </div>
+                <h1>
                   Test Cases List - 3/6 Passed 
                 </h1>
                 <div className={styles.case}>
@@ -273,7 +280,7 @@ const Problem = () => {
             }
             <div className={styles.ide}>
                 {
-                    isLargeDevice && <MyEditor setShowAlert={setShowAlert}/>
+                    isLargeDevice && <MyEditor setShowAlert={setShowAlert} cases={problem?.problem.cases}/>
                 }
             </div>
             {showAlert && (
