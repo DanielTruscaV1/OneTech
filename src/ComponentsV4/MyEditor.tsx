@@ -146,7 +146,7 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab, proble
 
           const response1 = await axios.patch(`https://onetech.onrender.com/api/updateUserById/${user_id}`, newUser);
 
-          await axios.post(`http://localhost:3000/api/createSubmission/`, {content: newSubmission});
+          await axios.post(`https://onetech.onrender.com/api/createSubmission/`, {content: newSubmission});
 
           if(response1.status == 201)
           {

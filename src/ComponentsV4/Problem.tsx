@@ -161,7 +161,7 @@ const Problem = () => {
 
   useEffect(() => {
     const getSubmissions = async () => {
-      const response = await axios.get("http://localhost:3000/api/submissions")
+      const response = await axios.get("https://onetech.onrender.com/api/submissions")
       console.log(response.data);
       setSubmissionsList(response.data);
     }

@@ -16,7 +16,10 @@ const Theory = () => {
         <div className={styles.grid_item}>
           <img src="/theory_tn1.png"/>
         </div>
-        <div className={styles.grid_item}>
+        <div 
+          className={styles.grid_item}
+          onClick={() => navigate('/article/1')}
+        >
           <img src="/theory_tn2.png"/>
         </div>
         <div className={styles.grid_item}>
