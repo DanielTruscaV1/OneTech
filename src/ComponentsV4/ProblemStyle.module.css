@@ -3,12 +3,19 @@
     .card 
     {
         width: 90vw;
-        margin-left: 5vw;
-        margin-top: 4vh;
-        border: 2px solid var(--color3);
-        border-radius: 7.5px;
+        margin-left: 0vw;
+        margin-top: 0vh;
+        
         padding: 2vh;
         text-align: justify;
+    }
+    .statement 
+    {
+        margin-left: 5vw;
+        margin-top: 4vh;
+        width: 90vw;
+        border: 2px solid var(--color3);
+        border-radius: 7.5px;
     }
     .card h1 
     {
@@ -31,7 +38,7 @@
         margin-left: 2.5vw;
         margin-right: 2.5vw;
         margin-top: 1vh;
-        padding-top: 0.5vh;
+        padding-top: 0.2vh;
         width: 25vw;
         height: 75%;
         background-color: var(--color1);
@@ -113,13 +120,20 @@
         margin-left: -2vw;
         margin-top: 17vh;
     }
+    .statement 
+    {
+        margin-left: 5vw;
+        margin-top: 3vh;
+        width: 40vw;
+        border: 2px solid var(--color3);
+        border-radius: 7.5px;
+    }
     .card 
     {
         width: 40vw;
-        margin-left: 5vw;
+        margin-left: 0vw;
         margin-top: 2vh;
-        border: 2px solid var(--color3);
-        border-radius: 7.5px;
+        
         padding: 2vh;
         text-align: justify;
     }
