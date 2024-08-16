@@ -67,7 +67,7 @@ const Article = () => {
   return (
     <div className={styles.container}>
       <div className={styles.body}>
-        {article && article.content && renderContent(article.content)}
+        {article && article.data.content && renderContent(article.data.content)}
       </div>
     </div>
   );
