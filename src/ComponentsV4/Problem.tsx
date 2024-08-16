@@ -308,11 +308,11 @@ const Problem = () => {
                 >
                   <pre>
                     <SyntaxHighlighter language="python" style={dracula}>
-                      {`${submission && submission.code}`}
+                      {`${submission && submission.data.code}`}
                     </SyntaxHighlighter>
                   </pre>
                   <br/>
-                  {submission?.compiler_results.map((r : any, index : number) => {
+                  {submission?.data.compiler_results.map((r : any, index : number) => {
                     
                       return (
                         <div

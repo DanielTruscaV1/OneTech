@@ -140,7 +140,7 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab, proble
             submissions: [ // Update the submissions field
               ...(Array.isArray(user.submissions) ? user.submissions : []), // Ensure submissions is an array
                // Add the new submission
-              uniqueId
+              uniqueId,
             ]
           }
 
