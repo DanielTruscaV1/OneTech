@@ -157,6 +157,17 @@ const Problem = () => {
     updateUser();
   }, [toggle]); 
 
+  const [submissionsList, setSubmissionsList] = useState<any>(null);
+
+  useEffect(() => {
+    const getSubmissions = async () => {
+      const response = await axios.get("http://localhost:3000/api/submissions")
+      console.log(response.data);
+      setSubmissionsList(response.data);
+    }
+    getSubmissions();
+  }, [])
+
   const [tab, setTab] = useState<number>(0);
 
   const handleCloseAlert = () => {
@@ -274,18 +285,18 @@ const Problem = () => {
                   Submissions List
                 </h1>
                 {
-                    user.submissions.reverse().map((s : any) => {
-                    if (s.problem_id === problem?.problem.problem_id) {
+                    submissionsList.reverse().map((s : any) => {
+                    if (s.data.problem_id === problem?.problem.problem_id) {
                     return <div className={styles.case} onClick={() => openDialog(s)}>
-                      <h2> Submission <Tooltip text={s.submission_id}> #ID </Tooltip></h2>
+                      <h2> Submission <Tooltip text={s.data.submission_id}> #ID </Tooltip></h2>
                       <h2>
-                          Test Cases {s.total_good}/{s.total}
+                          Test Cases {s.data.total_good}/{s.data.total}
                       </h2>
                       <h2>
-                        Total Time: {s.total_runtime.toFixed(2)} ms
+                        Total Time: {s.data.total_runtime.toFixed(2)} ms
                       </h2>
                       <h2>
-                          Total Memory: {s.total_memory / 1048576} MB
+                          Total Memory: {s.data.total_memory / 1048576} MB
                       </h2>
                     </div>
                   }})

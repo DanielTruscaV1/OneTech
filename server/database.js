@@ -717,6 +717,26 @@ const updateUserById = async (userId, newUserData) => {
   }
 };
 
+async function createSubmission(content)
+{
+  try
+  {
+    const newSubmission = await client.query(
+        q.Create(
+          q.Collection('Submissions'),
+          {data: content}
+        )
+    ); 
+
+    return newSubmission;
+  }
+  catch(error)
+  {
+    console.log("Database error: ", error);
+    throw error;
+  }
+}
+
 module.exports = {
   createDocument,
   getDocumentById,
@@ -739,4 +759,5 @@ module.exports = {
   getProblemById,
   getProblems,
   updateUserById,
+  createSubmission,
 };

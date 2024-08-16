@@ -120,32 +120,38 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab, proble
                 tm += data.compiler_results[i].actual_memory;
             }
 
+          const newSubmission = {
+            problem_id,
+            submission_id: uniqueId,
+            time: formatDate(now),
+            author: JSON.stringify(user_id),
+            code,
+            total_good: p,
+            total: data.compiler_results.length,
+            total_runtime: tr,
+            total_memory: tm,
+            compiler_results: data.compiler_results,
+          }
+
           const newUser =  {
             ...user, // Spread the existing user data
             submissions: [ // Update the submissions field
               ...(Array.isArray(user.submissions) ? user.submissions : []), // Ensure submissions is an array
-              { // Add the new submission
-                problem_id,
-                submission_id: uniqueId,
-                time: formatDate(now),
-                author: JSON.stringify(user),
-                code,
-                total_good: p,
-                total: data.compiler_results.length,
-                total_runtime: tr,
-                total_memory: tm,
-                compiler_results: data.compiler_results,
-              }
+               // Add the new submission
+              uniqueId
             ]
           }
 
-          const response = await axios.patch(`https://onetech.onrender.com/api/updateUserById/${user_id}`, newUser);
-          
-          if(response.status == 201)
+          const response1 = await axios.patch(`https://onetech.onrender.com/api/updateUserById/${user_id}`, newUser);
+
+          await axios.post(`http://localhost:3000/api/createSubmission/`, {content: newSubmission});
+
+          if(response1.status == 201)
           {
-            setTab(1);
+            
             localStorage.setItem("user", JSON.stringify(newUser));
             window.location.reload();
+            setTab(1);
 
             if(p == data.compiler_results.length)
               setShowAlert(true);

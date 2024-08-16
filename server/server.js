@@ -2,7 +2,7 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo, createPost, deletePost, createComment, getComments, getArticles, getArticleById, getChatByIds, getProblemById, getProblems, updateUserById } = require('./database');
+const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo, createPost, deletePost, createComment, getComments, getArticles, getArticleById, getChatByIds, getProblemById, getProblems, updateUserById, createSubmission } = require('./database');
 const cors = require('cors');
 const app = express();
 const encoder = require('./encoder');
@@ -67,6 +67,11 @@ app.get('/api/documents', async (req, res) => {
 
   app.get('/api/posts', async (req, res) => {
     const collection = 'Posts';
+    const result = await getAllDocuments(collection);
+    res.json(result);
+  });
+  app.get('/api/submissions', async (req, res) => {
+    const collection = 'Submissions';
     const result = await getAllDocuments(collection);
     res.json(result);
   });
@@ -246,6 +251,18 @@ app.get('/api/documents', async (req, res) => {
       res.status(201).json({ message: 'Comment created successfully.', result});
     } catch (error) {
       res.status(400).send('Comment creation failed: ' + error.message);
+    }
+  })
+
+  app.post("/api/createSubmission", async (req, res) => {
+    const { content } = req.body;
+
+    try {
+      const result = await createSubmission(content);
+
+      res.status(201).json({ message: 'Submission created successfully.', result});
+    } catch (error) {
+      res.status(400).send('Submission creation failed: ' + error.message);
     }
   })
 
