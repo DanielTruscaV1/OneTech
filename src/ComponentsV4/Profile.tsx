@@ -21,6 +21,8 @@ const Profile = () => {
     const [followers, setFollowers] = useState<any>([]);
     const [posts, setPosts] = useState<any>([]);
 
+    const [submissionsList, setSubmissionsList] = useState<any>(null);
+
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
@@ -37,6 +39,7 @@ const Profile = () => {
               }
               localStorage.setItem("user_id", JSON.stringify(userData.data.user_id));
               await fetchData(); // Call fetchData after setUser
+              await getSubmissions();
               setLoading(false);
             } 
           };
@@ -48,9 +51,33 @@ const Profile = () => {
             setFollowers(result.data.followers);
             setPosts(result.data.posts);
         };
+
+        const getSubmissions = async () => {
+            const response = await axios.get("http://localhost:3000/api/submissions")
+            console.log(response.data);
+            setSubmissionsList(response.data);
+        }
       
         fetchUserInfo();
       }, []);
+
+      const sanitizeUserId = (id : string) => {
+        if (typeof id !== 'string') {
+          throw new Error('User ID must be a string');
+        }
+        
+        // Remove backslashes and quotes
+        const sanitizedId = id.replace(/\\/g, '').replace(/"/g, '');
+      
+        // Ensure that sanitizedId is not empty
+        if (!sanitizedId) {
+          throw new Error('Sanitized user ID cannot be empty');
+        }
+        
+        return sanitizedId;
+      };
+
+      const theme = localStorage.getItem("theme");
 
       if (loading) return <div>Loading...</div>;
 
@@ -111,13 +138,13 @@ const Profile = () => {
                             <h1>
                                 About
                             </h1>
-                            Passionate and detail-oriented Software Developer with 5+ years of experience in designing, developing, and deploying innovative software solutions. Proficient in a diverse set of programming languages and technologies, including Java, Python, and JavaScript, with a strong background in both front-end and back-end development. Adept at problem-solving, collaborating with cross-functional teams, and delivering high-quality code on time. Committed to staying current with industry trends and continuously improving technical skills to drive impactful projects and enhance user experiences.
+                            {userInfo.description}
                         </div>
                         <div className={styles.card}>
                             <h1>
                                 Location & Contact
                             </h1>
-                            Gorj, Romania
+                            {userInfo.location}
                             <br/>
                             {userInfo.email}
                         </div>
@@ -145,7 +172,7 @@ const Profile = () => {
                 }
 
                 {
-                    (tab == 1 || isLargeDevice) && 
+                    (tab == 1) && 
                     <div className={styles.posts}>
                         {
                             posts.map((post : any) => {
@@ -161,8 +188,38 @@ const Profile = () => {
                 }
                 {
                     (tab == 2 || isLargeDevice) && 
-                    <>
-                    </>
+                    <div className={styles.progress}>
+                    <div>
+                        <h1>
+                            Submissions List
+                            { !isLargeDevice &&
+                            <button>
+                            { 
+                                theme == "light"
+                                ? <img src="/right_white.png"/>
+                                : <img src="/right_black.png"/>
+                            }
+                            </button>
+                            }
+                        </h1>
+                    </div>
+                    {
+                        submissionsList.reverse().map((s : any) => {
+                        if (sanitizeUserId(s.data.author) === sanitizeUserId(global_user_id as string)) {
+                        return <div className={styles.submission} onClick={() => {navigate(`problem/${s.data.problem_id}`, { replace: true });navigate(`problem/${s.data.problem_id}`, { replace: true });}}>
+                          <h1>
+                            Problem: {s.data.problem_id} - {s.data.problem_title}
+                          </h1>
+                          <h1>
+                            Status: {s.data.total_good == s.data.total && <span style={{color:"rgb(80, 200, 80", fontWeight:"500"}}> Solved </span>} {s.data.total_good != s.data.total && <span style={{color:"rgb(200, 80, 80", fontWeight:"500"}}> Attempted </span>}
+                          </h1>
+                          <h1>
+                            Time: {s.data.time}
+                          </h1>
+                        </div>
+                      }})
+                    }
+                    </div>
                 }
                 <br/>
             </div>

@@ -341,7 +341,7 @@ const Problem = () => {
             }
             <div className={styles.ide}>
                 {
-                    isLargeDevice && <MyEditor setShowAlert={setShowAlert} cases={problem?.problem.cases} setTab={setTab} problem_id={problem?.problem.problem_id}/>
+                    isLargeDevice && <MyEditor setShowAlert={setShowAlert} cases={problem?.problem.cases} setTab={setTab} problem_id={problem?.problem.problem_id} problem_title={problem?.problem.title}/>
                 }
             </div>
             {showAlert && (

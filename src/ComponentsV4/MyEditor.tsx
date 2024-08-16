@@ -41,9 +41,10 @@ interface MyEditorProps {
   cases: Example[] | undefined;
   setTab: any;
   problem_id: string | undefined;
+  problem_title: string | undefined;
 }
 
-const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab, problem_id}) => {
+const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab, problem_id, problem_title}) => {
 
   const user = JSON.parse(localStorage.getItem("user") as string);
 
@@ -122,6 +123,7 @@ const MyEditor: React.FC<MyEditorProps> = ({ setShowAlert, cases, setTab, proble
 
           const newSubmission = {
             problem_id,
+            problem_title,
             submission_id: uniqueId,
             time: formatDate(now),
             author: JSON.stringify(user_id),
