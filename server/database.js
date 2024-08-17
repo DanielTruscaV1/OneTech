@@ -214,8 +214,8 @@ async function getFollowers(userId) {
     const user = await users.findOne({ user_id: userId });
     if (user) {
       const followers = await users.find({ user_id: { $in: user.followedBy } }).toArray();
-      const posts = await posts.find({ user_id: { $in: user.posts } }).toArray();
-      return { followers, posts };
+      const actual_posts = await posts.find({ user_id: { $in: user.posts } }).toArray();
+      return { followers, actual_posts };
     }
   } catch (error) {
     console.error('Error fetching followers:', error);
