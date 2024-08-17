@@ -44,6 +44,7 @@ const Profile = () => {
               setLoading(false);
             } 
           };
+          
         const fetchData = async () => {
             const result = await axios.get(
               `https://onetech.onrender.com/api/followers/${global_user_id}`,
