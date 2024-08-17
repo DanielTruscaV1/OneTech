@@ -419,6 +419,16 @@ async function getProblemById(problem_id) {
   }
 }
 
+function sanitizeUserId(userId) {
+  // Ensure input is a string
+  if (typeof userId !== 'string') {
+    throw new TypeError('Input must be a string');
+  }
+
+  // Remove all double quote characters
+  return userId.replace(/"/g, '');
+}
+
 async function updateUserById(userId, newUserData) {
   try {
     await connectToDatabase();
