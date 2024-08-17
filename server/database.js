@@ -128,7 +128,8 @@ async function registerUser(email, password) {
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (isPasswordValid) {
       const token = jwt.sign({ email }, secretKey, { expiresIn: '1h' });
-      return { token, user_id: user._id };
+      const response = { token, user_id: user.user_id, status: 201 };
+      return response;
     } else {
       console.log('Invalid info.');
       throw new Error('Invalid info because of the password.');
