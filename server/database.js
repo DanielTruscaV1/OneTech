@@ -4,17 +4,17 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const uri = `mongodb+srv://danieltrusca2008:${process.env.VITE_MONGODB_PASSWORD}@cluster0.y1sc8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
-
-let db = client.db('OneTech');
 
 async function connectToDatabase() {
+  const client = new MongoClient(uri, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    }
+  });
+  
+  let db = client.db('OneTech');
   if (!db) {
     await client.connectToDatabase();
     db = client.db('OneTech'); // Replace with your database name
@@ -46,7 +46,7 @@ async function createDocument(collectionName, data) {
 async function getDocumentById(collectionName, id) {
   try {
     const collection = db.collection(collectionName);
-    const result = await collection.findOne({ _id: ObjectId.createFromHexString(id) });
+    const result = await collection.findOne({ user_id: id });
     console.log('Document retrieved:', result);
     return result;
   } catch (error) {
@@ -124,16 +124,16 @@ async function registerUser(email, password) {
 // Update a user (follow/unfollow another user)
 async function updateUser(userId, targetUserId) {
   try {
-    const user = await users.findOne({ _id: ObjectId.createFromHexString(userId) });
-    const targetUser = await users.findOne({ _id: ObjectId.createFromHexString(targetUserId) });
+    const user = await users.findOne({ user_id: userId });
+    const targetUser = await users.findOne({ user_id: targetUserId });
 
     if (user && targetUser) {
       await users.updateOne(
-        { _id: ObjectId.createFromHexString(userId) },
+        { user_id: targetUserId },
         { $addToSet: { followedUsers: targetUserId } }
       );
       await users.updateOne(
-        { _id: ObjectId.createFromHexString(targetUserId) },
+        { user_id: userId },
         { $addToSet: { followedBy: userId } }
       );
     }
@@ -158,7 +158,7 @@ async function updateUserInfo(userId, data) {
         language: data.language || null
       }
     };
-    const result = await users.updateOne({ _id: ObjectId.createFromHexString(userId) }, { $set: updateData });
+    const result = await users.updateOne({ user_id: userId }, { $set: updateData });
     return result;
   } catch (error) {
     console.error('Error updating user:', error);
@@ -168,7 +168,7 @@ async function updateUserInfo(userId, data) {
 // Update post information
 async function updatePostInfo(postId, data) {
   try {
-    const post = await posts.findOne({ _id: ObjectId.createFromHexString(postId) });
+    const post = await posts.findOne({ postId: postId });
     if (post) {
       const updateData = {
         ...data,
@@ -177,7 +177,7 @@ async function updatePostInfo(postId, data) {
           likedBy: data.likes > post.likes ? { $addToSet: data.user_id } : { $pull: data.user_id }
         }
       };
-      const result = await posts.updateOne({ _id: ObjectId.createFromHexString(postId) }, { $set: updateData });
+      const result = await posts.updateOne({ postId: postId }, { $set: updateData });
       return result;
     }
   } catch (error) {
@@ -188,7 +188,7 @@ async function updatePostInfo(postId, data) {
 // Get followers
 async function getFollowers(userId) {
   try {
-    const user = await users.findOne({ _id: ObjectId.createFromHexString(userId) });
+    const user = await users.findOne({ user_id: userId });
     if (user) {
       const followers = await users.find({ _id: { $in: user.followedBy } }).toArray();
       const posts = await posts.find({ _id: { $in: user.posts } }).toArray();
@@ -203,9 +203,9 @@ async function getFollowers(userId) {
 // Get home information
 async function getHomeInfo(userId) {
   try {
-    const user = await users.findOne({ _id: ObjectId.createFromHexString(userId) });
+    const user = await users.findOne({ user_id: userId });
     if (user) {
-      const followedUsers = await users.find({ _id: { $in: user.followedUsers } }).toArray();
+      const followedUsers = await users.find({ user_id: { $in: user.followedUsers } }).toArray();
       const allUsers = await users.find().toArray();
       const posts = await posts.find().toArray();
       return { followedUsers, allUsers, posts };
@@ -232,7 +232,7 @@ async function createPost(userId, data) {
     };
     const result = await posts.insertOne(post);
     await users.updateOne(
-      { _id: ObjectId.createFromHexString(userId) },
+      { user_id: userId },
       { $addToSet: { posts: uniqueId } }
     );
     return result;
@@ -245,10 +245,10 @@ async function createPost(userId, data) {
 // Delete a post
 async function deletePost(postId) {
   try {
-    const post = await posts.findOne({ _id: ObjectId.createFromHexString(postId) });
+    const post = await posts.findOne({ post_id: postId });
     if (post) {
       const userId = post.author_id;
-      await posts.deleteOne({ _id: ObjectId.createFromHexString(postId) });
+      await posts.deleteOne({ post_id: postId });
       await users.updateOne(
         { _id: ObjectId.createFromHexString(userId) },
         { $pull: { posts: postId } }
@@ -264,7 +264,7 @@ async function deletePost(postId) {
 async function createComment(postId, authorId, content) {
   try {
     const uniqueId = uuidv4();
-    const user = await users.findOne({ _id: ObjectId.createFromHexString(authorId) });
+    const user = await users.findOne({ author_id: authorId });
     if (user) {
       const comment = {
         _id: uniqueId,
@@ -310,7 +310,7 @@ async function getArticles() {
 // Get article by ID
 async function getArticleById(articleId) {
   try {
-    const article = await articles.findOne({ _id: ObjectId.createFromHexString(articleId) });
+    const article = await articles.findOne({ article_id: articleId });
     return article;
   } catch (error) {
     console.error('Error fetching article by ID:', error);
@@ -378,7 +378,7 @@ async function getChatByIds(user1_id, user2_id) {
 async function getProblemById(problem_id) {
   try {
     await connectToDatabase();
-    const problem = await db.collection('Problems').findOne({ _id: ObjectId.createFromHexString(problem_id) });
+    const problem = await db.collection('Problems').findOne({ problem_id: problem_id });
     return problem;
   } catch (error) {
     console.log("Database error: ", error);
