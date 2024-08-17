@@ -118,7 +118,6 @@ app.get('/api/documents', async (req, res) => {
   app.get('/api/users/:id', async (req, res) => {
     const { id } = req.params;
     try {
-      console.log("Requesting endpoint /api/users/:id ...");
       const user = await getUserById(id);
       if (!user) {
         return res.status(404).json({ error: 'user not found' });
