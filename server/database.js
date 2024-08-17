@@ -5,6 +5,23 @@ require('dotenv').config();
 
 const uri = `mongodb+srv://danieltrusca2008:${process.env.VITE_MONGODB_PASSWORD}@cluster0.y1sc8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+let db = client.db('OneTech');;
+
+let users = db.collection('Users');
+let posts = db.collection('Posts');
+let comments = db.collection('Comments');
+let articles = db.collection('Articles');
+let problems = db.collection('Problems');
+let submissions = db.collection('Submissions');
+
 async function connectToDatabase() {
   const client = new MongoClient(uri, {
     serverApi: {
@@ -15,20 +32,20 @@ async function connectToDatabase() {
   });
   
   let db = client.db('OneTech');
+
+  users = db.collection('Users');
+  posts = db.collection('Posts');
+  comments = db.collection('Comments');
+  articles = db.collection('Articles');
+  problems = db.collection('Problems');
+  submissions = db.collection('Submissions');
+
   if (!db) {
     await client.connectToDatabase();
     db = client.db('OneTech'); // Replace with your database name
     console.log("MongoDB database connected successfully.");
   }
 }
-
-// Collections
-const users = db.collection('Users');
-const posts = db.collection('Posts');
-const comments = db.collection('Comments');
-const articles = db.collection('Articles');
-const problems = db.collection('Problems');
-const submissions = db.collection('Submissions');
 
 // Example function to create a new document
 async function createDocument(collectionName, data) {
