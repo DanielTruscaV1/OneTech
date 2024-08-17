@@ -54,7 +54,7 @@ const Profile = () => {
         };
 
         const getSubmissions = async () => {
-            const response = await axios.get("https://onetech.onrender.com/api/submissions")
+            const response = await axios.get("https://onetech.onrender.com/api/submissions");
             console.log(response.data);
             setSubmissionsList(response.data);
         }
@@ -206,16 +206,16 @@ const Profile = () => {
                     </div>
                     {
                         submissionsList.reverse().map((s : any) => {
-                        if (sanitizeUserId(s.data.author) === sanitizeUserId(global_user_id as string)) {
-                        return <div className={styles.submission} onClick={() => {navigate(`problem/${s.data.problem_id}`, { replace: true });navigate(`problem/${s.data.problem_id}`, { replace: true });}}>
+                        if (sanitizeUserId(s.author) === sanitizeUserId(global_user_id as string)) {
+                        return <div className={styles.submission} onClick={() => {navigate(`problem/${s.problem_id}`, { replace: true });navigate(`problem/${s.problem_id}`, { replace: true });}}>
                           <h1>
-                            Problem: {s.data.problem_id} - {s.data.problem_title}
+                            Problem: {s.problem_id} - {s.problem_title}
                           </h1>
                           <h1>
-                            Status: {s.data.total_good == s.data.total && <span style={{color:"rgb(80, 200, 80", fontWeight:"500"}}> Solved </span>} {s.data.total_good != s.data.total && <span style={{color:"rgb(200, 80, 80", fontWeight:"500"}}> Attempted </span>}
+                            Status: {s.total_good == s.total && <span style={{color:"rgb(80, 200, 80", fontWeight:"500"}}> Solved </span>} {s.total_good != s.total && <span style={{color:"rgb(200, 80, 80", fontWeight:"500"}}> Attempted </span>}
                           </h1>
                           <h1>
-                            Time: {s.data.time}
+                            Time: {s.time}
                           </h1>
                         </div>
                       }})

@@ -115,7 +115,8 @@ const Problem = () => {
     const getProblem = async () => {
       try {
         const response = await axios.get(`https://onetech.onrender.com/api/getProblemById/${problem_id}`);
-        setProblem(response.data.result.data[0].data);
+        console.log(response);
+        setProblem(response.data.result);
         setLoading(false);
       } catch (error) {
         setError(true);
@@ -163,6 +164,8 @@ const Problem = () => {
     const getSubmissions = async () => {
       const response = await axios.get("https://onetech.onrender.com/api/submissions")
       console.log(response.data);
+      setLoading(false);
+      setError(false);
       setSubmissionsList(response.data);
     }
     getSubmissions();
@@ -286,17 +289,17 @@ const Problem = () => {
                 </h1>
                 {
                     submissionsList.reverse().map((s : any) => {
-                    if (s.data.problem_id === problem?.problem.problem_id) {
+                    if (s.problem_id === problem?.problem.problem_id) {
                     return <div className={styles.case} onClick={() => openDialog(s)}>
-                      <h2> Submission <Tooltip text={s.data.submission_id}> #ID </Tooltip></h2>
+                      <h2> Submission <Tooltip text={s.submission_id}> #ID </Tooltip></h2>
                       <h2>
-                          Test Cases {s.data.total_good}/{s.data.total}
+                          Test Cases {s.total_good}/{s.total}
                       </h2>
                       <h2>
-                        Total Time: {s.data.total_runtime.toFixed(2)} ms
+                        Total Time: {s.total_runtime.toFixed(2)} ms
                       </h2>
                       <h2>
-                          Total Memory: {s.data.total_memory / 1048576} MB
+                          Total Memory: {s.total_memory / 1048576} MB
                       </h2>
                     </div>
                   }})
@@ -308,11 +311,11 @@ const Problem = () => {
                 >
                   <pre>
                     <SyntaxHighlighter language="python" style={dracula}>
-                      {`${submission && submission.data.code}`}
+                      {`${submission && submission.code}`}
                     </SyntaxHighlighter>
                   </pre>
                   <br/>
-                  {submission?.data.compiler_results.map((r : any, index : number) => {
+                  {submission?.compiler_results.map((r : any, index : number) => {
                     
                       return (
                         <div

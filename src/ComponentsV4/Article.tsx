@@ -18,8 +18,9 @@ const Article = () => {
           console.error('Invalid article ID');
           return;
         }
-        const fetchedArticle = response.data.result.data[id];
-        if (fetchedArticle && fetchedArticle.data.content) {
+        const fetchedArticle = response.data.result[id - 1];
+        console.log(fetchedArticle);
+        if (fetchedArticle && fetchedArticle.content) {
           setArticle(fetchedArticle);
         } else {
           console.error('Article content is missing or undefined');
@@ -83,7 +84,7 @@ const Article = () => {
   return (
     <div className={styles.container}>
       <div className={styles.body}>
-        {article && article.data.content && renderContent(article.data.content)}
+        {article && article.content && renderContent(article.content)}
       </div>
     </div>
   );
