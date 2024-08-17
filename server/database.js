@@ -213,8 +213,8 @@ async function getFollowers(userId) {
     await connectToDatabase();
     const user = await users.findOne({ user_id: userId });
     if (user) {
-      const followers = await users.find({ _id: { $in: user.followedBy } }).toArray();
-      const posts = await posts.find({ _id: { $in: user.posts } }).toArray();
+      const followers = await users.find({ user_id: { $in: user.followedBy } }).toArray();
+      const posts = await posts.find({ user_id: { $in: user.posts } }).toArray();
       return { followers, posts };
     }
   } catch (error) {
@@ -245,7 +245,7 @@ async function createPost(userId, data) {
     await connectToDatabase();
     const uniqueId = uuidv4();
     const post = {
-      _id: uniqueId,
+      post_id: uniqueId,
       author_id: userId,
       date: new Date(),
       ...data,
@@ -276,7 +276,7 @@ async function deletePost(postId) {
       const userId = post.author_id;
       await posts.deleteOne({ post_id: postId });
       await users.updateOne(
-        { _id: ObjectId.createFromHexString(userId) },
+        { user_id: userId },
         { $pull: { posts: postId } }
       );
     }
@@ -294,7 +294,7 @@ async function createComment(postId, authorId, content) {
     const user = await users.findOne({ author_id: authorId });
     if (user) {
       const comment = {
-        _id: uniqueId,
+        comment_id: uniqueId,
         post_id: postId,
         author_id: authorId,
         author_image: user.image,
@@ -366,7 +366,7 @@ async function createSubmission(problemId, userId, code) {
     await connectToDatabase();
     const uniqueId = uuidv4();
     const submission = {
-      _id: uniqueId,
+      submission_id: uniqueId,
       problem_id: problemId,
       user_id: userId,
       code,
