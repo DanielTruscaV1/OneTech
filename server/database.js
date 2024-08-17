@@ -76,6 +76,7 @@ async function getDocumentById(collectionName, id) {
 // Get all documents from a collection
 async function getAllDocuments(collectionName) {
   try {
+    await connectToDatabase();
     const collection = db.collection(collectionName);
     const result = await collection.find().toArray();
     console.log(`All documents fetched from ${collectionName} collection.`);
@@ -100,6 +101,7 @@ async function getUserById(id) {
 // Create a user
 async function createUser(username, email, password) {
   try {
+    await connectToDatabase();
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = {
       _id: uuidv4(), // MongoDB does not use UUIDs for _id by default, consider using ObjectId
@@ -121,10 +123,11 @@ async function createUser(username, email, password) {
 // Register a user (login)
 async function registerUser(email, password) {
   try {
+    await connectToDatabase();
     const user = await users.findOne({ email });
     if (!user) {
       console.log('User not found.');
-      throw new Error('Invalid info.');
+      throw new Error('Invalid info because of the user.');
     }
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (isPasswordValid) {
@@ -132,7 +135,7 @@ async function registerUser(email, password) {
       return { token, user_id: user._id };
     } else {
       console.log('Invalid info.');
-      throw new Error('Invalid info.');
+      throw new Error('Invalid info because of the password.');
     }
   } catch (error) {
     console.log('Error at user sign-in:', error);
@@ -143,6 +146,7 @@ async function registerUser(email, password) {
 // Update a user (follow/unfollow another user)
 async function updateUser(userId, targetUserId) {
   try {
+    await connectToDatabase();
     const user = await users.findOne({ user_id: userId });
     const targetUser = await users.findOne({ user_id: targetUserId });
 
@@ -167,6 +171,7 @@ async function updateUser(userId, targetUserId) {
 // Update user information
 async function updateUserInfo(userId, data) {
   try {
+    await connectToDatabase();
     const updateData = {
       ...data,
       $set: {
@@ -187,6 +192,7 @@ async function updateUserInfo(userId, data) {
 // Update post information
 async function updatePostInfo(postId, data) {
   try {
+    await connectToDatabase();
     const post = await posts.findOne({ postId: postId });
     if (post) {
       const updateData = {
@@ -207,6 +213,7 @@ async function updatePostInfo(postId, data) {
 // Get followers
 async function getFollowers(userId) {
   try {
+    await connectToDatabase();
     const user = await users.findOne({ user_id: userId });
     if (user) {
       const followers = await users.find({ _id: { $in: user.followedBy } }).toArray();
@@ -222,6 +229,7 @@ async function getFollowers(userId) {
 // Get home information
 async function getHomeInfo(userId) {
   try {
+    await connectToDatabase();
     const user = await users.findOne({ user_id: userId });
     if (user) {
       const followedUsers = await users.find({ user_id: { $in: user.followedUsers } }).toArray();
@@ -237,6 +245,7 @@ async function getHomeInfo(userId) {
 // Create a post
 async function createPost(userId, data) {
   try {
+    await connectToDatabase();
     const uniqueId = uuidv4();
     const post = {
       _id: uniqueId,
@@ -264,6 +273,7 @@ async function createPost(userId, data) {
 // Delete a post
 async function deletePost(postId) {
   try {
+    await connectToDatabase();
     const post = await posts.findOne({ post_id: postId });
     if (post) {
       const userId = post.author_id;
@@ -282,6 +292,7 @@ async function deletePost(postId) {
 // Create a comment
 async function createComment(postId, authorId, content) {
   try {
+    await connectToDatabase();
     const uniqueId = uuidv4();
     const user = await users.findOne({ author_id: authorId });
     if (user) {
@@ -307,6 +318,7 @@ async function createComment(postId, authorId, content) {
 // Get comments for a post
 async function getComments(postId) {
   try {
+    await connectToDatabase();
     const commentsList = await comments.find({ post_id: postId }).toArray();
     return commentsList;
   } catch (error) {
@@ -318,6 +330,7 @@ async function getComments(postId) {
 // Get all articles
 async function getArticles() {
   try {
+    await connectToDatabase();
     const articlesList = await articles.find().toArray();
     return articlesList;
   } catch (error) {
@@ -329,6 +342,7 @@ async function getArticles() {
 // Get article by ID
 async function getArticleById(articleId) {
   try {
+    await connectToDatabase();
     const article = await articles.findOne({ article_id: articleId });
     return article;
   } catch (error) {
@@ -340,6 +354,7 @@ async function getArticleById(articleId) {
 // Get all problems
 async function getProblems() {
   try {
+    await connectToDatabase();
     const problemsList = await problems.find().toArray();
     return problemsList;
   } catch (error) {
@@ -351,6 +366,7 @@ async function getProblems() {
 // Create a submission
 async function createSubmission(problemId, userId, code) {
   try {
+    await connectToDatabase();
     const uniqueId = uuidv4();
     const submission = {
       _id: uniqueId,
@@ -370,6 +386,7 @@ async function createSubmission(problemId, userId, code) {
 // Get a user's submissions
 async function getUserSubmissions(userId) {
   try {
+    await connectToDatabase();
     const submissionsList = await submissions.find({ user_id: userId }).toArray();
     return submissionsList;
   } catch (error) {
@@ -456,4 +473,5 @@ module.exports = {
   getProblems,
   updateUserById,
   createSubmission,
+  getUserSubmissions,
 };
