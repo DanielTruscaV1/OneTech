@@ -15,6 +15,7 @@
     "@aws-sdk/credential-provider-env": "^3.587.0",
     "@aws-sdk/s3-request-presigner": "^3.592.0",
     "aws-sdk": "^2.1639.0",
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "buffer": "^6.0.3",
     "cors": "^2.8.5",
@@ -25,5 +26,8 @@
     "faunadb": "^4.8.0",
     "jsonwebtoken": "^9.0.2",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/mongodb": "^4.0.7"
   }
 }

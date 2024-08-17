@@ -2,7 +2,32 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { createDocument, getDocumentById, getAllDocuments, getUserById, createUser, registerUser, updateUser, updateUserInfo, getFollowers, updatePostInfo, getHomeInfo, createPost, deletePost, createComment, getComments, getArticles, getArticleById, getChatByIds, getProblemById, getProblems, updateUserById, createSubmission } = require('./database');
+
+const {
+  createDocument,
+  getDocumentById,
+  getAllDocuments,
+  getUserById,
+  createUser,
+  registerUser,
+  updateUser,
+  updateUserInfo,
+  getFollowers,
+  updatePostInfo,
+  getHomeInfo,
+  createPost,
+  deletePost,
+  createComment,
+  getComments,
+  getArticles,
+  getArticleById,
+  getChatByIds,
+  getProblemById,
+  getProblems,
+  updateUserById,
+  createSubmission
+} = require('./database');
+
 const cors = require('cors');
 const app = express();
 const encoder = require('./encoder');
@@ -17,6 +42,7 @@ const server = http.createServer(app);
 
 server.keepAliveTimeout = 60000;
 server.headersTimeout = 65000; 
+
 
 // Increase the limit for JSON payloads
 app.use(bodyParser.json({ limit: '50mb' })); // Adjust the limit as needed
