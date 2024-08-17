@@ -3,6 +3,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
+const secretKey = process.env.VITE_JWT_KEY
+
 const uri = `mongodb+srv://danieltrusca2008:${process.env.VITE_MONGODB_PASSWORD}@cluster0.y1sc8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 const client = new MongoClient(uri, {
