@@ -411,7 +411,7 @@ async function getChatByIds(user1_id, user2_id) {
 async function getProblemById(problem_id) {
   try {
     await connectToDatabase();
-    const problem = await db.collection('Problems').findOne({ problem_id: problem_id });
+    const problem = await db.collection('Problems').findOne({ 'problem.problem_id' : problem_id });
     return problem;
   } catch (error) {
     console.log("Database error: ", error);

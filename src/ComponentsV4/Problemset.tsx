@@ -17,7 +17,7 @@ const Problemset = () => {
   
         console.log(result);
   
-        setProblems(result.data.result.data);
+        setProblems(result.data.result);
       }
   
       getProblems();
@@ -200,9 +200,9 @@ const Problemset = () => {
                     <>
                         {
                             problems.map((p : any) => {
-                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.data.problem.problem_id}`)}>
+                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.problem.problem_id}`)}>
                                 <h2>
-                                    {p.data.problem.problem_id} - {p.data.problem.title}
+                                    {p.problem.problem_id} - {p.problem.title}
                                 </h2>
                                 <div className={styles.gap}>
                         
@@ -211,7 +211,7 @@ const Problemset = () => {
                                     Not solved
                                 </h2>
                                 <h2>
-                                    {p.data.problem.difficulty}
+                                    {p.problem.difficulty}
                                 </h2>
                                 </div>
                             })
@@ -223,9 +223,9 @@ const Problemset = () => {
                     <>
                         {
                             problems.map((p : any) => {
-                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.data.problem.problem_id}`)}>
+                                return <div className={styles.card} onClick={() => navigate(`/problem/${p.problem.problem_id}`)}>
                                 <h2>
-                                    {p.data.problem.problem_id} - {p.data.problem.title}
+                                    {p.problem.problem_id} - {p.problem.title}
                                 </h2>
                                 <div className={styles.gap}>
                         
@@ -234,7 +234,7 @@ const Problemset = () => {
                                     Not solved
                                 </h2>
                                 <h2>
-                                    {p.data.problem.difficulty}
+                                    {p.problem.difficulty}
                                 </h2>
                                 </div>
                             })
