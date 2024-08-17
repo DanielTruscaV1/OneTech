@@ -15,37 +15,33 @@ const client = new MongoClient(uri, {
   }
 });
 
-let db = client.db('OneTech');;
+let db;
+let users;
+let posts;
+let comments;
+let articles;
+let problems;
+let submissions;
 
-let users = db.collection('Users');
-let posts = db.collection('Posts');
-let comments = db.collection('Comments');
-let articles = db.collection('Articles');
-let problems = db.collection('Problems');
-let submissions = db.collection('Submissions');
-
+// Function to connect to the database
 async function connectToDatabase() {
-  const client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
+  try {
+    if (!db) {
+      await client.connect();
+      db = client.db('OneTech');
+
+      users = db.collection('Users');
+      posts = db.collection('Posts');
+      comments = db.collection('Comments');
+      articles = db.collection('Articles');
+      problems = db.collection('Problems');
+      submissions = db.collection('Submissions');
+
+      console.log("MongoDB database connected successfully.");
     }
-  });
-  
-  let db = client.db('OneTech');
-
-  users = db.collection('Users');
-  posts = db.collection('Posts');
-  comments = db.collection('Comments');
-  articles = db.collection('Articles');
-  problems = db.collection('Problems');
-  submissions = db.collection('Submissions');
-
-  if (!db) {
-    await client.connectToDatabase();
-    db = client.db('OneTech'); // Replace with your database name
-    console.log("MongoDB database connected successfully.");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+    throw error; // Rethrow the error to handle it in calling code
   }
 }
 
