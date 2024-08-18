@@ -1,0 +1,162 @@
+/* General styles for the overlay */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color1); /* Slightly darker for better contrast */
+  display: none; /* Hide by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure the overlay is above other content */
+}
+
+.dialog-overlay.open {
+  display: flex; /* Show when open */
+}
+
+.dialog {
+  width: 90%;
+  max-width: 600px;
+  background: var(--color1);
+  border-radius: 10px; /* Slightly larger radius for modern look */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+  overflow: hidden;
+  color: var(--color5);
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth opening/closing */
+  transform: scale(0.9); /* Slightly scale down initially */
+  opacity: 0; /* Start with transparency */
+}
+
+.dialog-overlay.open .dialog {
+  transform: scale(1); /* Scale to original size */
+  opacity: 1; /* Fully opaque when visible */
+}
+
+.dialog-header {
+  padding: 20px; /* More padding for better spacing */
+  background: var(--color1); /* Different color to distinguish header */
+  color: var(--color5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color3); /* Subtle border */
+}
+
+.dialog-title {
+  font-size: 1.5rem; /* Larger font size for the title */
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem; /* Larger font size for visibility */
+  cursor: pointer;
+  color: var(--color5);
+}
+
+.dialog-content {
+  background-color: var(--color2);
+  padding: 20px; /* Increased padding for better spacing */
+}
+
+.dialog-content label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 1rem; /* Consistent font size */
+}
+
+.dialog-content input,
+.dialog-content textarea {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid var(--color3); /* Consistent border color */
+  background-color: var(--color1);
+  border-radius: 4px; /* Slightly rounded corners */
+  box-sizing: border-box; /* Ensure padding is included in total width */
+  font-size: 1rem; /* Consistent font size */
+}
+
+.image-upload {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.profile-image {
+  width: 64px; /* Slightly larger profile image */
+  height: 64px;
+  border-radius: 50%;
+  margin-right: 16px;
+  object-fit: cover; /* Ensure image fits container */
+}
+
+.upload-button {
+  margin-left: 16px;
+}
+
+.dialog-actions {
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+  background: var(--color1); /* Different color for footer */
+  border-top: 1px solid var(--color3); /* Subtle border */
+}
+
+.dialog-actions button {
+  margin-left: 8px;
+  padding: 8px 16px; /* Consistent button padding */
+  font-size: 1rem; /* Consistent font size */
+  border: none;
+  border-radius: 4px; /* Rounded corners for buttons */
+  cursor: pointer;
+  background: var(--color2); /* Button background */
+  color: var(--color5); /* Button text color */
+  transition: background 0.3s ease; /* Smooth background change */
+}
+
+.dialog-actions button:hover {
+  background: var(--color3); /* Darker background on hover */
+}
+/* Profile Image Styling */
+.profile-image {
+  width: 100px; /* Increase width to make image larger */
+  height: 100px; /* Increase height to match width */
+  border-radius: 50%; /* Maintain circular shape */
+  margin-right: 16px; /* Space between image and upload button */
+  object-fit: cover; /* Ensure image scales properly within its container */
+}
+.image-upload {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.profile-image {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  border-radius: 50%;
+  margin-right: 16px;
+  object-fit: cover;
+}
+
+.upload-button {
+  cursor: pointer;
+}
+
+.upload-button button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--color2); /* Define the button color */
+  color: var(--color5); /* Define the button text color */
+  transition: background 0.3s ease;
+}
+
+.upload-button button:hover {
+  background: var(--color3); /* Define the hover color */
+}
+

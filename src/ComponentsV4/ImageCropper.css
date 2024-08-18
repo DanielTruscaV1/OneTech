@@ -1,0 +1,16 @@
+/* ImageCropper.css */
+
+.cropper-container {
+  margin-left: 10px;
+    width: 300px; /* Fixed width */
+    height: 300px; /* Fixed height */
+    overflow: hidden; /* Ensure no overflow */
+    position: relative; /* Required for Cropper.js */
+  }
+  
+  .cropper-image {
+    max-width: 100%;
+    max-height: 100%;
+    display: block; /* Ensure no extra space */
+  }
+  
