@@ -2,6 +2,7 @@ const { MongoClient, ObjectId, ServerApiVersion } = require('mongodb');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const { v4: uuidv4 } = require('uuid');
 
 const secretKey = process.env.VITE_JWT_KEY
 
@@ -100,7 +101,7 @@ async function createUser(username, email, password) {
     await connectToDatabase();
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = {
-      _id: uuidv4(), // MongoDB does not use UUIDs for _id by default, consider using ObjectId
+      user_id: uuidv4(), // MongoDB does not use UUIDs for _id by default, consider using ObjectId
       username,
       email,
       password: hashedPassword,
