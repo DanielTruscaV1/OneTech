@@ -110,7 +110,10 @@ async function createUser(username, email, password) {
       posts: []
     };
     const result = await users.insertOne(newUser);
-    return result.ops[0];
+    return {
+        _id: result.insertedId,
+        ...newUser
+    };
   } catch (error) {
     console.error('Error creating user:', error);
     throw error;
