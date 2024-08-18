@@ -71,8 +71,9 @@ const Settings = () => {
         setProfile(updatedProfile);
 
         const response = await axios.patch(`https://onetech.onrender.com/api/updateUserById/${user_id}`,updatedProfile);
-        
-        console.log(response);
+
+        if(response)
+            alert("Profile Updated.");
     }, []);
 
     return (
